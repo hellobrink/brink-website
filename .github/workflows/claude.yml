@@ -26,11 +26,15 @@ permissions:
 
 jobs:
   claude:
-    # Only spend a run when someone actually asks for Claude.
+    # Only spend a run when a human actually asks for Claude. The Bot
+    # check stops Claude's own progress comments re-triggering the
+    # workflow (harmless, but it queues a skipped run every time).
     if: |
-      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
-      (github.event_name == 'issues' && contains(github.event.issue.body, '@claude'))
+      github.event.sender.type != 'Bot' && (
+        (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude')) ||
+        (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
+        (github.event_name == 'issues' && contains(github.event.issue.body, '@claude'))
+      )
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -51,7 +55,14 @@ jobs:
           # --model must be pinned: left unset, the action resolved to
           # "claude-opus-4-8[1m]" (a Claude Code session alias, not a valid
           # API model id) and the API rejected every call instantly.
+          #
+          # Bash is allowed broadly rather than command-by-command. A tight
+          # per-command allowlist caused repeated permission denials (it
+          # couldn't run `npm run scrape` or `git diff`), which burned turns
+          # improvising around the blocks until it hit the cap. The action
+          # only responds to actors with repo write access on an ephemeral
+          # runner, so a per-command allowlist buys little here.
           claude_args: |
             --model claude-sonnet-5
-            --max-turns 30
-            --allowedTools "Bash(npm run build),Bash(npm run audit),Bash(npm ci),Bash(node:*),Bash(curl:*),Bash(ls:*),Bash(cp:*),Bash(mv:*),Bash(mkdir:*)"
+            --max-turns 60
+            --allowedTools "Bash"
