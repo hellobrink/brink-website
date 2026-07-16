@@ -13,7 +13,7 @@ Realising that vision collaboratively (the ‘Co’ in CoLab) and experimentally
 
 Deploying capital proactively and collaboratively
 
-Providing non-financial support that goes beyond access to expertise and innovation coaching, to include building learning networks and advocacy groups, and feeding into existing global coalitions‍
+Providing non-financial support that goes beyond access to expertise and innovation coaching, to include building learning networks and advocacy groups, and feeding into existing global coalitions
 
 These missions combine:
 

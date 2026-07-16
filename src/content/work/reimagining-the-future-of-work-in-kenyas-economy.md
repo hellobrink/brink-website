@@ -14,7 +14,7 @@ With over 83% of Kenya’s total employment rooted in what is often referred to 
 
 As Africa's population is set to double by 2050, the economy will need to transform to meet not just local but global economic demands. It’s a space brimming with creativity, resilience, and possibility—but only if we come together to remove the obstacles that are holding it back.
 
-It’s important to understand that the economy is a single narrative; it's a complex patchwork of diverse realities, each with its own set of challenges, dreams, and untapped potential.‍
+It’s important to understand that the economy is a single narrative; it's a complex patchwork of diverse realities, each with its own set of challenges, dreams, and untapped potential.
 
 > “We’re talking about potentially a billion young people by 2050 across sub-Saharan Africa.In that case, we shouldn’t be talking about the informal economy of this continent, but rather, just the economy.”- Anuj Tanna, CEO & Co-Founder of MESH, one of our partners.
 

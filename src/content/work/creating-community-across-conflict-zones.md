@@ -63,4 +63,4 @@ We are now into our 3rd year of working with Humanitarian Grand Challenge and ou
 
 As we move into this next phase we hope to introduce more targeted conversations and collaborations. We want to explore how we can connect those working in the same regions or in the same industries and to find ways to capture and support the opportunities that spark from those conversations. At the same time we also want to begin empowering the innovators to make their own connections so that this incredible network can continue to grow and become even more valuable.
 
-‍
+

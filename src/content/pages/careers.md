@@ -8,4 +8,4 @@ title: Careers
 
 ![](/images/66d746713dd182ad7f026101_brinkhighlights-9.jpg)
 
-## We don't have any open positions right now.If you'd like to get an email as soon as we do, then let us know here.‍
+## We don't have any open positions right now.If you'd like to get an email as soon as we do, then let us know here.

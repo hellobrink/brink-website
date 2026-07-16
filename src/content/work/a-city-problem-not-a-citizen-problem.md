@@ -34,11 +34,11 @@ Through this experience we realised the Matola team would benefit from more rese
 
 The consultation was eye-opening for everyone. Council staff came to a sudden and unexpected realisation:
 
-‍
+
 
 > This is the city’s problem, not the citizens’ problem
 
-‍Increasing tax income wasn’t about tackling deliberate non-payment by citizens; it was about using service design and digital transformation to make paying taxes easier.
+Increasing tax income wasn’t about tackling deliberate non-payment by citizens; it was about using service design and digital transformation to make paying taxes easier.
 
 The workshops introduced new ways of working to Council staff. Omar Bay, the local ASToN co-ordinator at the Council, said afterwards: “The workshops gave us better input and perspective.” He has since started sharing the methods he learned with colleagues in other Council departments.
 
@@ -72,4 +72,4 @@ There’s nothing wrong with that approach, and new hardware and software can ma
 
 What’s clear from Matola is that sometimes, being a “smart city” means making smart choices about simpler things. Such as: the nature of bureaucracy, how paper documents get passed around; or what might happen if you take the services to the citizens, rather than expecting the citizens to go to the services.
 
-‍
+

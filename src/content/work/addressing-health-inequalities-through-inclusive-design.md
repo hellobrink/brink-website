@@ -66,4 +66,4 @@ The resulting playbook was designed to be a living manual; a deep and detailed r
 - The NHS trust has pilots embedded, which are run by staff from the off that were helping their work too
 - Brink has a deeper understanding of how to put inclusive design at the heart of what we do and always design with and not for across a range of key actors – from people living with cancer to those providing them clinical and non-clinical care.
 
-‍
+

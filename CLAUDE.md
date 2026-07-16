@@ -25,6 +25,8 @@ npm run build     # static build to dist/ — must pass before any push
 npm run scrape    # scrapes live site into .scraped/ (staging only — see below)
 npm run promote   # copies .scraped/ into src/content + public/images, non-destructively
 npm run audit     # parity audit: diffs live site vs deployed beta, writes reports/parity/
+npm run lint:content        # finds Webflow migration artifacts in src/content/
+npm run lint:content -- --fix   # auto-fixes the safely fixable ones
 ```
 
 Node 20 works but warns; CI uses Node 22.
@@ -128,6 +130,31 @@ content (e.g. sector copy once the `TODO`s are written). Conflicts are
 printed so you can merge them by hand, or re-run with `npm run promote --
 --force` to overwrite deliberately. Always check `git diff` after promoting,
 before committing.
+
+## Webflow migration artifacts (watch for these — there are many)
+
+The content was scraped from Webflow and carries junk that is easy to miss
+by eye. **Run `npm run lint:content` after any change that touches
+`src/content/`**, and treat these as bugs to fix in passing whenever you're
+already working in a file — don't leave them for someone else:
+
+- **Invisible/zero-width characters** (U+200B/C/D, U+FEFF, U+00AD). Webflow's
+  editor scatters these through copy. They render as a stray gap mid-word —
+  "explor e how we can work together", "Our me thods", "Working a longside" —
+  and they hide inside frontmatter too (`funders: [FCDO‍]`). Auto-fixable.
+- **Run-together sentences.** Webflow's markup has no whitespace between
+  block elements, so a naive text extraction yields "...single idea
+  alone.Brink has proven approaches...". The scraper walks the DOM tree to
+  avoid this (see `extractTextBlocks`), but some slip through. Needs a human:
+  a blind space-insert would break "e.g.Foo".
+- **Missing alt text.** ~93 scraped images have `![](...)`. Brief 4B.3 asks
+  for real alt text throughout.
+- **Placeholder copy.** The brief flags "This caption needs updating" strings
+  and stale lines (e.g. the Oxygen CoLab 2024 reference).
+- **`>` pseudo-bullets** where Webflow faked a list; should be Markdown `-`.
+
+The linter runs in CI (`deploy.yml`) as advisory-only — a known backlog
+exists, so it reports but never blocks a deploy.
 
 ## Known state / gaps
 

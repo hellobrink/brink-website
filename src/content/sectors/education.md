@@ -1,6 +1,6 @@
 ---
 name: Education
-headline: At Brink we tackle the global learning crisis with solutions that are grounded in evidence, built with governments and educators, and designed to scale.‍
+headline: At Brink we tackle the global learning crisis with solutions that are grounded in evidence, built with governments and educators, and designed to scale.
 positioningLine: "TODO: plain positioning line — \"call Brink when ___\". See brief section 4A.3."
 whatWeDo:
   - title: TODO

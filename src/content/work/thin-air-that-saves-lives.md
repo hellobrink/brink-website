@@ -6,7 +6,7 @@ heroAlt: Improving access to medical oxygen in low and middle income countries
 sector: [health]
 offer: [missions]
 status: current
-funders: [FCDO‍]
+funders: [FCDO]
 partners: [UNICEF]
 hasCaseStudy: true
 sortOrder: 6
@@ -64,4 +64,4 @@ In 2021, after a ‘Dragon’s Den’ selection process, initial oxygen-as-a-ser
 
 In the coming months we’ll also be sharing news of the next phase of oxygen-as-a-service pilots, which will be operating across DRC, Philippines, Nigeria, Kenya & Uganda.
 
-‍
+

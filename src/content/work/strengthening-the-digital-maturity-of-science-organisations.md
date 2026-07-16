@@ -31,8 +31,8 @@ Over the course of six months (January to June 2025), the project delivered seve
 
 - Digital Maturity Framework: We developed an overarching framework grounded in experiences specific to science organisations in the Global South, to help them assess their strengths, identify gaps, and prioritise action.
 - Established a Peer Cohort: We selected a group of 11 science organisations from the wider ISC membership, forming a trusted forum to reflect and learn about digital transformation.
-- Practical Organisational Change: Project members adopted new digital approaches across digital strategy, public outreach, internal workflows and early experimentation with digital tools.‍
-- Identified System-Level Constraints: The project uncovered key barriers to digital transformation, such as weak data practices and limited leadership alignment. It emphasised that digital maturity requires not just technology, but also changes in culture and governance.‍
+- Practical Organisational Change: Project members adopted new digital approaches across digital strategy, public outreach, internal workflows and early experimentation with digital tools.
+- Identified System-Level Constraints: The project uncovered key barriers to digital transformation, such as weak data practices and limited leadership alignment. It emphasised that digital maturity requires not just technology, but also changes in culture and governance.
 - Public Goods and Resources: Reusable resources, including toolkits and reports, were developed, extending the learning to other organisations.
 
 > “The meeting with the external coach, who is an expert in AI, was eye-opening, and allowed us for the first time to start thinking about using AI tools to not only evaluate output, but also to develop new website functionalities.” — ISC Member Participant feedback
