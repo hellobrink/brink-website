@@ -25,30 +25,30 @@ const sectors = await getCollection('sectors');
 
 <style>
   .page-header {
-    padding: 2rem 0 1rem;
+    padding: var(--space-6) 0 var(--space-4);
   }
 
   .sector-grid {
     list-style: none;
-    margin: 0 0 4rem;
+    margin: 0 0 var(--space-9);
     padding: 0;
     display: grid;
-    gap: 1.5rem;
+    gap: var(--space-5);
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 
   .sector-grid a {
     display: block;
     text-decoration: none;
-    color: var(--type-main);
-    background: white;
-    border-radius: 0;
-    padding: 2rem;
+    color: var(--color-text);
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    padding: var(--space-6);
     text-align: center;
-    border: 1px solid var(--background-faded);
+    border: var(--border-width) solid var(--color-border);
   }
 
   .sector-grid a:hover h2 {
-    color: var(--brand-red);
+    color: var(--color-accent);
   }
 </style>

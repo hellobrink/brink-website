@@ -56,8 +56,8 @@ const navItems = [
 
 <style>
   .site-header {
-    background: var(--brand-green);
-    color: #fff;
+    background: var(--color-surface-inverted);
+    color: var(--color-surface);
     position: relative;
     z-index: 20;
   }
@@ -66,7 +66,7 @@ const navItems = [
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 24px 9px;
+    padding: var(--space-3) var(--space-gutter);
   }
 
   .brand img {
@@ -79,17 +79,17 @@ const navItems = [
     background: none;
     border: none;
     cursor: pointer;
-    padding: 10px;
+    padding: var(--space-3);
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: var(--space-1);
   }
 
   .menu-toggle span {
     display: block;
     width: 28px;
     height: 3px;
-    background: #fff;
+    background: var(--color-surface);
     transition: transform 0.2s ease, opacity 0.2s ease;
   }
 
@@ -110,8 +110,8 @@ const navItems = [
     top: 100%;
     left: 0;
     right: 0;
-    background: var(--brand-green);
-    padding: 2rem 24px 3rem;
+    background: var(--color-surface-inverted);
+    padding: var(--space-6) 24px var(--space-8);
     box-shadow: 0 12px 24px rgba(6, 51, 61, 0.25);
   }
 
@@ -125,10 +125,10 @@ const navItems = [
   .site-menu a {
     display: inline-block;
     font-family: var(--font-display);
-    font-weight: 300;
-    font-size: 2rem;
+    font-weight: var(--weight-display);
+    font-size: var(--text-display);
     line-height: 1.7;
-    color: #fff;
+    color: var(--color-surface);
     text-decoration: none;
   }
 

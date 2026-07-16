@@ -40,27 +40,27 @@ const sectors = [
 
 <style>
   .site-footer {
-    border-top: 10px solid var(--brand-red);
-    background: #fff;
-    color: var(--brand-green);
-    margin-top: 4rem;
-    padding: 41px 0 63px;
+    border-top: var(--border-width-thick) solid var(--color-accent);
+    background: var(--color-surface);
+    color: var(--color-surface-inverted);
+    margin-top: var(--space-9);
+    padding: var(--space-7) 0 var(--space-9);
   }
 
   .footer-inner {
     display: flex;
     flex-wrap: wrap;
-    gap: 2.5rem;
+    gap: var(--space-7);
     justify-content: space-between;
   }
 
   .footer-inner a {
-    color: var(--brand-green);
+    color: var(--color-surface-inverted);
     text-decoration: none;
   }
 
   .footer-inner a:hover {
-    color: var(--brand-red);
+    color: var(--color-accent);
   }
 
   .footer-inner ul {
@@ -72,8 +72,8 @@ const sectors = [
   .footer-inner li a {
     font-family: var(--font-mono);
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9rem;
+    letter-spacing: var(--tracking-label);
+    font-size: var(--text-body-sm);
     line-height: 1.9;
   }
 
@@ -82,6 +82,6 @@ const sectors = [
   }
 
   .mono {
-    margin-bottom: 11px;
+    margin-bottom: var(--space-3);
   }
 </style>

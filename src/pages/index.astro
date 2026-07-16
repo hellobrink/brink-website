@@ -155,32 +155,32 @@ const pillars = [
 <style>
   .hero {
     min-height: calc(100vh - 66px);
-    background-color: var(--brand-red);
+    background-color: var(--color-accent);
     background-size: cover;
     background-position: center;
     display: flex;
     align-items: center;
-    padding: 2rem 4rem;
+    padding: var(--space-6) var(--space-9);
   }
 
   .hero-text {
-    color: #fff;
+    color: var(--color-surface);
     max-width: 600px;
   }
 
   .hero-text h1 {
-    font-size: clamp(2.2rem, 5vw, 3.4rem);
-    color: #fff;
+    font-size: var(--text-h1);
+    color: var(--color-surface);
   }
 
   .hero-text p {
-    font-size: 1.15rem;
-    margin-bottom: 1.6rem;
+    font-size: var(--text-body);
+    margin-bottom: var(--space-5);
   }
 
   .section {
-    padding: 3.5rem 0;
-    border-bottom: 1px solid var(--brand-red);
+    padding: var(--space-8) 0;
+    border-bottom: var(--border-width) solid var(--color-rule);
   }
 
   .section:last-of-type {
@@ -190,12 +190,12 @@ const pillars = [
   .card-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2.5rem;
+    gap: var(--space-grid-gap);
   }
 
   .card {
     display: block;
-    color: var(--type-main);
+    color: var(--color-text);
     text-decoration: none;
   }
 
@@ -203,15 +203,15 @@ const pillars = [
     width: 100%;
     aspect-ratio: 16 / 10;
     object-fit: cover;
-    margin-bottom: 1.25rem;
+    margin-bottom: var(--space-4);
   }
 
   /* These are semantic headings (matching the live site's markup) but must
      not inherit heading sizing — the kicker stays a small mono label and
      the card title stays body-weight. */
   .card h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.5em;
+    font-size: var(--text-h2);
+    margin-bottom: var(--space-2);
   }
 
   .card:hover h3 {
@@ -219,34 +219,34 @@ const pillars = [
   }
 
   .kicker {
-    color: var(--text-muted);
-    font-weight: 400;
-    margin: 0 0 0.75rem;
+    color: var(--color-text-muted);
+    font-weight: var(--weight-body);
+    margin: 0 0 var(--space-3);
   }
 
   .read-more {
-    color: var(--brand-red);
+    color: var(--color-accent);
   }
 
   .pillars h2.display {
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-    margin-bottom: 2rem;
+    font-size: var(--text-display);
+    margin-bottom: var(--space-6);
   }
 
   .pillars h3 {
-    font-size: 1.4rem;
+    font-size: var(--text-h2);
   }
 
   .stats h2.mono {
-    color: var(--text-muted);
-    font-weight: 400;
-    margin: 0 0 2rem;
+    color: var(--color-text-muted);
+    font-weight: var(--weight-body);
+    margin: 0 0 var(--space-6);
   }
 
   .stats-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2.5rem;
+    gap: var(--space-grid-gap);
   }
 
   .stat {
@@ -255,42 +255,42 @@ const pillars = [
   }
 
   .stat-lead {
-    font-size: 1rem;
-    color: var(--text-muted);
+    font-size: var(--text-body-sm);
+    color: var(--color-text-muted);
   }
 
   .stat-value {
-    font-size: 5rem;
-    font-weight: 300;
-    color: var(--brand-red);
-    line-height: 1.1;
+    font-size: var(--text-stat);
+    font-weight: var(--weight-display);
+    color: var(--color-accent);
+    line-height: var(--leading-tight);
     margin: 0;
   }
 
   .stat-label {
-    font-size: 1.1rem;
+    font-size: var(--text-body);
   }
 
   .who-inner {
     display: grid;
     grid-template-columns: 3fr 2fr;
-    gap: 3rem;
+    gap: var(--space-8);
     align-items: end;
   }
 
   .who-statement {
-    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    font-size: var(--text-display);
   }
 
   .who h2.mono {
-    color: var(--text-muted);
-    font-weight: 400;
-    margin-bottom: 0.5rem;
+    color: var(--color-text-muted);
+    font-weight: var(--weight-body);
+    margin-bottom: var(--space-2);
   }
 
   @media (max-width: 768px) {
     .hero {
-      padding: 3rem 1.5rem;
+      padding: var(--space-8) var(--space-gutter);
     }
 
     .who-inner {
