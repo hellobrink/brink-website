@@ -1,7 +1,7 @@
 ---
 title: Realising the potential of technology to transform education
 summary: The Challenge Accelerate the scale of educational technologies that can deliver better learning outcomes for all children, especially the most marginalised. WHAT WAS ACHIEVED Leading innovation as part of the FCDO-funded Global EdTech Hub, Brink’s role is to make room for experimentation and to convert evidence into implementation in Kenya, Malawi, Zanzibar, Sierra Leone and Tanzania. HOW WE DID I
-heroImage: /images/683eedfcedf0d0356145ccbc_screenshot-2025-06-03-at-134325.png
+heroImage: /images/66cf26b8d20d5d0bb011e59e_shutterstock_1193231542.webp
 heroAlt: Realising the potential of technology to transform education
 sector: [education]
 offer: [carve-outs]
@@ -77,5 +77,3 @@ In Zanzibar, through testing different virtual learning environment models, we a
 In Kenya, our Sandbox to build the #KeepKenyaLearning campaign pivoted from providing content to caregivers to bolstering their confidence to use content and is now embedded in the Kenya Institute of Curriculum Development.
 
 The evidence from rigorous testing we conducted with officials in Ministries of Education in Sub-Saharan Africa led to UNICEF ESARO’s decision to discontinue the Regional Learning Hub initiative, a large investment in pan-African digital learning resources. This led to significant time and financial savings.
-
-

@@ -1,7 +1,7 @@
 ---
 title: Strengthening the digital maturity of science organisations
 summary: The Challenge Science, technology, and innovation (STI) systems are evolving rapidly, but organisations in low-resource settings - especially in low- and middle-income countries - face significant challenges in adopting digital tools like AI and online platforms, as well as developing the necessary ways of working that underpin them. To stay relevant and fully engage in global science systems, the
-heroImage: /images/683eedfcedf0d0356145ccbc_screenshot-2025-06-03-at-134325.png
+heroImage: /images/69c505017d1cc976642dc8f2_strenghtening-digital-maturity.jpg
 heroAlt: Strengthening the digital maturity of science organisations
 offer: [carve-outs]
 status: past

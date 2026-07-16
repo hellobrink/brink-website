@@ -46,7 +46,7 @@ Read more
 
 ![](/images/67a497c61d1d0f21b88108df_brinkcandids-172.jpg)
 
-## Our me thods
+## Our methods
 
 How we work with our partners to find obvious solutions to non-trivial problems.
 
@@ -84,7 +84,7 @@ in funding
 
 We're a global team of technologists, designers, strategists, and behavioural scientists, united by a commitment to harnessing technology for transformative impact
 
-Working a longside our partners we create ideas that put human behaviour at their core.
+Working alongside our partners we create ideas that put human behaviour at their core.
 
 By integrating insights from psychology, anthropology, sociology, and economics, we create the mindsets and mechanisms that deliver real change.
 

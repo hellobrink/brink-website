@@ -1,7 +1,7 @@
 ---
 title: Addressing health inequalities through inclusive design
 summary: The Challenge Work with Macmillan Cancer Support to design solutions that address health inequalities; beginning with those in marginalised communities suffering from cancer-related fatigue. WHAT WAS ACHIEVED In just five months we designed and tested a holistic ‘fatigue safety net’ proposition that was then piloted by healthcare staff across an NHS Trust in two hospitals. Along the way we changed
-heroImage: /images/683eedfcedf0d0356145ccbc_screenshot-2025-06-03-at-134325.png
+heroImage: /images/66cf3379ab9f9364e4406417_download-1.webp
 heroAlt: Addressing health inequalities through inclusive design
 sector: [health]
 offer: [missions]
@@ -65,5 +65,3 @@ The resulting playbook was designed to be a living manual; a deep and detailed r
 - Macmillan has a live project to evolve and a playbook through which they can introduce inclusive design to other parts of their business. playbook
 - The NHS trust has pilots embedded, which are run by staff from the off that were helping their work too
 - Brink has a deeper understanding of how to put inclusive design at the heart of what we do and always design with and not for across a range of key actors – from people living with cancer to those providing them clinical and non-clinical care.
-
-

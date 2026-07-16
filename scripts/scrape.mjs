@@ -50,8 +50,15 @@ function slugify(str) {
     .slice(0, 80);
 }
 
+// Strips Webflow's invisible characters at source. The old version missed
+// U+200D (zero-width joiner) and U+FEFF, which is why "explor e how we can
+// work together" survived into content and had to be cleaned afterwards by
+// scripts/lint-content.mjs — reintroducing itself on every re-scrape and
+// causing spurious promote conflicts. Kept in sync with INVISIBLES there.
+const INVISIBLE_CHARS = /[​‌‍﻿­]/g;
+
 function collapse(str = '') {
-  return str.replace(/\s+/g, ' ').replace(/­|​/g, '').trim();
+  return str.replace(INVISIBLE_CHARS, '').replace(/\s+/g, ' ').trim();
 }
 
 async function fetchDoc(urlPath) {
@@ -69,6 +76,13 @@ async function fetchDoc(urlPath) {
   // extractTextBlocks' generic recursion — strip them everywhere, up
   // front, rather than filtering every call site individually.
   $('script, style, noscript').remove();
+  // Webflow marks elements bound to an EMPTY CMS field with
+  // `w-dyn-bind-empty` and hides them via CSS. They are invisible to a
+  // visitor but look like real content to a scraper — and they carry stale
+  // placeholder values (one such <img> was the same 2025 screenshot on
+  // every case study). `w-condition-invisible` is the same idea for
+  // conditionally hidden elements. Neither is ever real content.
+  $('.w-dyn-bind-empty, .w-condition-invisible').remove();
   return $;
 }
 
@@ -352,7 +366,13 @@ async function scrapeCaseStudies(ourWorkEntries) {
     const { sector, offer } = classifyTags(tags);
     const summaryEl = $('.blog-summary').first();
     const summary = summaryEl.length ? extractPlainText($, summaryEl.get(0), 400) : '';
-    const heroImgEl = $('.image-10.casestudy').first();
+    // The hero lives in section.blog-hero. Do NOT use `.image-10.casestudy`
+    // — that element carries `w-dyn-bind-empty`, Webflow's marker for a CMS
+    // field with no value, so it renders a leftover placeholder that is
+    // identical on every case study (a stray 2025 screenshot). Selecting it
+    // gave all 11 case studies the same wrong image. `.w-dyn-bind-empty` is
+    // stripped globally in fetchDoc, so this is belt-and-braces.
+    const heroImgEl = $('section.blog-hero img').not('.w-dyn-bind-empty').first();
     const heroImage = await downloadImage(heroImgEl.attr('src'));
     const heroAlt = collapse(heroImgEl.attr('alt') || title);
     const bodyEl = $('.blog-content').first();
