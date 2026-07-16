@@ -1,6 +1,7 @@
 ---
 name: Innovation Missions
 summary: Moving systems forward through collective missions
+image: /images/66d6f6f39ed601081092af41_octopus_sticker.webp
 ---
 
 Most challenges of our time don’t exist in a vacuum. They are part of complex systems, shaped by human behaviour and worked on by teams and organisations. To truly address these challenges, we must work with these systems and the people in them. Transforming systems requires bold goals, collaboration across borders and sectors, and a participatory approach that values local expertise. When the path ahead is uncertain and one idea isn’t enough, missions unlock the way forward. They call for a unifying vision, intentional investment in multiple diverse approaches, and a readiness to learn and adapt as new insights emerge. It also requires intentional activity and investment at multiple levels and likely a mix of portfolios running concurrently, addressing different parts of the system.

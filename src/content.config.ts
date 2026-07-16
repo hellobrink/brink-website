@@ -81,6 +81,10 @@ const offers = defineCollection({
   schema: z.object({
     name: z.string(),
     summary: z.string(),
+    // The Webflow "sticker" illustration for this offer, shown on the
+    // detail page (e.g. the experiment/pilot/octopus stickers scraped
+    // from the live /our-offers page).
+    image: z.string().optional(),
   }),
 });
 

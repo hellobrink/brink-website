@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { withBase } from '../../lib/base';
 import { getCollection } from 'astro:content';
+import ExploreCTA from '../../components/ExploreCTA.astro';
 
 const offers = await getCollection('offers');
 const order = ['open-innovation', 'carve-outs', 'missions'];
@@ -24,6 +25,7 @@ offers.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
       ))}
     </ul>
   </div>
+  <ExploreCTA />
 </Layout>
 
 <style>
