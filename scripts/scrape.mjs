@@ -285,6 +285,19 @@ function jaccard(a, b) {
   return union === 0 ? 0 : intersection / union;
 }
 
+// The recognisable name from /our-work ("ASToN", "Macmillan CoLab") to show
+// alongside the case-study title it merged into — but ONLY when it's
+// genuinely a different name. A plain `match.title !== title` check isn't
+// enough: /our-work calls the oxygen programme "Improving THE access to
+// medical oxygen..." against a case-study title of "Improving access to
+// medical oxygen...", and rendering that as a kicker above the near-identical
+// title is just noise. Requires the titles to be mostly disjoint.
+function programmeNameFor(match, title) {
+  if (!match || match.title === title) return undefined;
+  const similarity = jaccard(titleTokens(match.title), titleTokens(title));
+  return similarity < 0.5 ? match.title : undefined;
+}
+
 // --- Our work index (fetched first so case studies can be enriched with
 // funder/partner/status info, and so near-duplicate titles — e.g. "Improving
 // access to..." vs "Improving the access to..." — merge into one record
@@ -385,10 +398,7 @@ async function scrapeCaseStudies(ourWorkEntries) {
 
     await writeContentFile('work', slug, {
       title,
-      // The merged /our-work entry's own title, e.g. "ASToN" — kept
-      // alongside the case-study title so the recognisable programme
-      // name isn't lost in the merge. Omitted when it's the same title.
-      programmeName: match && match.title !== title ? match.title : undefined,
+      programmeName: programmeNameFor(match, title),
       summary: summary || `TODO: write a one-line summary for "${title}".`,
       heroImage,
       heroAlt,
