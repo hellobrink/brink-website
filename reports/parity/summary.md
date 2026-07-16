@@ -1,0 +1,27 @@
+# Parity audit summary
+
+Generated: 2026-07-16T16:24:32.764Z
+
+- 🔴 **home** — missing 0 headings, 3 images, 8 demoted headings ([detail](./home.md))
+- 🔴 **about** — missing 1 headings, 0 images ([detail](./about.md))
+- ✅ **team** — missing 0 headings, 0 images ([detail](./team.md))
+- ✅ **foundation** — missing 0 headings, 0 images ([detail](./foundation.md))
+- ✅ **careers** — missing 0 headings, 0 images ([detail](./careers.md))
+- ✅ **privacy-policy** — missing 0 headings, 0 images ([detail](./privacy-policy.md))
+- 🔴 **offers** — missing 1 headings, 4 images, 3 demoted headings ([detail](./offers.md))
+- 🔴 **our-work** — missing 6 headings, 0 images ([detail](./our-work.md))
+- 🔴 **case-studies-index** — missing 1 headings, 11 images ([detail](./case-studies-index.md))
+- 🔴 **sector-health** — missing 3 headings, 3 images, 7 demoted headings ([detail](./sector-health.md))
+- 🔴 **sector-climate** — missing 3 headings, 2 images, 6 demoted headings ([detail](./sector-climate.md))
+- 🔴 **sector-education** — missing 5 headings, 3 images, 2 demoted headings ([detail](./sector-education.md))
+- 🔴 **case-study-strengthening-the-digital-maturity-of-science-organisations** — missing 1 headings, 1 images ([detail](./case-study-strengthening-the-digital-maturity-of-science-organisations.md))
+- 🔴 **case-study-testing-the-production-of-hydroponic-fodder-for-cattle** — missing 1 headings, 5 images ([detail](./case-study-testing-the-production-of-hydroponic-fodder-for-cattle.md))
+- 🔴 **case-study-piloting-a-radical-new-platform-for-locust-control-in-kenya** — missing 1 headings, 5 images ([detail](./case-study-piloting-a-radical-new-platform-for-locust-control-in-kenya.md))
+- 🔴 **case-study-supporting-emobility-pioneers-in-africa** — missing 1 headings, 5 images ([detail](./case-study-supporting-emobility-pioneers-in-africa.md))
+- 🔴 **case-study-repair-reuse-kenya** — missing 1 headings, 5 images ([detail](./case-study-repair-reuse-kenya.md))
+- 🔴 **case-study-reimagining-the-future-of-work-in-kenyas-economy** — missing 1 headings, 1 images ([detail](./case-study-reimagining-the-future-of-work-in-kenyas-economy.md))
+- 🔴 **case-study-thin-air-that-saves-lives** — missing 1 headings, 1 images ([detail](./case-study-thin-air-that-saves-lives.md))
+- 🔴 **case-study-a-city-problem-not-a-citizen-problem** — missing 1 headings, 1 images ([detail](./case-study-a-city-problem-not-a-citizen-problem.md))
+- 🔴 **case-study-creating-community-across-conflict-zones** — missing 1 headings, 1 images ([detail](./case-study-creating-community-across-conflict-zones.md))
+- 🔴 **case-study-addressing-health-inequalities-through-inclusive-design** — missing 1 headings, 1 images ([detail](./case-study-addressing-health-inequalities-through-inclusive-design.md))
+- 🔴 **case-study-realising-the-potential-of-technology-to-transform-education** — missing 1 headings, 1 images ([detail](./case-study-realising-the-potential-of-technology-to-transform-education.md))
