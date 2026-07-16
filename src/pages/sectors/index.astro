@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { withBase } from '../../lib/base';
+import { getCollection } from 'astro:content';
+
+const sectors = await getCollection('sectors');
+---
+
+<Layout title="Sectors" description="Where Brink works: climate, health and education.">
+  <div class="container">
+    <header class="page-header">
+      <h1>Sectors</h1>
+    </header>
+    <ul class="sector-grid">
+      {sectors.map((sector) => (
+        <li>
+          <a href={withBase(`/sectors/${sector.id}`)}>
+            <h2>{sector.data.name}</h2>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .page-header {
+    padding: 2rem 0 1rem;
+  }
+
+  .sector-grid {
+    list-style: none;
+    margin: 0 0 4rem;
+    padding: 0;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .sector-grid a {
+    display: block;
+    text-decoration: none;
+    color: var(--color-dark-teal);
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(6, 51, 61, 0.1);
+  }
+
+  .sector-grid a:hover h2 {
+    color: var(--color-coral);
+  }
+</style>

@@ -1,0 +1,36 @@
+---
+// Brief 4B.2/4B.3 calls for a monochrome funder/partner *logo* strip
+// sourced from the Work collection. We only scraped funder/partner names
+// as text (no logo image assets exist yet), so this renders name badges
+// as a placeholder — swap in real logomarks once they're collected.
+interface Props {
+  names: string[];
+}
+const { names } = Astro.props;
+---
+
+{names?.length > 0 && (
+  <div class="logo-strip">
+    {names.map((n) => <span class="logo-name">{n}</span>)}
+  </div>
+)}
+
+<style>
+  .logo-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(6, 51, 61, 0.1);
+    border-bottom: 1px solid rgba(6, 51, 61, 0.1);
+  }
+
+  .logo-name {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--color-mid-gray);
+    filter: grayscale(1);
+  }
+</style>

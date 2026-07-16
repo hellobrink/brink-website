@@ -1,0 +1,206 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { withBase } from '../../lib/base';
+import { getCollection } from 'astro:content';
+
+const allWork = await getCollection('work');
+allWork.sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+
+const sectors = ['climate', 'health', 'education'];
+const offers = [
+  { value: 'open-innovation', label: 'Open Innovation' },
+  { value: 'carve-outs', label: 'Innovation Carve-Outs' },
+  { value: 'missions', label: 'Innovation Missions' },
+];
+---
+
+<Layout
+  title="Our Work"
+  description="Current and past programmes and projects, filterable by sector and offer."
+>
+  <div class="container">
+    <header class="page-header">
+      <h1>Our work</h1>
+      <p>
+        Every Brink engagement, current and past, in one place. Items with a
+        full write-up open into the complete case study — everything else is
+        a quick summary. Filter by sector, offer or status below.
+      </p>
+    </header>
+
+    <div class="filters" role="group" aria-label="Filter work">
+      <div class="filter-group" data-filter-type="sector">
+        <button type="button" class="filter-btn active" data-value="">All sectors</button>
+        {sectors.map((s) => (
+          <button type="button" class="filter-btn" data-value={s}>{s[0].toUpperCase() + s.slice(1)}</button>
+        ))}
+      </div>
+      <div class="filter-group" data-filter-type="offer">
+        <button type="button" class="filter-btn active" data-value="">All offers</button>
+        {offers.map((o) => (
+          <button type="button" class="filter-btn" data-value={o.value}>{o.label}</button>
+        ))}
+      </div>
+      <div class="filter-group" data-filter-type="status">
+        <button type="button" class="filter-btn active" data-value="">Current + past</button>
+        <button type="button" class="filter-btn" data-value="current">Current</button>
+        <button type="button" class="filter-btn" data-value="past">Past</button>
+      </div>
+    </div>
+
+    <p class="empty-state" hidden>No work matches those filters.</p>
+
+    <ul class="work-grid">
+      {allWork.map((item) => (
+        <li
+          class="work-item"
+          data-sector={item.data.sector.join(',')}
+          data-offer={item.data.offer.join(',')}
+          data-status={item.data.status}
+        >
+          <a href={withBase(`/our-work/${item.id}`)}>
+            {item.data.heroImage && <img src={withBase(item.data.heroImage)} alt={item.data.heroAlt ?? item.data.title} />}
+            <div class="work-item-body">
+              {item.data.hasCaseStudy && <span class="tag">Full case study</span>}
+              <h3>{item.data.title}</h3>
+              <p>{item.data.summary}</p>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Layout>
+
+<script>
+  const state = { sector: '', offer: '', status: '' };
+  const params = new URLSearchParams(location.search);
+  for (const key of Object.keys(state)) {
+    const value = params.get(key);
+    if (value) state[key] = value;
+  }
+
+  const items = document.querySelectorAll('.work-item');
+  const emptyState = document.querySelector('.empty-state');
+
+  function applyFilters() {
+    let visibleCount = 0;
+    items.forEach((el) => {
+      const matches = Object.entries(state).every(([key, value]) => {
+        if (!value) return true;
+        const attr = el.getAttribute(`data-${key}`) || '';
+        return attr.split(',').includes(value);
+      });
+      el.hidden = !matches;
+      if (matches) visibleCount += 1;
+    });
+    emptyState.hidden = visibleCount > 0;
+  }
+
+  document.querySelectorAll('.filter-group').forEach((group) => {
+    const type = group.getAttribute('data-filter-type');
+    group.querySelectorAll('.filter-btn').forEach((btn) => {
+      if (btn.getAttribute('data-value') === state[type]) {
+        group.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+      }
+      btn.addEventListener('click', () => {
+        state[type] = btn.getAttribute('data-value') || '';
+        group.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        const newParams = new URLSearchParams();
+        for (const [key, value] of Object.entries(state)) {
+          if (value) newParams.set(key, value);
+        }
+        history.replaceState(null, '', newParams.size ? `?${newParams}` : location.pathname);
+        applyFilters();
+      });
+    });
+  });
+
+  applyFilters();
+</script>
+
+<style>
+  .page-header {
+    padding: 2rem 0 1rem;
+    max-width: 60ch;
+  }
+
+  .filters {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+
+  .filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .filter-btn {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 0.4em 0.9em;
+    border-radius: 999px;
+    border: 1px solid var(--color-mid-gray);
+    background: transparent;
+    color: var(--color-dark-teal);
+    cursor: pointer;
+  }
+
+  .filter-btn.active {
+    background: var(--color-dark-teal);
+    color: var(--color-off-white);
+    border-color: var(--color-dark-teal);
+  }
+
+  .work-grid {
+    list-style: none;
+    margin: 0 0 4rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .work-item a {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    color: var(--color-dark-teal);
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(6, 51, 61, 0.1);
+  }
+
+  .work-item img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .work-item-body {
+    padding: 1.25rem;
+  }
+
+  .work-item h3 {
+    font-size: 1.05rem;
+    margin: 0.4em 0;
+  }
+
+  .work-item p {
+    font-size: 0.9rem;
+    color: var(--color-mid-gray);
+    margin: 0;
+  }
+
+  .empty-state {
+    color: var(--color-mid-gray);
+  }
+</style>

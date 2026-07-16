@@ -1,0 +1,109 @@
+/* Brink brand tokens — matches the design system already established in
+   the Brink Fund Builder tool (Lora / Libre Franklin / Inconsolata,
+   dark-teal + coral palette). Keeping this consistent means both tools
+   look like they come from the same company. */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400..600&family=Libre+Franklin:wght@300..700&family=Inconsolata:wght@400..700&display=swap');
+
+:root {
+  --color-dark-teal: #06333d;
+  --color-off-white: #f0f1ef;
+  --color-coral: #ff405f;
+  --color-blue: #4472ec;
+  --color-pink: #e99cd1;
+  --color-mid-gray: #789096;
+
+  --font-display: 'Lora', serif;
+  --font-body: 'Libre Franklin', sans-serif;
+  --font-mono: 'Inconsolata', monospace;
+
+  --max-width: 1100px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  color: var(--color-dark-teal);
+  background: var(--color-off-white);
+  line-height: 1.55;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.button {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.85rem;
+  padding: 0.75em 1.5em;
+  border-radius: 999px;
+  background: var(--color-coral);
+  color: var(--color-off-white);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.button.secondary {
+  background: transparent;
+  color: var(--color-dark-teal);
+  border: 1px solid var(--color-dark-teal);
+}
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.25em 0.75em;
+  border-radius: 999px;
+  border: 1px solid var(--color-mid-gray);
+  color: var(--color-mid-gray);
+  margin: 0 0.35em 0.35em 0;
+}

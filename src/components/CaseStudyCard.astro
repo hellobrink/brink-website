@@ -1,0 +1,60 @@
+---
+import { withBase } from '../lib/base';
+
+interface Props {
+  slug: string;
+  title: string;
+  headlineResult?: string;
+  heroImage?: string;
+  heroAlt?: string;
+}
+const { slug, title, headlineResult, heroImage, heroAlt } = Astro.props;
+---
+
+<a class="case-card" href={withBase(`/our-work/${slug}`)}>
+  {heroImage && <img src={withBase(heroImage)} alt={heroAlt ?? title} />}
+  <div class="case-card-body">
+    {headlineResult && <p class="result">{headlineResult}</p>}
+    <h3>{title}</h3>
+  </div>
+</a>
+
+<style>
+  .case-card {
+    display: block;
+    text-decoration: none;
+    color: var(--color-dark-teal);
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(6, 51, 61, 0.1);
+  }
+
+  .case-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  .case-card-body {
+    padding: 1.25rem;
+  }
+
+  .case-card h3 {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .result {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+    color: var(--color-coral);
+    margin: 0 0 0.4em;
+  }
+
+  .case-card:hover h3 {
+    color: var(--color-coral);
+  }
+</style>

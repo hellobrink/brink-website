@@ -1,0 +1,73 @@
+---
+import { withBase } from '../lib/base';
+
+const sectors = [
+  { href: '/sectors/climate', label: 'Climate' },
+  { href: '/sectors/health', label: 'Health' },
+  { href: '/sectors/education', label: 'Education' },
+];
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <p class="mono">© Brink Innovation Limited</p>
+      <p>
+        Brink Innovation Ltd<br />
+        86-90 Paul Street<br />
+        London EC2A 4NE
+      </p>
+      <p><a href="mailto:coffee@hellobrink.co">coffee@hellobrink.co</a></p>
+    </div>
+    <div>
+      <p class="mono">Sectors</p>
+      <ul>
+        {sectors.map((s) => (
+          <li><a href={withBase(s.href)}>{s.label}</a></li>
+        ))}
+      </ul>
+    </div>
+    <div>
+      <p><a href={withBase('/privacy-policy')}>Privacy Policy</a></p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-dark-teal);
+    color: var(--color-off-white);
+    margin-top: 4rem;
+    padding: 3rem 0;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: space-between;
+  }
+
+  .footer-inner a {
+    color: var(--color-off-white);
+    text-decoration: none;
+  }
+
+  .footer-inner a:hover {
+    color: var(--color-pink);
+  }
+
+  .footer-inner ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .mono {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    opacity: 0.8;
+  }
+</style>

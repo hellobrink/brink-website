@@ -1,0 +1,63 @@
+---
+import { withBase } from '../lib/base';
+
+interface Props {
+  name?: string;
+  role?: string;
+  photo?: string;
+  sectorName: string;
+}
+const { name, role, photo, sectorName } = Astro.props;
+---
+
+<section class="named-cta">
+  <div class="container cta-inner">
+    {photo && <img src={withBase(photo)} alt={name} class="cta-photo" />}
+    <div>
+      <p class="mono">Talk to us about {sectorName}</p>
+      <h3>{name ?? 'TODO: named contact for this sector'}{role && ` — ${role}`}</h3>
+    </div>
+    <a class="button" href="mailto:coffee@hellobrink.co">Get in touch</a>
+  </div>
+</section>
+
+<style>
+  .named-cta {
+    background: var(--color-off-white);
+    border: 1px solid rgba(6, 51, 61, 0.15);
+    border-radius: 16px;
+    padding: 2rem;
+    margin: 3rem auto;
+    max-width: var(--max-width);
+  }
+
+  .cta-inner {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding: 0;
+  }
+
+  .cta-photo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .cta-inner h3 {
+    margin: 0;
+  }
+
+  .mono {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--color-mid-gray);
+  }
+
+  .cta-inner .button {
+    margin-left: auto;
+  }
+</style>

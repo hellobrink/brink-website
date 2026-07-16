@@ -1,0 +1,86 @@
+---
+import { withBase } from '../lib/base';
+
+// Nav intentionally keeps roughly today's structure (Decision 3 in the
+// restructure brief — nav redesign — is deferred). The one change already
+// made: "Our work" and "Case Studies" are merged into a single "Our Work"
+// item, since the content model behind them is now one collection
+// (Decision 1). "Blog" is dropped for v1 — there's no blog collection
+// built yet, so linking to it would 404.
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About Brink' },
+  { href: '/offers', label: 'Our Offers' },
+  { href: '/our-work', label: 'Our Work' },
+  { href: '/team', label: 'Meet the Team' },
+  { href: '/foundation', label: 'Brink Foundation' },
+  { href: '/careers', label: 'Careers' },
+];
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href={withBase('/')} class="brand">
+      <img src={withBase('/images/brink-logotype-dark.png')} alt="Brink" width="140" />
+    </a>
+    <nav aria-label="Primary">
+      <ul>
+        {navItems.map((item) => (
+          <li><a href={withBase(item.href)}>{item.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    background: var(--color-off-white);
+    border-bottom: 1px solid rgba(6, 51, 61, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    gap: 1.5rem;
+  }
+
+  .brand img {
+    display: block;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  nav a {
+    text-decoration: none;
+    color: var(--color-dark-teal);
+  }
+
+  nav a:hover {
+    color: var(--color-coral);
+  }
+
+  @media (max-width: 768px) {
+    .header-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

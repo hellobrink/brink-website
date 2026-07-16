@@ -1,0 +1,177 @@
+---
+// Structure follows the restructure brief, section 4A.3 "Potential revised
+// page structure": hero + positioning line -> funder/partner logo strip ->
+// "what we do" -> impact metrics tied to results -> short challenge bridge
+// -> shared behavioural panel -> case-study cards with headline result ->
+// named-contact CTA. The scraped positioningLine/whatWeDo fields are TODO
+// placeholders (see CONTENT_GUIDE.md) — that copy needs writing, not
+// scraping, per the brief's own diagnosis of the current pages.
+import Layout from '../../layouts/Layout.astro';
+import LogoStrip from '../../components/LogoStrip.astro';
+import ImpactMetric from '../../components/ImpactMetric.astro';
+import PrinciplesTrio from '../../components/PrinciplesTrio.astro';
+import BehaviouralPanel from '../../components/BehaviouralPanel.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+import NamedContactCTA from '../../components/NamedContactCTA.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const sectors = await getCollection('sectors');
+  return sectors.map((sector) => ({
+    params: { slug: sector.id },
+    props: { sector },
+  }));
+}
+
+const { sector } = Astro.props;
+const { Content } = await render(sector);
+const { data } = sector;
+
+const allWork = await getCollection('work');
+const relatedWork = allWork
+  .filter((item) => item.data.sector.includes(sector.id))
+  .sort((a, b) => {
+    if (a.data.hasCaseStudy !== b.data.hasCaseStudy) return a.data.hasCaseStudy ? -1 : 1;
+    return a.data.sortOrder - b.data.sortOrder;
+  })
+  .slice(0, 4);
+
+const funderPartnerNames = [...new Set(relatedWork.flatMap((w) => [...w.data.funders, ...w.data.partners]))];
+---
+
+<Layout title={data.name} description={data.positioningLine}>
+  <article class="sector">
+    <header class="hero container">
+      <h1>{data.headline}</h1>
+      <p class="positioning">{data.positioningLine}</p>
+    </header>
+
+    <div class="container">
+      <LogoStrip names={funderPartnerNames} />
+    </div>
+
+    {data.whatWeDo?.length > 0 && (
+      <section class="container what-we-do">
+        <h2>What we do in {data.name.toLowerCase()}</h2>
+        <ul>
+          {data.whatWeDo.map((service) => (
+            <li>
+              <h3>{service.title}</h3>
+              <p>{service.description}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    {data.stats?.length > 0 && (
+      <section class="container stats">
+        {data.stats.map((stat) => (
+          <ImpactMetric value={stat.value} label={stat.label} caseStudySlug={stat.caseStudySlug} />
+        ))}
+      </section>
+    )}
+
+    <section class="container challenge">
+      <p>{data.challengeText}</p>
+    </section>
+
+    {data.principles && (
+      <section class="container">
+        <PrinciplesTrio principles={data.principles} />
+      </section>
+    )}
+
+    <BehaviouralPanel />
+
+    {relatedWork.length > 0 && (
+      <section class="container case-studies">
+        <h2>Our work in {data.name.toLowerCase()}</h2>
+        <ul class="grid">
+          {relatedWork.map((item) => (
+            <li>
+              <CaseStudyCard
+                slug={item.id}
+                title={item.data.title}
+                headlineResult={item.data.headlineResult}
+                heroImage={item.data.heroImage}
+                heroAlt={item.data.heroAlt}
+              />
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <div class="container extra-content prose">
+      <Content />
+    </div>
+
+    <NamedContactCTA
+      name={data.namedContact?.name}
+      role={data.namedContact?.role}
+      photo={data.namedContact?.photo}
+      sectorName={data.name}
+    />
+  </article>
+</Layout>
+
+<style>
+  .hero {
+    padding: 3rem 0 1rem;
+    max-width: 60ch;
+  }
+
+  .positioning {
+    font-size: 1.15rem;
+    color: var(--color-mid-gray);
+  }
+
+  .what-we-do {
+    padding: 2rem 0;
+  }
+
+  .what-we-do ul {
+    list-style: none;
+    margin: 1rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .what-we-do h3 {
+    font-size: 1.05rem;
+  }
+
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 1rem 0;
+  }
+
+  .challenge {
+    max-width: 60ch;
+    padding: 1rem 0;
+    color: var(--color-mid-gray);
+  }
+
+  .case-studies {
+    padding: 1rem 0 2rem;
+  }
+
+  .grid {
+    list-style: none;
+    margin: 1.5rem 0;
+    padding: 0;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+
+  .extra-content {
+    color: var(--color-mid-gray);
+    font-size: 0.9rem;
+  }
+</style>

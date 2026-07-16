@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getEntry, render } from 'astro:content';
+
+const entry = await getEntry('pages', 'home');
+const { Content } = entry ? await render(entry) : { Content: null };
+---
+
+<Layout title="Home">
+  <div class="container prose">
+    {Content ? <Content /> : <p>Homepage content not found — run <code>npm run scrape</code>.</p>}
+  </div>
+</Layout>
+
+<style>
+  .prose {
+    padding: 2rem 0 4rem;
+    max-width: 70ch;
+  }
+
+  .prose :global(img) {
+    border-radius: 12px;
+    margin: 1.5rem 0;
+  }
+</style>

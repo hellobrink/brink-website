@@ -1,0 +1,36 @@
+---
+interface Props {
+  principles: string[];
+}
+const { principles } = Astro.props;
+---
+
+{principles?.length > 0 && (
+  <ul class="principles-trio" style={`--count: ${principles.length}`}>
+    {principles.map((p) => <li>{p}</li>)}
+  </ul>
+)}
+
+<style>
+  .principles-trio {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(var(--count, 3), 1fr);
+    gap: 1.5rem;
+  }
+
+  .principles-trio li {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    border-top: 2px solid var(--color-coral);
+    padding-top: 0.75rem;
+  }
+
+  @media (max-width: 768px) {
+    .principles-trio {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

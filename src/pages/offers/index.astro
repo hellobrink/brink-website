@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { withBase } from '../../lib/base';
+import { getCollection } from 'astro:content';
+
+const offers = await getCollection('offers');
+const order = ['open-innovation', 'carve-outs', 'missions'];
+offers.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
+---
+
+<Layout title="Our Offers" description="How Brink works: Open Innovation, Innovation Carve-Outs and Innovation Missions.">
+  <div class="container">
+    <header class="page-header">
+      <h1>Our offers</h1>
+    </header>
+    <ul class="offers-grid">
+      {offers.map((offer) => (
+        <li>
+          <a href={withBase(`/offers/${offer.id}`)}>
+            <h2>{offer.data.name}</h2>
+            <p>{offer.data.summary}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .page-header {
+    padding: 2rem 0 1rem;
+  }
+
+  .offers-grid {
+    list-style: none;
+    margin: 0 0 4rem;
+    padding: 0;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+
+  .offers-grid a {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    color: var(--color-dark-teal);
+    background: white;
+    border-radius: 12px;
+    padding: 1.75rem;
+    box-shadow: 0 1px 3px rgba(6, 51, 61, 0.1);
+  }
+
+  .offers-grid a:hover h2 {
+    color: var(--color-coral);
+  }
+
+  .offers-grid p {
+    color: var(--color-mid-gray);
+    margin: 0;
+  }
+</style>

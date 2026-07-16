@@ -1,0 +1,36 @@
+---
+import { getEntry, render } from 'astro:content';
+
+// Shared across every sector page — one record, referenced rather than
+// duplicated (per the restructure brief).
+const entry = await getEntry('shared', 'behavioural-panel');
+const { Content } = entry ? await render(entry) : { Content: null };
+---
+
+{entry && (
+  <section class="behavioural-panel">
+    <div class="container">
+      <h2>{entry.data.title}</h2>
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .behavioural-panel {
+    background: var(--color-dark-teal);
+    color: var(--color-off-white);
+    padding: 3rem 0;
+    margin: 3rem 0;
+  }
+
+  .behavioural-panel h2 {
+    color: var(--color-off-white);
+  }
+
+  .prose :global(p) {
+    max-width: 60ch;
+  }
+</style>

@@ -1,0 +1,88 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import CaseStudyCard from '../../components/CaseStudyCard.astro';
+import { withBase } from '../../lib/base';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const offers = await getCollection('offers');
+  return offers.map((offer) => ({
+    params: { slug: offer.id },
+    props: { offer },
+  }));
+}
+
+const { offer } = Astro.props;
+const { Content } = await render(offer);
+
+const allWork = await getCollection('work');
+const relatedWork = allWork
+  .filter((item) => item.data.offer.includes(offer.id))
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+---
+
+<Layout title={offer.data.name} description={offer.data.summary}>
+  <article class="container offer-detail">
+    <p class="back"><a href={withBase('/offers')}>&larr; All offers</a></p>
+    <h1>{offer.data.name}</h1>
+    <p class="summary">{offer.data.summary}</p>
+    <div class="prose">
+      <Content />
+    </div>
+
+    {relatedWork.length > 0 && (
+      <section class="related">
+        <h2>Related work</h2>
+        <ul class="grid">
+          {relatedWork.map((item) => (
+            <li>
+              <CaseStudyCard
+                slug={item.id}
+                title={item.data.title}
+                headlineResult={item.data.headlineResult}
+                heroImage={item.data.heroImage}
+                heroAlt={item.data.heroAlt}
+              />
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+  </article>
+</Layout>
+
+<style>
+  .offer-detail {
+    padding: 2rem 0 4rem;
+  }
+
+  .back a {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: var(--color-mid-gray);
+  }
+
+  .summary {
+    font-size: 1.2rem;
+    color: var(--color-mid-gray);
+    max-width: 60ch;
+  }
+
+  .prose {
+    max-width: 70ch;
+  }
+
+  .related {
+    margin-top: 3rem;
+  }
+
+  .grid {
+    list-style: none;
+    margin: 1.5rem 0;
+    padding: 0;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  }
+</style>

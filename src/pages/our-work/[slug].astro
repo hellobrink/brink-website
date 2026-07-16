@@ -1,0 +1,93 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import LogoStrip from '../../components/LogoStrip.astro';
+import { withBase } from '../../lib/base';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const allWork = await getCollection('work');
+  return allWork.map((item) => ({
+    params: { slug: item.id },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+const { data } = item;
+const tags = [...data.sector, ...data.offer];
+---
+
+<Layout title={data.title} description={data.summary}>
+  <article class="container work-detail">
+    <p class="back"><a href={withBase('/our-work')}>&larr; All work</a></p>
+
+    {tags.length > 0 && (
+      <div class="tags">
+        {tags.map((t) => <span class="tag">{t}</span>)}
+      </div>
+    )}
+
+    <h1>{data.title}</h1>
+    <p class="summary">{data.summary}</p>
+
+    <LogoStrip names={[...data.funders, ...data.partners]} />
+
+    {data.heroImage && <img class="hero" src={withBase(data.heroImage)} alt={data.heroAlt ?? data.title} />}
+
+    {data.hasCaseStudy ? (
+      <div class="prose">
+        <Content />
+      </div>
+    ) : (
+      <p class="light-entry-note">
+        This is a summary entry — it doesn't have a full written case study yet.
+        {data.externalLink && (
+          <>
+            {' '}Read more at <a href={data.externalLink} target="_blank" rel="noopener">{data.externalLink}</a>.
+          </>
+        )}
+      </p>
+    )}
+  </article>
+</Layout>
+
+<style>
+  .work-detail {
+    padding: 2rem 0 4rem;
+    max-width: 70ch;
+  }
+
+  .back a {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: var(--color-mid-gray);
+  }
+
+  .tags {
+    margin: 0.5rem 0;
+  }
+
+  .summary {
+    font-size: 1.1rem;
+    color: var(--color-mid-gray);
+  }
+
+  .hero {
+    border-radius: 12px;
+    margin: 1.5rem 0;
+  }
+
+  .prose :global(img) {
+    border-radius: 12px;
+    margin: 1.5rem 0;
+  }
+
+  .light-entry-note {
+    background: white;
+    border-radius: 12px;
+    padding: 1.25rem;
+    color: var(--color-mid-gray);
+  }
+</style>

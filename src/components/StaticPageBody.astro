@@ -1,0 +1,26 @@
+---
+import { getEntry, render } from 'astro:content';
+
+interface Props {
+  slug: string;
+}
+const { slug } = Astro.props;
+const entry = await getEntry('pages', slug);
+const { Content } = entry ? await render(entry) : { Content: null };
+---
+
+<div class="container prose">
+  {Content ? <Content /> : <p>Content for "{slug}" not found — run <code>npm run scrape</code>.</p>}
+</div>
+
+<style>
+  .prose {
+    padding: 2rem 0 4rem;
+    max-width: 70ch;
+  }
+
+  .prose :global(img) {
+    border-radius: 12px;
+    margin: 1.5rem 0;
+  }
+</style>
