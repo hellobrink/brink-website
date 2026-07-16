@@ -1,5 +1,6 @@
 ---
 title: Improving access to medical oxygen in low and middle income countries
+programmeName: Improving the access to medical oxygen in low and middle income countries
 summary: "The Challenge Improve access to medical oxygen in low and middle income countries. WHAT WAS ACHIEVED Brought together manufacturers, engineers, innovators, hackers and backers to accelerate the development of new and innovative robust oxygen concentrators in low-resource settings. HOW WE DID IT The Oxygen CoLab: We worked with local communities, UNICEF, NGOs, academic institutions, manufacturers, "
 heroImage: /images/683eedfcedf0d0356145ccbc_screenshot-2025-06-03-at-134325.png
 heroAlt: Improving access to medical oxygen in low and middle income countries

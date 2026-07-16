@@ -365,6 +365,10 @@ async function scrapeCaseStudies(ourWorkEntries) {
 
     await writeContentFile('work', slug, {
       title,
+      // The merged /our-work entry's own title, e.g. "ASToN" — kept
+      // alongside the case-study title so the recognisable programme
+      // name isn't lost in the merge. Omitted when it's the same title.
+      programmeName: match && match.title !== title ? match.title : undefined,
       summary: summary || `TODO: write a one-line summary for "${title}".`,
       heroImage,
       heroAlt,

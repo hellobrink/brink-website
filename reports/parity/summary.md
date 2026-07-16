@@ -1,14 +1,14 @@
 # Parity audit summary
 
-Generated: 2026-07-16T16:24:32.764Z
+Generated: 2026-07-16T18:58:42.010Z
 
-- 🔴 **home** — missing 0 headings, 3 images, 8 demoted headings ([detail](./home.md))
-- 🔴 **about** — missing 1 headings, 0 images ([detail](./about.md))
+- 🔴 **home** — missing 0 headings, 3 images ([detail](./home.md))
+- ✅ **about** — missing 0 headings, 0 images ([detail](./about.md))
 - ✅ **team** — missing 0 headings, 0 images ([detail](./team.md))
 - ✅ **foundation** — missing 0 headings, 0 images ([detail](./foundation.md))
 - ✅ **careers** — missing 0 headings, 0 images ([detail](./careers.md))
 - ✅ **privacy-policy** — missing 0 headings, 0 images ([detail](./privacy-policy.md))
-- 🔴 **offers** — missing 1 headings, 4 images, 3 demoted headings ([detail](./offers.md))
+- ✅ **offers** — missing 0 headings, 0 images, 3 demoted headings ([detail](./offers.md))
 - 🔴 **our-work** — missing 6 headings, 0 images ([detail](./our-work.md))
 - 🔴 **case-studies-index** — missing 1 headings, 11 images ([detail](./case-studies-index.md))
 - 🔴 **sector-health** — missing 3 headings, 3 images, 7 demoted headings ([detail](./sector-health.md))

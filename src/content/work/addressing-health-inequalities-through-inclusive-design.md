@@ -1,5 +1,6 @@
 ---
 title: Addressing health inequalities through inclusive design
+programmeName: Macmillan CoLab
 summary: The Challenge Work with Macmillan Cancer Support to design solutions that address health inequalities; beginning with those in marginalised communities suffering from cancer-related fatigue. WHAT WAS ACHIEVED In just five months we designed and tested a holistic ‘fatigue safety net’ proposition that was then piloted by healthcare staff across an NHS Trust in two hospitals. Along the way we changed
 heroImage: /images/683eedfcedf0d0356145ccbc_screenshot-2025-06-03-at-134325.png
 heroAlt: Addressing health inequalities through inclusive design

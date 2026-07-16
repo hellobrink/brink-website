@@ -1,5 +1,6 @@
 ---
 title: Creating innovative ways for a city council to provide effective local services
+programmeName: ASToN
 summary: The Challenge Understand why income from taxes in the City of Matola in Mozambique was so low and create innovative new ways for the council to provide effective local services. WHAT WAS ACHIEVED Challenged assumptions and introduced ‘bureaucratic innovation’ right across the council, leading to smart, citizen-centered services that make paying taxes simpler. HOW WE DID IT Enabling crucial convers
 heroImage: /images/683eedfcedf0d0356145ccbc_screenshot-2025-06-03-at-134325.png
 heroAlt: Creating innovative ways for a city council to provide effective local services
