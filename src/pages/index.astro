@@ -1,25 +1,282 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getEntry, render } from 'astro:content';
+import { withBase } from '../lib/base';
 
-const entry = await getEntry('pages', 'home');
-const { Content } = entry ? await render(entry) : { Content: null };
+// Hand-built to mirror the live hellobrink.co homepage: full-height
+// coral hero (cranes_on_red background, the same asset the live site
+// uses), "What Brink is doing" cards, the three-column "Innovation as if
+// people matter" section, the since-2018 stats band, and "Who we are".
+// Blog and newsletter cards link to the live Webflow blog for now — that
+// collection hasn't been migrated (see CONTENT_GUIDE.md).
+
+const doingCards = [
+  {
+    image: '/images/69398d70a7c114cc4eff4490_collage-trees-texture.png',
+    kicker: 'What Brink is doing',
+    title: 'We are now part of Africa Practice',
+    text: "A message from Brink's founders on what this means.",
+    href: withBase('/about'),
+    external: false,
+  },
+  {
+    image: '/images/6a4f6c5d35f990c9cf987053_climate_funds.png',
+    kicker: 'From the blog',
+    title: 'Climate capital is still struggling to scale promising innovations.',
+    text: '',
+    href: 'https://www.hellobrink.co/blog',
+    external: true,
+  },
+  {
+    image: '/images/6a4e0c6303419236b24b3df8_dont-believe-the-hype-83.png',
+    kicker: 'Our latest newsletter',
+    title: "Don't believe the hype! How not to get swept away on a BS wave.",
+    text: '',
+    href: 'https://www.hellobrink.co/blog',
+    external: true,
+  },
+];
+
+const pillars = [
+  {
+    title: 'Our work',
+    text: "Addressing some of the world's most pressing issues across health, education and climate.",
+    href: withBase('/our-work'),
+  },
+  {
+    title: 'Our methods',
+    text: 'How we work with our partners to find obvious solutions to non-trivial problems.',
+    href: withBase('/offers'),
+  },
+  {
+    title: 'Our foundation',
+    text: 'Bringing people together to imagine a better future and make that future happen.',
+    href: withBase('/foundation'),
+  },
+];
 ---
 
 <Layout title="Home">
-  <div class="container prose">
-    {Content ? <Content /> : <p>Homepage content not found — run <code>npm run scrape</code>.</p>}
-  </div>
+  <section class="hero" style={`background-image: url('${withBase('/images/hero-cranes-on-red.png')}')`}>
+    <div class="hero-text">
+      <h1>Explore Behavioural Innovation</h1>
+      <p>Our proven approach for creating meaningful change.</p>
+      <a class="button inverted" href="https://bi.hellobrink.co">Find out more</a>
+    </div>
+  </section>
+
+  <section class="section doing">
+    <div class="container">
+      <div class="card-row">
+        {doingCards.map((card) => (
+          <a
+            class="card"
+            href={card.href}
+            target={card.external ? '_blank' : undefined}
+            rel={card.external ? 'noopener' : undefined}
+          >
+            <img src={card.image.startsWith('http') ? card.image : withBase(card.image)} alt="" />
+            <p class="mono kicker">{card.kicker}</p>
+            <h2>{card.title}</h2>
+            {card.text && <p>{card.text}</p>}
+            <span class="mono read-more">Read more &gt;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section pillars">
+    <div class="container">
+      <h1 class="display">Innovation as if people matter</h1>
+      <div class="card-row">
+        {pillars.map((pillar) => (
+          <a class="card" href={pillar.href}>
+            <h2>{pillar.title}</h2>
+            <p>{pillar.text}</p>
+            <span class="mono read-more">Read more &gt;</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section stats">
+    <div class="container">
+      <p class="mono">Since 2018 Brink has</p>
+      <div class="stats-row">
+        <div class="stat">
+          <span class="stat-lead">Supported over</span>
+          <span class="stat-value display">340</span>
+          <span class="stat-label">innovation teams</span>
+        </div>
+        <div class="stat">
+          <span class="stat-lead">across</span>
+          <span class="stat-value display">53</span>
+          <span class="stat-label">countries</span>
+        </div>
+        <div class="stat">
+          <span class="stat-lead">to access more than</span>
+          <span class="stat-value display">£60m</span>
+          <span class="stat-label">in funding</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section who">
+    <div class="container who-inner">
+      <div>
+        <p class="mono">Who we are</p>
+        <h1 class="display">
+          We're a global team of technologists, designers, strategists, and
+          behavioural scientists, united by a commitment to harnessing
+          technology for transformative impact
+        </h1>
+      </div>
+      <div class="who-body">
+        <p>
+          Working alongside our partners we create ideas that put human
+          behaviour at their core.
+        </p>
+        <p>
+          By integrating insights from psychology, anthropology, sociology,
+          and economics, we create the mindsets and mechanisms that deliver
+          real change.
+        </p>
+        <a class="button" href={withBase('/team')}>Read more</a>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
-  .prose {
-    padding: 2rem 0 4rem;
-    max-width: 70ch;
+  .hero {
+    min-height: calc(100vh - 66px);
+    background-color: var(--brand-red);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 2rem 4rem;
   }
 
-  .prose :global(img) {
-    border-radius: 12px;
-    margin: 1.5rem 0;
+  .hero-text {
+    color: #fff;
+    max-width: 600px;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    color: #fff;
+  }
+
+  .hero-text p {
+    font-size: 1.15rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .section {
+    padding: 3.5rem 0;
+    border-bottom: 1px solid var(--brand-red);
+  }
+
+  .section:last-of-type {
+    border-bottom: none;
+  }
+
+  .card-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .card {
+    display: block;
+    color: var(--type-main);
+    text-decoration: none;
+  }
+
+  .card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    margin-bottom: 1.25rem;
+  }
+
+  .card h2 {
+    margin-bottom: 0.5em;
+  }
+
+  .card:hover h2 {
+    text-decoration: underline;
+  }
+
+  .kicker {
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+
+  .read-more {
+    color: var(--brand-red);
+  }
+
+  .pillars h1 {
+    margin-bottom: 2rem;
+  }
+
+  .stats .mono {
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-lead {
+    font-size: 1rem;
+    color: var(--text-muted);
+  }
+
+  .stat-value {
+    font-size: 5rem;
+    color: var(--brand-red);
+    line-height: 1.1;
+  }
+
+  .stat-label {
+    font-size: 1.1rem;
+  }
+
+  .who-inner {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 3rem;
+    align-items: end;
+  }
+
+  .who h1 {
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+  }
+
+  .who .mono {
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 3rem 1.5rem;
+    }
+
+    .who-inner {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

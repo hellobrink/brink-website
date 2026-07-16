@@ -1,86 +1,138 @@
 ---
 import { withBase } from '../lib/base';
 
-// Nav intentionally keeps roughly today's structure (Decision 3 in the
-// restructure brief — nav redesign — is deferred). The one change already
-// made: "Our work" and "Case Studies" are merged into a single "Our Work"
-// item, since the content model behind them is now one collection
-// (Decision 1). "Blog" is dropped for v1 — there's no blog collection
-// built yet, so linking to it would 404.
+// Matches the live site's navbar: dark teal bar, white boxed BRINK logo
+// left, hamburger right (desktop included). The menu opens as a dark
+// overlay with large Signifier links (.nav-link-2 on the live site is
+// Signifier 300 at 2rem, white).
+//
+// Nav structure keeps roughly today's items (Decision 3 in the brief —
+// nav redesign — is deferred). "Our Work" and "Case Studies" are merged
+// into one item since they're one collection now (Decision 1); "Blog" is
+// dropped for v1 (no blog collection built yet).
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About Brink' },
-  { href: '/offers', label: 'Our Offers' },
-  { href: '/our-work', label: 'Our Work' },
-  { href: '/team', label: 'Meet the Team' },
+  { href: '/offers', label: 'Our offers' },
+  { href: '/our-work', label: 'Our work' },
+  { href: '/sectors', label: 'Sectors' },
+  { href: '/team', label: 'Meet the team' },
   { href: '/foundation', label: 'Brink Foundation' },
   { href: '/careers', label: 'Careers' },
 ];
 ---
 
 <header class="site-header">
-  <div class="container header-inner">
+  <div class="header-inner">
     <a href={withBase('/')} class="brand">
-      <img src={withBase('/images/brink-logotype-dark.png')} alt="Brink" width="140" />
+      <img src={withBase('/images/brink-logo-white.webp')} alt="Brink" width="122" />
     </a>
-    <nav aria-label="Primary">
-      <ul>
-        {navItems.map((item) => (
-          <li><a href={withBase(item.href)}>{item.label}</a></li>
-        ))}
-      </ul>
-    </nav>
+    <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="site-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </div>
+  <nav id="site-menu" class="site-menu" aria-label="Primary" hidden>
+    <ul>
+      {navItems.map((item) => (
+        <li><a href={withBase(item.href)}>{item.label}</a></li>
+      ))}
+    </ul>
+  </nav>
 </header>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const menu = document.getElementById('site-menu');
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    toggle.classList.toggle('open', !open);
+    if (menu) menu.hidden = open;
+    document.body.classList.toggle('menu-open', !open);
+  });
+</script>
 
 <style>
   .site-header {
-    background: var(--color-off-white);
-    border-bottom: 1px solid rgba(6, 51, 61, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    background: var(--brand-green);
+    color: #fff;
+    position: relative;
+    z-index: 20;
   }
 
   .header-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    gap: 1.5rem;
+    padding: 10px 24px 9px;
   }
 
   .brand img {
     display: block;
+    width: 122px;
+    height: auto;
   }
 
-  nav ul {
-    list-style: none;
+  .menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-    margin: 0;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: #fff;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .menu-toggle.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .site-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--brand-green);
+    padding: 2rem 24px 3rem;
+    box-shadow: 0 12px 24px rgba(6, 51, 61, 0.25);
+  }
+
+  .site-menu ul {
+    list-style: none;
+    margin: 0 auto;
     padding: 0;
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    max-width: var(--max-width);
   }
 
-  nav a {
+  .site-menu a {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 2rem;
+    line-height: 1.7;
+    color: #fff;
     text-decoration: none;
-    color: var(--color-dark-teal);
   }
 
-  nav a:hover {
-    color: var(--color-coral);
-  }
-
-  @media (max-width: 768px) {
-    .header-inner {
-      flex-direction: column;
-      align-items: flex-start;
-    }
+  .site-menu a:hover {
+    text-decoration: underline;
   }
 </style>

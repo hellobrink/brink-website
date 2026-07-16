@@ -44,19 +44,19 @@ offers.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
     display: block;
     height: 100%;
     text-decoration: none;
-    color: var(--color-dark-teal);
+    color: var(--type-main);
     background: white;
-    border-radius: 12px;
+    border-radius: 0;
     padding: 1.75rem;
-    box-shadow: 0 1px 3px rgba(6, 51, 61, 0.1);
+    border: 1px solid var(--background-faded);
   }
 
   .offers-grid a:hover h2 {
-    color: var(--color-coral);
+    color: var(--brand-red);
   }
 
   .offers-grid p {
-    color: var(--color-mid-gray);
+    color: var(--text-muted);
     margin: 0;
   }
 </style>

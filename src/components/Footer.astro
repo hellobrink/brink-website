@@ -1,6 +1,8 @@
 ---
 import { withBase } from '../lib/base';
 
+// Matches the live site's footer: light background, 10px solid coral top
+// border, dark teal text, mono uppercase labels.
 const sectors = [
   { href: '/sectors/climate', label: 'Climate' },
   { href: '/sectors/health', label: 'Health' },
@@ -12,12 +14,14 @@ const sectors = [
   <div class="container footer-inner">
     <div>
       <p class="mono">© Brink Innovation Limited</p>
-      <p>
+      <p class="mono address">
         Brink Innovation Ltd<br />
         86-90 Paul Street<br />
-        London EC2A 4NE
+        London<br />
+        EC2A 4NE
       </p>
-      <p><a href="mailto:coffee@hellobrink.co">coffee@hellobrink.co</a></p>
+      <p class="mono"><a href="mailto:coffee@hellobrink.co">coffee@hellobrink.co</a></p>
+      <p class="mono"><a href={withBase('/privacy-policy')}>Privacy policy</a></p>
     </div>
     <div>
       <p class="mono">Sectors</p>
@@ -28,17 +32,19 @@ const sectors = [
       </ul>
     </div>
     <div>
-      <p><a href={withBase('/privacy-policy')}>Privacy Policy</a></p>
+      <p class="mono">Subscribe to our monthly newsletter</p>
+      <a class="button" href="mailto:coffee@hellobrink.co?subject=Newsletter%20signup">Click here</a>
     </div>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    background: var(--color-dark-teal);
-    color: var(--color-off-white);
+    border-top: 10px solid var(--brand-red);
+    background: #fff;
+    color: var(--brand-green);
     margin-top: 4rem;
-    padding: 3rem 0;
+    padding: 41px 0 63px;
   }
 
   .footer-inner {
@@ -49,12 +55,12 @@ const sectors = [
   }
 
   .footer-inner a {
-    color: var(--color-off-white);
+    color: var(--brand-green);
     text-decoration: none;
   }
 
   .footer-inner a:hover {
-    color: var(--color-pink);
+    color: var(--brand-red);
   }
 
   .footer-inner ul {
@@ -63,11 +69,19 @@ const sectors = [
     padding: 0;
   }
 
-  .mono {
+  .footer-inner li a {
     font-family: var(--font-mono);
     text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 0.03em;
-    opacity: 0.8;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    line-height: 1.9;
+  }
+
+  .address {
+    line-height: 1.7;
+  }
+
+  .mono {
+    margin-bottom: 11px;
   }
 </style>

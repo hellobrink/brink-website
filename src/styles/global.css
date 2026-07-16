@@ -1,23 +1,33 @@
-/* Brink brand tokens — matches the design system already established in
-   the Brink Fund Builder tool (Lora / Libre Franklin / Inconsolata,
-   dark-teal + coral palette). Keeping this consistent means both tools
-   look like they come from the same company. */
+/* Brink design tokens — extracted verbatim from the live hellobrink.co
+   Webflow stylesheet (brink-a69e93.webflow.shared.*.css :root block).
+   Headings use Signifier Light, Brink's licensed display serif, served
+   from this repo (the same woff2 the live site serves). */
 
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400..600&family=Libre+Franklin:wght@300..700&family=Inconsolata:wght@400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300..700&family=Inconsolata:wght@400..700&display=swap');
+
+@font-face {
+  font-family: 'Signifier';
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url('../assets/fonts/signifier-light.woff2') format('woff2');
+}
 
 :root {
-  --color-dark-teal: #06333d;
-  --color-off-white: #f0f1ef;
-  --color-coral: #ff405f;
-  --color-blue: #4472ec;
-  --color-pink: #e99cd1;
-  --color-mid-gray: #789096;
+  /* Verbatim Webflow variable names/values */
+  --background-muted: #f0f1ef;
+  --brand-red: #ff405f;
+  --type-main: #06333d;
+  --brand-green: #06333d;
+  --text-subtle-inverted: #f0f1ef;
+  --background-faded: #dadedd;
+  --text-muted: #789096;
 
-  --font-display: 'Lora', serif;
+  --font-display: 'Signifier', Georgia, serif;
   --font-body: 'Libre Franklin', sans-serif;
   --font-mono: 'Inconsolata', monospace;
 
-  --max-width: 1100px;
+  --max-width: 1140px;
 }
 
 *,
@@ -34,28 +44,65 @@ body {
 
 body {
   font-family: var(--font-body);
-  font-weight: 300;
-  color: var(--color-dark-teal);
-  background: var(--color-off-white);
-  line-height: 1.55;
+  font-weight: 400;
+  font-size: 1.1rem; /* live site body computes to 17.6px */
+  color: var(--type-main);
+  background: #fff;
+  line-height: 1.6;
 }
 
-h1,
-h2,
-h3,
-h4 {
+/* Live site: h1 = Signifier 300; h2 = Libre Franklin 700 1.4rem;
+   h4 = Inconsolata uppercase */
+h1 {
   font-family: var(--font-display);
-  font-weight: 500;
+  font-weight: 300;
+  font-size: 2.6rem;
   line-height: 1.2;
   margin: 0 0 0.5em;
 }
 
+h2 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  margin: 0 0 0.5em;
+}
+
+h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.4;
+  margin: 0 0 0.5em;
+}
+
+h4 {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  line-height: 1;
+  margin: 0 0 0.75em;
+}
+
+/* Large serif display style, used for hero/statement headings the way
+   the live site uses Signifier at big sizes */
+.display {
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1.25;
+}
+
 p {
-  margin: 0 0 1em;
+  margin: 0 0 1.4rem;
 }
 
 a {
-  color: inherit;
+  color: var(--brand-red);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 img {
@@ -69,41 +116,59 @@ img {
   padding: 0 1.5rem;
 }
 
+/* Square outlined button — .button-4 / .hero-cta on the live site */
 .button {
   display: inline-block;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-family: var(--font-body);
   font-size: 0.85rem;
-  padding: 0.75em 1.5em;
-  border-radius: 999px;
-  background: var(--color-coral);
-  color: var(--color-off-white);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding: 0.6rem 1.2rem;
+  border: 1.5px solid var(--type-main);
+  border-radius: 0;
+  background: transparent;
+  color: var(--type-main);
   text-decoration: none;
-  border: none;
   cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .button:hover {
-  opacity: 0.9;
+  background: var(--type-main);
+  color: var(--text-subtle-inverted);
 }
 
-.button.secondary {
-  background: transparent;
-  color: var(--color-dark-teal);
-  border: 1px solid var(--color-dark-teal);
+.button.inverted {
+  border-color: #fff;
+  color: #fff;
 }
 
+.button.inverted:hover {
+  background: #fff;
+  color: var(--type-main);
+}
+
+/* Mono uppercase label — .mono on the live site */
+.mono {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* Tag readout — Inconsolata uppercase, as on live case studies */
 .tag {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 0.25em 0.75em;
-  border-radius: 999px;
-  border: 1px solid var(--color-mid-gray);
-  color: var(--color-mid-gray);
+  letter-spacing: 1px;
+  color: var(--type-main);
+  border: 1px solid var(--text-muted);
+  border-radius: 0;
+  padding: 0.2em 0.7em;
   margin: 0 0.35em 0.35em 0;
 }
