@@ -55,34 +55,61 @@ plugin in `astro.config.mjs`. If the site later moves to a custom domain
 (e.g. beta.hellobrink.co), change `base` in `astro.config.mjs` — nothing
 else should need touching.
 
-## Design system (extracted from the live Webflow site — do not invent)
+## We are NOT replicating the live site's design
 
-Tokens (verbatim from the live stylesheet, defined in `src/styles/global.css`):
+Important, and a change from the original plan. The live hellobrink.co has
+been added to over ~2 years by non-designers: incoherent headings and
+panels between page types, broken mobile on some pages. **It is being
+redesigned.** So do not spend effort replicating its layout, and never
+"fix" something to match a live page's look.
 
-| Variable | Value | Use |
-|---|---|---|
-| `--brand-green` / `--type-main` | `#06333d` | dark teal: navbar, text |
-| `--brand-red` | `#ff405f` | coral: links, accents, section rules, footer border |
-| `--background-muted` | `#f0f1ef` | off-white panels |
-| `--background-faded` | `#dadedd` | card borders |
-| `--text-muted` | `#789096` | secondary text |
+What we *do* want from the live site is its **content**: every heading,
+image, link and piece of copy, correctly modelled in the CMS. That's what
+`npm run audit` measures and what the open issues are about.
 
-Typography:
-- **Signifier Light (300)** — display serif for h1/big headings. Served from `src/assets/fonts/signifier-light.woff2` (Brink's licensed font, same file the live site serves). Never substitute another serif.
-- **Libre Franklin** — body (1.1rem/1.6) and bold h2/h3.
-- **Inconsolata** — `.mono` uppercase labels, tags, buttons-adjacent text.
+The current design is a deliberately neutral, coherent, mobile-sane
+baseline using Brink's real brand assets — a placeholder until the
+redesign, not an attempt at a replica.
 
-Aesthetic rules: everything is **square** (no border-radius except circular
-photos), **flat** (1px borders, no drop shadows), thin coral rules between
-homepage sections, 10px coral top border on the footer, white page
-background. Buttons are square outlines, uppercase, letter-spaced.
+## Design system — change `src/styles/theme.css`, nothing else
 
-## Verification standard (applies to every visual change)
+All visual decisions live in **`src/styles/theme.css`**, in two layers:
 
-A visual change is done when a **side-by-side check against the equivalent
-live page** shows matching structure: same headings, same images, same
-section order (unless the page is intentionally restructured per the brief
-— sectors, our-work — in which case check content coverage, not layout).
+- **Layer 1 — primitives:** raw values with descriptive names
+  (`--brink-coral: #ff405f`). Never referenced outside that file.
+- **Layer 2 — roles:** what a thing is *for* (`--color-accent`,
+  `--text-h1`, `--space-section`, `--radius`). **Components use only these.**
+
+The split matters: if a redesign makes the accent blue, `--brand-red: blue`
+would be nonsense. Roles let you repoint one file and the site follows.
+
+**Rules for any component you write or edit:**
+- Never hardcode a colour, font size, spacing value, or radius. There are
+  currently **zero** raw hex/rem/px values in component styles — keep it
+  that way, or the redesign gets expensive again.
+- Use the type scale (`--text-h1`, `--text-body`, `--text-stat`…), the
+  space scale (`--space-1`…`--space-10` and roles like `--space-section`),
+  and `--radius`, `--border-width`, `--transition`, `--measure`.
+- The type scale is fluid (`clamp()`), so responsiveness is structural
+  rather than bolted on with media queries.
+
+Brink's real assets, for reference: Signifier Light 300 (licensed display
+serif, self-hosted at `src/assets/fonts/signifier-light.woff2` — never
+substitute another serif), Libre Franklin (body), Inconsolata (mono
+labels); teal `#06333d`, coral `#ff405f`, off-white `#f0f1ef`.
+
+Legacy aliases (`--brand-red` → `--color-accent` etc.) exist in
+`global.css` so older branches keep building. Don't use them in new code.
+
+## Verification standard
+
+A change is done when the **content** is right and the build passes — not
+when it matches the live site's appearance (see above; we're not
+replicating it).
+
+For content completeness, `npm run audit` diffs the live site against the
+deployed beta for headings and images. Note it checks the **deployed**
+site, so it can't verify unmerged work — verify those in the browser.
 
 Practical notes for browser verification in Claude Code:
 - The browser pane screenshots reliably only at scroll position 0. To

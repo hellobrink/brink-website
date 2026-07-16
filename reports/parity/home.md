@@ -5,6 +5,17 @@
 
 Live page has 14 headings and 6 images.
 
+## Headings present only as body text (check hierarchy/styling)
+
+- [ ] h1: "What Brink is doing"
+- [ ] h2: "From the blog"
+- [ ] h2: "Our latest newsletter"
+- [ ] h1: "Since 2018 Brink has"
+- [ ] h2: "340"
+- [ ] h2: "53"
+- [ ] h2: "£60m"
+- [ ] h1: "Who we are"
+
 ## Missing images
 
 - [ ] `01-violet-ochieng.jpg`

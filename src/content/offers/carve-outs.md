@@ -1,7 +1,6 @@
 ---
 name: Innovation Carve-Outs
 summary: Creating space for innovation to be freely pursued and scaled
-image: /images/66d6f6f632b8420d2ec2fa8a_pilot_sticker.png
 ---
 
 Across Brink’s work with FCDO, city mayors, the World Bank and everything in between, we’ve heard the same thing time and again: “it’s easier to sign off £50m than £50k”.We design programmes and funds to address this challenge, by creating a space for innovation to be freely pursued within existing organisations or systems. Typically this involves designing a combination of a fund, non-financial support and innovation culture that supports investigating, testing and proving (or not!) the validity of an idea in order to catalyse change in the bigger system.

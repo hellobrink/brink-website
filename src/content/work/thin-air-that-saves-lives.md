@@ -2,7 +2,7 @@
 title: Improving access to medical oxygen in low and middle income countries
 programmeName: Improving the access to medical oxygen in low and middle income countries
 summary: "The Challenge Improve access to medical oxygen in low and middle income countries. WHAT WAS ACHIEVED Brought together manufacturers, engineers, innovators, hackers and backers to accelerate the development of new and innovative robust oxygen concentrators in low-resource settings. HOW WE DID IT The Oxygen CoLab: We worked with local communities, UNICEF, NGOs, academic institutions, manufacturers, "
-heroImage: /images/683eedfcedf0d0356145ccbc_screenshot-2025-06-03-at-134325.png
+heroImage: /images/66e2fe0de033509510f234e6_saves_lives.webp
 heroAlt: Improving access to medical oxygen in low and middle income countries
 sector: [health]
 offer: [missions]
@@ -64,5 +64,3 @@ To achieve these aims the Oxygen CoLab established the ‘oxygen-as-a-service’
 In 2021, after a ‘Dragon’s Den’ selection process, initial oxygen-as-a-service pilot grants were awarded to FREO2 in Tanzania, and Sanrai and Philips, both in India. We’re looking forward to sharing the learnings from each of these programmes as they develop, and you can read more about how FREO2 is piloting their O2aaS programme in Tanzania, in this article.
 
 In the coming months we’ll also be sharing news of the next phase of oxygen-as-a-service pilots, which will be operating across DRC, Philippines, Nigeria, Kenya & Uganda.
-
-

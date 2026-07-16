@@ -23,18 +23,18 @@ const { name, role, photo, sectorName } = Astro.props;
 
 <style>
   .named-cta {
-    background: var(--background-muted);
-    border: 1px solid rgba(6, 51, 61, 0.15);
-    border-radius: 0;
-    padding: 2rem;
-    margin: 3rem auto;
+    background: var(--color-surface-muted);
+    border: var(--border-width) solid rgba(6, 51, 61, 0.15);
+    border-radius: var(--radius);
+    padding: var(--space-6);
+    margin: var(--space-8) auto;
     max-width: var(--max-width);
   }
 
   .cta-inner {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: var(--space-5);
     flex-wrap: wrap;
     padding: 0;
   }
@@ -42,7 +42,7 @@ const { name, role, photo, sectorName } = Astro.props;
   .cta-photo {
     width: 64px;
     height: 64px;
-    border-radius: 50%;
+    border-radius: var(--radius-circle);
     object-fit: cover;
   }
 
@@ -53,8 +53,8 @@ const { name, role, photo, sectorName } = Astro.props;
   .mono {
     font-family: var(--font-mono);
     text-transform: uppercase;
-    font-size: 0.75rem;
-    color: var(--text-muted);
+    font-size: var(--text-tag);
+    color: var(--color-text-muted);
   }
 
   .cta-inner .button {

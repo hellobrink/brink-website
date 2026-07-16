@@ -2,7 +2,7 @@
 title: Creating innovative ways for a city council to provide effective local services
 programmeName: ASToN
 summary: The Challenge Understand why income from taxes in the City of Matola in Mozambique was so low and create innovative new ways for the council to provide effective local services. WHAT WAS ACHIEVED Challenged assumptions and introduced ‘bureaucratic innovation’ right across the council, leading to smart, citizen-centered services that make paying taxes simpler. HOW WE DID IT Enabling crucial convers
-heroImage: /images/683eedfcedf0d0356145ccbc_screenshot-2025-06-03-at-134325.png
+heroImage: /images/66e2fd53ef57fc31befb9055_city.webp
 heroAlt: Creating innovative ways for a city council to provide effective local services
 sector: [climate]
 offer: [carve-outs]
@@ -34,8 +34,6 @@ In December 2021, Brink and ASToN ran workshops with Matola Council staff. Toget
 Through this experience we realised the Matola team would benefit from more research to better understand the problem and the root causes. We worked with them to find tools and approaches for consultation with stakeholders and citizens.
 
 The consultation was eye-opening for everyone. Council staff came to a sudden and unexpected realisation:
-
-
 
 > This is the city’s problem, not the citizens’ problem
 
@@ -72,5 +70,3 @@ There are “smart city” initiatives all over the world, and they often put th
 There’s nothing wrong with that approach, and new hardware and software can make a big difference. But that’s not the only approach worth considering.
 
 What’s clear from Matola is that sometimes, being a “smart city” means making smart choices about simpler things. Such as: the nature of bureaucracy, how paper documents get passed around; or what might happen if you take the services to the citizens, rather than expecting the citizens to go to the services.
-
-

@@ -2,7 +2,7 @@
 title: Creating community across conflict zones
 programmeName: Humanitarian Grand Challenge
 summary: The Challenge Beyond financial support, offer a sense of community and connections to innovators working to help people impacted by humanitarian crises caused by conflict. WHAT WAS ACHIEVED Developed a supportive and dynamic community that allows those working in unpredictable and extreme environments to come together and make meaningful connections, identify new opportunities and form sector-chan
-heroImage: /images/683eedfcedf0d0356145ccbc_screenshot-2025-06-03-at-134325.png
+heroImage: /images/66cf33cfcd82da1966514461_hirs_ev_photo_0.webp
 heroAlt: Creating community across conflict zones
 sector: [health]
 offer: [open-innovation]
@@ -63,5 +63,3 @@ While we recognise that that we’ll never be able to going to be able to put a 
 We are now into our 3rd year of working with Humanitarian Grand Challenge and our methods and our approach are quite different from when we began back in 2019. We see that as a mark of success, because it demonstrates our ability and our willingness to listen, learn, iterate and adapt.
 
 As we move into this next phase we hope to introduce more targeted conversations and collaborations. We want to explore how we can connect those working in the same regions or in the same industries and to find ways to capture and support the opportunities that spark from those conversations. At the same time we also want to begin empowering the innovators to make their own connections so that this incredible network can continue to grow and become even more valuable.
-
-

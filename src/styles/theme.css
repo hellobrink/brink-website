@@ -1,0 +1,139 @@
+/* ============================================================================
+   THEME — this is the file to change when redesigning the site.
+   ============================================================================
+
+   Everything visual is decided here. Components never hardcode a colour,
+   size, or spacing value — they reference the ROLE tokens in Layer 2 below.
+   Change a value here and it changes everywhere, coherently.
+
+   Two layers, deliberately:
+
+     Layer 1 — PRIMITIVES. Raw values with descriptive names (`--brink-coral`
+               is the hex Brink uses). Nothing outside this file should ever
+               reference these directly.
+
+     Layer 2 — ROLES. What a thing is *for* (`--color-accent`), not what it
+               *is* (`--brink-coral`). Components use only these.
+
+   Why the split: if a redesign makes the accent colour blue, `--brand-red:
+   blue` would be nonsense and every component would need editing. With roles,
+   you repoint `--color-accent` at a different primitive and the site follows.
+
+   To try a new design direction: rewrite Layer 1's palette and the Layer 2
+   mappings. That's it — no component files need touching.
+   ========================================================================= */
+
+/* ---------------------------------------------------------------------------
+   LAYER 1 — PRIMITIVES
+   Current values are Brink's real brand, taken from the live Webflow
+   stylesheet. Replace these when the design language changes.
+   ------------------------------------------------------------------------ */
+:root {
+  /* Palette */
+  --brink-teal: #06333d;
+  --brink-coral: #ff405f;
+  --brink-off-white: #f0f1ef;
+  --brink-faded: #dadedd;
+  --brink-grey: #789096;
+  --brink-white: #ffffff;
+
+  /* Typefaces. Signifier is Brink's licensed display serif (self-hosted). */
+  --font-signifier: 'Signifier', Georgia, serif;
+  --font-libre-franklin: 'Libre Franklin', system-ui, sans-serif;
+  --font-inconsolata: 'Inconsolata', ui-monospace, monospace;
+
+  /* Type scale. Fluid steps — clamp(min, preferred, max) so the site is
+     responsive by construction rather than by scattered media queries.
+     This replaced 17 hand-picked font sizes. */
+  --size-2xs: 0.75rem;
+  --size-xs: 0.8rem;
+  --size-sm: 0.9rem;
+  --size-md: 1rem;
+  --size-lg: 1.1rem;
+  --size-xl: 1.4rem;
+  --size-2xl: clamp(1.5rem, 2.5vw, 1.9rem);
+  --size-3xl: clamp(1.8rem, 3.5vw, 2.6rem);
+  --size-4xl: clamp(2.2rem, 5vw, 3.4rem);
+  --size-5xl: clamp(2.5rem, 4.5vw, 3.9rem);
+  --size-6xl: clamp(3rem, 7vw, 5rem);
+
+  /* Space scale, roughly 1.5×. Replaced 46 ad-hoc padding/margin values. */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 2.5rem;
+  --space-8: 3rem;
+  --space-9: 4rem;
+  --space-10: 6rem;
+}
+
+/* ---------------------------------------------------------------------------
+   LAYER 2 — ROLES
+   The vocabulary components speak. Repoint these to redesign.
+   ------------------------------------------------------------------------ */
+:root {
+  /* --- Colour roles --- */
+  --color-text: var(--brink-teal);
+  --color-text-muted: var(--brink-grey);
+  --color-text-inverted: var(--brink-off-white);
+  --color-accent: var(--brink-coral);
+  --color-link: var(--brink-coral);
+
+  --color-surface: var(--brink-white); /* default page background */
+  --color-surface-muted: var(--brink-off-white); /* subtle panels */
+  --color-surface-inverted: var(--brink-teal); /* dark bands, navbar */
+  --color-border: var(--brink-faded);
+  --color-rule: var(--brink-coral); /* section divider rules */
+
+  /* --- Typography roles --- */
+  --font-display: var(--font-signifier); /* big serif statements */
+  --font-body: var(--font-libre-franklin);
+  --font-mono: var(--font-inconsolata); /* uppercase labels, tags */
+
+  --text-body: var(--size-lg);
+  --text-body-sm: var(--size-sm);
+  --text-label: var(--size-sm); /* mono labels/kickers */
+  --text-tag: var(--size-xs);
+  --text-h1: var(--size-4xl);
+  --text-h2: var(--size-xl);
+  --text-h3: var(--size-lg);
+  --text-display: var(--size-3xl); /* serif statement text */
+  --text-display-lg: var(--size-5xl); /* case-study titles */
+  --text-stat: var(--size-6xl); /* the big 340 / 53 / £60m */
+
+  --weight-display: 300;
+  --weight-body: 400;
+  --weight-bold: 700;
+
+  --leading-tight: 1.2;
+  --leading-snug: 1.4;
+  --leading-normal: 1.6;
+
+  --tracking-label: 1px; /* mono uppercase labels */
+  --tracking-button: 0.1em;
+
+  /* --- Spacing roles --- */
+  --space-section: var(--space-8); /* vertical rhythm between sections */
+  --space-block: var(--space-5); /* between blocks inside a section */
+  --space-inline: var(--space-4);
+  --space-gutter: var(--space-5); /* container side padding */
+  --space-grid-gap: var(--space-7);
+
+  /* --- Shape & motion --- */
+  --radius: 0; /* Brink is square. Change once → whole site rounds. */
+  --radius-pill: 999px;
+  --radius-circle: 50%;
+  --border-width: 1px;
+  --border-width-thick: 10px; /* the footer's coral top border */
+  --border-width-button: 1.5px;
+
+  --transition: 0.2s ease;
+
+  /* --- Layout --- */
+  --max-width: 1140px;
+  --measure: 70ch; /* comfortable reading width for prose */
+  --measure-narrow: 60ch;
+}
