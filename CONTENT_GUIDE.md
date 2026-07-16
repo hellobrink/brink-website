@@ -18,11 +18,27 @@ under a list), the site build will fail and the live site won't update —
 it won't take the broken content live. Check the "Actions" tab on GitHub if
 a change doesn't appear after a few minutes.
 
-## Known TODOs from the initial migration
+## Re-running the scraper
 
 The site was scraped from the old Webflow version of hellobrink.co as a
-starting draft. Anything marked `TODO` in a file still needs a human pass —
-search the repo for `TODO` to find them all. The biggest ones:
+starting draft. That scraper (`npm run scrape`) can be re-run any time to
+check for updates on the live site — it's non-destructive: it writes to a
+disposable `.scraped/` staging folder, never straight into `src/content/` or
+`public/images/`.
+
+Getting a fresh scrape into the real site is a separate, deliberate step:
+run `npm run promote` afterwards. It copies new files in but **will not
+overwrite an image or content file that already differs from the scraped
+version** — so hand-added logos and hand-written sector copy are safe from
+a careless re-scrape. If it reports a conflict, it means that file was
+edited by hand since the last scrape; merge it manually, or re-run with
+`npm run promote -- --force` if you're sure you want the live site's
+version instead. Either way, check `git diff` before committing.
+
+## Known TODOs from the initial migration
+
+Anything marked `TODO` in a file still needs a human pass — search the repo
+for `TODO` to find them all. The biggest ones:
 
 - **Sector pages** (`src/content/sectors/*.md`): `positioningLine` and
   `whatWeDo` are placeholders. The restructure brief's diagnosis was that

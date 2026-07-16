@@ -22,7 +22,8 @@ everywhere it belongs.
 ```
 npm run dev       # dev server on :4321 (pages served under /brink-website/)
 npm run build     # static build to dist/ — must pass before any push
-npm run scrape    # one-off migration scraper (already run; re-run only deliberately)
+npm run scrape    # scrapes live site into .scraped/ (staging only — see below)
+npm run promote   # copies .scraped/ into src/content + public/images, non-destructively
 npm run audit     # parity audit: diffs live site vs deployed beta, writes reports/parity/
 ```
 
@@ -38,7 +39,8 @@ Node 20 works but warns; CI uses Node 22.
   - `pages/` — about, team, foundation, careers, privacy-policy (plain Markdown). `home.md` exists but the homepage is hand-built in `src/pages/index.astro`.
 - `src/pages/` — templates. `our-work/[slug].astro` renders both case studies and light entries.
 - `src/components/` — Header (dark-teal navbar + overlay menu), Footer, CaseStudyCard, ImpactMetric, LogoStrip, BehaviouralPanel, PrinciplesTrio, NamedContactCTA, StaticPageBody.
-- `scripts/scrape.mjs` — the Webflow migration scraper (cheerio). Content it produced is a draft; TODO markers = needs human copy.
+- `scripts/scrape.mjs` — the Webflow scraper (cheerio). Writes a draft into `.scraped/` only, never directly into `src/content` or `public/images` — see "Re-running the scraper" below. TODO markers in scraped content = needs human copy.
+- `scripts/promote.mjs` — copies `.scraped/` into the real tree; the only step that touches `src/content`/`public/images` on the scraper's behalf.
 - `CONTENT_GUIDE.md` — plain-language editing guide for non-technical teammates.
 
 ## The base-path rule (important)
@@ -103,6 +105,29 @@ See `CONTENT_GUIDE.md` for frontmatter templates. Short version:
 - **New work item / case study:** add `src/content/work/<slug>.md`. Images go in `public/images/`, referenced as `/images/<file>` (rehype adds the base).
 - **Edit a sector:** `src/content/sectors/<name>.md` — structured frontmatter (stats, whatWeDo, principles, namedContact).
 - **Schema changes:** `src/content.config.ts`. The build fails loudly on frontmatter that doesn't match — that's intentional; it stops broken content going live.
+
+## Re-running the scraper (non-destructive by design)
+
+`npm run scrape` only ever writes to `.scraped/` (gitignored, wiped and
+regenerated fresh on every run — it's disposable). It never touches
+`src/content/` or `public/images/` directly, so it's safe to re-run any time
+to see what's changed on the live site.
+
+Getting scraped content into the real tree is a separate, explicit step:
+
+```
+npm run scrape     # writes a fresh draft to .scraped/
+npm run promote    # copies .scraped/ into src/content/ and public/images/
+```
+
+`npm run promote` copies files that are new, and **skips any file that
+already exists and differs from the scraped version** — it never silently
+overwrites hand-added images (e.g. `brink-logo-white.webp`,
+`hero-cranes-on-red.png`, the `brink-logotype-*` files) or hand-edited
+content (e.g. sector copy once the `TODO`s are written). Conflicts are
+printed so you can merge them by hand, or re-run with `npm run promote --
+--force` to overwrite deliberately. Always check `git diff` after promoting,
+before committing.
 
 ## Known state / gaps
 

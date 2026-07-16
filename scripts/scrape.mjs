@@ -1,24 +1,33 @@
 #!/usr/bin/env node
-// One-off migration scraper: pulls text and images from the live
-// hellobrink.co (Webflow) site and writes first-pass content files into
-// src/content/{work,sectors,offers,shared,pages} plus public/images.
+// Scraper: pulls text and images from the live hellobrink.co (Webflow)
+// site and writes first-pass content files into a disposable `.scraped/`
+// staging directory — never directly into src/content or public/images.
 //
 // This produces a DRAFT. Anything the brief says needs actual writing
 // (sector positioning lines, "what we do" blocks, varied impact metrics)
 // is written as an explicit TODO placeholder rather than guessed at —
 // see CONTENT_GUIDE.md for what still needs a human pass.
 //
+// `.scraped/` is wiped and regenerated on every run — that's fine, it's
+// gitignored and disposable. Promoting its contents into the real tree is a
+// separate, explicit, non-destructive step: run `npm run promote` to copy
+// staged files in, which skips (rather than clobbers) anything already in
+// src/content or public/images that differs from the freshly scraped
+// version — see scripts/promote.mjs. This is what protects hand-added
+// brand assets and hand-edited content from a careless re-scrape.
+//
 // Run with: npm run scrape
 
 import * as cheerio from 'cheerio';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile, rm } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 
 const BASE = 'https://www.hellobrink.co';
 const ROOT = path.resolve(import.meta.dirname, '..');
-const IMG_DIR = path.join(ROOT, 'public/images');
-const CONTENT_DIR = path.join(ROOT, 'src/content');
+const STAGING_DIR = path.join(ROOT, '.scraped');
+const IMG_DIR = path.join(STAGING_DIR, 'images');
+const CONTENT_DIR = path.join(STAGING_DIR, 'content');
 
 const SECTOR_NAMES = ['climate', 'health', 'education'];
 const OFFER_NAMES = {
@@ -518,6 +527,10 @@ async function scrapeStaticPages() {
 }
 
 async function main() {
+  // .scraped/ is disposable draft output, regenerated fresh every run — safe
+  // to wipe, unlike the real src/content and public/images it gets promoted
+  // into (see scripts/promote.mjs).
+  await rm(STAGING_DIR, { recursive: true, force: true });
   await mkdir(IMG_DIR, { recursive: true });
   await mkdir(CONTENT_DIR, { recursive: true });
 
@@ -532,6 +545,9 @@ async function main() {
   console.log('\n=== Done ===');
   console.log(`Pages fetched: ${stats.pagesFetched}`);
   console.log(`Images downloaded: ${stats.imagesDownloaded} (failed: ${stats.imagesFailed})`);
+  console.log(`\nDraft written to ${path.relative(ROOT, STAGING_DIR)}/ — nothing in src/content or`);
+  console.log('public/images has been touched yet. Review the draft, then run `npm run promote`');
+  console.log('to copy it into the real tree (it will not overwrite anything that already differs).');
   console.log('\nEverything marked TODO in the generated .md files needs a human editorial pass —');
   console.log('see CONTENT_GUIDE.md.');
 }
