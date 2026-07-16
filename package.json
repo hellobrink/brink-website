@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "scrape": "node scripts/scrape.mjs",
+    "promote": "node scripts/promote.mjs",
     "audit": "node scripts/parity-audit.mjs"
   },
   "dependencies": {

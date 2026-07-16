@@ -1,3 +1,6 @@
+# scrape.mjs staging output — see CLAUDE.md "CMS operations" / npm run promote
+.scraped/
+
 # build output
 dist/
 
