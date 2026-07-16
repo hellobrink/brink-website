@@ -38,6 +38,8 @@ const sectors = defineCollection({
   schema: z.object({
     name: z.string(),
     headline: z.string(),
+    heroImage: z.string().optional(),
+    heroAlt: z.string().optional(),
     // Plain, not poetic: "who this is for and what Brink does". See brief
     // section 4A.3's diagnosis — pages currently set a mood without
     // landing the proposition.
@@ -90,6 +92,8 @@ const shared = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/shared' }),
   schema: z.object({
     title: z.string(),
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
   }),
 });
 

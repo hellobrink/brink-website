@@ -1,5 +1,6 @@
 ---
 import { getEntry, render } from 'astro:content';
+import { withBase } from '../lib/base';
 
 // Shared across every sector page — one record, referenced rather than
 // duplicated (per the restructure brief).
@@ -9,11 +10,18 @@ const { Content } = entry ? await render(entry) : { Content: null };
 
 {entry && (
   <section class="behavioural-panel">
-    <div class="container">
-      <h2>{entry.data.title}</h2>
+    <div class="container panel-inner">
       <div class="prose">
+        <h2>{entry.data.title}</h2>
         <Content />
       </div>
+      {entry.data.image && (
+        <img
+          class="panel-image"
+          src={withBase(entry.data.image)}
+          alt={entry.data.imageAlt ?? ''}
+        />
+      )}
     </div>
   </section>
 )}
@@ -30,7 +38,25 @@ const { Content } = entry ? await render(entry) : { Content: null };
     color: var(--background-muted);
   }
 
+  .panel-inner {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .prose {
+    flex: 1;
+    min-width: 240px;
+  }
+
   .prose :global(p) {
     max-width: 60ch;
+  }
+
+  .panel-image {
+    max-width: 280px;
+    width: 100%;
+    height: auto;
   }
 </style>
