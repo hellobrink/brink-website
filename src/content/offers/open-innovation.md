@@ -1,6 +1,7 @@
 ---
 name: Open Innovation
 summary: Research & development with people close to the challenge
+image: /images/66d6f6fa969e70c13175b113_experiment_sticker.webp
 ---
 
 We know the best insights and ideas come from those closest to the issues, and that the challenges of our time cannot be solved by any individual or single idea alone.Brink has proven approaches for capturing and supercharging diverse and non-obvious ideas through competitions, challenges and venturing support. Governments, donors and philanthropic organisations partner with us to design and run funds that invest in portfolios of ideas, unearth deep insight and create spaces for learning.

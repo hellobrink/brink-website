@@ -133,9 +133,3 @@ From London to Kigali, Barcelona to Nairobi, our passionate thinkers and doers c
 Diversity is in our DNA. It’s more than just the makeup of the team. It also means being able to work in multidisciplinary ways, and to articulate a more global perspective on innovation, which feels representative of the work we do and the innovators we work with. And it means being where the work is, and being of the places we work, not just parachuting into them.
 
 Meet the team
-
-## If you want to explor e how we can work together to shift systems, transform mindsets, and create new possibilities, we'd love to hear from you.
-
-![](/images/66f19135374bb74b702fe546_66d6150d565356fb8e364cd7_alex_1.webp)
-
-The best person to get in touch with is Alex, our Innovation Director and you can email her on alex@hellobrink.co.
