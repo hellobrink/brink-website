@@ -1,0 +1,59 @@
+---
+import { withBase } from '../lib/base';
+---
+
+<section class="explore-cta">
+  <div class="container">
+    <h2 class="display">
+      If you want to explore how we can work together to shift systems,
+      transform mindsets, and create new possibilities, we'd love to hear
+      from you.
+    </h2>
+    <div class="contact">
+      <img
+        src={withBase('/images/66f19135374bb74b702fe546_66d6150d565356fb8e364cd7_alex_1.webp')}
+        alt="Alex, Innovation Director at Brink"
+        class="photo"
+      />
+      <p>
+        The best person to get in touch with is Alex, our Innovation Director
+        and you can email her on <a href="mailto:alex@hellobrink.co">alex@hellobrink.co</a>.
+      </p>
+    </div>
+    <a class="button" href="mailto:alex@hellobrink.co">Get in touch</a>
+  </div>
+</section>
+
+<style>
+  .explore-cta {
+    padding: 3rem 0 4rem;
+    border-top: 1px solid var(--background-faded);
+  }
+
+  h2.display {
+    font-size: 2rem;
+    max-width: 50ch;
+    margin-bottom: 2rem;
+  }
+
+  .contact {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .photo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .contact p {
+    margin: 0;
+    max-width: 50ch;
+    color: var(--text-muted);
+  }
+</style>

@@ -78,4 +78,4 @@ In Kenya, our Sandbox to build the #KeepKenyaLearning campaign pivoted from prov
 
 The evidence from rigorous testing we conducted with officials in Ministries of Education in Sub-Saharan Africa led to UNICEF ESARO’s decision to discontinue the Regional Learning Hub initiative, a large investment in pan-African digital learning resources. This led to significant time and financial savings.
 
-‍
+

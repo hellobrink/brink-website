@@ -24,8 +24,15 @@ const relatedWork = allWork
 <Layout title={offer.data.name} description={offer.data.summary}>
   <article class="container offer-detail">
     <p class="back"><a href={withBase('/offers')}>&larr; All offers</a></p>
-    <h1>{offer.data.name}</h1>
-    <p class="summary">{offer.data.summary}</p>
+    <header class="offer-header">
+      <div>
+        <h1>{offer.data.name}</h1>
+        <p class="summary">{offer.data.summary}</p>
+      </div>
+      {offer.data.image && (
+        <img src={withBase(offer.data.image)} alt="" class="sticker" />
+      )}
+    </header>
     <div class="prose">
       <Content />
     </div>
@@ -61,6 +68,19 @@ const relatedWork = allWork
     font-size: 0.8rem;
     text-decoration: none;
     color: var(--text-muted);
+  }
+
+  .offer-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .sticker {
+    width: 120px;
+    height: auto;
+    flex-shrink: 0;
   }
 
   .summary {

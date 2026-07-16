@@ -1,6 +1,6 @@
 ---
 name: Climate
-headline: At Brink we tackle the climate crisis with solutions that are scalable, implementable, and rooted in local reality.‍
+headline: At Brink we tackle the climate crisis with solutions that are scalable, implementable, and rooted in local reality.
 heroImage: /images/699db330689110aef32fd2b2_climate_collage_v3a.png
 heroAlt: "TODO: describe this image for alt text."
 positioningLine: "TODO: plain positioning line — \"call Brink when ___\". See brief section 4A.3."

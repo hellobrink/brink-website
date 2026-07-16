@@ -10,7 +10,7 @@ We are a global team of technologists, designers, strategists, and behavioural s
 
 Alongside our clients and partners, we create bold, innovative strategies to tackle urgent and preventable issues and drive impact in education, health, climate and more.
 
-We love collaborating with those who are frustrated by the status quo and ready to address some of the world’s most pressing challenges. Whether that's funders creating new models to address big challenges, changemakers seeking fresh approaches, or leaders working to future-proof their institutions.‍Our latest collaboration is our biggest yet - Brink is now part of Africa Practice. You can find out what this means for our work in this post.
+We love collaborating with those who are frustrated by the status quo and ready to address some of the world’s most pressing challenges. Whether that's funders creating new models to address big challenges, changemakers seeking fresh approaches, or leaders working to future-proof their institutions.Our latest collaboration is our biggest yet - Brink is now part of Africa Practice. You can find out what this means for our work in this post.
 
 ## Behavioural Innovation: Our proven approach
 
@@ -133,9 +133,3 @@ From London to Kigali, Barcelona to Nairobi, our passionate thinkers and doers c
 Diversity is in our DNA. It’s more than just the makeup of the team. It also means being able to work in multidisciplinary ways, and to articulate a more global perspective on innovation, which feels representative of the work we do and the innovators we work with. And it means being where the work is, and being of the places we work, not just parachuting into them.
 
 Meet the team
-
-## If you want to explor e how we can work together to shift systems, transform mindsets, and create new possibilities, we'd love to hear from you.
-
-![](/images/66f19135374bb74b702fe546_66d6150d565356fb8e364cd7_alex_1.webp)
-
-The best person to get in touch with is Alex, our Innovation Director and you can email her on alex@hellobrink.co.

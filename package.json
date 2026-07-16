@@ -9,7 +9,8 @@
     "preview": "astro preview",
     "scrape": "node scripts/scrape.mjs",
     "promote": "node scripts/promote.mjs",
-    "audit": "node scripts/parity-audit.mjs"
+    "audit": "node scripts/parity-audit.mjs",
+    "lint:content": "node scripts/lint-content.mjs"
   },
   "dependencies": {
     "astro": "^5.18.2",

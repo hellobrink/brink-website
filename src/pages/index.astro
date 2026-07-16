@@ -75,8 +75,8 @@ const pillars = [
             rel={card.external ? 'noopener' : undefined}
           >
             <img src={card.image.startsWith('http') ? card.image : withBase(card.image)} alt="" />
-            <p class="mono kicker">{card.kicker}</p>
-            <h2>{card.title}</h2>
+            <h2 class="mono kicker">{card.kicker}</h2>
+            <h3>{card.title}</h3>
             {card.text && <p>{card.text}</p>}
             <span class="mono read-more">Read more &gt;</span>
           </a>
@@ -87,11 +87,11 @@ const pillars = [
 
   <section class="section pillars">
     <div class="container">
-      <h1 class="display">Innovation as if people matter</h1>
+      <h2 class="display">Innovation as if people matter</h2>
       <div class="card-row">
         {pillars.map((pillar) => (
           <a class="card" href={pillar.href}>
-            <h2>{pillar.title}</h2>
+            <h3>{pillar.title}</h3>
             <p>{pillar.text}</p>
             <span class="mono read-more">Read more &gt;</span>
           </a>
@@ -102,21 +102,24 @@ const pillars = [
 
   <section class="section stats">
     <div class="container">
-      <p class="mono">Since 2018 Brink has</p>
+      <h2 class="mono">Since 2018 Brink has</h2>
       <div class="stats-row">
+        {/* The number carries the heading (matching the live site's markup),
+            but a heading reading just "340" is meaningless in a screen
+            reader's heading list — aria-label gives it the whole stat. */}
         <div class="stat">
           <span class="stat-lead">Supported over</span>
-          <span class="stat-value display">340</span>
+          <h3 class="stat-value display" aria-label="Supported over 340 innovation teams">340</h3>
           <span class="stat-label">innovation teams</span>
         </div>
         <div class="stat">
           <span class="stat-lead">across</span>
-          <span class="stat-value display">53</span>
+          <h3 class="stat-value display" aria-label="Across 53 countries">53</h3>
           <span class="stat-label">countries</span>
         </div>
         <div class="stat">
           <span class="stat-lead">to access more than</span>
-          <span class="stat-value display">£60m</span>
+          <h3 class="stat-value display" aria-label="To access more than £60m in funding">£60m</h3>
           <span class="stat-label">in funding</span>
         </div>
       </div>
@@ -126,12 +129,12 @@ const pillars = [
   <section class="section who">
     <div class="container who-inner">
       <div>
-        <p class="mono">Who we are</p>
-        <h1 class="display">
+        <h2 class="mono">Who we are</h2>
+        <p class="display who-statement">
           We're a global team of technologists, designers, strategists, and
           behavioural scientists, united by a commitment to harnessing
           technology for transformative impact
-        </h1>
+        </p>
       </div>
       <div class="who-body">
         <p>
@@ -203,30 +206,41 @@ const pillars = [
     margin-bottom: 1.25rem;
   }
 
-  .card h2 {
+  /* These are semantic headings (matching the live site's markup) but must
+     not inherit heading sizing — the kicker stays a small mono label and
+     the card title stays body-weight. */
+  .card h3 {
+    font-size: 1.4rem;
     margin-bottom: 0.5em;
   }
 
-  .card:hover h2 {
+  .card:hover h3 {
     text-decoration: underline;
   }
 
   .kicker {
     color: var(--text-muted);
-    margin-bottom: 0.75rem;
+    font-weight: 400;
+    margin: 0 0 0.75rem;
   }
 
   .read-more {
     color: var(--brand-red);
   }
 
-  .pillars h1 {
+  .pillars h2.display {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     margin-bottom: 2rem;
   }
 
-  .stats .mono {
+  .pillars h3 {
+    font-size: 1.4rem;
+  }
+
+  .stats h2.mono {
     color: var(--text-muted);
-    margin-bottom: 2rem;
+    font-weight: 400;
+    margin: 0 0 2rem;
   }
 
   .stats-row {
@@ -247,8 +261,10 @@ const pillars = [
 
   .stat-value {
     font-size: 5rem;
+    font-weight: 300;
     color: var(--brand-red);
     line-height: 1.1;
+    margin: 0;
   }
 
   .stat-label {
@@ -262,12 +278,14 @@ const pillars = [
     align-items: end;
   }
 
-  .who h1 {
+  .who-statement {
     font-size: clamp(1.6rem, 3vw, 2.3rem);
   }
 
-  .who .mono {
+  .who h2.mono {
     color: var(--text-muted);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
   }
 
   @media (max-width: 768px) {

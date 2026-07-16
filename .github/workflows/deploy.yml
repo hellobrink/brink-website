@@ -24,6 +24,11 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # Reports Webflow migration artifacts (invisible characters, missing
+      # alt text, run-together sentences). Advisory only — a known backlog
+      # of these exists, so it must not block a deploy.
+      - run: npm run lint:content
+        continue-on-error: true
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:

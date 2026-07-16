@@ -1,6 +1,6 @@
 ---
 name: Health
-headline: At Brink, we build health markets with and for, underserved communities. We build health markets that deliver ‘what works’ .‍
+headline: At Brink, we build health markets with and for, underserved communities. We build health markets that deliver ‘what works’ .
 heroImage: /images/69c4f665587bd851cbcad191_banner-800-x-800-1.png
 heroAlt: "TODO: describe this image for alt text."
 positioningLine: "TODO: plain positioning line — \"call Brink when ___\". See brief section 4A.3."
