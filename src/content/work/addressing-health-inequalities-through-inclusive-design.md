@@ -1,34 +1,32 @@
 ---
 title: Addressing health inequalities through inclusive design
 summary: The Challenge Work with Macmillan Cancer Support to design solutions that address health inequalities; beginning with those in marginalised communities suffering from cancer-related fatigue. WHAT WAS ACHIEVED In just five months we designed and tested a holistic ‘fatigue safety net’ proposition that was then piloted by healthcare staff across an NHS Trust in two hospitals. Along the way we changed
-heroImage: /images/66cf3379ab9f9364e4406417_download-1.webp
+heroImage: "/images/66cf3379ab9f9364e4406417_download-1.webp"
 heroAlt: Addressing health inequalities through inclusive design
 sector: [health]
 offer: [missions]
 status: past
-funders: [Macmillan Cancer Support]
-partners: [York and Scarborough Teaching Hospitals NHS Foundation Trust]
 hasCaseStudy: true
 sortOrder: 9
 ---
 
-“The worst hangover in your life, when you’ve just run a marathon… and have the flu.”
+*“The worst hangover in your life, when you’ve just run a marathon… and have the flu.”*
 
 This is how some people describe cancer-related fatigue.
 
 Despite being very common, cancer-related fatigue can be hard to pin down. Caused either by the cancer itself or coming as a side effect of treatment, some people are not affected at all, while others can find themselves severely debilitated. Similarly, the issue can impact individuals for different amounts of time in different ways depending on a whole host of factors.
 
-Macmillan Cancer Support has an ongoing focus on tackling health inequalities across the cancer pathway and the charity is actively addressing the systematic differences between groups that result in some being more likely to suffer worse health than others. This existing priority, combined with the fact that socioeconomic status is one of the most influential factors in clinical fatigue, led to the the development of the Cancer-related Fatigue CoLab; an open partnership with Brink that was established to change the way the organisation designs both for and with marginalised people living with cancer.
+[Macmillan Cancer Support has an ongoing focus on tackling health inequalities](https://www.macmillan.org.uk/healthcare-professionals/news-and-resources/blogs/health-inequalities?ref=hellobrink.co) across the cancer pathway and the charity is actively addressing the systematic differences between groups that result in some being more likely to suffer worse health than others. This existing priority, combined with the fact that socioeconomic status is one of the most influential factors in clinical fatigue, led to the the development of the Cancer-related Fatigue CoLab; an open partnership with Brink that was established to change the way the organisation designs both for and with marginalised people living with cancer.
 
 Essentially, Brink’s brief was to work with Macmillan over the course of 20 weeks to deliver support to a hard-to-reach group suffering with a complex and hard-to-define problem that has no ‘one size fits all’ solution. That support would have to be holistic, tap into existing provisions and be capable of reaching the people who need it most, within a system that is overloaded and strapped for resources.
 
 Along the way we would document our learnings and insights, share those findings and gather feedback from across the network. From this process we created a fit-for-purpose and actionable ‘inclusive design ‘playbook’ that could serve to drive future innovations and organisational change.
 
-## From service design to systemic thinking
+## **From service design to systemic thinking**
 
 Our role was to work with Macmillan to evolve their service design to deliver a more inclusive solution. This would mean bringing a more systemic approach, challenging established outlooks and bringing about change in the teams’ mindsets, methods and mechanisms.
 
-We started by defining our ‘desired future’, crowdsourcing an ideal vision of what it would take to tackle fatigue for those in marginalised communities. We did this by setting up a coalition from the get go, bringing together multi-disciplinary perspectives from across the system and the UK - from people with lived experience to clinicians, academics, complementary therapists, funders, and NHS trusts. The power of this group was to become a sounding board as we evolved our thinking, providing critical friendship at every stage (as opposed to the more traditional research approach, where results might only be shared at the very end of a project). We then prioritised the resulting themes, which covered a multitude of perspectives and contexts. Off the back of this we were able to build a systemic view across what we called ‘The 7 Ps: Healthcare professionals, provision and funding, places, policy, paths to scale, product and of course, those people living with cancer themselves.
+We started by defining our ‘desired future’, crowdsourcing an ideal vision of what it would take to tackle fatigue for those in marginalised communities. We did this by setting up a coalition from the get go, bringing together multi-disciplinary perspectives from across the system and the UK - from people with lived experience to clinicians, academics, complementary therapists, funders, and NHS trusts. The power of this group was to become a sounding board as we evolved our thinking, providing critical friendship at every stage (as opposed to the more traditional research approach, where results might only be shared at the very end of a project). We then prioritised the resulting themes, which covered a multitude of perspectives and contexts. Off the back of this we were able to build a systemic view across what we called ‘The 7 Ps: Healthcare **p**rofessionals, **p**rovision and funding, **p**laces, **p**olicy, **p**aths to scale, **p**roduct and of course, those **p**eople living with cancer themselves.
 
 ![](/images/66cf33aa63658de5c0f96b29_lopgqqfkpw_1e1pshdtdjo_vhdnl4o5mc6wxvfog8bataj246579hsy.png)
 
@@ -38,7 +36,7 @@ This approach led to two of the key insights that would help drive the direction
 
 As both of these insights went against many of the previous assumptions and accepted thinking in this area, it was vital that we were able to go out and test these propositions with people with lived experience of cancer-related fatigue.
 
-From theorising to front line innovation
+**From theorising to front line innovation**
 
 We worked with Macmillan to build a view of the benefits of a ‘get real’ strategy and created confidence and trust through clear accountability, regular validation and learning sessions. This allowed the group to deliver a bold pitch to the NHS and create a partnership with the Trust in York & Scarborough that gave us direct access to patients, clinicians and non-clinicians; a process which, ordinarily, would have taken months to achieve.
 
@@ -46,7 +44,7 @@ Through this ‘do to learn, not learn to do’ strategy we were able to move be
 
 Supporting all of this was a series of regular stakeholder meetups that brought together key players from across the system to provide support, share feedback and create accountability across the project. Additionally, daily standups between Brink, Macmillan and NHS teams, created clarity and a sense of camaraderie. This was another paradigm shift for the Macmillan team, who were more accustomed to working within their own network. One of the most rewarding parts of this project was seeing the team pick up on the momentum and clarity engendered by this practice.
 
-A holistic solution that is just the beginning
+**A holistic solution that is just the beginning**
 
 The final result at the end of the five months was ‘The Fatigue Safety Net’, a four-cornered adaptive, proactive network capable of supporting a person living with cancer at any given point in their journey.
 
@@ -60,7 +58,7 @@ The safety net was not the only output of the five months. At each step of the w
 
 The resulting playbook was designed to be a living manual; a deep and detailed resource on how to introduce inclusive design and CoLab-style across other parts of Macmillan’s organisation. From defining an ideal future vision, to testing solutions in the real world, the playbook showed how it was possible to think differently about solving complex problems, and how innovative solutions could be quickly and effectively spun up and applied to generate real impact.
 
-## Project outcomes
+## **Project outcomes**
 
 - Macmillan has a live project to evolve and a playbook through which they can introduce inclusive design to other parts of their business. playbook
 - The NHS trust has pilots embedded, which are run by staff from the off that were helping their work too

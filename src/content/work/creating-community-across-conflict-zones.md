@@ -1,17 +1,16 @@
 ---
 title: Creating community across conflict zones
 summary: The Challenge Beyond financial support, offer a sense of community and connections to innovators working to help people impacted by humanitarian crises caused by conflict. WHAT WAS ACHIEVED Developed a supportive and dynamic community that allows those working in unpredictable and extreme environments to come together and make meaningful connections, identify new opportunities and form sector-chan
-heroImage: /images/66cf33cfcd82da1966514461_hirs_ev_photo_0.webp
+heroImage: "/images/66cf33cfcd82da1966514461_hirs_ev_photo_0.webp"
 heroAlt: Creating community across conflict zones
 sector: [health]
 offer: [open-innovation]
 status: past
-funders: [Grand Challenges Canada]
 hasCaseStudy: true
 sortOrder: 8
 ---
 
-Creating Hope in Conflict: A Humanitarian Grand Challenge, is a partnership of the U.S. Agency for International Development, the U.K. Foreign, Commonwealth & Development Office, the Ministry of Foreign Affairs of the Netherlands, and Global Affairs Canada, with support from Grand Challenges Canada. The Humanitarian Grand Challenge identifies and scales innovations that apply new insights, technologies, and approaches to improve – and in many cases, save – the lives of the most vulnerable people and the hardest-to-reach in humanitarian crises caused by conflict. As well, the Humanitarian Grand Challenge seeks to create wider systems-level changes within the humanitarian sector.
+[Creating Hope in Conflict: A Humanitarian Grand Challenge](https://humanitariangrandchallenge.org/?ref=hellobrink.co), is a partnership of the U.S. Agency for International Development, the U.K. Foreign, Commonwealth & Development Office, the Ministry of Foreign Affairs of the Netherlands, and Global Affairs Canada, with support from Grand Challenges Canada. The Humanitarian Grand Challenge identifies and scales innovations that apply new insights, technologies, and approaches to improve – and in many cases, save – the lives of the most vulnerable people and the hardest-to-reach in humanitarian crises caused by conflict. As well, the Humanitarian Grand Challenge seeks to create wider systems-level changes within the humanitarian sector.
 
 Understanding that operating and delivering aid in conflict zones is incredibly complex and poses unique challenges, the Humanitarian Grand Challenge team was very intentional and realistic about the support needed by innovators when reaching their goals, and involved more than simply financial support. Additional help has been built into the programme, bringing on the World Food Programme’s Innovation Accelerator and Brink to help deliver a supportive network around its innovators that would harness cooperation, create value and spark new opportunities.
 

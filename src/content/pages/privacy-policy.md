@@ -4,11 +4,11 @@ title: Privacy Policy
 
 ## Privacy Policy
 
-## Brink Innovation Limited Privacy policy
+## **Brink Innovation Limited Privacy policy**
 
-Last updated: May 2024This privacy policy explains how Brink uses personal information we collect via our work and our website. We are committed to protecting your privacy and we take all reasonable precautions to safeguard personal information.
+*Last updated: May 2024* This privacy policy explains how Brink uses personal information we collect via our work and our website. We are committed to protecting your privacy and we take all reasonable precautions to safeguard personal information.
 
-1. What kind of information do we collect?
+**1. What kind of information do we collect?**
 
 Sign-up details: If you register or sign up for events, newsletters or publications on the site, we will ask you for personal information such as your name, email address, occupation and other contact details such as a contact phone number.
 
@@ -22,7 +22,7 @@ Research: If you agree to work with us in relation to any research we are conduc
 
 Online activity: When you use our website, we obtain information about the device from which you accessed it, your visits and use of the website including your IP address, location, browser type and version, referrer and activity. We record your activity and preferences when visiting the site through the use of cookies (see "Cookies", below).
 
-2. What do we do with information we collect and what is our legal basis for this?
+**2. What do we do with information we collect and what is our legal basis for this?**
 
 Third party processors: As is indicated below, we may use third party platforms and processors to deliver newsletters, process applications, event registrations, tickets or publication sales, payments, surveys, and any request to update your data contact preferences. In using these third parties we are pursuing our legitimate interest to use third party technology to achieve greater efficiency within our organisation. To balance our interests against yours, we have taken steps to ensure these third parties maintain appropriate technical and organisational measures to keep your personal information secure.
 
@@ -30,19 +30,19 @@ Sign-up details: If you sign-up for us to send you newsletters, publications and
 
 Events: If you register to attend one of our events we will use your personal information to process your application to attend the event, take payment, if any, for our administration and management of the event and to send you any updates or information regarding the event. Our legal basis for doing so is to fulfill the agreement with you for your attendance.
 
-We use Eventbrite as a registration systems for some of our events and their servers are based in the United States (U.S.) and may store and process your information outside the European Economic Area (EEA). Eventbrite complies with the EU-US Privacy Shield Framework. See the Eventbrite privacy policy for more information.
+We use Eventbrite as a registration systems for some of our events and their servers are based in the United States (U.S.) and may store and process your information outside the European Economic Area (EEA). Eventbrite complies with the EU-US Privacy Shield Framework. See the [Eventbrite privacy policy](https://www.eventbrite.com/support/articles/en_US/Troubleshooting/eventbrite-privacy-policy?lg=en_US&ref=hellobrink.co) for more information.
 
 Purchases: If you buy a ticket for an event, or make a purchase via the website we will use the information provided to fulfill your order. We use third party systems to process your purchase and take payment. The payment processing organisation will be the data controller of your information for the purpose of processing the transaction, and may process your information outside of the EEA. Please read the terms and conditions before completing your purchase and making payment.
 
 Job application details: We will use your personal information to process your application. We undertake this processing because it is necessary to fully assess your application, and if successful, to take steps to enter into a contract with you (this is our legal basis for the processing).
 
-At Brink we use a third party platform provider to process our job applications. We will make the terms and conditions very clear at the point of application. For more information please see the Breezy privacy policy.
+At Brink we use a third party platform provider to process our job applications. We will make the terms and conditions very clear at the point of application. For more information please see the [Breezy privacy policy](https://breezy.io/privacy/?ref=hellobrink.co).
 
 Other application details: We will use your personal information to process applications you make via the site. We undertake this processing because it is necessary to fully assess your application, and if successful, to take steps to enter into an agreement with you (this is our legal basis for the processing).
 
 If you tender to provide any services, or apply for funding or support, enter one of our, or our partners’ prizes, you may be directed to another platform to process these applications. Some of these platforms may be managed by third parties other than Brink, and further details will be given to you when you start the application. Please ensure you read the terms and conditions of those platforms when making any such applications, as when you submit an application you will be agreeing to the terms and conditions of those platforms. However, we remain the controller of your personal information in this arrangement – these third parties only process your personal information in line with our instructions.
 
-Feedback and surveys: If you agree to give us feedback or complete a survey, we will use the information to improve our work and activities. We usually use Typeform to process surveys, and they only process your information on our instructions. Typeform operate in the EU and comply with EU regulations. For more information see the Typeform privacy policy. If you agree to participate in any survey that will form part of any research project, we will tell you at the time you take part how your information will be used for the particular research project or programme, and how long it will be kept for.
+Feedback and surveys: If you agree to give us feedback or complete a survey, we will use the information to improve our work and activities. We usually use Typeform to process surveys, and they only process your information on our instructions. Typeform operate in the EU and comply with EU regulations. For more information see the [Typeform privacy policy](https://admin.typeform.com/to/dwk6gt?ref=hellobrink.co). If you agree to participate in any survey that will form part of any research project, we will tell you at the time you take part how your information will be used for the particular research project or programme, and how long it will be kept for.
 
 Research: If you agree to take part in any research we will use your information for the purpose of that research project or programme. Full details of how your personal information will be used will be given to you at the time you agree to participate; this could include to inform the development of a new prize, project, programme or other initiative, being incorporated into reports or other research outcomes, and may include being publicly displayed on web pages relating to the particular research project or programme.
 
@@ -58,7 +58,7 @@ We may also use your information to carry out analysis and research to improve o
 
 However you choose to engage with or support Brink, we may retain your information for our own legitimate business interests for statistical analysis purposes, in order to review, develop and improve our business activities. In this situation, we will only keep any personal information if it is necessary to do so, and will always put in place appropriate safeguards, including where possible anonymising or minimising the data retained.
 
-3. How long will we keep your information for?
+**3. How long will we keep your information for?**
 
 General principle: We will only keep any personal information that you provide to us for as long as is necessary to fulfill the purpose for which you gave us the information and we will securely delete information when it is no longer needed for that purpose, as explained in more detail below.
 
@@ -80,17 +80,17 @@ Research that supports the development of a project, programme, publication or o
 
 Processing for statistical analysis purposes: This type of processing will only be undertaken whilst we retain your personal information in line with the principles explained above.
 
-4. Marketing
+**4. Marketing**
 
 If you sign up to our mailing list we will use your details to keep you informed about latest news, blogs, programme updates, research, publications, event details, jobs and funding opportunities, and may request feedback, including our annual audience survey.
 
-We use third party providers to deliver our e-newsletters. We gather statistics around email opening and clicks using industry standard technologies to help us monitor and improve our e-newsletter. We currently use Mailchimp whose servers are hosted in the USA, but do comply with the EU-U.S. Privacy Shield. If you want to know more about how your information will be stored and processed see the privacy policies for MailChimp.
+We use third party providers to deliver our e-newsletters. We gather statistics around email opening and clicks using industry standard technologies to help us monitor and improve our e-newsletter. We currently use Mailchimp whose servers are hosted in the USA, but do comply with the EU-U.S. Privacy Shield. If you want to know more about how your information will be stored and processed see the privacy policies for [MailChimp](https://mailchimp.com/legal/privacy/?ref=hellobrink.co).
 
-If you no longer want to receive marketing communications from us, you can unsubscribe from our mailing list at any time by please clicking the unsubscribe link at the bottom of our emails or by emailing coffee@hellobrink.co detailing your name and email address. If you are given the opportunity to update your contact preferences in any email from us, this will link to a form hosted by Mailchimp. If this function is not made available, please email us at the above address with your preference updates.
+If you no longer want to receive marketing communications from us, you can unsubscribe from our mailing list at any time by please clicking the unsubscribe link at the bottom of our emails or by emailing [coffee@hellobrink.co](mailto:coffee@hellobrink.co) detailing your name and email address. If you are given the opportunity to update your contact preferences in any email from us, this will link to a form hosted by Mailchimp. If this function is not made available, please email us at the above address with your preference updates.
 
 We use third party remarketing services to tailor advertising to you based upon your browsing history on this website, for more information see “Cookies” below.
 
-5. Who else has access to your information?
+**5. Who else has access to your information?**
 
 We may share your information with our partners and companies who help us to operate this site, and if you register to attend an event or apply to one of our programmes or indicate interest in any other activity detailed on the site, we may share your details with the companies/organisations and individuals who help us to fund, organise and operate the events, grant programmes and other activities.
 
@@ -98,7 +98,7 @@ Our legal basis for doing this is to pursue our legitimate interest of being abl
 
 We may disclose your personal information to law enforcement agencies if required by law (in which case our legal basis for doing this is for compliance with a legal obligation), or to protect or defend ourselves or others against illegal or harmful activities (in which case, our legal basis for doing this is the pursuit of these legitimate interests).
 
-6. Cookies
+**6. Cookies**
 
 Our website uses cookies. Cookies are small text files that are placed on your computer by websites you visit. They are widely used to make websites work, or work more efficiently, as well as to provide information to site owners. Most web browsers allow some control of most cookies through browser settings.
 
@@ -106,11 +106,11 @@ This site uses cookies that are strictly necessary to enable you to move around 
 
 The site also uses performance cookies which collect information about how you use the site, such as how you are referred to it and how long you stay on certain pages. This information is aggregated and therefore anonymous and is used to improve the performance of the site. If you want, you can block cookies by changing the settings on your browser. Please note that some of the features of the site may not work if you choose to block cookies.
 
-7. Security
+**7. Security**
 
 We take steps to protect your personal information and follow procedures designed to minimise unauthorised access or disclosure of your information. If you have a password for an account on Brink’s online systems due to your role as an employee, associate, contractor or otherwise, please keep this safe and do not share it with anyone else. You are responsible for all activity on your account and must contact us immediately if you are aware of any unauthorised use of your password or other security breach.
 
-8. Contacting us, exercising your rights and complaints
+**8. Contacting us, exercising your rights and complaints**
 
 You are legally entitled to know what personal information we hold about you and how that information is processed, which includes the right to:
 
@@ -121,7 +121,7 @@ You are legally entitled to know what personal information we hold about you and
 - to object to us using of your personal information
 - to object to any automated decision making that we may do using your personal information
 
-If you wish to know what information we hold about you, or wish to exercise any of your other rights as detailed above, or have any complaint about how we are using your personal information, then please email us using coffee@hellobrink.co or write to us at Brink Innovation Ltd, 86-90 Paul Street, London, EC2A 4NE and provide enough information to identify yourself (e.g. name and address or any registration details).
+If you wish to know what information we hold about you, or wish to exercise any of your other rights as detailed above, or have any complaint about how we are using your personal information, then please email us using [coffee@hellobrink.co](mailto:coffee@hellobrink.co) or write to us at Brink Innovation Ltd, 86-90 Paul Street, London, EC2A 4NE and provide enough information to identify yourself (e.g. name and address or any registration details).
 
 If our information is incorrect or out of date, please provide us with information to update it. If you want us to delete, restrict or stop using any information we hold about you, please explain the reasons why you are asking this. If you are unhappy with how we are using your information, again please explain to us the reasons and we will investigate the matter.
 
@@ -129,11 +129,11 @@ You can also write to the same address if you have a complaint about this policy
 
 If you are unhappy with how any data rights request or complaint has dealt with you have the right to complain to the Information Commissioner:
 
-- On the ICO website;
+- On [the ICO website](https://ico.org.uk/concerns?ref=hellobrink.co);
 - By mail at Wycliff House, Water Lane, Wilmslow, Cheshire SK9 5AF, or
 - By calling the helpline on 0303 123 1113.
 
-9. Changes to the privacy policy
+**9. Changes to the privacy policy**
 
 We may change this privacy policy from time to time. We will notify you of any changes that relate to information we already hold about you, where practicable. You should check this policy occasionally to ensure you are aware of the most recent version that will apply each time you access this website.
 

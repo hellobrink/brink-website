@@ -123,16 +123,71 @@ async function downloadImage(srcUrl) {
 // ("We are BrinkWe are a global team..."). Walking the tree and treating
 // any childless element with text as its own paragraph fixes that without
 // needing bespoke selectors per page.
+// Renders a block's contents as Markdown, preserving inline markup.
+//
+// A plain `.text()` call silently discards every link, bold and italic —
+// the whole site's body content came through with ZERO links because of
+// that. Walk the child nodes instead and emit Markdown for the inline
+// elements we care about.
+function inlineMarkdown($, el) {
+  let out = '';
+  for (const node of $(el).contents().toArray()) {
+    if (node.type === 'text') {
+      out += node.data ?? '';
+      continue;
+    }
+    if (node.type !== 'tag') continue;
+    const $n = $(node);
+    const tag = node.tagName?.toLowerCase();
+    const inner = inlineMarkdown($, node);
+    // Strip invisibles before the emptiness test: a <strong> holding only a
+    // zero-width joiner is not "empty" to .trim() (it isn't whitespace), so
+    // it emitted `**<ZWJ>**`, which collapse() then reduced to a bare
+    // `****` — and YAML reads a leading `*` as an alias reference, breaking
+    // the build.
+    if (!inner.replace(INVISIBLE_CHARS, '').trim() && tag !== 'br') continue;
+
+    if (tag === 'a') {
+      const href = $n.attr('href');
+      // Anchors without a real destination are just styling hooks.
+      out += href && !href.startsWith('#') ? `[${inner.trim()}](${href})` : inner;
+    } else if (tag === 'strong' || tag === 'b') {
+      out += `**${inner.trim()}**`;
+    } else if (tag === 'em' || tag === 'i') {
+      out += `*${inner.trim()}*`;
+    } else if (tag === 'br') {
+      out += ' ';
+    } else {
+      out += inner;
+    }
+  }
+  return out;
+}
+
+// Same, then collapsed to a single tidy line.
+function inlineText($, el) {
+  return collapse(inlineMarkdown($, el));
+}
+
+// Removes Markdown emphasis/link syntax, for comparing extracted text
+// against a plain string.
+function stripMarkdown(str = '') {
+  return str
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/\*\*?/g, '')
+    .trim();
+}
+
 function extractTextBlocks($, el, blocks = []) {
   const $el = $(el);
   const tag = el.tagName?.toLowerCase();
   if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(tag)) {
-    const text = collapse($el.text());
+    const text = inlineText($, el);
     if (text) blocks.push({ type: 'heading', text });
     return blocks;
   }
   if (tag === 'p') {
-    const text = collapse($el.text());
+    const text = inlineText($, el);
     if (text) blocks.push({ type: 'paragraph', text });
     const img = $el.find('img').first();
     if (img.length) blocks.push({ type: 'image', src: img.attr('src'), alt: img.attr('alt') });
@@ -143,23 +198,76 @@ function extractTextBlocks($, el, blocks = []) {
     return blocks;
   }
   if (tag === 'ul' || tag === 'ol') {
-    const items = $el.find('li').map((_, li) => collapse($(li).text())).get().filter(Boolean);
+    const items = $el
+      .find('li')
+      .map((_, li) => inlineText($, li))
+      .get()
+      .filter(Boolean);
     if (items.length) blocks.push({ type: 'list', items });
     return blocks;
   }
   if (tag === 'blockquote') {
-    const text = collapse($el.text());
+    const text = inlineText($, el);
     if (text) blocks.push({ type: 'quote', text });
     return blocks;
   }
   const children = $el.children().toArray();
   if (children.length === 0) {
-    const text = collapse($el.text());
+    const text = inlineText($, el);
+    if (text) blocks.push({ type: 'paragraph', text });
+    return blocks;
+  }
+  // A wrapper whose children are all inline (a <div> containing text plus
+  // an <a>, say) must be read as ONE block — recursing into it would split
+  // the sentence across paragraphs and strand the link on its own line.
+  const INLINE = new Set(['a', 'strong', 'b', 'em', 'i', 'span', 'br', 'sup', 'sub', 'u', 'small']);
+  if (children.every((c) => INLINE.has(c.tagName?.toLowerCase()))) {
+    const text = inlineText($, el);
     if (text) blocks.push({ type: 'paragraph', text });
     return blocks;
   }
   for (const child of children) extractTextBlocks($, child, blocks);
   return blocks;
+}
+
+// Webflow fakes bullet lists with a literal ">" character and styling
+// rather than real <ul>/<li> markup (confirmed: zero <ul> elements inside
+// the Open Innovation block, despite the page clearly rendering bullets).
+// Turn runs of those into a real Markdown list.
+// Comes in two shapes: the ">" glued to its text in one element, or — more
+// often — the marker sitting in its own element as a sibling of the text it
+// belongs to. Handle both.
+function normaliseWebflowBullets(blocks) {
+  const out = [];
+  const pushItem = (item) => {
+    const prev = out[out.length - 1];
+    if (prev?.type === 'list') prev.items.push(item);
+    else out.push({ type: 'list', items: [item] });
+  };
+
+  for (let i = 0; i < blocks.length; i += 1) {
+    const b = blocks[i];
+    if (b.type !== 'paragraph') {
+      out.push(b);
+      continue;
+    }
+    // Bare ">" marker: the following block is its list item.
+    if (/^>\s*$/.test(b.text)) {
+      const next = blocks[i + 1];
+      if (next?.type === 'paragraph' && next.text.trim()) {
+        pushItem(next.text.trim());
+        i += 1; // consume it
+      }
+      continue; // never emit a lone ">" — Markdown reads it as a blockquote
+    }
+    // ">" glued to its text.
+    if (/^>\s*\S/.test(b.text)) {
+      pushItem(b.text.replace(/^>\s*/, ''));
+      continue;
+    }
+    out.push(b);
+  }
+  return out;
 }
 
 async function blocksToMarkdown(blocks) {
@@ -183,7 +291,7 @@ async function blocksToMarkdown(blocks) {
 async function richTextToMarkdown($, el) {
   const blocks = [];
   for (const child of $(el).children().toArray()) extractTextBlocks($, child, blocks);
-  return blocksToMarkdown(blocks);
+  return blocksToMarkdown(normaliseWebflowBullets(blocks));
 }
 
 // Same tree-walk, but returns short plain text (blocks joined with a
@@ -239,6 +347,14 @@ function yamlScalar(value) {
   if (YAML_LOOKS_NUMERIC_OR_BOOL.test(str)) {
     return JSON.stringify(str);
   }
+  // Characters YAML treats as indicators when they LEAD a scalar. `*` and
+  // `&` are the dangerous ones — a summary starting with "**bold" parses as
+  // an alias reference and hard-fails the build. `-`/`?` start block
+  // sequences/keys; the rest are anchors, tags, directives and reserved.
+  if (/^[*&!%@`>|#{}\[\],'"-?]/.test(str)) {
+    return JSON.stringify(str);
+  }
+  // Characters that are special anywhere in the scalar.
   if (/[:#\[\]{}"'|>]/.test(str) || str.trim() !== str) {
     return JSON.stringify(str);
   }
@@ -451,18 +567,31 @@ async function scrapeOffers() {
       continue;
     }
     const container = heading.closest('.cell-17, .w-layout-cell');
-    // Pull block-level descendants individually rather than container.text()
-    // — a flat .text() call concatenates sibling elements with no
-    // whitespace between them ("challengeWe know...").
-    const blocks = container
-      .find('h1, h2, p, li')
-      .map((_, el) => collapse($(el).text()))
-      .get()
-      .filter((text) => text && text !== name);
-    const tagline = blocks[0] ?? '';
-    const body = blocks.slice(1).join('\n\n');
+    // Use the shared tree-walk rather than a flat `.find(...).text()` — the
+    // latter drops every link and bold (this page alone carries 4 links:
+    // COVIDaction, the Assistive Tech Impact Fund, Hanga, AfriLabs).
+    const blocks = [];
+    for (const child of container.children().toArray()) extractTextBlocks($, child, blocks);
+
+    // Compare on plain text: the offer name now arrives wrapped in Markdown
+    // emphasis ("**Innovation Carve-Outs**"), so a raw `b.text !== name`
+    // check no longer excludes it — and it was being picked up as the
+    // tagline.
+    const textual = blocks.filter((b) => b.text && stripMarkdown(b.text) !== name);
+    const tagline = textual[0]?.text ?? '';
+
+    // The sticker illustration belongs in the `image` frontmatter field, not
+    // the body — the offer template renders it in the header. Leaving it in
+    // the body would duplicate it at full width.
+    const sticker = blocks.find((b) => b.type === 'image' && /sticker/i.test(b.src ?? ''));
+    const image = sticker ? await downloadImage(sticker.src) : undefined;
+
+    const bodyBlocks = blocks.filter(
+      (b) => b !== sticker && b.text !== tagline && stripMarkdown(b.text ?? '') !== name
+    );
+    const body = await blocksToMarkdown(normaliseWebflowBullets(bodyBlocks));
     const slug = OFFER_NAMES[name.toLowerCase()] ?? slugify(name);
-    await writeContentFile('offers', slug, { name, summary: tagline }, body);
+    await writeContentFile('offers', slug, { name, summary: tagline, image }, body);
   }
 }
 

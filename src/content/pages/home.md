@@ -12,7 +12,7 @@ FIND OUT MORE
 
 ![](/images/69398d70a7c114cc4eff4490_collage-trees-texture.png)
 
-## We are now part of Africa Practice
+## **We are now part of Africa Practice**
 
 A message from Brink's founders on what this means.
 
@@ -20,7 +20,7 @@ Read more
 
 ![](/images/6a4f6c5d35f990c9cf987053_climate_funds.png)
 
-## From the blog
+## **From the blog**
 
 Climate capital is still struggling to scale promising innovations.
 
@@ -28,7 +28,7 @@ Read more
 
 ![](/images/6a4e0c6303419236b24b3df8_dont-believe-the-hype-83.png)
 
-## Our latest newsletter
+## **Our latest newsletter**
 
 Read more
 
@@ -38,7 +38,7 @@ Don’t believe the hype! How not to get swept away on a BS wave.
 
 ![](/images/67a4b5647b7d815f752aec59_01-violet-ochieng.jpg)
 
-## Our work
+## **Our work**
 
 Addressing some of the world's most pressing issues across health, education and climate.
 
@@ -46,7 +46,7 @@ Read more
 
 ![](/images/67a497c61d1d0f21b88108df_brinkcandids-172.jpg)
 
-## Our methods
+## **Our methods**
 
 How we work with our partners to find obvious solutions to non-trivial problems.
 
@@ -82,7 +82,7 @@ in funding
 
 ## Who we are
 
-We're a global team of technologists, designers, strategists, and behavioural scientists, united by a commitment to harnessing technology for transformative impact
+**We're a global team of technologists, designers, strategists, and behavioural scientists, united by a commitment to harnessing technology for transformative impact**
 
 Working alongside our partners we create ideas that put human behaviour at their core.
 
