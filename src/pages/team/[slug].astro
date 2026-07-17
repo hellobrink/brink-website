@@ -1,0 +1,129 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { withBase } from '../../lib/base';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const members = await getCollection('team');
+  return members.map((member) => ({
+    params: { slug: member.id },
+    props: { member },
+  }));
+}
+
+const { member } = Astro.props;
+const { Content } = await render(member);
+const { data } = member;
+
+// Posts this person wrote — the live bio pages list these, and it's the
+// reason the blog collection carries an authorSlug.
+const allPosts = await getCollection('blog');
+const authored = allPosts
+  .filter((p) => p.data.authorSlug === member.id)
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+---
+
+<Layout title={data.name} description={`${data.name}${data.role ? ` — ${data.role}` : ''} at Brink.`}>
+  <article class="container bio">
+    <p class="back"><a href={withBase('/team')}>&larr; Meet the team</a></p>
+
+    <header class="bio-header">
+      {data.photo && <img class="portrait" src={withBase(data.photo)} alt={data.photoAlt ?? data.name} />}
+      <div>
+        <h1>{data.name}</h1>
+        {data.role && <p class="role mono">{data.role}</p>}
+        {data.location && <p class="location">{data.location}</p>}
+        {data.linkedin && (
+          <p><a href={data.linkedin} target="_blank" rel="noopener">LinkedIn</a></p>
+        )}
+      </div>
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    {authored.length > 0 && (
+      <section class="authored">
+        <h2>{data.name.split(' ')[0]}'s posts</h2>
+        <ul>
+          {authored.map((post) => (
+            <li>
+              <a href={withBase(`/blog/${post.id}`)}>{post.data.title}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+  </article>
+</Layout>
+
+<style>
+  .bio {
+    padding: var(--space-6) 0 var(--space-9);
+    max-width: var(--measure);
+  }
+
+  .back a {
+    font-family: var(--font-mono);
+    font-size: var(--text-label);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-text-muted);
+  }
+
+  .bio-header {
+    display: flex;
+    gap: var(--space-6);
+    align-items: flex-start;
+    margin: var(--space-5) 0 var(--space-7);
+  }
+
+  .portrait {
+    width: 200px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--radius);
+    flex-shrink: 0;
+  }
+
+  .bio-header h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .role {
+    color: var(--color-accent);
+    margin: 0 0 var(--space-1);
+  }
+
+  .location {
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-3);
+  }
+
+  .authored {
+    margin-top: var(--space-8);
+    padding-top: var(--space-5);
+    border-top: var(--border-width) solid var(--color-border);
+  }
+
+  .authored ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .authored li {
+    margin-bottom: var(--space-2);
+  }
+
+  @media (max-width: 640px) {
+    .bio-header {
+      flex-direction: column;
+    }
+    .portrait {
+      width: 100%;
+      max-width: 260px;
+    }
+  }
+</style>

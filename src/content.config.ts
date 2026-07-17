@@ -105,8 +105,48 @@ const shared = defineCollection({
   }),
 });
 
-// Simple one-off pages: About, Brink Foundation, Careers, Team, Privacy
-// Policy. No special fields — just a title and Markdown body.
+// Team members. A real collection on the live Webflow site (27 people, each
+// with their own /team/{slug} page) — the original migration missed it
+// entirely and dumped the index page's filter labels and photos into
+// pages/team.md as flat Markdown.
+const team = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/team' }),
+  schema: z.object({
+    name: z.string(),
+    role: z.string().optional(),
+    location: z.string().optional(),
+    photo: z.string().optional(),
+    photoAlt: z.string().optional(),
+    linkedin: z.string().url().optional(),
+    // The live /team page filters by these. Free text rather than an enum:
+    // the taxonomy is the client's and shouldn't hard-fail a build if they
+    // add a region or team.
+    regions: z.array(z.string()).default([]),
+    teams: z.array(z.string()).default([]),
+    sortOrder: z.number().default(0),
+  }),
+});
+
+// Blog posts. Live at /post/{slug} (not /blog/). 188 exist on Webflow; we
+// migrate the most recent by default — see scripts/scrape.mjs BLOG_LIMIT.
+const blog = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
+  schema: z.object({
+    title: z.string(),
+    summary: z.string().optional(),
+    date: z.string().optional(),
+    // Matches a team member's slug where the author is one of ours, so the
+    // bio page can list their posts.
+    authorSlug: z.string().optional(),
+    authorName: z.string().optional(),
+    heroImage: z.string().optional(),
+    heroAlt: z.string().optional(),
+    sortOrder: z.number().default(0),
+  }),
+});
+
+// Simple one-off pages: About, Brink Foundation, Careers, Privacy Policy.
+// No special fields — just a title and Markdown body.
 const pages = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
   schema: z.object({
@@ -114,4 +154,4 @@ const pages = defineCollection({
   }),
 });
 
-export const collections = { work, sectors, offers, shared, pages };
+export const collections = { work, sectors, offers, shared, pages, team, blog };

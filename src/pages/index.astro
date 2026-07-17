@@ -2,12 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 import { withBase } from '../lib/base';
 
-// Hand-built to mirror the live hellobrink.co homepage: full-height
-// coral hero (cranes_on_red background, the same asset the live site
-// uses), "What Brink is doing" cards, the three-column "Innovation as if
-// people matter" section, the since-2018 stats band, and "Who we are".
-// Blog and newsletter cards link to the live Webflow blog for now — that
-// collection hasn't been migrated (see CONTENT_GUIDE.md).
+import { getCollection } from 'astro:content';
+
+// Hand-built to mirror the live hellobrink.co homepage: full-height coral
+// hero (cranes_on_red, the same asset the live site uses), "What Brink is
+// doing" cards, the three-column "Innovation as if people matter" section,
+// the since-2018 stats band, the team carousel, and "Who we are".
+
+// The blog card pulls the newest post from the collection rather than
+// hardcoding it, so it can't go stale.
+const posts = await getCollection('blog');
+const latestPost = posts.sort((a, b) => a.data.sortOrder - b.data.sortOrder)[0];
 
 const doingCards = [
   {
@@ -18,23 +23,33 @@ const doingCards = [
     href: withBase('/about'),
     external: false,
   },
-  {
-    image: '/images/6a4f6c5d35f990c9cf987053_climate_funds.png',
+  latestPost && {
+    image: latestPost.data.heroImage ?? '/images/6a4f6c5d35f990c9cf987053_climate_funds.png',
     kicker: 'From the blog',
-    title: 'Climate capital is still struggling to scale promising innovations.',
+    title: latestPost.data.title,
     text: '',
-    href: 'https://www.hellobrink.co/blog',
-    external: true,
+    href: withBase(`/blog/${latestPost.id}`),
+    external: false,
   },
   {
     image: '/images/6a4e0c6303419236b24b3df8_dont-believe-the-hype-83.png',
     kicker: 'Our latest newsletter',
     title: "Don't believe the hype! How not to get swept away on a BS wave.",
     text: '',
+    // The newsletter lives on Mailchimp, not in the CMS.
     href: 'https://www.hellobrink.co/blog',
     external: true,
   },
-];
+].filter(Boolean);
+
+// The live homepage carries a band of team photos between the stats and
+// "Who we are" (issue #2). Pull real people from the team collection
+// rather than hardcoding the three images that were there.
+const allTeam = await getCollection('team');
+const faces = allTeam
+  .filter((m) => m.data.photo)
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
+  .slice(0, 8);
 
 const pillars = [
   {
@@ -125,6 +140,25 @@ const pillars = [
       </div>
     </div>
   </section>
+
+  {faces.length > 0 && (
+    <section class="section faces">
+      <div class="container">
+        <h2 class="mono">The people behind it</h2>
+        <ul class="faces-row">
+          {faces.map((m) => (
+            <li>
+              <a href={withBase(`/team/${m.id}`)}>
+                <img src={withBase(m.data.photo!)} alt={m.data.photoAlt ?? m.data.name} />
+                <span class="face-name">{m.data.name}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a class="mono read-more" href={withBase('/team')}>Meet the team &gt;</a>
+      </div>
+    </section>
+  )}
 
   <section class="section who">
     <div class="container who-inner">
@@ -269,6 +303,42 @@ const pillars = [
 
   .stat-label {
     font-size: var(--text-body);
+  }
+
+  .faces h2.mono {
+    color: var(--color-text-muted);
+    font-weight: var(--weight-body);
+    margin: 0 0 var(--space-5);
+  }
+
+  .faces-row {
+    list-style: none;
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .faces-row a {
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .faces-row img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: var(--space-2);
+  }
+
+  .face-name {
+    font-size: var(--text-body-sm);
+  }
+
+  .faces-row a:hover .face-name {
+    color: var(--color-accent);
   }
 
   .who-inner {

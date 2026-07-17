@@ -1,0 +1,108 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { withBase } from '../../lib/base';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+posts.sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+---
+
+<Layout title="Blog" description="Thinking, learning and stories from the Brink team.">
+  <div class="container">
+    <header class="page-header">
+      <h1>Blog</h1>
+      <p>Thinking, learning and stories from the Brink team.</p>
+    </header>
+
+    <ul class="post-grid">
+      {posts.map((post) => (
+        <li class="post">
+          <a href={withBase(`/blog/${post.id}`)}>
+            {post.data.heroImage && (
+              <img src={withBase(post.data.heroImage)} alt={post.data.heroAlt ?? post.data.title} />
+            )}
+            <div class="post-body">
+              {post.data.date && <p class="mono meta">{post.data.date}</p>}
+              <h2>{post.data.title}</h2>
+              {post.data.summary && <p class="summary">{post.data.summary}</p>}
+              {post.data.authorName && <p class="author">{post.data.authorName}</p>}
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <p class="archive-note">
+      Older posts are still on the
+      <a href="https://www.hellobrink.co/blog" target="_blank" rel="noopener">previous site</a>.
+    </p>
+  </div>
+</Layout>
+
+<style>
+  .page-header {
+    padding: var(--space-6) 0 var(--space-5);
+    max-width: var(--measure);
+  }
+
+  .post-grid {
+    list-style: none;
+    margin: 0 0 var(--space-6);
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .post a {
+    display: block;
+    height: 100%;
+    text-decoration: none;
+    color: var(--color-text);
+    border: var(--border-width) solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .post img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+
+  .post-body {
+    padding: var(--space-4);
+  }
+
+  .post h2 {
+    font-size: var(--text-h3);
+    margin: 0 0 var(--space-2);
+  }
+
+  .post a:hover h2 {
+    color: var(--color-accent);
+  }
+
+  .meta {
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-2);
+  }
+
+  .summary {
+    font-size: var(--text-body-sm);
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-2);
+  }
+
+  .author {
+    font-size: var(--text-body-sm);
+    color: var(--color-accent);
+    margin: 0;
+  }
+
+  .archive-note {
+    color: var(--color-text-muted);
+    font-size: var(--text-body-sm);
+    margin-bottom: var(--space-9);
+  }
+</style>

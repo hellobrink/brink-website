@@ -664,14 +664,162 @@ async function scrapeSharedPanel() {
   await writeContentFile('shared', 'behavioural-panel', { title }, body);
 }
 
+// --- Team ------------------------------------------------------------------
+//
+// A real Webflow CMS collection: 27 people, each with a /team/{slug} page.
+// The original migration missed it and dumped the index page's filter
+// labels and unattributed photos into pages/team.md instead.
+
+async function scrapeTeam() {
+  console.log('\n=== Team ===');
+  const $index = await fetchDoc('/team');
+  if (!$index) return;
+
+  // The index carries the filter taxonomy (regions and teams) as buttons.
+  // Each person's card lists the ones they belong to, but the markup is
+  // opaque, so read the memberships from the index card instead.
+  const slugs = new Map(); // slug -> { regions, teams }
+  $index('a[href^="/team/"]').each((_, a) => {
+    const href = $index(a).attr('href') ?? '';
+    const m = href.match(/^\/team\/([^/?#]+)$/);
+    if (!m) return;
+    const card = $index(a).closest('[class*="collection-item"], .w-dyn-item');
+    const meta = collapse(card.attr('class') ?? '');
+    if (!slugs.has(m[1])) slugs.set(m[1], { meta });
+  });
+  console.log(`Found ${slugs.size} team members on the index.`);
+
+  let sortOrder = 0;
+  for (const slug of slugs.keys()) {
+    const $ = await fetchDoc(`/team/${slug}`);
+    if (!$) continue;
+
+    const heading = $('h1.team-heading, h1.mega').first();
+    const name = collapse(heading.text());
+    if (!name) {
+      console.warn(`  ! no name found for ${slug}`);
+      continue;
+    }
+    const container = heading.parent();
+
+    // ".tag-readout" holds ">Founder" — the ">" is Webflow's bullet glyph.
+    const role = collapse(container.find('.tag-readout').first().text()).replace(/^>\s*/, '');
+
+    const photoEl = $('img.image-11').first();
+    const photo = await downloadImage(photoEl.attr('src'));
+
+    // Some bios have a social link with href="#" — a placeholder for people
+    // without a LinkedIn. Only keep real URLs.
+    const linkedinHref = container.find('a.social-links, a[href*="linkedin.com"]').first().attr('href');
+    const linkedin = /^https?:\/\//.test(linkedinHref ?? '') ? linkedinHref : undefined;
+
+    // Two ".green-box.bio" blocks: the first opens with the location then
+    // the biography; the second is a "Questions ... is exploring" panel.
+    const bioBoxes = container.find('.green-box.bio');
+    const bioBlocks = [];
+    for (const box of bioBoxes.toArray()) extractTextBlocks($, box, bioBlocks);
+    const first = bioBlocks[0]?.text ?? '';
+    // Location is its own leaf block, e.g. "London, UK" / "Nairobi, Kenya".
+    const location = /^[^.]{3,40},\s*[^.]{2,30}$/.test(first) ? first : undefined;
+    const body = await blocksToMarkdown(
+      normaliseWebflowBullets(location ? bioBlocks.slice(1) : bioBlocks)
+    );
+
+    await writeContentFile('team', slug, {
+      name,
+      role,
+      location,
+      photo,
+      photoAlt: photo ? name : undefined,
+      linkedin,
+      sortOrder: sortOrder++,
+    }, body);
+  }
+  // Returned so scrapeBlog can tell "authored by one of ours" (link it to
+  // their bio page) from an external guest author.
+  return new Set(slugs.keys());
+}
+
+// --- Blog ------------------------------------------------------------------
+//
+// Live at /post/{slug} (not /blog/). 188 posts exist; BLOG_LIMIT caps how
+// many of the most recent we migrate — the rest stay on Webflow and remain
+// reachable at their existing URLs.
+
+const BLOG_LIMIT = Number(process.env.BLOG_LIMIT ?? 20);
+
+async function scrapeBlog(teamSlugs) {
+  console.log(`\n=== Blog (most recent ${BLOG_LIMIT}) ===`);
+  const $index = await fetchDoc('/blog');
+  if (!$index) return;
+
+  // The index lists newest first, so document order is our sort order.
+  const slugs = [];
+  $index('a[href^="/post/"]').each((_, a) => {
+    const m = $index(a).attr('href')?.match(/^\/post\/([^/?#]+)$/);
+    if (m && !slugs.includes(m[1])) slugs.push(m[1]);
+  });
+  console.log(`Found ${slugs.length} posts on the index; taking ${Math.min(BLOG_LIMIT, slugs.length)}.`);
+
+  let sortOrder = 0;
+  for (const slug of slugs.slice(0, BLOG_LIMIT)) {
+    const $ = await fetchDoc(`/post/${slug}`);
+    if (!$) continue;
+
+    const title = collapse($('h1').first().text());
+    if (!title) {
+      console.warn(`  ! no title for post ${slug}`);
+      continue;
+    }
+    // Posts use `.blog-rich-text`, not the case studies' `.blog-content`.
+    const bodyEl = $('.blog-rich-text, .blog-content').first();
+    const body = bodyEl.length ? await richTextToMarkdown($, bodyEl.get(0)) : '';
+
+    // The byline sits in `.tag-text-sm` (the sibling `.tag-readout` wraps it
+    // with Webflow's ">" glyph). Link it to a bio where the author is ours.
+    const authorName = collapse($('.tag-text-sm').first().text());
+    const authorHref = $('a[href^="/team/"]').first().attr('href');
+    const authorSlug = authorHref?.match(/^\/team\/([^/?#]+)$/)?.[1];
+
+    // Every image on the page carries `.square-image`; the first is the
+    // author's headshot, so the post's own hero is the one after it.
+    const squareImages = $('img.square-image').toArray();
+    const heroSrc = squareImages[1]
+      ? $(squareImages[1]).attr('src')
+      : $('section.blog-hero img').not('.w-dyn-bind-empty').first().attr('src');
+    const heroImage = await downloadImage(heroSrc);
+
+    // No <time> element and no date class on these pages — the live posts
+    // simply don't show one. Left undefined rather than invented.
+    const dateText = collapse($('time').first().text());
+
+    // Posts have no summary field either; use the opening paragraph.
+    const firstPara = body.split('\n\n').find((b) => b && !b.startsWith('![') && !b.startsWith('#'));
+    const summary = firstPara ? stripMarkdown(firstPara).slice(0, 300) : undefined;
+
+    await writeContentFile('blog', slug, {
+      title,
+      summary,
+      date: dateText || undefined,
+      authorSlug: teamSlugs?.has(authorSlug) ? authorSlug : undefined,
+      authorName: authorName || undefined,
+      heroImage,
+      heroAlt: heroImage ? title : undefined,
+      sortOrder: sortOrder++,
+    }, body || '<!-- TODO: post body did not extract cleanly, check the live page. -->');
+  }
+}
+
 // --- Static pages ------------------------------------------------------
 
 async function scrapeStaticPages() {
   console.log('\n=== Static pages ===');
+  // /team is deliberately absent: it's a CMS collection, handled by
+  // scrapeTeam(). Scraping it as a flat page produced a dump of the filter
+  // labels ("All", "Africa", "Europe"...) and 54 unattributed photos.
   const pages = [
     { path: '/', slug: 'home', title: 'Home' },
     { path: '/about', slug: 'about', title: 'About Brink' },
-    { path: '/team', slug: 'team', title: 'Meet the team' },
     { path: '/foundation', slug: 'foundation', title: 'Brink Foundation' },
     { path: '/careers', slug: 'careers', title: 'Careers' },
     { path: '/privacy-policy', slug: 'privacy-policy', title: 'Privacy Policy' },
@@ -703,6 +851,8 @@ async function main() {
   await scrapeOffers();
   await scrapeSectors();
   await scrapeSharedPanel();
+  const teamSlugs = await scrapeTeam();
+  await scrapeBlog(teamSlugs);
   await scrapeStaticPages();
 
   console.log('\n=== Done ===');

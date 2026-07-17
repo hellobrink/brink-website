@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { withBase } from '../../lib/base';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const { data } = post;
+
+// Link the byline to the author's bio where they're one of ours.
+const team = await getCollection('team');
+const author = data.authorSlug ? team.find((m) => m.id === data.authorSlug) : undefined;
+---
+
+<Layout title={data.title} description={data.summary}>
+  <article class="container post">
+    <p class="back"><a href={withBase('/blog')}>&larr; All posts</a></p>
+
+    <h1>{data.title}</h1>
+
+    <p class="meta mono">
+      {data.date}
+      {data.date && (data.authorName || author) && ' · '}
+      {author ? (
+        <a href={withBase(`/team/${author.id}`)}>{author.data.name}</a>
+      ) : (
+        data.authorName
+      )}
+    </p>
+
+    {data.summary && <p class="summary">{data.summary}</p>}
+
+    {data.heroImage && <img class="hero" src={withBase(data.heroImage)} alt={data.heroAlt ?? data.title} />}
+
+    <div class="prose">
+      <Content />
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .post {
+    padding: var(--space-6) 0 var(--space-9);
+    max-width: var(--measure);
+  }
+
+  .post h1 {
+    font-size: var(--text-display-lg);
+    line-height: var(--leading-tight);
+  }
+
+  .back a {
+    font-family: var(--font-mono);
+    font-size: var(--text-label);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--color-text-muted);
+  }
+
+  .meta {
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+  }
+
+  .summary {
+    font-size: var(--text-body);
+    color: var(--color-text-muted);
+  }
+
+  .hero {
+    margin: var(--space-5) 0;
+    border-radius: var(--radius);
+  }
+
+  .prose :global(img) {
+    width: auto;
+    max-width: 100%;
+    max-height: 520px;
+    margin: var(--space-5) 0;
+  }
+
+  .prose :global(h2) {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display);
+    font-size: var(--text-display);
+    line-height: var(--leading-snug);
+    margin-top: var(--space-7);
+  }
+</style>

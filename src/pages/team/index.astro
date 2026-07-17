@@ -1,0 +1,88 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { withBase } from '../../lib/base';
+import { getCollection } from 'astro:content';
+
+const members = await getCollection('team');
+members.sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+---
+
+<Layout
+  title="Meet the Team"
+  description="Brink is made up of thinkers, doers and dreamers from diverse backgrounds — a global team from London to Nairobi."
+>
+  <div class="container">
+    <header class="page-header">
+      <h1>Meet the team</h1>
+      <p>
+        Brink is made up of thinkers, doers and dreamers from diverse
+        backgrounds. We are a global team, from London to South Wales, Kigali
+        to Paris and Nairobi to Barcelona. Each of us are tackling different,
+        gnarly challenges, and sharing what we learn and discover as we go.
+      </p>
+    </header>
+
+    <ul class="team-grid">
+      {members.map((m) => (
+        <li class="team-member">
+          <a href={withBase(`/team/${m.id}`)}>
+            {m.data.photo && <img src={withBase(m.data.photo)} alt={m.data.photoAlt ?? m.data.name} />}
+            <h2>{m.data.name}</h2>
+            {m.data.role && <p class="role mono">{m.data.role}</p>}
+            {m.data.location && <p class="location">{m.data.location}</p>}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Layout>
+
+<style>
+  .page-header {
+    padding: var(--space-6) 0 var(--space-5);
+    max-width: var(--measure);
+  }
+
+  .team-grid {
+    list-style: none;
+    margin: 0 0 var(--space-9);
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .team-member a {
+    display: block;
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .team-member img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: var(--space-3);
+  }
+
+  .team-member h2 {
+    font-size: var(--text-h3);
+    margin: 0 0 var(--space-1);
+  }
+
+  .team-member a:hover h2 {
+    color: var(--color-accent);
+  }
+
+  .role {
+    color: var(--color-accent);
+    margin: 0 0 var(--space-1);
+  }
+
+  .location {
+    font-size: var(--text-body-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+</style>
