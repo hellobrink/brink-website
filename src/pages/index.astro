@@ -146,15 +146,18 @@ const pillars = [
 
   <section class="section who">
     <div class="container who-inner">
-      <div>
-        <h2 class="mono">Who we are</h2>
-        <p class="display who-statement">
+      <img
+        class="who-photo"
+        src={withBase('/images/6821fa6c49603a0725e6fee9_brink-retreat-25-team.jpeg')}
+        alt="The Brink team together at their 2025 retreat"
+      />
+      <div class="who-body">
+        <h2 class="display who-heading">Who we are</h2>
+        <p class="who-statement">
           We're a global team of technologists, designers, strategists, and
           behavioural scientists, united by a commitment to harnessing
           technology for transformative impact
         </p>
-      </div>
-      <div class="who-body">
         <p>
           Working alongside our partners we create ideas that put human
           behaviour at their core.
@@ -293,17 +296,28 @@ const pillars = [
     display: grid;
     grid-template-columns: 3fr 2fr;
     gap: var(--space-8);
-    align-items: end;
+    align-items: center;
+  }
+
+  .who-photo {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+  }
+
+  .who-heading {
+    font-size: var(--text-display);
+    margin-bottom: var(--space-4);
   }
 
   .who-statement {
-    font-size: var(--text-display);
+    font-weight: var(--weight-bold);
   }
 
-  .who h2.mono {
-    color: var(--color-text-muted);
-    font-weight: var(--weight-body);
-    margin-bottom: var(--space-2);
+  @media (max-width: 768px) {
+    .who-photo {
+      order: -1;
+    }
   }
 
   @media (max-width: 768px) {
