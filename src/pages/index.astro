@@ -77,23 +77,24 @@ const pillars = [
     <picture>
       <source
         media="(max-width: 900px)"
-        srcset={withBase('/images/hero-elizabeth-kankoyo-payg-bike-zambia-1400.jpg')}
+        srcset={withBase('/images/hero-sowing-field-1400.jpg')}
       />
       <img
         class="hero-image"
-        src={withBase('/images/hero-elizabeth-kankoyo-payg-bike-zambia.jpg')}
-        alt="Elizabeth Kankoyo rides her pay-as-you-go bicycle past fields near Zimba, Zambia"
+        src={withBase('/images/hero-sowing-field.jpg')}
+        alt="A farmer sowing by hand across a freshly ploughed field, with green hills behind"
         fetchpriority="high"
       />
     </picture>
     <div class="hero-text">
-      <h1>Explore Behavioural Innovation</h1>
-      <p>Our proven approach for creating meaningful change.</p>
-      <a class="button inverted" href="https://bi.hellobrink.co">Find out more</a>
+      <h1>Innovation as if people matter</h1>
+      <p>
+        At Brink we create bold, innovative strategies to tackle urgent and
+        preventable issues and drive impact in education, health, climate
+        and more.
+      </p>
+      <a class="button inverted" href={withBase('/about')}>About Brink</a>
     </div>
-    <p class="hero-credit">
-      Elizabeth Kankoyo rides her PAYG bike near Zimba, Zambia — Frontier Tech Hub
-    </p>
   </section>
 
   <section class="section doing">
@@ -119,7 +120,7 @@ const pillars = [
 
   <section class="section pillars">
     <div class="container">
-      <h2 class="display">Innovation as if people matter</h2>
+      <h2 class="display">Explore Brink</h2>
       <div class="card-row">
         {pillars.map((pillar) => (
           <a class="card" href={pillar.href}>
@@ -227,10 +228,10 @@ const pillars = [
 </script>
 
 <style>
-  /* Full-bleed photographic hero. The photo is bright end-to-end, so white
-     text needs help — but the subject sits right of centre and rides right,
-     so a teal scrim fading from the left carries the copy without covering
-     her. A flat overlay across the whole frame would just mute the photo. */
+  /* Full-bleed photographic hero. The subject sits centre-right (sowing
+     into the open field on her right), so a teal scrim fading from the left
+     carries the copy over the empty green hillside without covering her. A
+     flat overlay across the whole frame would just mute the photo. */
   .hero {
     position: relative;
     min-height: min(88vh, 760px);
@@ -247,8 +248,8 @@ const pillars = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Keep Elizabeth in frame as the viewport narrows. */
-    object-position: 65% center;
+    /* Bias toward the subject as the viewport narrows and crops the sides. */
+    object-position: 60% center;
   }
 
   .hero::after {
