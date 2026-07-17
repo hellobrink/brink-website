@@ -14,6 +14,7 @@ import BehaviouralPanel from '../../components/BehaviouralPanel.astro';
 import CaseStudyCard from '../../components/CaseStudyCard.astro';
 import NamedContactCTA from '../../components/NamedContactCTA.astro';
 import { getCollection, render } from 'astro:content';
+import { withBase } from '../../lib/base';
 
 export async function getStaticPaths() {
   const sectors = await getCollection('sectors');
@@ -44,6 +45,13 @@ const funderPartnerNames = [...new Set(relatedWork.flatMap((w) => [...w.data.fun
     <header class="hero container">
       <h1>{data.headline}</h1>
       <p class="positioning">{data.positioningLine}</p>
+      {data.heroImage && (
+        <img
+          class="hero-image"
+          src={withBase(data.heroImage)}
+          alt={data.heroAlt ?? ''}
+        />
+      )}
     </header>
 
     <div class="container">
@@ -125,6 +133,14 @@ const funderPartnerNames = [...new Set(relatedWork.flatMap((w) => [...w.data.fun
   .positioning {
     font-size: var(--text-body);
     color: var(--color-text-muted);
+  }
+
+  .hero-image {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin-top: 1.5rem;
   }
 
   .what-we-do {
