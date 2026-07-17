@@ -6,6 +6,11 @@ import { getCollection } from 'astro:content';
 const allWork = await getCollection('work');
 allWork.sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 
+const groups = [
+  { status: 'current', heading: 'Current programmes and projects', items: allWork.filter((item) => item.data.status === 'current') },
+  { status: 'past', heading: 'Past programmes and projects', items: allWork.filter((item) => item.data.status === 'past') },
+];
+
 const sectors = ['climate', 'health', 'education'];
 const offers = [
   { value: 'open-innovation', label: 'Open Innovation' },
@@ -50,25 +55,31 @@ const offers = [
 
     <p class="empty-state" hidden>No work matches those filters.</p>
 
-    <ul class="work-grid">
-      {allWork.map((item) => (
-        <li
-          class="work-item"
-          data-sector={item.data.sector.join(',')}
-          data-offer={item.data.offer.join(',')}
-          data-status={item.data.status}
-        >
-          <a href={withBase(`/our-work/${item.id}`)}>
-            {item.data.heroImage && <img src={withBase(item.data.heroImage)} alt={item.data.heroAlt ?? item.data.title} />}
-            <div class="work-item-body">
-              {item.data.hasCaseStudy && <span class="tag">Full case study</span>}
-              <h3>{item.data.title}</h3>
-              <p>{item.data.summary}</p>
-            </div>
-          </a>
-        </li>
-      ))}
-    </ul>
+    {groups.map((group) => (
+      <section class="work-group" data-group={group.status}>
+        <h2>{group.heading}</h2>
+        <ul class="work-grid">
+          {group.items.map((item) => (
+            <li
+              class="work-item"
+              data-sector={item.data.sector.join(',')}
+              data-offer={item.data.offer.join(',')}
+              data-status={item.data.status}
+            >
+              <a href={withBase(`/our-work/${item.id}`)}>
+                {item.data.heroImage && <img src={withBase(item.data.heroImage)} alt={item.data.heroAlt ?? item.data.title} />}
+                <div class="work-item-body">
+                  {item.data.hasCaseStudy && <span class="tag">Full case study</span>}
+                  {item.data.programmeName && <p class="kicker">{item.data.programmeName}</p>}
+                  <h3>{item.data.title}</h3>
+                  <p>{item.data.summary}</p>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
   </div>
 </Layout>
 
@@ -81,6 +92,7 @@ const offers = [
   }
 
   const items = document.querySelectorAll('.work-item');
+  const groupEls = document.querySelectorAll('.work-group');
   const emptyState = document.querySelector('.empty-state');
 
   function applyFilters() {
@@ -93,6 +105,9 @@ const offers = [
       });
       el.hidden = !matches;
       if (matches) visibleCount += 1;
+    });
+    groupEls.forEach((group) => {
+      group.hidden = group.querySelectorAll('.work-item:not([hidden])').length === 0;
     });
     emptyState.hidden = visibleCount > 0;
   }
@@ -159,9 +174,14 @@ const offers = [
     border-color: var(--color-text);
   }
 
+  .work-group h2 {
+    font-size: var(--text-h3);
+    margin: var(--space-6) 0 var(--space-4);
+  }
+
   .work-grid {
     list-style: none;
-    margin: 0 0 var(--space-9);
+    margin: 0 0 var(--space-6);
     padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -187,6 +207,15 @@ const offers = [
 
   .work-item-body {
     padding: var(--space-4);
+  }
+
+  .work-item .kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-tag);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--color-text-muted);
+    margin: 0.6em 0 0;
   }
 
   .work-item h3 {

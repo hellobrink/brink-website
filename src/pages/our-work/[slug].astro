@@ -28,6 +28,7 @@ const tags = [...data.sector, ...data.offer];
       </div>
     )}
 
+    {data.programmeName && <p class="kicker">{data.programmeName}</p>}
     <h1>{data.title}</h1>
     <p class="summary">{data.summary}</p>
 
@@ -88,6 +89,15 @@ const tags = [...data.sector, ...data.offer];
 
   .tags {
     margin: var(--space-2) 0 var(--space-4);
+  }
+
+  .kicker {
+    font-family: var(--font-mono);
+    font-size: var(--text-label);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-label);
+    color: var(--color-text-muted);
+    margin: var(--space-2) 0 0;
   }
 
   .summary {

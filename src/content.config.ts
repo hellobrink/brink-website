@@ -11,6 +11,10 @@ const work = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/work' }),
   schema: z.object({
     title: z.string(),
+    // The name a visitor would recognise from the live /our-work index
+    // (e.g. "ASToN", "Macmillan CoLab") when it differs from the
+    // case-study title it was merged into. See brief Decision 1 / issue #5.
+    programmeName: z.string().optional(),
     summary: z.string(),
     heroImage: z.string().optional(),
     heroAlt: z.string().optional(),
