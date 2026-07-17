@@ -14,8 +14,12 @@ const { Content } = entry ? await render(entry) : { Content: null };
 </div>
 
 <style>
+  /* Only touch the vertical padding: this element also carries
+     `.container`, whose horizontal gutter a `padding` shorthand would
+     silently reset to 0 — which had the text running to the screen edge. */
   .prose {
-    padding: var(--space-6) 0 var(--space-9);
+    padding-top: var(--space-6);
+    padding-bottom: var(--space-9);
     max-width: var(--measure);
   }
 
