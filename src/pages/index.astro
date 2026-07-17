@@ -72,13 +72,28 @@ const pillars = [
 ];
 ---
 
-<Layout title="Home">
-  <section class="hero" style={`background-image: url('${withBase('/images/hero-cranes-on-red.png')}')`}>
+<Layout title="Home" overlayHeader>
+  <section class="hero">
+    <picture>
+      <source
+        media="(max-width: 900px)"
+        srcset={withBase('/images/hero-elizabeth-kankoyo-payg-bike-zambia-1400.jpg')}
+      />
+      <img
+        class="hero-image"
+        src={withBase('/images/hero-elizabeth-kankoyo-payg-bike-zambia.jpg')}
+        alt="Elizabeth Kankoyo rides her pay-as-you-go bicycle past fields near Zimba, Zambia"
+        fetchpriority="high"
+      />
+    </picture>
     <div class="hero-text">
       <h1>Explore Behavioural Innovation</h1>
       <p>Our proven approach for creating meaningful change.</p>
       <a class="button inverted" href="https://bi.hellobrink.co">Find out more</a>
     </div>
+    <p class="hero-credit">
+      Elizabeth Kankoyo rides her PAYG bike near Zimba, Zambia — Frontier Tech Hub
+    </p>
   </section>
 
   <section class="section doing">
@@ -127,17 +142,17 @@ const pillars = [
             reader's heading list — aria-label gives it the whole stat. */}
         <div class="stat">
           <span class="stat-lead">Supported over</span>
-          <h3 class="stat-value display" aria-label="Supported over 340 innovation teams">340</h3>
+          <h3 class="stat-value display" data-count-to="340" aria-label="Supported over 340 innovation teams">340</h3>
           <span class="stat-label">innovation teams</span>
         </div>
         <div class="stat">
           <span class="stat-lead">across</span>
-          <h3 class="stat-value display" aria-label="Across 53 countries">53</h3>
+          <h3 class="stat-value display" data-count-to="53" aria-label="Across 53 countries">53</h3>
           <span class="stat-label">countries</span>
         </div>
         <div class="stat">
           <span class="stat-lead">to access more than</span>
-          <h3 class="stat-value display" aria-label="To access more than £60m in funding">£60m</h3>
+          <h3 class="stat-value display" data-count-to="60" data-prefix="£" data-suffix="m" aria-label="To access more than £60m in funding">£60m</h3>
           <span class="stat-label">in funding</span>
         </div>
       </div>
@@ -173,30 +188,138 @@ const pillars = [
   </section>
 </Layout>
 
+<script>
+  // Count the key figures up as they scroll into view. The final value is
+  // already in the HTML, so this degrades to a plain number if JS fails —
+  // and it's skipped entirely for anyone who prefers reduced motion.
+  const stats = document.querySelectorAll<HTMLElement>('[data-count-to]');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (stats.length && !reduced) {
+    const run = (el: HTMLElement) => {
+      const target = Number(el.dataset.countTo);
+      const prefix = el.dataset.prefix ?? '';
+      const suffix = el.dataset.suffix ?? '';
+      const duration = 1100;
+      const start = performance.now();
+      const tick = (now: number) => {
+        const p = Math.min((now - start) / duration, 1);
+        // easeOutCubic — fast then settling, rather than a linear crawl
+        const eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = `${prefix}${Math.round(target * eased)}${suffix}`;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          run(entry.target as HTMLElement);
+          io.unobserve(entry.target); // count once, not on every scroll past
+        });
+      },
+      { threshold: 0.6 }
+    );
+    stats.forEach((s) => io.observe(s));
+  }
+</script>
+
 <style>
+  /* Full-bleed photographic hero. The photo is bright end-to-end, so white
+     text needs help — but the subject sits right of centre and rides right,
+     so a teal scrim fading from the left carries the copy without covering
+     her. A flat overlay across the whole frame would just mute the photo. */
   .hero {
-    min-height: calc(100vh - 66px);
-    background-color: var(--color-accent);
-    background-size: cover;
-    background-position: center;
+    position: relative;
+    min-height: min(88vh, 760px);
     display: flex;
     align-items: center;
-    padding: var(--space-6) var(--space-9);
+    padding: var(--space-9) 0;
+    background: var(--color-surface-inverted);
+    overflow: hidden;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Keep Elizabeth in frame as the viewport narrows. */
+    object-position: 65% center;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      100deg,
+      rgba(6, 51, 61, 0.92) 0%,
+      rgba(6, 51, 61, 0.75) 32%,
+      rgba(6, 51, 61, 0.15) 62%,
+      rgba(6, 51, 61, 0) 78%
+    );
   }
 
   .hero-text {
+    position: relative;
+    z-index: 1;
     color: var(--color-surface);
-    max-width: 600px;
+    max-width: 640px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 var(--space-gutter);
+  }
+
+  /* The container is centred on the page, but the copy should sit in the
+     scrim on the left rather than the middle of the photo. */
+  @media (min-width: 901px) {
+    .hero-text {
+      margin: 0;
+      padding-left: max(var(--space-gutter), calc((100vw - var(--max-width)) / 2 + var(--space-gutter)));
+      max-width: calc(640px + (100vw - var(--max-width)) / 2);
+    }
   }
 
   .hero-text h1 {
-    font-size: var(--text-h1);
+    font-size: var(--text-hero);
     color: var(--color-surface);
+    margin-bottom: var(--space-4);
   }
 
   .hero-text p {
-    font-size: var(--text-body);
-    margin-bottom: var(--space-5);
+    font-size: var(--text-lead);
+    margin-bottom: var(--space-6);
+    max-width: 46ch;
+  }
+
+  /* Photo credit. Real people in real programmes deserve a name, and it
+     doubles as proof the work is real. */
+  .hero-credit {
+    position: absolute;
+    right: var(--space-gutter);
+    bottom: var(--space-4);
+    z-index: 1;
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+    text-align: right;
+    max-width: 40ch;
+  }
+
+  @media (max-width: 900px) {
+    .hero-credit {
+      position: static;
+      text-align: left;
+      padding: var(--space-3) var(--space-gutter) 0;
+      color: var(--color-text-muted);
+    }
   }
 
   .section {

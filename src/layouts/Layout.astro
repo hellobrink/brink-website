@@ -7,9 +7,15 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  /** Let the header sit transparent over a full-bleed hero image. */
+  overlayHeader?: boolean;
 }
 
-const { title, description = 'Brink is a global team of technologists, designers, strategists, and behavioural scientists working on open innovation.' } = Astro.props;
+const {
+  title,
+  description = 'Brink is a global team of technologists, designers, strategists, and behavioural scientists working on open innovation.',
+  overlayHeader = false,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -22,7 +28,7 @@ const { title, description = 'Brink is a global team of technologists, designers
     <title>{title} · Brink</title>
   </head>
   <body>
-    <Header />
+    <Header overlay={overlayHeader} />
     <main>
       <slot />
     </main>

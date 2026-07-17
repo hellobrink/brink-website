@@ -45,6 +45,7 @@
   /* Type scale. Fluid steps — clamp(min, preferred, max) so the site is
      responsive by construction rather than by scattered media queries.
      This replaced 17 hand-picked font sizes. */
+  --size-3xs: 0.7rem;
   --size-2xs: 0.75rem;
   --size-xs: 0.8rem;
   --size-sm: 0.9rem;
@@ -56,6 +57,10 @@
   --size-4xl: clamp(2.2rem, 5vw, 3.4rem);
   --size-5xl: clamp(2.5rem, 4.5vw, 3.9rem);
   --size-6xl: clamp(3rem, 7vw, 5rem);
+  /* Homepage hero only. FID runs its hero at 80px; Signifier Light at that
+     size is the single most distinctive thing on the page, so it earns the
+     room. */
+  --size-7xl: clamp(2.6rem, 6vw, 4.6rem);
 
   /* Space scale, roughly 1.5×. Replaced 46 ad-hoc padding/margin values. */
   --space-1: 0.25rem;
@@ -95,8 +100,11 @@
 
   --text-body: var(--size-lg);
   --text-body-sm: var(--size-sm);
+  --text-lead: var(--size-xl); /* standfirst under a hero/section headline */
   --text-label: var(--size-sm); /* mono labels/kickers */
   --text-tag: var(--size-xs);
+  --text-2xs: var(--size-3xs); /* photo credits, fine print */
+  --text-hero: var(--size-7xl); /* homepage hero headline */
   --text-h1: var(--size-4xl);
   --text-h2: var(--size-xl);
   --text-h3: var(--size-lg);
