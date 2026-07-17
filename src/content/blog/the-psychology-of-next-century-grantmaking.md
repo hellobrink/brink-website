@@ -3,7 +3,7 @@ title: The psychology of next-century grantmaking
 summary: "Technological advances and a more connected world have brought tremendous improvements to our lives, but they've also introduced new risks and widened existing divides. For the first time, five transformative platforms—energy storage, gene editing, artificial intelligence, blockchain, and robotics—a"
 authorSlug: lea-simpson
 authorName: Lea Simpson
-heroImage: "/images/6a4e7044062c939df35ad8c8_climate_funds.png"
+heroImage: "/images/682333dfad7a0153243b7ba7_screenshot-2025-05-13-at-125804.png"
 heroAlt: The psychology of next-century grantmaking
 sortOrder: 17
 ---

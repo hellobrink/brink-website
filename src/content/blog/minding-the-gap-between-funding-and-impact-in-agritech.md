@@ -3,7 +3,7 @@ title: Minding the gap between funding and impact in Agritech
 summary: "What’s stopping innovation in agriculture from scaling in lower-income countries? Spoiler: it’s not just a lack of money."
 authorSlug: abi-freeman
 authorName: Abi Freeman
-heroImage: "/images/6a4e7044062c939df35ad8c8_climate_funds.png"
+heroImage: "/images/686ba1a29c49b9f6e183b070_wfd-24_farm-4.jpg"
 heroAlt: Minding the gap between funding and impact in Agritech
 sortOrder: 11
 ---

@@ -3,7 +3,7 @@ title: Are accelerator programmes dead?
 summary: Every other week I find myself having a conversation about the best way to support entrepreneurs in Africa.
 authorSlug: alice-carter
 authorName: Alice Carter
-heroImage: "/images/6a4e7044062c939df35ad8c8_climate_funds.png"
+heroImage: "/images/69cbb123ddff4bd0618ab9f2_acceleratorstb.png"
 heroAlt: Are accelerator programmes dead?
 sortOrder: 1
 ---

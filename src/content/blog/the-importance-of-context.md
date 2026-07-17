@@ -3,7 +3,7 @@ title: "The importance of context: A personal perspective on creating meaningful
 summary: In December of 2023, I was on the brink of joining Brink.
 authorSlug: hamza-prince-hadji
 authorName: Hamza Prince Hadji
-heroImage: "/images/6a4e7044062c939df35ad8c8_climate_funds.png"
+heroImage: "/images/68b6f85cee4cb46a9776cbd7_screenshot-2025-09-02-at-145946.png"
 heroAlt: "The importance of context: A personal perspective on creating meaningful change"
 sortOrder: 7
 ---

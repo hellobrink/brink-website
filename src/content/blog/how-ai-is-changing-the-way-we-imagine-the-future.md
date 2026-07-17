@@ -3,7 +3,7 @@ title: How AI Is changing the way we imagine the future
 summary: "\"I had worked hard for nearly two years, for the sole purpose of infusing life into an inanimate body. For this I had deprived myself of rest and health. I had desired it with an ardour that far exceeded moderation; but now that I had finished, the beauty of the dream vanished, and breathless horror"
 authorSlug: david-vigoureux
 authorName: David Vigoureux
-heroImage: "/images/6a4e7044062c939df35ad8c8_climate_funds.png"
+heroImage: "/images/68763df5a35009637b6d916f_chatgpt-image-jul-15-2025-12_17_38-pm.jpg"
 heroAlt: How AI Is changing the way we imagine the future
 sortOrder: 10
 ---

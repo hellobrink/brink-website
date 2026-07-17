@@ -3,7 +3,7 @@ title: "The Future Starts Now: How foresight and behavioural innovation help us 
 summary: When you read the news and think about how to keep abreast of events or perhaps even stay ahead, how do you feel? If the answer is unsettled, uneasy, uncertain or completely unsure, you are not alone.
 authorSlug: gita-luz
 authorName: Gita Luz
-heroImage: "/images/6a4e7044062c939df35ad8c8_climate_funds.png"
+heroImage: "/images/6821dd58670ff3c2d0c18dc2_screenshot-2025-05-12-at-123648.png"
 heroAlt: "The Future Starts Now: How foresight and behavioural innovation help us shape the future today"
 sortOrder: 19
 ---

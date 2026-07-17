@@ -2,7 +2,7 @@
 title: Reflecting on the Brink Retreat, 2025
 summary: We are what we are because of who we all are. That spirit of Ubuntuis one of our core values at Brink. It’s also the reason we come together every year, in person, away from things like screens, deadlines, and Zoom calls.
 authorName: Rob Hinchcliffe
-heroImage: "/images/6a4e7044062c939df35ad8c8_climate_funds.png"
+heroImage: "/images/68122fbb16d521de459d539d_screenshot-2025-04-30-at-151201.png"
 heroAlt: Reflecting on the Brink Retreat, 2025
 sortOrder: 14
 ---

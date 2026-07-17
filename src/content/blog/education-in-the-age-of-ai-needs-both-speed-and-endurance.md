@@ -3,7 +3,7 @@ title: "Education in the age of AI needs both speed and endurance: What happens 
 summary: Right now, education systems are being asked to do something fundamentally tough. They are being asked to run a hundred metre dash and a marathon at the same time.
 authorSlug: gita-luz
 authorName: Gita Luz
-heroImage: "/images/66d1b202f6b8d0d24788607d_flic_1.webp"
+heroImage: "/images/69b12fc7c313841f9da525e5_banner-800-x-800.png"
 heroAlt: "Education in the age of AI needs both speed and endurance: What happens when fast meets slow?"
 sortOrder: 2
 ---

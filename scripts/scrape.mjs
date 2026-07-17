@@ -753,11 +753,25 @@ async function scrapeBlog(teamSlugs) {
   const $index = await fetchDoc('/blog');
   if (!$index) return;
 
-  // The index lists newest first, so document order is our sort order.
+  // The index lists newest first, so document order is our sort order. Take
+  // each post's thumbnail from its index card too: the post pages themselves
+  // have NO hero image (verified in a browser — every image on a post is a
+  // 79px thumbnail in a hidden related-posts rail, and the rich text
+  // contains none), so the card is the only place the image is bound to its
+  // own slug unambiguously.
   const slugs = [];
+  const thumbs = new Map();
   $index('a[href^="/post/"]').each((_, a) => {
-    const m = $index(a).attr('href')?.match(/^\/post\/([^/?#]+)$/);
-    if (m && !slugs.includes(m[1])) slugs.push(m[1]);
+    const $a = $index(a);
+    const m = $a.attr('href')?.match(/^\/post\/([^/?#]+)$/);
+    if (!m) return;
+    if (!slugs.includes(m[1])) slugs.push(m[1]);
+    if (!thumbs.has(m[1])) {
+      const src =
+        $a.find('img').first().attr('src') ??
+        $a.closest('[class*="collection-item"], .w-dyn-item').find('img').first().attr('src');
+      if (src) thumbs.set(m[1], src);
+    }
   });
   console.log(`Found ${slugs.length} posts on the index; taking ${Math.min(BLOG_LIMIT, slugs.length)}.`);
 
@@ -781,13 +795,11 @@ async function scrapeBlog(teamSlugs) {
     const authorHref = $('a[href^="/team/"]').first().attr('href');
     const authorSlug = authorHref?.match(/^\/team\/([^/?#]+)$/)?.[1];
 
-    // Every image on the page carries `.square-image`; the first is the
-    // author's headshot, so the post's own hero is the one after it.
-    const squareImages = $('img.square-image').toArray();
-    const heroSrc = squareImages[1]
-      ? $(squareImages[1]).attr('src')
-      : $('section.blog-hero img').not('.w-dyn-bind-empty').first().attr('src');
-    const heroImage = await downloadImage(heroSrc);
+    // Take the thumbnail from this post's own index card (see above). Do NOT
+    // pick images off the post page: they're all `.square-image` thumbnails
+    // in a hidden related-posts rail, so indexing into them gave every post
+    // either a random other post's picture or the author's headshot.
+    const heroImage = await downloadImage(thumbs.get(slug));
 
     // No <time> element and no date class on these pages — the live posts
     // simply don't show one. Left undefined rather than invented.

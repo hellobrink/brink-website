@@ -3,7 +3,7 @@ title: Brink is joining forces with Enabel’s Innovation Hub
 summary: "Starting this month, we’re kicking off something new and exciting: a collaboration with Enabel, the Belgian government’s development agency with a mission to turn bold ideas into real-world progress."
 authorSlug: abi-freeman
 authorName: Abi Freeman
-heroImage: "/images/6a4e7044062c939df35ad8c8_climate_funds.png"
+heroImage: "/images/67eea2cab197da15375fd281_tbfarm-radio_san-womens-listening-group-016-1-scaled-e1.png"
 heroAlt: Brink is joining forces with Enabel’s Innovation Hub
 sortOrder: 15
 ---

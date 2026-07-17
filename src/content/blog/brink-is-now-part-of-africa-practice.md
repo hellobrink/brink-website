@@ -3,7 +3,7 @@ title: Brink is now part of Africa Practice
 summary: "Seven years ago, we started Brink with a simple conviction: that innovation only works when it's human. We wanted to prove that when you trust people and create the right conditions, extraordinary things happen. And they have."
 authorSlug: lea-simpson
 authorName: Lea Simpson
-heroImage: "/images/66d6147bb42db144d88f03a6_abi_1-3.webp"
+heroImage: "/images/69399e1a80fbc19985285113_collage-trees-texture_final_smalle.png"
 heroAlt: Brink is now part of Africa Practice
 sortOrder: 5
 ---

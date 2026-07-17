@@ -7,7 +7,9 @@ import { getCollection } from 'astro:content';
 // Hand-built to mirror the live hellobrink.co homepage: full-height coral
 // hero (cranes_on_red, the same asset the live site uses), "What Brink is
 // doing" cards, the three-column "Innovation as if people matter" section,
-// the since-2018 stats band, the team carousel, and "Who we are".
+// the since-2018 stats band, and "Who we are". Verified against the live
+// page: it renders exactly three content images, all on the pillar cards.
+// Don't add sections that aren't there.
 
 // The blog card pulls the newest post from the collection rather than
 // hardcoding it, so it can't go stale.
@@ -42,30 +44,30 @@ const doingCards = [
   },
 ].filter(Boolean);
 
-// The live homepage carries a band of team photos between the stats and
-// "Who we are" (issue #2). Pull real people from the team collection
-// rather than hardcoding the three images that were there.
-const allTeam = await getCollection('team');
-const faces = allTeam
-  .filter((m) => m.data.photo)
-  .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
-  .slice(0, 8);
-
+// Each pillar carries a photo on the live homepage — these are the three
+// images issue #2 reported missing. They belong here, on the cards; they
+// are not a separate section.
 const pillars = [
   {
     title: 'Our work',
     text: "Addressing some of the world's most pressing issues across health, education and climate.",
     href: withBase('/our-work'),
+    image: '/images/67a4b5647b7d815f752aec59_01-violet-ochieng.jpg',
+    alt: 'Violet Ochieng at work',
   },
   {
     title: 'Our methods',
     text: 'How we work with our partners to find obvious solutions to non-trivial problems.',
     href: withBase('/offers'),
+    image: '/images/67a497c61d1d0f21b88108df_brinkcandids-172.jpg',
+    alt: 'A Brink workshop in progress',
   },
   {
     title: 'Our foundation',
     text: 'Bringing people together to imagine a better future and make that future happen.',
     href: withBase('/foundation'),
+    image: '/images/69f0866dc6488c88aef482d8_girl_in_green_top_in_african_class_looks_at_camera_-_ca.png',
+    alt: 'A pupil looking up from her work in class',
   },
 ];
 ---
@@ -106,6 +108,7 @@ const pillars = [
       <div class="card-row">
         {pillars.map((pillar) => (
           <a class="card" href={pillar.href}>
+            <img src={withBase(pillar.image)} alt={pillar.alt} />
             <h3>{pillar.title}</h3>
             <p>{pillar.text}</p>
             <span class="mono read-more">Read more &gt;</span>
@@ -140,25 +143,6 @@ const pillars = [
       </div>
     </div>
   </section>
-
-  {faces.length > 0 && (
-    <section class="section faces">
-      <div class="container">
-        <h2 class="mono">The people behind it</h2>
-        <ul class="faces-row">
-          {faces.map((m) => (
-            <li>
-              <a href={withBase(`/team/${m.id}`)}>
-                <img src={withBase(m.data.photo!)} alt={m.data.photoAlt ?? m.data.name} />
-                <span class="face-name">{m.data.name}</span>
-              </a>
-            </li>
-          ))}
-        </ul>
-        <a class="mono read-more" href={withBase('/team')}>Meet the team &gt;</a>
-      </div>
-    </section>
-  )}
 
   <section class="section who">
     <div class="container who-inner">
@@ -303,42 +287,6 @@ const pillars = [
 
   .stat-label {
     font-size: var(--text-body);
-  }
-
-  .faces h2.mono {
-    color: var(--color-text-muted);
-    font-weight: var(--weight-body);
-    margin: 0 0 var(--space-5);
-  }
-
-  .faces-row {
-    list-style: none;
-    margin: 0 0 var(--space-5);
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: var(--space-4);
-  }
-
-  .faces-row a {
-    text-decoration: none;
-    color: var(--color-text);
-  }
-
-  .faces-row img {
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: var(--radius);
-    margin-bottom: var(--space-2);
-  }
-
-  .face-name {
-    font-size: var(--text-body-sm);
-  }
-
-  .faces-row a:hover .face-name {
-    color: var(--color-accent);
   }
 
   .who-inner {

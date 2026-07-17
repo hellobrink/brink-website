@@ -3,7 +3,7 @@ title: Five uncomfortable truths at the heart of post-aid climate finance
 summary: "2025 will be remembered for forcing an uncomfortable question: what happens when the aid architecture collapses?"
 authorSlug: lil-patuck
 authorName: Lil Patuck
-heroImage: "/images/66d6215029d1f7e47da9e77c_nathan_1.webp"
+heroImage: "/images/6989f7e49f10c2a390180554_banner-800x800.png"
 heroAlt: Five uncomfortable truths at the heart of post-aid climate finance
 sortOrder: 3
 ---

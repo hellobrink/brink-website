@@ -3,7 +3,7 @@ title: On scalable, irreversible Impact
 summary: In 2023, overseas development aid totalled $243bn. In 2024, it fell 10%. This year, it’s projected to fall by a further 9-17%, according to OECD. After that, who knows?
 authorSlug: asad-rahman
 authorName: Asad Rahman
-heroImage: "/images/6a4e7044062c939df35ad8c8_climate_funds.png"
+heroImage: "/images/68a44492ab3e0604fcc3be31_wave2.png"
 heroAlt: On scalable, irreversible Impact
 sortOrder: 9
 ---

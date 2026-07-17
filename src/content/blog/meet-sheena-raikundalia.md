@@ -3,7 +3,7 @@ title: "Meet Brink Foundation's newest board member: Sheena Raikundalia"
 summary: "Since we established the Brink Foundation two and a half years ago, we've been searching for someone who can bring a rare blend of cross-sector insight, deep roots in African innovation ecosystems, and the strategic clarity to help us continue to grow boldly."
 authorSlug: rob-hinchcliffe
 authorName: Rob Hinchcliffe
-heroImage: "/images/6a4e7044062c939df35ad8c8_climate_funds.png"
+heroImage: "/images/68a5d4d69e930570a98ff91c_sheena.jpeg"
 heroAlt: "Meet Brink Foundation's newest board member: Sheena Raikundalia"
 sortOrder: 8
 ---

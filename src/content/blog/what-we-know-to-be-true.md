@@ -3,7 +3,7 @@ title: "What we know to be true - A message from Brink's founders"
 summary: "Before we were partners and founders, we were friends; and as we've built Brink over the past seven years we have held tightly on to the idea that great relationships are critical to making things happen."
 authorSlug: lea-simpson
 authorName: Lea Simpson
-heroImage: "/images/66d6147bb42db144d88f03a6_abi_1-3.webp"
+heroImage: "/images/67fe794d7856107a9a1600a5_brink-campaign_sq.jpg"
 heroAlt: "What we know to be true - A message from Brink's founders"
 sortOrder: 16
 ---
