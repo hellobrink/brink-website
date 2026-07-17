@@ -8,7 +8,7 @@ whatWeDo:
   - title: TODO
     description: "TODO: named, concrete services for this sector (brief 4A.3)."
 challengeText: "If better learning outcomes are to be delivered for all, especially the most marginalised, it's crucial that solutions are implemented at scale."
-principles: [??, ??, Behaviour-led design for real-world complexity]
+principles: ["??", "??", Behaviour-led design for real-world complexity]
 namedContact:
   name: "TODO: named contact for the education sector (brief 4A.3)."
   role: "TODO"

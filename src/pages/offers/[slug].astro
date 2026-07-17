@@ -60,21 +60,21 @@ const relatedWork = allWork
 
 <style>
   .offer-detail {
-    padding: 2rem 0 4rem;
+    padding: var(--space-6) 0 var(--space-9);
   }
 
   .back a {
     font-family: var(--font-mono);
-    font-size: 0.8rem;
+    font-size: var(--text-tag);
     text-decoration: none;
-    color: var(--text-muted);
+    color: var(--color-text-muted);
   }
 
   .offer-header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 2rem;
+    gap: var(--space-6);
   }
 
   .sticker {
@@ -84,25 +84,25 @@ const relatedWork = allWork
   }
 
   .summary {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    max-width: 60ch;
+    font-size: var(--text-body);
+    color: var(--color-text-muted);
+    max-width: var(--measure-narrow);
   }
 
   .prose {
-    max-width: 70ch;
+    max-width: var(--measure);
   }
 
   .related {
-    margin-top: 3rem;
+    margin-top: var(--space-8);
   }
 
   .grid {
     list-style: none;
-    margin: 1.5rem 0;
+    margin: var(--space-5) 0;
     padding: 0;
     display: grid;
-    gap: 1.5rem;
+    gap: var(--space-5);
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   }
 </style>

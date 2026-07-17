@@ -9,7 +9,7 @@ stats:
     label: "TODO: what does this number measure?"
   - value: "22"
     label: "TODO: what does this number measure?"
-  - value: 1.5m
+  - value: "1.5m"
     label: "TODO: what does this number measure?"
 whatWeDo:
   - title: TODO

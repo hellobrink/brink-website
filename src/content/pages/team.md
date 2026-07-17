@@ -40,9 +40,7 @@ Oops! Something went wrong while submitting the form.
 
 ## Abi Freeman
 
->
-
-Founder
+- Founder
 
 All
 
@@ -56,9 +54,7 @@ UK
 
 ## Alex Losneanu
 
->
-
-Innovation Director
+- Innovation Director
 
 All
 
@@ -72,9 +68,7 @@ Venturing
 
 ## Alice Carter
 
->
-
-Innovation Director & East Africa Lead
+- Innovation Director & East Africa Lead
 
 All
 
@@ -88,9 +82,7 @@ Delivery
 
 ## Asad Rahman
 
->
-
-VENTURING LEAD
+- VENTURING LEAD
 
 All
 
@@ -104,9 +96,7 @@ Venturing
 
 ## Bryony Nicholson
 
->
-
-COMMUNITY LEAD
+- COMMUNITY LEAD
 
 All
 
@@ -120,9 +110,7 @@ Collectives
 
 ## Carly Elkins
 
->
-
-Finance Manager
+- Finance Manager
 
 All
 
@@ -136,9 +124,7 @@ Finance
 
 ## Catherine Wambũi Kuria
 
->
-
-Delivery Manager
+- Delivery Manager
 
 All
 
@@ -152,9 +138,7 @@ Delivery
 
 ## Clare Rutherford
 
->
-
-People Manager
+- People Manager
 
 All
 
@@ -168,9 +152,7 @@ Operations
 
 ## David Vigoureux
 
->
-
-Innovation Manager
+- Innovation Manager
 
 All
 
@@ -184,9 +166,7 @@ Venturing
 
 ## Flic Burgess
 
->
-
-Innovation Manager
+- Innovation Manager
 
 UK
 
@@ -200,9 +180,7 @@ All
 
 ## Gita Luz
 
->
-
-Innovation Lead
+- Innovation Lead
 
 All
 
@@ -216,9 +194,7 @@ Venturing
 
 ## Grace Owiti
 
->
-
-COLLECTIVES EXECUTIVE
+- COLLECTIVES EXECUTIVE
 
 Africa
 
@@ -232,9 +208,7 @@ All
 
 ## Hamza Prince Hadji
 
->
-
-Innovation Executive
+- Innovation Executive
 
 Africa
 
@@ -248,9 +222,7 @@ Venturing
 
 ## Harry Sharp
 
->
-
-Innovation Manager
+- Innovation Manager
 
 All
 
@@ -264,9 +236,7 @@ Venturing
 
 ## James Wilkinson
 
->
-
-DELIVERY DIRECTOR
+- DELIVERY DIRECTOR
 
 All
 
@@ -280,9 +250,7 @@ Delivery
 
 ## Johannes Meyer
 
->
-
-INNOVATION MANAGER
+- INNOVATION MANAGER
 
 All
 
@@ -296,9 +264,7 @@ Learning Journeys
 
 ## Kelley Rowe
 
->
-
-INNOVATION LEAD
+- INNOVATION LEAD
 
 All
 
@@ -312,9 +278,7 @@ Venturing
 
 ## Lea Simpson
 
->
-
-Founder
+- Founder
 
 All
 
@@ -328,9 +292,7 @@ Europe
 
 ## Lil Patuck
 
->
-
-STORYTELLING MANAGER
+- STORYTELLING MANAGER
 
 All
 
@@ -344,9 +306,7 @@ Storytelling
 
 ## Miranda Dixon
 
->
-
-PRACTICE LEAD
+- PRACTICE LEAD
 
 All
 
@@ -360,9 +320,7 @@ Collectives
 
 ## Mwaniki Nyaga
 
->
-
-STORYTELLING EXECUTIVE
+- STORYTELLING EXECUTIVE
 
 All
 
@@ -376,9 +334,7 @@ Storytelling
 
 ## Nathan Kably
 
->
-
-INNOVATION LEAD
+- INNOVATION LEAD
 
 All
 
@@ -392,9 +348,7 @@ Venturing
 
 ## Phyllis Gichuhi
 
->
-
-INNOVATION EXECUTIVE
+- INNOVATION EXECUTIVE
 
 All
 
@@ -408,9 +362,7 @@ Africa
 
 ## Pritika Kasliwal
 
->
-
-INNOVATION MANAGER
+- INNOVATION MANAGER
 
 All
 
@@ -424,9 +376,7 @@ UK
 
 ## Rob Hinchcliffe
 
->
-
-COMMUNICATIONS LEAD
+- COMMUNICATIONS LEAD
 
 UK
 
@@ -438,9 +388,7 @@ All
 
 ## Sam Stockley-Patel
 
->
-
-COLLECTIVE INTELLIGENCE MANAGER
+- COLLECTIVE INTELLIGENCE MANAGER
 
 UK
 
@@ -454,9 +402,7 @@ All
 
 ## Sarah Weigold
 
->
-
-Designer
+- Designer
 
 All
 

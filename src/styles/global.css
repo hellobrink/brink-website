@@ -1,9 +1,11 @@
-/* Brink design tokens — extracted verbatim from the live hellobrink.co
-   Webflow stylesheet (brink-a69e93.webflow.shared.*.css :root block).
-   Headings use Signifier Light, Brink's licensed display serif, served
-   from this repo (the same woff2 the live site serves). */
+/* Global base styles and element defaults.
+ *
+ * All visual decisions live in theme.css — this file only applies them.
+ * If you're changing how the site *looks*, edit theme.css, not this.
+ */
 
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300..700&family=Inconsolata:wght@400..700&display=swap');
+@import './theme.css';
 
 @font-face {
   font-family: 'Signifier';
@@ -13,21 +15,18 @@
   src: url('../assets/fonts/signifier-light.woff2') format('woff2');
 }
 
+/* Legacy aliases — the pre-token variable names, kept pointing at the new
+ * role tokens so nothing breaks mid-migration (including agent branches
+ * cut before this refactor). Do not use these in new code; they'll be
+ * removed once no component references them. */
 :root {
-  /* Verbatim Webflow variable names/values */
-  --background-muted: #f0f1ef;
-  --brand-red: #ff405f;
-  --type-main: #06333d;
-  --brand-green: #06333d;
-  --text-subtle-inverted: #f0f1ef;
-  --background-faded: #dadedd;
-  --text-muted: #789096;
-
-  --font-display: 'Signifier', Georgia, serif;
-  --font-body: 'Libre Franklin', sans-serif;
-  --font-mono: 'Inconsolata', monospace;
-
-  --max-width: 1140px;
+  --brand-green: var(--color-surface-inverted);
+  --brand-red: var(--color-accent);
+  --type-main: var(--color-text);
+  --text-muted: var(--color-text-muted);
+  --background-muted: var(--color-surface-muted);
+  --background-faded: var(--color-border);
+  --text-subtle-inverted: var(--color-text-inverted);
 }
 
 *,
@@ -44,63 +43,61 @@ body {
 
 body {
   font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 1.1rem; /* live site body computes to 17.6px */
-  color: var(--type-main);
-  background: #fff;
-  line-height: 1.6;
+  font-weight: var(--weight-body);
+  font-size: var(--text-body);
+  color: var(--color-text);
+  background: var(--color-surface);
+  line-height: var(--leading-normal);
 }
 
-/* Live site: h1 = Signifier 300; h2 = Libre Franklin 700 1.4rem;
-   h4 = Inconsolata uppercase */
 h1 {
   font-family: var(--font-display);
-  font-weight: 300;
-  font-size: 2.6rem;
-  line-height: 1.2;
-  margin: 0 0 0.5em;
+  font-weight: var(--weight-display);
+  font-size: var(--text-h1);
+  line-height: var(--leading-tight);
+  margin: 0 0 var(--space-2);
 }
 
 h2 {
   font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 1.4rem;
-  line-height: 1.5;
-  margin: 0 0 0.5em;
+  font-weight: var(--weight-bold);
+  font-size: var(--text-h2);
+  line-height: var(--leading-normal);
+  margin: 0 0 var(--space-2);
 }
 
 h3 {
   font-family: var(--font-body);
-  font-weight: 700;
-  font-size: 1.15rem;
-  line-height: 1.4;
-  margin: 0 0 0.5em;
+  font-weight: var(--weight-bold);
+  font-size: var(--text-h3);
+  line-height: var(--leading-snug);
+  margin: 0 0 var(--space-2);
 }
 
 h4 {
   font-family: var(--font-mono);
-  font-weight: 400;
-  font-size: 1.1rem;
-  letter-spacing: 1px;
+  font-weight: var(--weight-body);
+  font-size: var(--text-h3);
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   line-height: 1;
-  margin: 0 0 0.75em;
+  margin: 0 0 var(--space-3);
 }
 
-/* Large serif display style, used for hero/statement headings the way
-   the live site uses Signifier at big sizes */
+/* Large serif statement text — not a heading level, a visual treatment. */
 .display {
   font-family: var(--font-display);
-  font-weight: 300;
-  line-height: 1.25;
+  font-weight: var(--weight-display);
+  font-size: var(--text-display);
+  line-height: var(--leading-tight);
 }
 
 p {
-  margin: 0 0 1.4rem;
+  margin: 0 0 var(--space-5);
 }
 
 a {
-  color: var(--brand-red);
+  color: var(--color-link);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -113,62 +110,60 @@ img {
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 var(--space-gutter);
 }
 
-/* Square outlined button — .button-4 / .hero-cta on the live site */
 .button {
   display: inline-block;
   font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 400;
+  font-size: var(--text-body-sm);
+  font-weight: var(--weight-body);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--tracking-button);
   text-align: center;
-  padding: 0.6rem 1.2rem;
-  border: 1.5px solid var(--type-main);
-  border-radius: 0;
+  padding: var(--space-3) var(--space-5);
+  border: var(--border-width-button) solid var(--color-text);
+  border-radius: var(--radius);
   background: transparent;
-  color: var(--type-main);
+  color: var(--color-text);
   text-decoration: none;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background var(--transition), color var(--transition);
 }
 
 .button:hover {
-  background: var(--type-main);
-  color: var(--text-subtle-inverted);
+  background: var(--color-text);
+  color: var(--color-text-inverted);
 }
 
 .button.inverted {
-  border-color: #fff;
-  color: #fff;
+  border-color: var(--color-surface);
+  color: var(--color-surface);
 }
 
 .button.inverted:hover {
-  background: #fff;
-  color: var(--type-main);
+  background: var(--color-surface);
+  color: var(--color-text);
 }
 
-/* Mono uppercase label — .mono on the live site */
+/* Mono uppercase label — kickers, eyebrow text, metadata. */
 .mono {
   font-family: var(--font-mono);
-  font-size: 0.9rem;
-  letter-spacing: 1px;
+  font-size: var(--text-label);
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   text-decoration: none;
 }
 
-/* Tag readout — Inconsolata uppercase, as on live case studies */
 .tag {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: var(--text-tag);
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--type-main);
-  border: 1px solid var(--text-muted);
-  border-radius: 0;
-  padding: 0.2em 0.7em;
-  margin: 0 0.35em 0.35em 0;
+  letter-spacing: var(--tracking-label);
+  color: var(--color-text);
+  border: var(--border-width) solid var(--color-text-muted);
+  border-radius: var(--radius);
+  padding: var(--space-1) var(--space-3);
+  margin: 0 var(--space-2) var(--space-2) 0;
 }

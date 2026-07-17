@@ -26,34 +26,34 @@ import { withBase } from '../lib/base';
 
 <style>
   .explore-cta {
-    padding: 3rem 0 4rem;
-    border-top: 1px solid var(--background-faded);
+    padding: var(--space-8) 0 var(--space-9);
+    border-top: 1px solid var(--color-border);
   }
 
   h2.display {
-    font-size: 2rem;
-    max-width: 50ch;
-    margin-bottom: 2rem;
+    font-size: var(--text-display);
+    max-width: var(--measure-narrow);
+    margin-bottom: var(--space-6);
   }
 
   .contact {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
+    gap: var(--space-5);
+    margin-bottom: var(--space-5);
   }
 
   .photo {
     width: 72px;
     height: 72px;
-    border-radius: 50%;
+    border-radius: var(--radius-circle);
     object-fit: cover;
     flex-shrink: 0;
   }
 
   .contact p {
     margin: 0;
-    max-width: 50ch;
-    color: var(--text-muted);
+    max-width: var(--measure-narrow);
+    color: var(--color-text-muted);
   }
 </style>

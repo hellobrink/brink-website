@@ -18,14 +18,14 @@ const { principles } = Astro.props;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(var(--count, 3), 1fr);
-    gap: 1.5rem;
+    gap: var(--space-5);
   }
 
   .principles-trio li {
     font-family: var(--font-display);
-    font-size: 1.1rem;
-    border-top: 2px solid var(--brand-red);
-    padding-top: 0.75rem;
+    font-size: var(--text-h3);
+    border-top: 2px solid var(--color-accent);
+    padding-top: var(--space-3);
   }
 
   @media (max-width: 768px) {

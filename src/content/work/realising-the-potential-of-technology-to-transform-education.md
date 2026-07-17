@@ -1,7 +1,7 @@
 ---
 title: Realising the potential of technology to transform education
-summary: The Challenge Accelerate the scale of educational technologies that can deliver better learning outcomes for all children, especially the most marginalised. WHAT WAS ACHIEVED Leading innovation as part of the FCDO-funded Global EdTech Hub, Brink’s role is to make room for experimentation and to convert evidence into implementation in Kenya, Malawi, Zanzibar, Sierra Leone and Tanzania. HOW WE DID I
-heroImage: /images/683eedfcedf0d0356145ccbc_screenshot-2025-06-03-at-134325.png
+summary: "The Challenge Accelerate the scale of educational technologies that can deliver better learning outcomes for all children, especially the most marginalised. WHAT WAS ACHIEVED Leading innovation as part of the FCDO-funded Global [EdTech Hub](https://edtechhub.org/?ref=hellobrink.co), Brink’s role is to make room for experimentation and to convert evidence into implementation in Kenya, Malawi, Zanzi"
+heroImage: "/images/66cf26b8d20d5d0bb011e59e_shutterstock_1193231542.webp"
 heroAlt: Realising the potential of technology to transform education
 sector: [education]
 offer: [carve-outs]
@@ -12,15 +12,15 @@ sortOrder: 10
 
 ## The global learning crisis
 
-Back in 2015 and as part of the 2030 Agenda for Sustainable Development, all UN Member States adopted 17 sustainable development goals. A 15-year plan set out to end poverty, protect the planet and improve the lives and prospects of everyone, everywhere. Four years later in 2019, world leaders had their first chance to review progress on goal number 4, Quality Education.
+Back in 2015 and as part of the 2030 Agenda for Sustainable Development, all UN Member States adopted 17 sustainable development goals. A 15-year plan set out to end poverty, protect the planet and improve the lives and prospects of everyone, everywhere. Four years later in 2019, world leaders had their first chance to review progress on goal number 4, [Quality Education](https://www.un.org/sustainabledevelopment/education/?ref=hellobrink.co).
 
 And the assessment was not good. In 2018 around 260 million children were out of school and more than half of all children and adolescents worldwide were not meeting minimum proficiency standards in reading and mathematics. The report pointed to a lack of tangible progress in meeting this crisis and highlighted an urgent need to do things differently.
 
 Specifically, the quality of education globally had not kept pace with the “rapid technological changes” that present both huge opportunities and significant challenges for educators - technology held the promise for better learning worldwide, but this potential was not harnessed.
 
-## The EdTech Hub was established to realise the potential of technology
+## [The EdTech Hub](https://edtechhub.org/?ref=hellobrink.co) was established to realise the potential of technology
 
-Of the realisation that technology had the potential to transform education worldwide, the UK government along with the World Bank, announced in 2019 funding for the world’s largest ever educational technology research and innovation programme - the EdTech hub.
+Of the realisation that technology had the potential to transform education worldwide, the UK government along with the World Bank, announced in 2019 funding for the world’s largest ever educational technology research and innovation programme - the [EdTech hub](https://edtechhub.org/?ref=hellobrink.co).
 
 The core aim of the EdTech Hub is to push the effectiveness of EdTech interventions up, and to help implementers and decision-makers understand what works when it comes to tech in education.
 
@@ -30,9 +30,9 @@ With a track record of bad implementation in the sector, the EdTech Hub was chal
 
 ## Brink is appointed innovation lead
 
-Brink’s role within that programme is to lead the innovation stream. In practice this means examining the current lack of effectiveness in the EdTech sector and showing how evidence generated through the iterative testing and growing of ideas can drive the understanding of what works and the path to scaling, and in doing so, create a blueprint for others to follow.
+Brink’s role within that programme is to [lead the innovation stream](https://edtechhub.org/2020/01/28/sandboxes-our-approach-to-systemic-experimentation/?ref=hellobrink.co). In practice this means examining the current lack of effectiveness in the EdTech sector and showing how evidence generated through the iterative testing and growing of ideas can drive the understanding of what works and the path to scaling, and in doing so, create a blueprint for others to follow.
 
-In priority, we built a portfolio of systemic experimentation - providing access to tools, experts and funding to educators and partners in environments we call ‘sandboxes’.
+In priority, we built a portfolio of systemic experimentation - providing access to tools, experts and funding to educators and partners in environments we call ‘[sandboxes](https://edtechhub.org/sandboxes/?ref=hellobrink.co)’.
 
 ## Systemic experimentation as a priority
 
@@ -70,12 +70,10 @@ Sandboxes are therefore about balance - between consistently supporting national
 
 ## Selected success stories
 
-In Malawi, our Sandbox with onebillion reduced the cost per child of the digital personalised learning intervention from $37 to $6 and secured an agreement with the Department of Education to leverage their transport infrastructure and schools. As a result, it is now scaling nationwide to 5000+ schools
+**In Malawi**, our[Sandbox with onebillion](https://edtechhub.org/2021/08/17/scaling-personalized-learning-technology-in-malawi-lessons-from-our-sandbox-with-onebillion/?ref=hellobrink.co) reduced the cost per child of the digital personalised learning intervention from $37 to $6 and secured an agreement with the Department of Education to leverage their transport infrastructure and schools. As a result, it is now scaling nationwide to 5000+ schools
 
-In Zanzibar, through testing different virtual learning environment models, we arrived at a student-led, offline, interactive intervention that is integrated into national policy and shaping a $50 million World Bank investment.
+**In Zanzibar**, through testing different virtual learning environment models, we arrived at a student-led, offline, interactive intervention that is integrated into national policy and shaping a $50 million World Bank investment.
 
-In Kenya, our Sandbox to build the #KeepKenyaLearning campaign pivoted from providing content to caregivers to bolstering their confidence to use content and is now embedded in the Kenya Institute of Curriculum Development.
+**In Kenya**, our Sandbox to build the [#KeepKenyaLearning campaign](https://edtechhub.org/sandboxes/helping-caregivers-foster-learning-at-home-in-kenya/?ref=hellobrink.co) pivoted from providing content to caregivers to bolstering their confidence to use content and is now embedded in the Kenya Institute of Curriculum Development.
 
-The evidence from rigorous testing we conducted with officials in Ministries of Education in Sub-Saharan Africa led to UNICEF ESARO’s decision to discontinue the Regional Learning Hub initiative, a large investment in pan-African digital learning resources. This led to significant time and financial savings.
-
-
+**The evidence from rigorous testing** we conducted with officials in Ministries of Education in Sub-Saharan Africa led to UNICEF ESARO’s decision to discontinue the [Regional Learning Hub initiative,](https://edtechhub.org/2022/03/11/a-proof-of-concept-for-the-regional-learning-hub/?ref=hellobrink.co) a large investment in pan-African digital learning resources. This led to significant time and financial savings.

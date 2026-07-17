@@ -15,8 +15,8 @@ const { Content } = entry ? await render(entry) : { Content: null };
 
 <style>
   .prose {
-    padding: 2rem 0 4rem;
-    max-width: 70ch;
+    padding: var(--space-6) 0 var(--space-9);
+    max-width: var(--measure);
   }
 
   /* Scraped content mixes photos with logo/sticker images — render at
@@ -25,14 +25,14 @@ const { Content } = entry ? await render(entry) : { Content: null };
     width: auto;
     max-width: 100%;
     max-height: 480px;
-    margin: 1.5rem 0;
+    margin: var(--space-5) 0;
   }
 
   .prose :global(h2) {
     font-family: var(--font-display);
-    font-weight: 300;
-    font-size: 1.9rem;
+    font-weight: var(--weight-display);
+    font-size: var(--text-display);
     line-height: 1.3;
-    margin-top: 2rem;
+    margin-top: var(--space-6);
   }
 </style>
