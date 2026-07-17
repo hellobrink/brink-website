@@ -1,6 +1,8 @@
 ---
 name: Climate
 headline: At Brink we tackle the climate crisis with solutions that are scalable, implementable, and rooted in local reality.
+heroImage: /images/699db330689110aef32fd2b2_climate_collage_v3a.png
+heroAlt: "TODO: describe this image for alt text."
 positioningLine: "TODO: plain positioning line — \"call Brink when ___\". See brief section 4A.3."
 stats:
   - value: "44"
@@ -14,6 +16,10 @@ whatWeDo:
     description: "TODO: named, concrete services for this sector (brief 4A.3)."
 challengeText: The climate crisis is shifting, systemic, and stubbornly complex.
 principles: [Solutions that work today and scale tomorrow, Initiatives owned locally and shaped by reality]
+namedContact:
+  name: "TODO: named contact for the climate sector (brief 4A.3)."
+  role: "TODO"
+  photo: /images/66d6150d565356fb8e364cd7_alex_1.webp
 ---
 
 <!-- Related case studies found on the live page: supporting-emobility-pioneers-in-africa, repair-reuse-kenya, piloting-a-radical-new-platform-for-locust-control-in-kenya, testing-the-production-of-hydroponic-fodder-for-cattle -->
