@@ -4,70 +4,49 @@ import { withBase } from '../lib/base';
 
 import { getCollection } from 'astro:content';
 
-// Hand-built to mirror the live hellobrink.co homepage: full-height coral
-// hero (cranes_on_red, the same asset the live site uses), "What Brink is
-// doing" cards, the three-column "Innovation as if people matter" section,
-// the since-2018 stats band, and "Who we are". Verified against the live
-// page: it renders exactly three content images, all on the pillar cards.
-// Don't add sections that aren't there.
+// Front page, styled after fundinnovation.dev's structure but kept in
+// Brink's skin (Signifier / coral / square). Sections: photographic hero,
+// three full-width image panels (work / methods / foundation), the
+// since-2018 key-figures band that counts up on scroll, a latest-news grid
+// pulled live from the blog collection, and "Who we are".
 
-// The blog card pulls the newest post from the collection rather than
-// hardcoding it, so it can't go stale.
+// The three latest posts, newest first. Real content, no carousel — FID's
+// news carousel is hard to scroll, so we take the idea and drop the mechanism.
 const posts = await getCollection('blog');
-const latestPost = posts.sort((a, b) => a.data.sortOrder - b.data.sortOrder)[0];
+const latestPosts = posts
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
+  .slice(0, 3);
 
-const doingCards = [
+// Full-width image panels replacing the old three-up "Explore Brink" cards.
+// `align` alternates the text side for rhythm and drives the scrim
+// direction so the copy always sits over the darkened edge.
+const panels = [
   {
-    image: '/images/69398d70a7c114cc4eff4490_collage-trees-texture.png',
-    kicker: 'What Brink is doing',
-    title: 'We are now part of Africa Practice',
-    text: "A message from Brink's founders on what this means.",
-    href: withBase('/about'),
-    external: false,
-  },
-  latestPost && {
-    image: latestPost.data.heroImage ?? '/images/6a4f6c5d35f990c9cf987053_climate_funds.png',
-    kicker: 'From the blog',
-    title: latestPost.data.title,
-    text: '',
-    href: withBase(`/blog/${latestPost.id}`),
-    external: false,
-  },
-  {
-    image: '/images/6a4e0c6303419236b24b3df8_dont-believe-the-hype-83.png',
-    kicker: 'Our latest newsletter',
-    title: "Don't believe the hype! How not to get swept away on a BS wave.",
-    text: '',
-    // The newsletter lives on Mailchimp, not in the CMS.
-    href: 'https://www.hellobrink.co/blog',
-    external: true,
-  },
-].filter(Boolean);
-
-// Each pillar carries a photo on the live homepage — these are the three
-// images issue #2 reported missing. They belong here, on the cards; they
-// are not a separate section.
-const pillars = [
-  {
-    title: 'Our work',
-    text: "Addressing some of the world's most pressing issues across health, education and climate.",
+    kicker: 'Our work',
+    title: 'Addressing the world&rsquo;s most pressing issues',
+    text: 'Health, education and climate — programmes designed with the people closest to the challenge.',
     href: withBase('/our-work'),
-    image: '/images/67a4b5647b7d815f752aec59_01-violet-ochieng.jpg',
-    alt: 'Violet Ochieng at work',
+    image: '/images/panel-work.jpg',
+    alt: 'Two people examining field data together on a Brink programme',
+    align: 'left',
   },
   {
-    title: 'Our methods',
-    text: 'How we work with our partners to find obvious solutions to non-trivial problems.',
+    kicker: 'Our methods',
+    title: 'Obvious solutions to non-trivial problems',
+    text: 'How we work with our partners — behavioural science and innovation methods, together.',
     href: withBase('/offers'),
-    image: '/images/67a497c61d1d0f21b88108df_brinkcandids-172.jpg',
-    alt: 'A Brink workshop in progress',
+    image: '/images/panel-methods.jpg',
+    alt: 'A Brink workshop in progress, ideas mapped across a table',
+    align: 'right',
   },
   {
-    title: 'Our foundation',
-    text: 'Bringing people together to imagine a better future and make that future happen.',
+    kicker: 'Our foundation',
+    title: 'Imagining a better future, and making it happen',
+    text: 'Bringing people together to grow the ideas that change how the world works.',
     href: withBase('/foundation'),
-    image: '/images/69f0866dc6488c88aef482d8_girl_in_green_top_in_african_class_looks_at_camera_-_ca.png',
-    alt: 'A pupil looking up from her work in class',
+    image: '/images/panel-foundation.jpg',
+    alt: 'Two women tending seedlings in a plant nursery',
+    align: 'left',
   },
 ];
 ---
@@ -97,42 +76,19 @@ const pillars = [
     </div>
   </section>
 
-  <section class="section doing">
-    <div class="container">
-      <div class="card-row">
-        {doingCards.map((card) => (
-          <a
-            class="card"
-            href={card.href}
-            target={card.external ? '_blank' : undefined}
-            rel={card.external ? 'noopener' : undefined}
-          >
-            <img src={card.image.startsWith('http') ? card.image : withBase(card.image)} alt="" />
-            <h2 class="mono kicker">{card.kicker}</h2>
-            <h3>{card.title}</h3>
-            {card.text && <p>{card.text}</p>}
-            <span class="mono read-more">Read more &gt;</span>
-          </a>
-        ))}
+  {panels.map((panel) => (
+    <a class:list={['panel', panel.align]} href={panel.href}>
+      <img class="panel-image" src={withBase(panel.image)} alt={panel.alt} loading="lazy" />
+      <div class="panel-inner">
+        <div class="panel-text">
+          <p class="mono kicker">{panel.kicker}</p>
+          <h2 class="display" set:html={panel.title} />
+          <p class="panel-lead">{panel.text}</p>
+          <span class="mono read-more">Explore &rarr;</span>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <section class="section pillars">
-    <div class="container">
-      <h2 class="display">Explore Brink</h2>
-      <div class="card-row">
-        {pillars.map((pillar) => (
-          <a class="card" href={pillar.href}>
-            <img src={withBase(pillar.image)} alt={pillar.alt} />
-            <h3>{pillar.title}</h3>
-            <p>{pillar.text}</p>
-            <span class="mono read-more">Read more &gt;</span>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
+    </a>
+  ))}
 
   <section class="section stats">
     <div class="container">
@@ -159,6 +115,32 @@ const pillars = [
       </div>
     </div>
   </section>
+
+  {latestPosts.length > 0 && (
+    <section class="section news">
+      <div class="container">
+        <div class="news-head">
+          <h2 class="display">Latest news</h2>
+          <a class="mono read-more" href={withBase('/blog')}>All posts &rarr;</a>
+        </div>
+        <ul class="news-grid">
+          {latestPosts.map((post) => (
+            <li>
+              <a class="news-card" href={withBase(`/blog/${post.id}`)}>
+                {post.data.heroImage && (
+                  <img src={withBase(post.data.heroImage)} alt={post.data.heroAlt ?? post.data.title} loading="lazy" />
+                )}
+                <div class="news-body">
+                  {post.data.authorName && <p class="mono meta">{post.data.authorName}</p>}
+                  <h3>{post.data.title}</h3>
+                </div>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
 
   <section class="section who">
     <div class="container who-inner">
@@ -201,15 +183,31 @@ const pillars = [
       const target = Number(el.dataset.countTo);
       const prefix = el.dataset.prefix ?? '';
       const suffix = el.dataset.suffix ?? '';
+      const finalText = `${prefix}${target}${suffix}`;
       const duration = 1100;
       const start = performance.now();
+      let done = false;
+      const settle = () => {
+        if (done) return;
+        done = true;
+        el.textContent = finalText;
+      };
       const tick = (now: number) => {
+        if (done) return;
         const p = Math.min((now - start) / duration, 1);
         // easeOutCubic — fast then settling, rather than a linear crawl
         const eased = 1 - Math.pow(1 - p, 3);
         el.textContent = `${prefix}${Math.round(target * eased)}${suffix}`;
         if (p < 1) requestAnimationFrame(tick);
+        else settle();
       };
+      // requestAnimationFrame pauses when the tab isn't painting, which can
+      // strand the counter part-way. A timeout backstop and a
+      // visibility-change handler both guarantee it lands on the real value.
+      setTimeout(settle, duration + 300);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) settle();
+      });
       requestAnimationFrame(tick);
     };
 
@@ -333,54 +331,173 @@ const pillars = [
     border-bottom: none;
   }
 
-  .card-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: var(--space-grid-gap);
-  }
-
-  .card {
-    display: block;
-    color: var(--color-text);
-    text-decoration: none;
-  }
-
-  .card img {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
-    margin-bottom: var(--space-4);
-  }
-
-  /* These are semantic headings (matching the live site's markup) but must
-     not inherit heading sizing — the kicker stays a small mono label and
-     the card title stays body-weight. */
-  .card h3 {
-    font-size: var(--text-h2);
-    margin-bottom: var(--space-2);
-  }
-
-  .card:hover h3 {
-    text-decoration: underline;
-  }
-
   .kicker {
-    color: var(--color-text-muted);
+    color: var(--color-accent);
     font-weight: var(--weight-body);
     margin: 0 0 var(--space-3);
   }
 
   .read-more {
     color: var(--color-accent);
+    font-size: var(--text-tag);
   }
 
-  .pillars h2.display {
+  /* --- Full-width image panels (work / methods / foundation) --------------
+     Each is a full-bleed link: photo, directional teal scrim, and copy that
+     sits over the darkened edge. `align` flips the copy side and the scrim
+     direction so the two always agree. */
+  .panel {
+    position: relative;
+    display: block;
+    min-height: min(70vh, 620px);
+    color: var(--color-surface);
+    text-decoration: none;
+    overflow: hidden;
+  }
+
+  .panel-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .panel:hover .panel-image {
+    transform: scale(1.03);
+  }
+
+  .panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .panel.left::after {
+    background: linear-gradient(
+      100deg,
+      rgba(6, 51, 61, 0.88) 0%,
+      rgba(6, 51, 61, 0.6) 34%,
+      rgba(6, 51, 61, 0.1) 62%,
+      rgba(6, 51, 61, 0) 80%
+    );
+  }
+
+  .panel.right::after {
+    background: linear-gradient(
+      260deg,
+      rgba(6, 51, 61, 0.88) 0%,
+      rgba(6, 51, 61, 0.6) 34%,
+      rgba(6, 51, 61, 0.1) 62%,
+      rgba(6, 51, 61, 0) 80%
+    );
+  }
+
+  .panel-inner {
+    position: relative;
+    z-index: 1;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-gutter);
+    min-height: min(70vh, 620px);
+    display: flex;
+    align-items: center;
+  }
+
+  .panel.right .panel-inner {
+    justify-content: flex-end;
+  }
+
+  .panel-text {
+    max-width: 30rem;
+  }
+
+  .panel .kicker {
+    color: var(--color-surface);
+    opacity: 0.85;
+  }
+
+  .panel h2.display {
     font-size: var(--text-display);
+    color: var(--color-surface);
+    margin-bottom: var(--space-4);
+  }
+
+  .panel-lead {
+    font-size: var(--text-lead);
+    margin-bottom: var(--space-5);
+  }
+
+  .panel .read-more {
+    color: var(--color-surface);
+  }
+
+  .panel:hover .read-more {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 700px) {
+    /* On a phone the scrim can't clear enough of a busy photo, so drop a
+       flat wash and left-align every panel. */
+    .panel.right .panel-inner {
+      justify-content: flex-start;
+    }
+    .panel.left::after,
+    .panel.right::after {
+      background: rgba(6, 51, 61, 0.72);
+    }
+  }
+
+  /* --- Latest news -------------------------------------------------------- */
+  .news-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
     margin-bottom: var(--space-6);
   }
 
-  .pillars h3 {
-    font-size: var(--text-h2);
+  .news-head h2.display {
+    font-size: var(--text-display);
+    margin: 0;
+  }
+
+  .news-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-grid-gap);
+  }
+
+  .news-card {
+    display: block;
+    height: 100%;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .news-card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    margin-bottom: var(--space-3);
+  }
+
+  .news-card .meta {
+    color: var(--color-accent);
+    margin: 0 0 var(--space-2);
+  }
+
+  .news-card h3 {
+    font-size: var(--text-h3);
+    margin: 0;
+  }
+
+  .news-card:hover h3 {
+    text-decoration: underline;
   }
 
   .stats h2.mono {
