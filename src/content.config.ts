@@ -48,6 +48,22 @@ const work = defineCollection({
     // Headline result shown on case-study cards, e.g. "£2.4m unlocked for
     // 12 climate-tech teams". Only meaningful when hasCaseStudy is true.
     headlineResult: z.string().optional(),
+    // Case study fields, modelled on how FID structures a project page: a
+    // one-line standfirst, the context, what changed, and how. Kept as
+    // frontmatter rather than prose so the template controls the treatment
+    // (results as a list, the quote as a pull quote) instead of hoping a
+    // Markdown body happens to be shaped right.
+    standfirst: z.string().optional(),
+    challenge: z.array(z.string()).default([]),
+    results: z.array(z.string()).default([]),
+    approach: z.array(z.string()).default([]),
+    approachIntro: z.array(z.string()).default([]),
+    conclusion: z.string().optional(),
+    quote: z.object({ text: z.string(), name: z.string(), role: z.string().optional() }).optional(),
+    dates: z.string().optional(),
+    location: z.string().optional(),
+    fullStoryUrl: z.string().url().optional(),
+    gallery: z.array(z.object({ image: z.string(), alt: z.string(), caption: z.string().optional() })).default([]),
     year: z.string().optional(),
     sortOrder: z.number().default(0),
   }),

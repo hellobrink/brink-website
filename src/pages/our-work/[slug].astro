@@ -1,82 +1,245 @@
 ---
+// A single piece of work.
+//
+// Structured after fundinnovation.dev's project pages, which solve the
+// problem these pages had: everything was prose, so the facts a funder
+// actually scans for (who paid, who delivered, where, when, what changed)
+// were buried in paragraphs. FID pulls those into a persistent card beside
+// the narrative and gives the body three plain sections. Same idea here, in
+// Brink's skin.
+//
+// The narrative lives in frontmatter rather than a Markdown body, so the
+// template controls the treatment: results render as a list, the quote as a
+// pull quote. A prose body is still rendered underneath when one exists, so
+// nothing is lost on entries that haven't been restructured yet.
 import Layout from '../../layouts/Layout.astro';
-import LogoStrip from '../../components/LogoStrip.astro';
+import ExploreCTA from '../../components/ExploreCTA.astro';
 import { withBase } from '../../lib/base';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const allWork = await getCollection('work');
-  return allWork.map((item) => ({
-    params: { slug: item.id },
-    props: { item },
-  }));
+  return allWork.map((item) => ({ params: { slug: item.id }, props: { item } }));
 }
 
 const { item } = Astro.props;
 const { Content } = await render(item);
 const { data } = item;
-const tags = [...data.sector, ...data.offer];
+
+// Structured entries drive the new layout; anything still on a plain body
+// falls back to the simple treatment.
+const isStructured =
+  data.challenge.length > 0 || data.results.length > 0 || data.approach.length > 0;
+
+const hasBody = (item.body ?? '').replace(/<!--[\s\S]*?-->/g, '').trim().length > 0;
+
+// Turn **bold** leads into markup: the approach items each open with a
+// short bolded label, which is the only inline formatting these fields use.
+const bold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+
+// Other work in the same sector, for the footer.
+const allWork = await getCollection('work');
+const related = allWork
+  .filter((w) => w.id !== item.id && w.data.sector.some((s) => data.sector.includes(s)))
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
+  .slice(0, 3);
+
+const facts: Array<{ label: string; value: string }> = [
+  data.programmeName && { label: 'Programme', value: data.programmeName },
+  data.location && { label: 'Location', value: data.location },
+  data.sector.length > 0 && {
+    label: 'Sector',
+    value: data.sector.map((s) => s[0].toUpperCase() + s.slice(1)).join(', '),
+  },
+  data.dates && { label: 'Dates', value: data.dates },
+  { label: 'Status', value: data.status === 'current' ? 'Current' : 'Completed' },
+].filter(Boolean) as Array<{ label: string; value: string }>;
 ---
 
-<Layout title={data.title} description={data.summary}>
-  <article class="container work-detail">
-    <p class="back"><a href={withBase('/our-work')}>&larr; All work</a></p>
+<Layout title={data.title} description={data.standfirst ?? data.summary}>
+  <article class="work-detail">
+    <div class="container">
+      <p class="back"><a href={withBase('/our-work')}>&larr; All work</a></p>
 
-    {tags.length > 0 && (
-      <div class="tags">
-        {tags.map((t) => <span class="tag">{t}</span>)}
+      <header class="work-header">
+        {data.programmeName && <p class="mono kicker">{data.programmeName}</p>}
+        <h1 class="display">{data.title}</h1>
+        <p class="standfirst">{data.standfirst ?? data.summary}</p>
+      </header>
+    </div>
+
+    {data.heroImage && (
+      <figure class="hero-figure">
+        <img src={withBase(data.heroImage)} alt={data.heroAlt ?? data.title} fetchpriority="high" />
+        {data.heroAlt && <figcaption class="mono">{data.heroAlt}</figcaption>}
+      </figure>
+    )}
+
+    {isStructured ? (
+      <div class="container work-body">
+        <div class="story">
+          {data.challenge.length > 0 && (
+            <section class="story-section">
+              <h2 class="display">The challenge</h2>
+              {data.challenge.map((p) => <p>{p}</p>)}
+            </section>
+          )}
+
+          {data.results.length > 0 && (
+            <section class="story-section">
+              <h2 class="display">What was achieved</h2>
+              <ul class="results">
+                {data.results.map((r) => <li>{r}</li>)}
+              </ul>
+            </section>
+          )}
+
+          {data.quote && (
+            <figure class="pull-quote">
+              <blockquote><p>{data.quote.text}</p></blockquote>
+              <figcaption>
+                <span class="quote-name">{data.quote.name}</span>
+                {data.quote.role && <span class="quote-role">{data.quote.role}</span>}
+              </figcaption>
+            </figure>
+          )}
+
+          {(data.approachIntro.length > 0 || data.approach.length > 0) && (
+            <section class="story-section">
+              <h2 class="display">How we did it</h2>
+              {data.approachIntro.map((p) => <p>{p}</p>)}
+              {data.approach.length > 0 && (
+                <ul class="approach">
+                  {data.approach.map((a) => <li set:html={bold(a)} />)}
+                </ul>
+              )}
+            </section>
+          )}
+
+          {data.gallery.length > 0 && (
+            <div class="gallery">
+              {data.gallery.map((g) => (
+                <figure>
+                  <img src={withBase(g.image)} alt={g.alt} loading="lazy" />
+                  {g.caption && <figcaption class="mono">{g.caption}</figcaption>}
+                </figure>
+              ))}
+            </div>
+          )}
+
+          {data.conclusion && (
+            <section class="story-section">
+              <p class="conclusion">{data.conclusion}</p>
+            </section>
+          )}
+
+          {hasBody && (
+            <div class="prose extra-body">
+              <Content />
+            </div>
+          )}
+
+          {data.fullStoryUrl && (
+            <p class="full-story">
+              <a class="button" href={data.fullStoryUrl} target="_blank" rel="noopener noreferrer">
+                Read the full story
+              </a>
+            </p>
+          )}
+        </div>
+
+        {/* The facts a funder scans for, held in one place beside the
+            narrative and pinned so they stay available the whole way down. */}
+        <aside class="facts">
+          <div class="facts-inner">
+            <h2 class="facts-title">{data.programmeName ?? data.title}</h2>
+            <dl>
+              {facts.map((f) => (
+                <div class="fact">
+                  <dt class="mono">{f.label}</dt>
+                  <dd>{f.value}</dd>
+                </div>
+              ))}
+            </dl>
+
+            {([['Funders', data.funders], ['Partners', data.partners]] as const).map(
+              ([label, list]) =>
+                list.length > 0 && (
+                  <div class="fact-group">
+                    <p class="mono fact-label">{label}</p>
+                    <ul>
+                      {list.map((c) => (
+                        <li>
+                          {c.url ? (
+                            <a href={c.url} target="_blank" rel="noopener noreferrer">{c.name}</a>
+                          ) : (
+                            c.name
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )
+            )}
+
+            {data.externalLink && (
+              <a class="fact-cta mono" href={data.externalLink} target="_blank" rel="noopener noreferrer">
+                Visit the programme &#8599;
+              </a>
+            )}
+          </div>
+        </aside>
+      </div>
+    ) : (
+      <div class="container work-body single">
+        <div class="story">
+          {hasBody ? (
+            <>
+              <h2 class="display">The story in more detail</h2>
+              <div class="prose"><Content /></div>
+            </>
+          ) : (
+            <p class="standfirst">{data.summary}</p>
+          )}
+          {data.externalLink && (
+            <p class="full-story">
+              <a class="button" href={data.externalLink} target="_blank" rel="noopener noreferrer">
+                Visit the programme
+              </a>
+            </p>
+          )}
+        </div>
       </div>
     )}
 
-    {data.programmeName && <p class="kicker">{data.programmeName}</p>}
-    <h1>{data.title}</h1>
-    <p class="summary">{data.summary}</p>
-
-    <LogoStrip names={[...data.funders, ...data.partners].map((c) => c.name)} />
-
-    {data.heroImage && <img class="hero" src={withBase(data.heroImage)} alt={data.heroAlt ?? data.title} />}
-
-    {data.hasCaseStudy ? (
-      <>
-        {/* A label introducing the narrative. On the live site this is an
-            optional CMS field, so it appears on some case studies and not
-            others — we render it consistently instead. */}
-        <h2 class="story-heading mono">The story in more detail</h2>
-        <div class="prose">
-          <Content />
+    {related.length > 0 && (
+      <section class="related">
+        <div class="container">
+          <h2 class="display">More of our work</h2>
+          <ul class="related-grid">
+            {related.map((w) => (
+              <li>
+                <a href={withBase(`/our-work/${w.id}`)}>
+                  {w.data.heroImage && (
+                    <img src={withBase(w.data.heroImage)} alt={w.data.heroAlt ?? w.data.title} loading="lazy" />
+                  )}
+                  {w.data.programmeName && <p class="mono kicker">{w.data.programmeName}</p>}
+                  <h3>{w.data.title}</h3>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
-      </>
-    ) : (
-      <p class="light-entry-note">
-        This is a summary entry. It doesn't have a full written case study yet.
-        {data.externalLink && (
-          <>
-            {' '}Read more at <a href={data.externalLink} target="_blank" rel="noopener">{data.externalLink}</a>.
-          </>
-        )}
-      </p>
+      </section>
     )}
   </article>
+
+  <ExploreCTA />
 </Layout>
 
 <style>
   .work-detail {
     padding-top: var(--space-6);
-    padding-bottom: var(--space-9);
-    max-width: var(--measure);
-  }
-
-  .work-detail h1 {
-    font-size: var(--text-display-lg);
-    line-height: var(--leading-tight);
-  }
-
-  .story-heading {
-    color: var(--color-text-muted);
-    font-weight: var(--weight-body);
-    margin: var(--space-8) 0 var(--space-4);
-    padding-top: var(--space-5);
-    border-top: var(--border-width) solid var(--color-border);
   }
 
   .back a {
@@ -85,49 +248,337 @@ const tags = [...data.sector, ...data.offer];
     letter-spacing: var(--tracking-label);
     text-transform: uppercase;
     text-decoration: none;
-    color: var(--color-text-muted);
+    color: var(--color-label);
   }
 
-  .tags {
-    margin: var(--space-2) 0 var(--space-4);
+  .back a:hover {
+    color: var(--color-accent);
+  }
+
+  /* --- Header -------------------------------------------------------------- */
+  .work-header {
+    max-width: var(--measure);
+    padding: var(--space-6) 0 var(--space-7);
   }
 
   .kicker {
-    font-family: var(--font-mono);
-    font-size: var(--text-label);
-    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0 0 var(--space-3);
+  }
+
+  .work-header h1 {
+    font-size: var(--text-display-lg);
+    line-height: var(--leading-tight);
+    margin: 0 0 var(--space-4);
+  }
+
+  .standfirst {
+    font-size: var(--text-lead);
+    line-height: var(--leading-snug);
+    margin: 0;
+    max-width: var(--measure-narrow);
+  }
+
+  /* --- Hero ---------------------------------------------------------------- */
+  .hero-figure {
+    margin: 0 0 var(--space-9);
+  }
+
+  .hero-figure img {
+    width: 100%;
+    max-height: 34rem;
+    object-fit: cover;
+    display: block;
+  }
+
+  .hero-figure figcaption,
+  .gallery figcaption {
+    max-width: var(--max-width);
+    margin: var(--space-3) auto 0;
+    padding: 0 var(--space-gutter);
+    font-size: var(--text-2xs);
     letter-spacing: var(--tracking-label);
-    color: var(--color-text-muted);
-    margin: var(--space-2) 0 0;
-  }
-
-  .summary {
-    font-size: var(--text-body);
+    text-transform: uppercase;
     color: var(--color-text-muted);
   }
 
-  .hero {
-    margin: var(--space-5) 0;
+  /* --- Body + facts -------------------------------------------------------- */
+  .work-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    gap: var(--space-9);
+    align-items: start;
+    padding-bottom: var(--space-9);
   }
 
-  .prose :global(img) {
-    width: auto;
-    max-width: 100%;
-    max-height: 520px;
-    margin: var(--space-5) 0;
+  .work-body.single {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .prose :global(h2) {
+  .story {
+    min-width: 0;
+    max-width: var(--measure);
+  }
+
+  .story-section {
+    margin-bottom: var(--space-8);
+  }
+
+  .story-section h2 {
+    font-size: var(--text-display);
+    margin: 0 0 var(--space-4);
+  }
+
+  .story-section p {
+    margin: 0 0 var(--space-4);
+  }
+
+  .results,
+  .approach {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* A coral rule per item rather than bullets: these are findings, and the
+     brand's list marker is a rule, not a dot. */
+  .results li,
+  .approach li {
+    padding: var(--space-4) 0;
+    border-top: var(--border-width) solid var(--color-border);
+  }
+
+  .results li:first-child,
+  .approach li:first-child {
+    border-top: var(--border-width-button) solid var(--color-accent);
+  }
+
+  .conclusion {
+    font-size: var(--text-lead);
+    line-height: var(--leading-snug);
+  }
+
+  /* --- Pull quote ---------------------------------------------------------- */
+  .pull-quote {
+    margin: var(--space-9) 0;
+    padding: var(--space-7);
+    background: var(--color-surface-inverted);
+    color: var(--color-text-inverted);
+    border-radius: var(--radius);
+  }
+
+  .pull-quote blockquote {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  /* --text-h1 turned a two-sentence quote into a wall that dominated the
+     page. A step down, with the measure capped, keeps it a highlight. */
+  .pull-quote p {
     font-family: var(--font-display);
     font-weight: var(--weight-display);
     font-size: var(--text-display);
-    line-height: 1.3;
-    margin-top: var(--space-7);
+    line-height: var(--leading-snug);
+    color: var(--color-surface);
+    margin: 0 0 var(--space-5);
+    max-width: 30ch;
   }
 
-  .light-entry-note {
+  .pull-quote figcaption {
+    display: grid;
+    gap: var(--space-1);
+  }
+
+  .quote-name {
+    font-family: var(--font-mono);
+    font-size: var(--text-tag);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-label);
+    color: var(--color-accent);
+  }
+
+  .quote-role {
+    font-size: var(--text-body-sm);
+    color: var(--color-text-inverted);
+    opacity: 0.8;
+  }
+
+  /* --- Gallery ------------------------------------------------------------- */
+  .gallery {
+    display: grid;
+    gap: var(--space-6);
+    margin: var(--space-8) 0;
+  }
+
+  .gallery figure {
+    margin: 0;
+  }
+
+  .gallery img {
+    width: 100%;
+    display: block;
+    border-radius: var(--radius);
+  }
+
+  .gallery figcaption {
+    padding: 0;
+    margin-top: var(--space-2);
+  }
+
+  .full-story {
+    margin: var(--space-8) 0 0;
+  }
+
+  .extra-body {
+    margin-top: var(--space-8);
+  }
+
+  /* --- Facts card ---------------------------------------------------------- */
+  .facts {
+    position: sticky;
+    top: var(--space-7);
+  }
+
+  .facts-inner {
     background: var(--color-surface-muted);
-    padding: var(--space-4);
+    border-top: var(--border-width-button) solid var(--color-accent);
+    padding: var(--space-6);
+  }
+
+  .facts-title {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display);
+    font-size: var(--text-h2);
+    line-height: var(--leading-tight);
+    margin: 0 0 var(--space-5);
+  }
+
+  .facts dl {
+    margin: 0 0 var(--space-5);
+  }
+
+  .fact {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+    border-bottom: var(--border-width) solid var(--color-border);
+  }
+
+  .fact dt {
+    font-size: var(--text-2xs);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
     color: var(--color-text-muted);
+  }
+
+  .fact dd {
+    margin: 0;
+    font-size: var(--text-body-sm);
+    text-align: right;
+  }
+
+  .fact-group {
+    margin-bottom: var(--space-5);
+  }
+
+  .fact-label {
+    font-size: var(--text-2xs);
+    color: var(--color-accent);
+    margin: 0 0 var(--space-2);
+  }
+
+  .fact-group ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .fact-group li {
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-snug);
+    margin-bottom: var(--space-1);
+  }
+
+  .fact-group a {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .fact-group a:hover {
+    color: var(--color-accent);
+  }
+
+  .fact-cta {
+    display: inline-block;
+    font-size: var(--text-tag);
+    color: var(--color-label);
+    text-decoration: none;
+  }
+
+  .fact-cta:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  /* --- Related ------------------------------------------------------------- */
+  .related {
+    background: var(--color-surface-muted);
+    padding: var(--space-9) 0;
+  }
+
+  .related h2 {
+    font-size: var(--text-display);
+    margin: 0 0 var(--space-6);
+  }
+
+  .related-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .related-grid a {
+    display: block;
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .related-grid img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: var(--space-3);
+  }
+
+  .related-grid .kicker {
+    font-size: var(--text-2xs);
+    margin: 0 0 var(--space-1);
+  }
+
+  .related-grid h3 {
+    font-size: var(--text-h3);
+    margin: 0;
+  }
+
+  .related-grid a:hover h3 {
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 900px) {
+    .work-body {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-7);
+    }
+    /* Sticky is meaningless once the card is stacked under the narrative. */
+    .facts {
+      position: static;
+    }
   }
 </style>
