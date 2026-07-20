@@ -1,19 +1,24 @@
 ---
 // About Brink — the page the rest of the site's page types get proven on.
 //
-// Structure follows the FID reference: photographic hero -> white text panel
-// -> a set -> panel -> a set, alternating imagery with white space so no two
-// image-heavy blocks stack. Every block here is a reusable component, so the
+// Structure follows the FID reference, alternating imagery with flat colour
+// so no two image-heavy blocks stack, and no two same-coloured panels sit
+// against each other: photo hero -> white offers -> teal -> paper + photo
+// carousel -> paper impact -> paper team. Every block here is a reusable component, so the
 // remaining pages become assembly rather than fresh design:
 //
 //   hero (inline)     -> IllustratedGrid -> VennDiagram panel
-//   -> PanelCarousel  -> LogoGrid        -> PeopleStrip -> ExploreCTA
+//   -> PanelCarousel  -> LogoGrid        -> TeamPanel  -> ExploreCTA
+//
+// No mono kickers above the headings. They earn their place on carousel
+// slides, where they name which slide you're on; above a standalone heading
+// they're just a second, smaller heading saying the same thing.
 import Layout from '../layouts/Layout.astro';
 import IllustratedGrid from '../components/IllustratedGrid.astro';
 import VennDiagram from '../components/VennDiagram.astro';
 import PanelCarousel from '../components/PanelCarousel.astro';
 import LogoGrid from '../components/LogoGrid.astro';
-import PeopleStrip from '../components/PeopleStrip.astro';
+import TeamPanel from '../components/TeamPanel.astro';
 import ExploreCTA from '../components/ExploreCTA.astro';
 import { getCollection } from 'astro:content';
 import { withBase } from '../lib/base';
@@ -66,16 +71,28 @@ const imageForSector = (id: string) =>
     .filter((w) => w.data.sector.includes(id as any) && w.data.heroImage)
     .sort((a, b) => a.data.sortOrder - b.data.sortOrder)[0];
 
+// Climate's derived image was a murky hydroponics close-up that read as
+// nothing at full bleed. Overridden with a real programme photograph; the
+// other two sectors still derive theirs from published case studies.
+const sectorImageOverrides: Record<string, { image: string; alt: string }> = {
+  climate: {
+    image: '/images/sector-climate.jpg',
+    alt: 'Two women inspecting a tree seedling together at a nursery in Kenya',
+  },
+};
+
 const sectorSlides = sectors
   .map((sector) => {
+    const override = sectorImageOverrides[sector.id];
     const source = imageForSector(sector.id);
-    if (!source?.data.heroImage) return null; // no photo, no slide
+    const image = override?.image ?? source?.data.heroImage;
+    if (!image) return null; // no photo, no slide
     return {
       kicker: sector.data.name,
       title: sector.data.headline,
       href: withBase(`/sectors/${sector.id}`),
-      image: source.data.heroImage,
-      alt: source.data.heroAlt ?? `Brink's work in ${sector.data.name.toLowerCase()}`,
+      image,
+      alt: override?.alt ?? source?.data.heroAlt ?? `Brink's work in ${sector.data.name.toLowerCase()}`,
       cta: `Explore ${sector.data.name.toLowerCase()}`,
     };
   })
@@ -109,60 +126,37 @@ const impact = [
       fetchpriority="high"
     />
     <div class="hero-text">
-      <p class="mono kicker">About Brink</p>
       <h1>We are Brink</h1>
       <p class="lead">
         A global team of technologists, designers, strategists and behavioural
         scientists. We apply a method we call behavioural innovation to solve
         big problems in ways that take human behaviour into account.
       </p>
-      <a class="button inverted" href={withBase('/team')}>Meet the team</a>
+      <p>
+        We work with people who are frustrated by the status quo and ready to
+        take on the world&rsquo;s most pressing challenges &mdash; funders
+        building new models, changemakers seeking fresh approaches, and
+        leaders future-proofing their institutions. We&rsquo;re now part of
+        <a href="https://africapractice.com/" target="_blank" rel="noopener noreferrer">Africa Practice</a>.
+      </p>
     </div>
   </section>
 
-  {/* White panel straight after the photographic hero, so imagery never
-      stacks on imagery. */}
-  <section class="section intro-panel">
-    <div class="container intro-inner">
-      <h2 class="display">Who we work with</h2>
-      <div class="intro-body">
-        <p>
-          We love collaborating with those who are frustrated by the status quo
-          and ready to address some of the world&rsquo;s most pressing
-          challenges &mdash; funders creating new models, changemakers seeking
-          fresh approaches, and leaders working to future-proof their
-          institutions.
-        </p>
-        <p>
-          Our latest collaboration is our biggest yet: Brink is now part of
-          <a href="https://africapractice.com/" target="_blank" rel="noopener noreferrer">Africa Practice</a>.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <IllustratedGrid
-    kicker="Our offers"
-    heading="Three ways we work"
-    items={offerItems}
-  />
+  <IllustratedGrid heading="Three ways we work" items={offerItems} />
 
   {/* Behavioural innovation on teal: it gives the coral Venn somewhere to
       sit, and puts a dark band between two light ones. */}
   <section class="bi-panel">
     <div class="container bi-inner">
       <div class="bi-copy">
-        <p class="mono kicker">Our proven approach</p>
         <h2 class="display">Behavioural Innovation</h2>
         <p class="lead">
-          Behavioural innovation combines the behavioural sciences with
-          innovation methods to deliver lasting impact.
+          We combine the behavioural sciences with innovation methods to
+          deliver lasting impact &mdash; drawing on psychology, anthropology,
+          sociology and economics to build the mindsets and mechanisms that
+          shift systems.
         </p>
-        <p>
-          By integrating insights from psychology, anthropology, sociology and
-          economics, we create the mindsets and mechanisms that deliver real
-          change. True innovation happens when we:
-        </p>
+        <p class="bi-intro">True innovation happens when we:</p>
         <ul>
           <li>Put people at the centre, because the real world has real people in it</li>
           <li>Use insights into how people think and act to fuel breakthrough ideas</li>
@@ -182,7 +176,6 @@ const impact = [
   {sectorSlides.length > 0 && (
     <section class="sectors">
       <div class="container sectors-head">
-        <p class="mono kicker">What we do</p>
         <h2 class="display">Our work spans the world&rsquo;s most pressing issues</h2>
       </div>
       <PanelCarousel slides={sectorSlides} label="Sectors Brink works in" />
@@ -195,10 +188,27 @@ const impact = [
     items={impact}
   />
 
-  <PeopleStrip
-    heading="The minds behind Brink"
-    intro="Strategists, psychologists, designers and tech optimists, working across four continents."
-  />
+  <TeamPanel
+    image="/images/68123028f43a4b791b739dd6_brinkretreat25-52.jpeg"
+    imageAlt="Two members of the Brink team laughing together during a workshop"
+  >
+    <p>
+      Our diverse team of experts brings together a wealth of knowledge and
+      experience in behavioural science, innovation and technology.
+    </p>
+    <p>
+      From London to Kigali, Barcelona to Nairobi, our thinkers and doers
+      collaborate across borders, tackling complex challenges and driving
+      meaningful change worldwide.
+    </p>
+    <p>
+      Diversity is in our DNA. It&rsquo;s more than the makeup of the team: it
+      means working in multidisciplinary ways, and articulating a more global
+      perspective on innovation that reflects the innovators we work with. And
+      it means being <em>where the work is</em>, and being <em>of</em> the
+      places we work, not just parachuting into them.
+    </p>
+  </TeamPanel>
 
   <ExploreCTA />
 </Layout>
@@ -271,33 +281,20 @@ const impact = [
 
   .hero-text .lead {
     font-size: var(--text-lead);
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-4);
     max-width: 46ch;
   }
 
-  /* --- Intro panel -------------------------------------------------------- */
-  .section {
-    padding: var(--space-9) 0;
-  }
-
-  .intro-inner {
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: var(--space-8);
-    align-items: start;
-  }
-
-  .intro-inner h2 {
-    font-size: var(--text-display);
+  .hero-text p:not(.lead) {
+    font-size: var(--text-body-sm);
+    max-width: 52ch;
     margin: 0;
+    opacity: 0.92;
   }
 
-  .intro-body p {
-    margin: 0 0 var(--space-4);
-  }
-
-  .intro-body p:last-child {
-    margin-bottom: 0;
+  .hero-text a {
+    color: var(--color-surface);
+    text-decoration: underline;
   }
 
   /* --- Behavioural innovation panel --------------------------------------- */
@@ -327,6 +324,18 @@ const impact = [
 
   .bi-copy .lead {
     font-size: var(--text-lead);
+    margin-bottom: var(--space-5);
+  }
+
+  /* The list is supporting detail, not body copy — a step down from the lead
+     keeps the panel from reading as a wall of text. */
+  .bi-intro,
+  .bi-copy li {
+    font-size: var(--text-body-sm);
+  }
+
+  .bi-intro {
+    margin: 0 0 var(--space-3);
   }
 
   .bi-copy ul {
@@ -342,24 +351,22 @@ const impact = [
      fine for a graphic object. Its caption stays paper white, which is not. */
   .bi-figure {
     color: var(--color-accent);
-  }
-
-  .bi-figure :global(figcaption) {
-    color: var(--color-text-inverted);
+    /* Circles stay coral; the labels inside them go paper white, which is
+       legible against the teal ground showing through. */
+    --venn-label-color: var(--color-text-inverted);
   }
 
   /* --- Sectors ------------------------------------------------------------ */
+  /* The heading sits on a paper band that runs straight into the carousel,
+     so it reads as that block's title. On white with a gap beneath it, it
+     looked like an orphaned line floating above unrelated photographs. */
   .sectors {
+    background: var(--color-surface-muted);
     padding-top: var(--space-9);
   }
 
   .sectors-head {
-    margin-bottom: var(--space-7);
-  }
-
-  .sectors-head .kicker {
-    color: var(--color-label);
-    margin: 0 0 var(--space-3);
+    padding-bottom: var(--space-7);
   }
 
   .sectors-head h2 {
@@ -369,7 +376,6 @@ const impact = [
   }
 
   @media (max-width: 860px) {
-    .intro-inner,
     .bi-inner {
       grid-template-columns: 1fr;
       gap: var(--space-7);

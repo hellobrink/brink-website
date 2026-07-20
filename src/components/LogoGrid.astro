@@ -6,9 +6,12 @@
 // logomarks, on a white tile, with an explicit read-more.
 //
 // Logos are third-party brand assets in every conceivable shape, colour and
-// aspect ratio. The tile normalises them: a fixed 3:2 box, `object-fit:
+// aspect ratio. The tile normalises them: a fixed-height box, `object-fit:
 // contain`, a white ground (which is what every one of these marks was drawn
 // for), and generous padding so nothing crowds the edge.
+//
+// No name caption: every one of these logos already contains its programme's
+// name, so printing it again underneath just says it twice.
 import { withBase } from '../lib/base';
 
 export interface LogoItem {
@@ -42,11 +45,12 @@ const { heading = 'Our impact', intro, items } = Astro.props;
               : {})}
           >
             <span class="logo-tile">
-              {/* The logo carries the programme name, so alt would just
-                  repeat the visible label underneath it. */}
-              <img src={withBase(item.logo)} alt="" loading="lazy" />
+              {/* Every one of these marks contains the programme's own name,
+                  so a caption underneath just says it twice. That makes the
+                  logo the only label — which is exactly why alt text is the
+                  programme name here rather than empty. */}
+              <img src={withBase(item.logo)} alt={item.name} loading="lazy" />
             </span>
-            <span class="logo-name">{item.name}</span>
             <span class="mono logo-more">Read more &rarr;</span>
           </a>
         </li>
@@ -97,14 +101,24 @@ const { heading = 'Our impact', intro, items } = Astro.props;
   /* White, not paper: these marks were drawn for white, and several have a
      baked-in white background that would otherwise show as a bright rectangle
      against the paper tone. */
+  /* An explicit height, NOT `aspect-ratio`. With aspect-ratio the tile's
+     height is resolved from its width, and the image's `height: 100%` then
+     resolves against an indefinite height — so the image fell back to its
+     intrinsic size, overflowed, and got clipped by `overflow: hidden`. A
+     definite height makes `height: 100%` definite too, and object-fit can
+     letterbox exactly. */
   .logo-tile {
     display: grid;
-    place-items: center;
+    /* `stretch`, NOT `center`. This is the whole fix: a centred grid item is
+       sized by its own content, so the image's `height: 100%` (and equally
+       `max-height: 100%`) has no definite height to resolve against and is
+       silently dropped — the image then falls back to its intrinsic aspect
+       ratio and spills out. Both earlier attempts failed here. Stretching
+       makes the item exactly the grid area, so the percentage resolves and
+       object-fit can letterbox inside it. */
+    place-items: stretch;
     width: 100%;
-    /* Ratio rather than a fixed height, so the tile grows with the column and
-       these marks get real presence instead of being letterboxed into a
-       96px sliver. */
-    aspect-ratio: 3 / 2;
+    height: calc(var(--space-10) * 1.6);
     padding: var(--space-5);
     background: var(--color-surface);
     border-radius: var(--radius);
@@ -133,19 +147,11 @@ const { heading = 'Our impact', intro, items } = Astro.props;
     opacity: 1;
   }
 
-  .logo-name {
-    font-family: var(--font-display);
-    font-weight: var(--weight-display);
-    font-size: var(--text-h3);
-    line-height: var(--leading-tight);
-  }
-
   /* Teal, per the coral size threshold — coral at this size on a light
      ground is 3.01:1 and fails AA. */
   .logo-more {
     font-size: var(--text-tag);
     color: var(--color-label);
-    margin-top: auto;
   }
 
   .logo-card:hover .logo-more {

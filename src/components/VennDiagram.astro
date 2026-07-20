@@ -4,69 +4,140 @@
 // The original (public/images/illo-bi-venn.png) is a hand-drawn coral Venn:
 // two circles, a hatched intersection, an arrow pointing up at the overlap.
 // Rebuilt as SVG so it scales, themes from the tokens, stays sharp, and can
-// do the one thing a flat image can't — actually perform the idea. The two
-// circles start apart and converge on scroll, so the overlap is something
-// the reader watches happen rather than a diagram they're shown.
+// do the one thing a flat image can't — perform the idea. The circles start
+// apart and converge on scroll, so the overlap is something you watch happen.
 //
-// Colour comes from `currentColor`, so the panel decides whether this is
-// coral on paper or paper on teal.
+// Geometry notes, because they're load-bearing:
+//   circles  r=150 at cx 250 / 370, cy 180  -> bottoms at y=330
+//   lens     the two circles intersect at x=310, y=42.5 and y=317.5
+//   arrow    tip at y=352 — clear of the circles (whose 7px stroke reaches
+//            y=333.5), so it points at the lens without touching it
+//   labels   sit INSIDE each circle's non-overlapping crescent
+//            (left-only 100–220, right-only 400–520), not floating outside
+//
+// Colour: strokes inherit `currentColor`. Label fill is a separate custom
+// property so a dark panel can keep the circles coral while the labels go
+// paper white.
 
 interface Props {
-  left?: string;
-  right?: string;
-  centre?: string;
+  left?: [string, string];
+  right?: [string, string];
 }
 const {
-  left = 'Behavioural sciences',
-  right = 'Innovation methods',
-  centre = 'Behavioural Innovation',
+  left = ['Behavioural', 'sciences'],
+  right = ['Innovation', 'methods'],
 } = Astro.props;
 ---
 
 <figure class="venn">
-  <svg viewBox="0 0 620 400" role="img" aria-labelledby="venn-title">
+  <svg viewBox="0 0 620 470" role="img" aria-labelledby="venn-title">
     <title id="venn-title">
-      {left} combined with {right} produces {centre}
+      {left.join(' ')} combined with {right.join(' ')} produces behavioural innovation
     </title>
 
     <defs>
-      {/* The hatch that fills the intersection in the original drawing. */}
       <pattern id="venn-hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(70)">
         <line x1="0" y1="0" x2="0" y2="9" stroke="currentColor" stroke-width="3.2" />
       </pattern>
-      {/* The lens is the intersection of the two circles — clip one by the
-          other and the overlap is what survives. */}
+      {/* The lens is the intersection: clip one circle by the other. */}
       <clipPath id="venn-lens">
-        <circle cx="250" cy="170" r="142" />
+        <circle cx="250" cy="180" r="150" />
       </clipPath>
     </defs>
 
-    <g class="venn-art">
-      <g class="circle-left">
-        <circle cx="250" cy="170" r="142" fill="none" stroke="currentColor" stroke-width="7" />
-      </g>
+    <g class="circle-left">
+      <circle cx="250" cy="180" r="150" fill="none" stroke="currentColor" stroke-width="7" />
+      <text class="venn-label" x="160" y="172" text-anchor="middle">{left[0]}</text>
+      <text class="venn-label" x="160" y="196" text-anchor="middle">{left[1]}</text>
+    </g>
 
-      <g class="circle-right">
-        <circle cx="370" cy="170" r="142" fill="none" stroke="currentColor" stroke-width="7" />
-        {/* Hatch drawn as the right circle clipped to the left one. It rides
-            with the right circle so it lands exactly on the overlap. */}
-        <circle cx="370" cy="170" r="142" fill="url(#venn-hatch)" clip-path="url(#venn-lens)" />
-      </g>
+    <g class="circle-right">
+      <circle cx="370" cy="180" r="150" fill="none" stroke="currentColor" stroke-width="7" />
+      {/* Hatch rides with the right circle so it lands exactly on the lens. */}
+      <circle cx="370" cy="180" r="150" fill="url(#venn-hatch)" clip-path="url(#venn-lens)" />
+      <text class="venn-label" x="460" y="172" text-anchor="middle">{right[0]}</text>
+      <text class="venn-label" x="460" y="196" text-anchor="middle">{right[1]}</text>
+    </g>
 
-      <g class="venn-pointer">
-        <path d="M310 372 L310 306" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" />
-        <path d="M288 328 L310 302 L332 328" fill="none" stroke="currentColor" stroke-width="7"
-              stroke-linecap="round" stroke-linejoin="round" />
-      </g>
+    <g class="venn-pointer">
+      <path d="M310 460 L310 356" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" />
+      <path d="M288 378 L310 352 L332 378" fill="none" stroke="currentColor" stroke-width="7"
+            stroke-linecap="round" stroke-linejoin="round" />
     </g>
   </svg>
-
-  <figcaption>
-    <span class="mono venn-label venn-label-left">{left}</span>
-    <span class="mono venn-label venn-label-right">{right}</span>
-    <span class="venn-centre">{centre}</span>
-  </figcaption>
 </figure>
+
+<style>
+  .venn {
+    margin: 0;
+  }
+
+  .venn svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+  }
+
+  .venn-label {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    /* Falls back to the stroke colour; a dark panel overrides it so the
+       labels stay legible inside coral circles. */
+    fill: var(--venn-label-color, currentColor);
+  }
+
+  /* Resting state: circles pushed apart, so there is no overlap yet. */
+  .circle-left,
+  .circle-right,
+  .venn-pointer {
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
+  }
+
+  .circle-left {
+    transform: translateX(-60px);
+  }
+
+  .circle-right {
+    transform: translateX(60px);
+  }
+
+  .venn-pointer {
+    opacity: 0;
+    transform: translateY(var(--space-4));
+  }
+
+  .venn.in .circle-left,
+  .venn.in .circle-right {
+    transform: translateX(0);
+  }
+
+  .venn.in .venn-pointer {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.65s; /* arrives after the circles have met */
+  }
+
+  /* The convergence is decorative, so reduced motion just gets the finished
+     diagram. */
+  @media (prefers-reduced-motion: reduce) {
+    .circle-left,
+    .circle-right {
+      transform: translateX(0);
+    }
+    .venn-pointer {
+      opacity: 1;
+      transform: none;
+    }
+    .circle-left,
+    .circle-right,
+    .venn-pointer {
+      transition: none;
+    }
+  }
+</style>
 
 <script>
   // Converge on first view only — replaying it every scroll-past would be a
@@ -86,87 +157,3 @@ const {
     venns.forEach((v) => io.observe(v));
   }
 </script>
-
-<style>
-  .venn {
-    margin: 0;
-    display: grid;
-    gap: var(--space-5);
-  }
-
-  .venn svg {
-    width: 100%;
-    height: auto;
-    display: block;
-    overflow: visible;
-  }
-
-  /* Resting state: circles pushed apart, so there is no overlap yet. */
-  .circle-left,
-  .circle-right,
-  .venn-pointer {
-    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
-  }
-
-  .circle-left {
-    transform: translateX(-58px);
-  }
-
-  .circle-right {
-    transform: translateX(58px);
-  }
-
-  .venn-pointer {
-    opacity: 0;
-    transform: translateY(var(--space-4));
-  }
-
-  .venn.in .circle-left,
-  .venn.in .circle-right {
-    transform: translateX(0);
-  }
-
-  .venn.in .venn-pointer {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.65s; /* arrives after the circles have met */
-  }
-
-  figcaption {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-2) var(--space-5);
-    text-align: center;
-  }
-
-  .venn-label {
-    font-size: var(--text-tag);
-    opacity: 0.85;
-  }
-
-  .venn-centre {
-    grid-column: 1 / -1;
-    font-family: var(--font-display);
-    font-weight: var(--weight-display);
-    font-size: var(--text-h2);
-    line-height: var(--leading-tight);
-  }
-
-  /* The convergence is decorative — the caption already states the idea, so
-     anyone who prefers reduced motion just gets the finished diagram. */
-  @media (prefers-reduced-motion: reduce) {
-    .circle-left,
-    .circle-right {
-      transform: translateX(0);
-    }
-    .venn-pointer {
-      opacity: 1;
-      transform: none;
-    }
-    .circle-left,
-    .circle-right,
-    .venn-pointer {
-      transition: none;
-    }
-  }
-</style>
