@@ -15,6 +15,11 @@ const work = defineCollection({
     // (e.g. "ASToN", "Macmillan CoLab") when it differs from the
     // case-study title it was merged into. See brief Decision 1 / issue #5.
     programmeName: z.string().optional(),
+    // Programme logomark, shown in the Our Work band beside the copy. Every
+    // current programme has one; it is what stops five of the six bands from
+    // rendering with an empty column.
+    logo: z.string().optional(),
+    logoAlt: z.string().optional(),
     summary: z.string(),
     heroImage: z.string().optional(),
     heroAlt: z.string().optional(),

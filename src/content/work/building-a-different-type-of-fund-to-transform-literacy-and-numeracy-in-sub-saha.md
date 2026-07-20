@@ -6,6 +6,9 @@ hasCaseStudy: false
 externalLink: "https://www.gatesfoundation.org/"
 sortOrder: 1000
 funders: ["Bill and Melinda Gates Foundation"]
+programmeName: "uBora Bora"
+logo: "/images/logo-ubora-bora.png"
+logoAlt: "uBora Bora"
 ---
 
 

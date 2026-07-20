@@ -244,10 +244,19 @@ on genuinely broken layout — this happened on `LogoGrid` and shipped a
 visible bug. Set `loading = 'eager'` and await every image's `onload` before
 measuring, and assert `naturalWidth > 0` as part of the check.
 
-**Dev-server staleness:** Vite has repeatedly served stale component CSS in
-this project after edits, which looks exactly like a broken fix. If a style
-change appears not to apply, restart the dev server before debugging it —
-or check `dist/` after `npm run build`, which is always accurate.
+**Dev-server staleness — two separate failure modes, both of which look
+exactly like a broken fix:**
+
+1. **Stale CSS.** Vite serves the old component stylesheet after an edit.
+   Restart the dev server.
+2. **Stale content.** Astro caches the content collections in
+   `.astro/data-store.json`. A restart is NOT enough: new frontmatter fields
+   can stay invisible to the dev server while building correctly. Symptom is
+   maddening because some fields from the same file work and others don't.
+   Fix: `rm -rf .astro node_modules/.vite`, then restart.
+
+`dist/` after `npm run build` is always accurate. When the dev server and
+the build disagree, the build is right and the dev server is stale.
 
 ## Verification standard
 

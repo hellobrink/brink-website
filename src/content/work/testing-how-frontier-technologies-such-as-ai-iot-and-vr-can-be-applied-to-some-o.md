@@ -5,6 +5,9 @@ status: current
 hasCaseStudy: false
 externalLink: "https://www.gov.uk/government/organisations/foreign-commonwealth-development-office"
 sortOrder: 1002
+programmeName: "Frontier Tech Hub"
+logo: "/images/logo-frontier-tech-hub.png"
+logoAlt: "Frontier Tech Hub"
 ---
 
 

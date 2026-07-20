@@ -5,6 +5,9 @@ status: current
 hasCaseStudy: false
 externalLink: "https://www.gov.uk/government/organisations/foreign-commonwealth-development-office"
 sortOrder: 1004
+programmeName: "Vaccine Data CoLab"
+logo: "/images/logo-vaccine-data-colab.png"
+logoAlt: "Vaccine Data CoLab"
 ---
 
 

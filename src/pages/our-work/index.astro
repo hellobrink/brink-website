@@ -30,9 +30,9 @@ const offers = [
     <header class="page-header">
       <h1>Our work</h1>
       <p>
-        Every Brink engagement, current and past, in one place. Items with a
-        full write-up open into the complete case study — everything else is
-        a quick summary. Filter by sector, offer or status below.
+        Every Brink engagement, current and past, in one place. Some open
+        into a full write-up; others link out to the programme&rsquo;s own
+        site. Filter by sector, offer or status below.
       </p>
     </header>
 
@@ -71,15 +71,7 @@ const offers = [
 
     {current.map((item, i) => (
       <div
-        class:list={[
-          'work-item',
-          'work-band',
-          i % 2 === 0 ? 'ground-paper' : 'ground-teal',
-          // Five of the six have neither a photograph nor parsed funder data,
-          // so the band drops to a single wide column rather than leaving a
-          // dead second column beside the copy.
-          !item.data.heroImage && !item.data.funders.length && !item.data.partners.length && 'band-solo',
-        ]}
+        class:list={['work-item', 'work-band', i % 2 === 0 ? 'ground-paper' : 'ground-teal']}
         data-sector={item.data.sector.join(',')}
         data-offer={item.data.offer.join(',')}
         data-status={item.data.status}
@@ -96,15 +88,13 @@ const offers = [
             </span>
           </div>
 
-          {item.data.heroImage ? (
-            <img
-              class="band-image"
-              src={withBase(item.data.heroImage)}
-              alt={item.data.heroAlt ?? item.data.title}
-              loading="lazy"
-            />
-          ) : (
-            (item.data.funders.length > 0 || item.data.partners.length > 0) && (
+          <div class="band-aside">
+            {item.data.logo && (
+              <span class="band-logo">
+                <img src={withBase(item.data.logo)} alt={item.data.logoAlt ?? item.data.programmeName ?? ''} loading="lazy" />
+              </span>
+            )}
+            {(item.data.funders.length > 0 || item.data.partners.length > 0) && (
               <div class="band-credits">
                 {item.data.funders.length > 0 && (
                   <div class="credit">
@@ -119,8 +109,8 @@ const offers = [
                   </div>
                 )}
               </div>
-            )
-          )}
+            )}
+          </div>
         </div>
       </div>
     ))}
@@ -226,6 +216,7 @@ const offers = [
 
   .work-band {
     padding: var(--space-8) 0;
+    --band-logo-height: calc(var(--space-10) * 1.6);
   }
 
   .work-band[hidden] {
@@ -248,20 +239,31 @@ const offers = [
     align-items: center;
   }
 
-  .band-solo .band-inner {
-    grid-template-columns: 1fr;
+  .band-aside {
+    display: grid;
+    gap: var(--space-5);
+    align-content: start;
   }
 
-  /* With the full width to play with, the headline can run bigger and the
-     summary gets a comfortable measure rather than a narrow column. */
-  .band-solo .band-copy h3 {
-    font-size: var(--text-display-lg);
-    max-width: var(--measure);
+  /* Same white tile as the About page's impact grid, and the same reason:
+     these are third-party marks in every shape and colour, drawn for white.
+     Absolute max-height (never a percentage) so the logo can't burst the
+     tile: see the note in LogoGrid.astro. */
+  .band-logo {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: var(--band-logo-height);
+    padding: var(--space-5);
+    background: var(--color-surface);
+    border-radius: var(--radius);
   }
 
-  .band-solo .band-summary {
-    max-width: var(--measure);
-    font-size: var(--text-lead);
+  .band-logo img {
+    max-width: 100%;
+    max-height: calc(var(--band-logo-height) - var(--space-5) * 2);
+    width: auto;
+    height: auto;
   }
 
   .band-copy .kicker {
@@ -318,15 +320,6 @@ const offers = [
     text-decoration: underline;
   }
 
-  .band-image {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border-radius: var(--radius);
-    display: block;
-  }
-
-  /* Stands in for a photograph on the five bands that don't have one. */
   .band-credits {
     display: grid;
     gap: var(--space-5);
@@ -346,7 +339,7 @@ const offers = [
   .credit li {
     font-family: var(--font-display);
     font-weight: var(--weight-display);
-    font-size: var(--text-h2);
+    font-size: var(--text-h3);
     line-height: var(--leading-snug);
   }
 

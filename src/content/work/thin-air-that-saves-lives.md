@@ -8,6 +8,9 @@ offer: [missions]
 status: current
 hasCaseStudy: true
 sortOrder: 6
+programmeName: "Oxygen CoLab"
+logo: "/images/logo-oxygen-colab.png"
+logoAlt: "Oxygen CoLab"
 ---
 
 ## There's something in the air

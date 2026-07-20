@@ -6,6 +6,9 @@ hasCaseStudy: false
 externalLink: "https://rdb.rw/"
 sortOrder: 1001
 funders: ["Rwanda Development Board (RDB)", "Rwanda ICT"]
+programmeName: "Hanga Pitchfest"
+logo: "/images/logo-hanga-pitchfest.png"
+logoAlt: "Hanga Pitchfest"
 ---
 
 

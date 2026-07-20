@@ -5,6 +5,9 @@ status: current
 hasCaseStudy: false
 externalLink: "https://www.gov.uk/government/organisations/foreign-commonwealth-development-office"
 sortOrder: 1003
+programmeName: "EdTech Hub"
+logo: "/images/logo-edtech-hub.jpg"
+logoAlt: "EdTech Hub"
 ---
 
 
