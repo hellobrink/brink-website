@@ -15,14 +15,10 @@ challenge:
 results:
   - "Challenged assumptions and introduced ‘bureaucratic innovation’ right across the council, leading to smart, citizen-centered services that make paying taxes simpler."
 approachIntro:
-  - "**Enabling crucial conversations:**As outsiders we were able to broach some uncomfortable topics and uncover new ground: By streamlining priorities, tackling bottlenecks and hacking away at reporting and budgeting approaches we left teams with more clarity and focus, along with a more positive and efficient approach to delivery."
+  - "**Enabling crucial conversations:** As outsiders we were able to broach some uncomfortable topics and uncover new ground: By streamlining priorities, tackling bottlenecks and hacking away at reporting and budgeting approaches we left teams with more clarity and focus, along with a more positive and efficient approach to delivery."
 approach:
   - "**Progress through practice.** Weintroduced more iterative ways of working, which meant first changing attitudes at leadership level so the organisation could become comfortable in testing its assumptions, learning from its mistakes and experimenting with new ideas."
   - "**Brought people together.** By breaking down internal organisational silos we were able to give teams that don’t normally work together a chance to reflect and collaborate, and this led to more collaborative and collegiate team atmosphere across the organisation."
-gallery:
-  - image: "/images/placeholder.svg"
-    alt: "Image to follow"
-    caption: "TODO: image needed for this case study"
 ---
 
 The city of Matola sits on the western side of Mozambique’s capital, Maputo. As of 2017, over a million people lived in this busy suburb that’s a centre for industry and manufacturing.

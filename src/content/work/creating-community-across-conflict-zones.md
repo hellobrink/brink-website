@@ -15,10 +15,10 @@ challenge:
 results:
   - "Developed a supportive and dynamic community that allows those working in unpredictable and extreme environments to come together and make meaningful connections, identify new opportunities and form sector-changing collaborations."
 approachIntro:
-  - "**An ecosystem built for extreme environments.**Innovating in conflict zones means being able to respond to unpredictable and extreme changes in the environment; the support offered to Humanitarian Grand Challenge innovators must reflect these realities, allowing for flexibility and robust adaptiveness."
-  - "**Built around real needs and behaviours.**The innovators that made up our community not only have vastly differing needs but are working across many time zones with varying degrees of internet connectivity, as well as experiencing different types of conflict, so we are constructing an ecosystem that is dynamic and accessible enough to be useful and usable to all of them."
+  - "**An ecosystem built for extreme environments.** Innovating in conflict zones means being able to respond to unpredictable and extreme changes in the environment; the support offered to Humanitarian Grand Challenge innovators must reflect these realities, allowing for flexibility and robust adaptiveness."
+  - "**Built around real needs and behaviours.** The innovators that made up our community not only have vastly differing needs but are working across many time zones with varying degrees of internet connectivity, as well as experiencing different types of conflict, so we are constructing an ecosystem that is dynamic and accessible enough to be useful and usable to all of them."
   - "**Offering support beyond the norm.** As the Covid-19 pandemic highlighted issues around mental health and work/life balance, we were able to respond in real time, creating much needed space for difficult and candid conversation as well as encouraging innovators to support each other, through advice, guidance and empathy. The ability to travel during the pandemic also meant adapting and utilising innovations to connect from across the world."
-  - "**Not just supporting, but empowering.**The community infrastructure actively encourages autonomy and self-reliance, with the aim of creating a self-sustaining community that can continue to grow and become increasingly valuable over time."
+  - "**Not just supporting, but empowering.** The community infrastructure actively encourages autonomy and self-reliance, with the aim of creating a self-sustaining community that can continue to grow and become increasingly valuable over time."
 gallery:
   - image: "/images/cs-creating-community-across-conflict-zones-1.jpeg"
     alt: "Creating community across conflict zones"

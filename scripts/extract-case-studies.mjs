@@ -96,6 +96,11 @@ function extract(file) {
     seen.add(b.tag + b.text);
 
     if (/^h[1-4]$/.test(b.tag)) {
+      // Once inside the long-form narrative, never switch section again.
+      // Several pages reuse the structural headings as subheadings inside
+      // the story ("What was achieved", "How it delivered impact"), which
+      // flipped the parser back and dragged narrative into the results list.
+      if (section === 'story') { out.story.push({ tag: b.tag, text: b.text }); continue; }
       if (isHead(b.text, 'the challenge')) { section = 'challenge'; continue; }
       if (isHead(b.text, 'what was achieved')) { section = 'results'; continue; }
       if (isHead(b.text, 'how we did it')) { section = 'approach'; continue; }

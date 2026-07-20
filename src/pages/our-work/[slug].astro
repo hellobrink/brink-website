@@ -58,17 +58,34 @@ const related = allWork
   .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
   .slice(0, 3);
 
-const facts: Array<{ label: string; value: string }> = [
-  data.programmeName && { label: 'Programme', value: data.programmeName },
-  data.location && { label: 'Location', value: data.location },
-  data.sector.length > 0 && {
+// Every row is always rendered, with TBC where we have nothing, so a gap in
+// the record is visible on the page rather than silently absent. Timeline
+// rather than status: "Completed" tells a reader nothing they can use.
+const TBC = 'TBC';
+const facts = [
+  { label: 'Programme', value: data.programmeName ?? TBC },
+  { label: 'Location', value: data.location ?? TBC },
+  {
     label: 'Sector',
-    value: data.sector.map((s) => s[0].toUpperCase() + s.slice(1)).join(', '),
+    value: data.sector.length
+      ? data.sector.map((s) => s[0].toUpperCase() + s.slice(1)).join(', ')
+      : TBC,
   },
-  // Timeline rather than status: "Completed" tells a reader nothing they
-  // can use, whereas the dates place the work in time.
-  data.timeline && { label: 'Timeline', value: data.timeline },
-].filter(Boolean) as Array<{ label: string; value: string }>;
+  { label: 'Timeline', value: data.timeline ?? TBC },
+];
+
+const creditGroups = [
+  { label: 'Funders', list: data.funders },
+  { label: 'Partners', list: data.partners },
+];
+
+// Gallery images are dealt out one at a time and placed between the story
+// sections rather than stacked in a single block. `nextImage()` returns the
+// next unused image or null, so the layout takes as many as exist and simply
+// stops — a case study with two images gets two breaks, one with five gets
+// five.
+let imageCursor = 0;
+const nextImage = () => data.gallery[imageCursor++] ?? null;
 ---
 
 <Layout title={data.title} description={data.standfirst ?? data.summary}>
@@ -100,6 +117,13 @@ const facts: Array<{ label: string; value: string }> = [
             </section>
           )}
 
+          {(() => { const g = nextImage(); return g && (
+            <figure class="story-figure">
+              <img src={withBase(g.image)} alt={g.alt} loading="lazy" />
+              {g.caption && <figcaption class="mono">{g.caption}</figcaption>}
+            </figure>
+          ); })()}
+
           {data.results.length > 0 && (
             <section class="story-section">
               <h2 class="display">What was achieved</h2>
@@ -108,6 +132,13 @@ const facts: Array<{ label: string; value: string }> = [
               </ul>
             </section>
           )}
+
+          {(() => { const g = nextImage(); return g && (
+            <figure class="story-figure">
+              <img src={withBase(g.image)} alt={g.alt} loading="lazy" />
+              {g.caption && <figcaption class="mono">{g.caption}</figcaption>}
+            </figure>
+          ); })()}
 
           {data.quote && (
             <figure class:list={['pull-quote', { 'has-portrait': data.quote.photo }]}>
@@ -138,22 +169,15 @@ const facts: Array<{ label: string; value: string }> = [
                   {data.approach.map((a) => <li set:html={inline(a)} />)}
                 </ul>
               )}
-
-              {/* The images sit inside this section because they show the
-                  work being done: the lab, the field tests, the community
-                  demo. After the section they read as decoration. */}
-              {data.gallery.length > 0 && (
-                <div class="gallery">
-                  {data.gallery.map((g) => (
-                    <figure>
-                      <img src={withBase(g.image)} alt={g.alt} loading="lazy" />
-                      {g.caption && <figcaption class="mono">{g.caption}</figcaption>}
-                    </figure>
-                  ))}
-                </div>
-              )}
             </section>
           )}
+
+          {(() => { const g = nextImage(); return g && (
+            <figure class="story-figure">
+              <img src={withBase(g.image)} alt={g.alt} loading="lazy" />
+              {g.caption && <figcaption class="mono">{g.caption}</figcaption>}
+            </figure>
+          ); })()}
 
           {data.conclusion && (
             <section class="story-section">
@@ -173,6 +197,13 @@ const facts: Array<{ label: string; value: string }> = [
             </section>
           )}
 
+          {data.gallery.slice(imageCursor).map((g) => (
+            <figure class="story-figure">
+              <img src={withBase(g.image)} alt={g.alt} loading="lazy" />
+              {g.caption && <figcaption class="mono">{g.caption}</figcaption>}
+            </figure>
+          ))}
+
           {data.fullStoryUrl && (
             <p class="full-story">
               <a class="button" href={data.fullStoryUrl} target="_blank" rel="noopener noreferrer">
@@ -191,30 +222,31 @@ const facts: Array<{ label: string; value: string }> = [
               {facts.map((f) => (
                 <div class="fact">
                   <dt class="mono">{f.label}</dt>
-                  <dd>{f.value}</dd>
+                  <dd class:list={{ tbc: f.value === TBC }}>{f.value}</dd>
                 </div>
               ))}
             </dl>
 
-            {([['Funders', data.funders], ['Partners', data.partners]] as const).map(
-              ([label, list]) =>
-                list.length > 0 && (
-                  <div class="fact-group">
-                    <p class="mono fact-label">{label}</p>
-                    <ul>
-                      {list.map((c) => (
-                        <li>
-                          {c.url ? (
-                            <a href={c.url} target="_blank" rel="noopener noreferrer">{c.name}</a>
-                          ) : (
-                            c.name
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )
-            )}
+            {creditGroups.map(({ label, list }) => (
+              <div class="fact-group">
+                <p class="mono fact-label">{label}</p>
+                {list.length > 0 ? (
+                  <ul>
+                    {list.map((c) => (
+                      <li>
+                        {c.url ? (
+                          <a href={c.url} target="_blank" rel="noopener noreferrer">{c.name}</a>
+                        ) : (
+                          c.name
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p class="tbc">{TBC}</p>
+                )}
+              </div>
+            ))}
 
             {data.externalLink && (
               <a class="fact-cta mono" href={data.externalLink} target="_blank" rel="noopener noreferrer">
@@ -577,6 +609,15 @@ const facts: Array<{ label: string; value: string }> = [
     margin: 0;
     font-size: var(--text-body-sm);
     text-align: right;
+  }
+
+  /* Missing data is called out rather than hidden, so it reads as a gap to
+     fill instead of a field that doesn't apply. */
+  .tbc {
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: var(--text-tag);
+    margin: 0;
   }
 
   .fact-group {

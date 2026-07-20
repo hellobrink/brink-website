@@ -23,7 +23,7 @@ challenge:
 results:
   - "Brought together manufacturers, engineers, innovators, hackers and backers to accelerate the development of new and innovative robust oxygen concentrators in low-resource settings."
 approachIntro:
-  - "[The Oxygen CoLab](https://www.makingbetterfutures.org/?ref=hellobrink.co)**:**We worked with local communities, UNICEF, NGOs, academic institutions, manufacturers, engineers, innovators and many other makers, hackers and backers to create a global network uniquely skilled to tackle the problem of oxygen concentrator design and distribution."
+  - "[The Oxygen CoLab](https://www.makingbetterfutures.org/?ref=hellobrink.co)**:** We worked with local communities, UNICEF, NGOs, academic institutions, manufacturers, engineers, innovators and many other makers, hackers and backers to create a global network uniquely skilled to tackle the problem of oxygen concentrator design and distribution."
 approach:
   - "**A concentrator built to last.** Convened our pool of experts to undertake a human-centered design evaluation with a view to solving the three biggest oxygen concentrator design challenges."
   - "**Hack the market.** To prove the market for these devices in order and begin to attract investment from big players we piloted a new service model called oxygen-as-a-service in Tanzania and India."
