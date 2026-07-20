@@ -1,6 +1,6 @@
 ---
 name: Climate
-headline: At Brink we tackle the climate crisis with solutions that are scalable, implementable, and rooted in local reality.
+headline: We tackle the climate crisis with solutions that are scalable, implementable and rooted in local reality.
 positioningLine: "TODO: plain positioning line — \"call Brink when ___\". See brief section 4A.3."
 stats:
   - value: "44"

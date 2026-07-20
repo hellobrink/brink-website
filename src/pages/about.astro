@@ -3,12 +3,19 @@
 //
 // Structure follows the FID reference, alternating imagery with flat colour
 // so no two image-heavy blocks stack, and no two same-coloured panels sit
-// against each other: photo hero -> white offers -> teal -> paper + photo
-// carousel -> paper impact -> paper team. Every block here is a reusable component, so the
+// against each other:
+//
+//   photo hero -> white offers -> teal BI -> paper impact -> photo carousel
+//   -> paper team -> white CTA
+//
+// "Our impact" sits between the teal panel and the carousel specifically to
+// keep a dark module off a full-bleed image module — see the panel-rhythm
+// rule in CLAUDE.md. The carousel carries its own heading, over the
+// photography, rather than in a band above it. Every block here is a reusable component, so the
 // remaining pages become assembly rather than fresh design:
 //
-//   hero (inline)     -> IllustratedGrid -> VennDiagram panel
-//   -> PanelCarousel  -> LogoGrid        -> TeamPanel  -> ExploreCTA
+//   hero (inline)  -> IllustratedGrid -> VennDiagram panel -> LogoGrid
+//   -> PanelCarousel -> TeamPanel -> ExploreCTA
 //
 // No mono kickers above the headings. They earn their place on carousel
 // slides, where they name which slide you're on; above a standalone heading
@@ -173,20 +180,19 @@ const impact = [
     </div>
   </section>
 
-  {sectorSlides.length > 0 && (
-    <section class="sectors">
-      <div class="container sectors-head">
-        <h2 class="display">Our work spans the world&rsquo;s most pressing issues</h2>
-      </div>
-      <PanelCarousel slides={sectorSlides} label="Sectors Brink works in" />
-    </section>
-  )}
-
   <LogoGrid
     heading="Our impact"
     intro="We're proud to have played a part in creating and running many impactful programmes worldwide."
     items={impact}
   />
+
+  {sectorSlides.length > 0 && (
+    <PanelCarousel
+      slides={sectorSlides}
+      label="Sectors Brink works in"
+      heading="Our work spans the world&rsquo;s most pressing issues"
+    />
+  )}
 
   <TeamPanel
     image="/images/68123028f43a4b791b739dd6_brinkretreat25-52.jpeg"
@@ -357,24 +363,6 @@ const impact = [
   }
 
   /* --- Sectors ------------------------------------------------------------ */
-  /* The heading sits on a paper band that runs straight into the carousel,
-     so it reads as that block's title. On white with a gap beneath it, it
-     looked like an orphaned line floating above unrelated photographs. */
-  .sectors {
-    background: var(--color-surface-muted);
-    padding-top: var(--space-9);
-  }
-
-  .sectors-head {
-    padding-bottom: var(--space-7);
-  }
-
-  .sectors-head h2 {
-    font-size: var(--text-display);
-    margin: 0;
-    max-width: var(--measure-narrow);
-  }
-
   @media (max-width: 860px) {
     .bi-inner {
       grid-template-columns: 1fr;

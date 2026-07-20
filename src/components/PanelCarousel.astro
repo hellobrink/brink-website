@@ -24,11 +24,19 @@ export interface CarouselSlide {
 interface Props {
   slides: CarouselSlide[];
   label: string;
+  /**
+   * Section heading, rendered *inside* the carousel over the photography.
+   * Deliberately not left to the page: a heading in its own band above the
+   * carousel reads as an orphaned line floating over unrelated pictures,
+   * whichever colour that band is. Sitting it on the imagery, sharing the
+   * scrim, makes the whole thing one block.
+   */
+  heading?: string;
   /** Seconds between auto-advances; 0 disables rotation. */
   interval?: number;
 }
 
-const { slides, label, interval = 7 } = Astro.props;
+const { slides, label, heading, interval = 7 } = Astro.props;
 ---
 
 <section
@@ -37,10 +45,16 @@ const { slides, label, interval = 7 } = Astro.props;
   aria-label={label}
   data-interval={interval}
 >
+  {heading && (
+    <div class="carousel-heading">
+      <h2 class="display">{heading}</h2>
+    </div>
+  )}
+
   <div class="panel-track" tabindex="0">
     {slides.map((slide, i) => (
       <a
-        class="panel"
+        class:list={['panel', { 'has-heading': heading }]}
         href={slide.href}
         role="group"
         aria-roledescription="slide"
@@ -165,6 +179,27 @@ const { slides, label, interval = 7 } = Astro.props;
     position: relative;
   }
 
+  /* Sits over the first part of the photography, sharing the slides' scrim
+     so it stays legible on any image. */
+  .carousel-heading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-gutter) 0;
+    pointer-events: none; /* never blocks a click on the slide beneath */
+  }
+
+  .carousel-heading h2 {
+    font-size: var(--text-display);
+    color: var(--color-surface);
+    margin: 0;
+    max-width: var(--measure-narrow);
+  }
+
   .panel-track {
     display: flex;
     overflow-x: auto;
@@ -226,6 +261,17 @@ const { slides, label, interval = 7 } = Astro.props;
     min-height: min(66vh, 560px);
     display: flex;
     align-items: center;
+  }
+
+  /* Clear the overlaid heading, and grow the slide so centred copy still has
+     room beneath it. */
+  .panel.has-heading .panel-inner {
+    padding-top: var(--space-10);
+  }
+
+  .panel.has-heading,
+  .panel.has-heading .panel-inner {
+    min-height: min(78vh, 660px);
   }
 
   .panel-text {
@@ -316,6 +362,12 @@ const { slides, label, interval = 7 } = Astro.props;
   @media (max-width: 700px) {
     .panel::after {
       background: rgba(6, 51, 61, 0.72);
+    }
+    .carousel-heading {
+      padding-top: var(--space-6);
+    }
+    .panel.has-heading .panel-inner {
+      padding-top: var(--space-9);
     }
     .carousel-controls {
       right: auto;

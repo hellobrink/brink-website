@@ -194,10 +194,24 @@ to this set rather than writing one-off section CSS.
 | `PeopleStrip` | Team preview, pulled live from the `team` collection. |
 | `ExploreCTA` / `NamedContactCTA` | Closing calls to action. |
 
-**Page rhythm:** alternate photographic blocks with white/paper ones. Three
-image-heavy blocks in a row read as one undifferentiated wall — that's why
-the homepage puts "Who we are" between the hero and the carousel, and why
-About puts a white text panel straight after its hero.
+**Page rhythm — two hard rules:**
+
+1. **Never put a dark (teal) module directly against a full-bleed image
+   module.** Both are heavy and dark-toned, so they merge into one slab with
+   no edge between them. A white or paper module must break them up. On
+   About this is why "Our impact" sits between the Behavioural Innovation
+   panel and the sector carousel rather than after it.
+2. **Never repeat the same background on adjacent modules** — white on white
+   reads as one long section with a stray heading in the middle.
+
+Alternate photographic blocks with white/paper ones throughout. The current
+About order, which satisfies both: photo hero -> white offers -> teal BI ->
+paper impact -> photo carousel -> paper team -> white CTA.
+
+A section heading for a carousel belongs **inside** the carousel, over the
+photography (`PanelCarousel`'s `heading` prop), not in a band above it. In
+its own band it reads as an orphaned line floating over unrelated pictures,
+whichever colour that band is.
 
 **Two rules learned the hard way, both in these components' comments:**
 - **Never use a percentage height to fit an image inside a fixed box.** A
