@@ -63,6 +63,10 @@ const { heading = 'Our impact', intro, items } = Astro.props;
   .logo-grid-section {
     padding: var(--space-9) 0;
     background: var(--color-surface-muted);
+    /* Single source of truth for the tile box — the image's max-height is
+       calculated from these, so they cannot disagree. */
+    --logo-tile-height: calc(var(--space-10) * 1.6);
+    --logo-tile-pad: var(--space-5);
   }
 
   .section-heading {
@@ -101,39 +105,34 @@ const { heading = 'Our impact', intro, items } = Astro.props;
   /* White, not paper: these marks were drawn for white, and several have a
      baked-in white background that would otherwise show as a bright rectangle
      against the paper tone. */
-  /* An explicit height, NOT `aspect-ratio`. With aspect-ratio the tile's
-     height is resolved from its width, and the image's `height: 100%` then
-     resolves against an indefinite height — so the image fell back to its
-     intrinsic size, overflowed, and got clipped by `overflow: hidden`. A
-     definite height makes `height: 100%` definite too, and object-fit can
-     letterbox exactly. */
   .logo-tile {
     display: grid;
-    /* `stretch`, NOT `center`. This is the whole fix: a centred grid item is
-       sized by its own content, so the image's `height: 100%` (and equally
-       `max-height: 100%`) has no definite height to resolve against and is
-       silently dropped — the image then falls back to its intrinsic aspect
-       ratio and spills out. Both earlier attempts failed here. Stretching
-       makes the item exactly the grid area, so the percentage resolves and
-       object-fit can letterbox inside it. */
-    place-items: stretch;
+    place-items: center;
     width: 100%;
-    height: calc(var(--space-10) * 1.6);
-    padding: var(--space-5);
+    height: var(--logo-tile-height);
+    padding: var(--logo-tile-pad);
     background: var(--color-surface);
     border-radius: var(--radius);
     overflow: hidden;
   }
 
-  /* The image box is sized to the tile and `object-fit: contain` letterboxes
-     the artwork inside it. The obvious `max-width/max-height: 100%` does NOT
-     reliably constrain a grid item — five of these eight logos burst their
-     tile that way, rendering up to 200px inside a 96px box and colliding with
-     the name beneath. Sizing the box and fitting the content is exact. */
+  /* NO PERCENTAGE HEIGHTS. This bit is fiddly and cost three wrong fixes.
+     A percentage height (or max-height) on a child of this tile resolves
+     against the tile's height — but the child is also participating in the
+     tile's alignment, which makes the dependency cyclic, so the browser
+     quietly resolves it to `auto`. The image then falls back to its intrinsic
+     aspect ratio, grows past the tile, and gets sliced by `overflow: hidden`.
+     `max-height: 100%`, `aspect-ratio`, and `place-items: stretch` all failed
+     for exactly this reason.
+
+     Bounding the image with an absolute calc instead removes the cycle: the
+     max-height is derived from the same two tokens as the tile, so the two
+     can't drift apart. */
   .logo-tile img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    max-width: 100%;
+    max-height: calc(var(--logo-tile-height) - var(--logo-tile-pad) * 2);
+    width: auto;
+    height: auto;
     /* Third-party marks arrive in a riot of colours. Muting them at rest
        lets the grid read as one block; full colour on hover rewards
        attention and confirms the card is interactive. */

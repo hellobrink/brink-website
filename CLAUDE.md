@@ -200,15 +200,28 @@ the homepage puts "Who we are" between the hero and the carousel, and why
 About puts a white text panel straight after its hero.
 
 **Two rules learned the hard way, both in these components' comments:**
-- Never size an image with `max-width/max-height: 100%` inside a grid item —
-  it does not reliably constrain, and five of eight logos burst their tile.
-  Size the box and let `object-fit: contain` letterbox the content.
+- **Never use a percentage height to fit an image inside a fixed box.** A
+  percentage height *or* max-height on a child resolves against the parent's
+  height, but the child also participates in the parent's alignment — the
+  dependency is cyclic, so browsers quietly resolve it to `auto`. The image
+  then falls back to its intrinsic ratio and gets sliced by `overflow:
+  hidden`. `max-height: 100%`, `aspect-ratio`, and `place-items: stretch`
+  were all tried on `LogoGrid` and all failed for this one reason. Bound the
+  image with an absolute `calc()` derived from the same tokens as the box.
 - Never rely on `scrollTo({behavior: 'smooth'})` for carousel movement — it's
   a silent no-op on scroll-snap containers in some engines. Tween with rAF.
 
 **Illustration grounds are assigned per image, never rotated by index.** Some
 artwork has a colour baked in (the cranes are on coral) and will visibly
 clash against the wrong ground.
+
+**Measure loaded images, not placeholders.** `loading="lazy"` images that
+haven't entered the viewport report `naturalWidth === 0`, and
+`getBoundingClientRect()` then returns the CSS box rather than the laid-out
+image. A fit/overflow check against those is vacuous and will report success
+on genuinely broken layout — this happened on `LogoGrid` and shipped a
+visible bug. Set `loading = 'eager'` and await every image's `onload` before
+measuring, and assert `naturalWidth > 0` as part of the check.
 
 **Dev-server staleness:** Vite has repeatedly served stale component CSS in
 this project after edits, which looks exactly like a broken fix. If a style
