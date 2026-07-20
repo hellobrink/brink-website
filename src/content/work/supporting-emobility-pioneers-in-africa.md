@@ -27,13 +27,14 @@ approach:
   - "[Read more about this pilot](https://www.frontiertechhub.org/pilot-portfolio/electric-motorcycle-taxis)."
 quote:
   text: "There is a key lesson here for any early stage venture looking for impact: Stepping back and considering what it would take to get others to help you scale is vital."
-  name: "TODO: who said this?"
+  name: "Josh Whale"
+  role: "CEO of Ampersand"
+  photo: "/images/cs-supporting-emobility-pioneers-in-africa-3.jpg"
+  photoAlt: "Josh Whale, CEO of Ampersand"
 gallery:
   - image: "/images/cs-supporting-emobility-pioneers-in-africa-1.jpg"
     alt: "Supporting e-mobility pioneers in Africa"
   - image: "/images/cs-supporting-emobility-pioneers-in-africa-2.jpeg"
-    alt: "Supporting e-mobility pioneers in Africa"
-  - image: "/images/cs-supporting-emobility-pioneers-in-africa-3.jpg"
     alt: "Supporting e-mobility pioneers in Africa"
   - image: "/images/cs-supporting-emobility-pioneers-in-africa-4.jpg"
     alt: "Supporting e-mobility pioneers in Africa"

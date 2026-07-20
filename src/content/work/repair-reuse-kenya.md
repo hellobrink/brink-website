@@ -30,13 +30,14 @@ approach:
 conclusion: "[Explore the stories of some of the people working in that economy](https://repairandreusekenya.makingbetterfutures.org/)."
 quote:
   text: "I foresee more and more businesses setting up and more awareness being realised. I hope more companies and NGOs will come through in terms of funding as this will go along way in ensuring sustainability of businesses such as ours."
-  name: "TODO: who said this?"
+  name: "Isaac"
+  role: "Waste processor, Nairobi"
+  photo: "/images/cs-repair-reuse-kenya-3.png"
+  photoAlt: "Isaac, a waste processor in Nairobi"
 gallery:
   - image: "/images/cs-repair-reuse-kenya-1.jpg"
     alt: "Imagining a better future for the repair and reuse economy in Kenya"
   - image: "/images/cs-repair-reuse-kenya-2.jpg"
-    alt: "Imagining a better future for the repair and reuse economy in Kenya"
-  - image: "/images/cs-repair-reuse-kenya-3.png"
     alt: "Imagining a better future for the repair and reuse economy in Kenya"
   - image: "/images/cs-repair-reuse-kenya-4.webp"
     alt: "Imagining a better future for the repair and reuse economy in Kenya"
