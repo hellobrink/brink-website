@@ -24,7 +24,7 @@ approach:
   - "**Piloting and business model development** – Supported Ampersand in strengthening its business case, refining its rent-to-own and pay-per-swap models, and positioning for early-stage investment. The grant was used to test a small fleet of motorcycles, revealing that rent-to-own and pay-per-swap models increased driver revenue by 78% per month. Findings also confirmed that a modular design was essential for easy maintenance and fleet scalability and that motorcycles needed to resemble existing petrol models to encourage adoption."
   - "**Product development and market adoption**– Advised Ampersand on scaling strategies, using insights from its pilot to refine p*r*icing models, optimise fleet deployment, and enhance battery-swapping infrastructure. We also supported Ampersand in developing investment metrics and an impact narrative that strengthened its ability to secure follow-on funding."
   - "**Ecosystem & Policy Engagement** – Engaged policymakers and industry stakeholders to strengthen regulatory pathways for e-mobility, ensuring an enabling environment for electric transport adoption."
-  - "**[Read more about this pilot here](https.** //www.frontiertechhub.org/pilot-portfolio/electric-motorcycle-taxis)."
+  - "[Read more about this pilot](https://www.frontiertechhub.org/pilot-portfolio/electric-motorcycle-taxis)."
 quote:
   text: "There is a key lesson here for any early stage venture looking for impact: Stepping back and considering what it would take to get others to help you scale is vital."
   name: "TODO: who said this?"
