@@ -36,7 +36,7 @@ const authored = allPosts
     <div class="container">
       <p class="back"><a href={withBase('/team')}>&larr; Meet the team</a></p>
 
-      <header class="bio-header">
+      <div class="bio-layout">
         {data.photo && (
           <span class="portrait">
             <img
@@ -52,7 +52,7 @@ const authored = allPosts
             )}
           </span>
         )}
-        <div class="bio-meta">
+        <div class="bio-main">
           <h1 class="display">{data.name}</h1>
           {/* The caret is the brand book's own list marker, used throughout
               its pages as a "&gt;" prefix. */}
@@ -69,22 +69,22 @@ const authored = allPosts
           )}
           <hr class="meta-rule" />
           {data.location && <p class="location">{data.location}</p>}
-        </div>
-      </header>
 
-      <div class="bio-body">
-        <div class="prose">
-          <Content />
-        </div>
+          {/* The bio copy continues in this same column, under the heading,
+              rather than starting below the portrait. */}
+          <div class="prose">
+            <Content />
+          </div>
 
-        {data.questions.length > 0 && (
-          <section class="questions">
-            <h2 class="display">Questions {firstName} is exploring in their work right now</h2>
-            <ul>
-              {data.questions.map((q) => <li>{q}</li>)}
-            </ul>
-          </section>
-        )}
+          {data.questions.length > 0 && (
+            <section class="questions">
+              <h2 class="display">Questions {firstName} is exploring in their work right now</h2>
+              <ul>
+                {data.questions.map((q) => <li>{q}</li>)}
+              </ul>
+            </section>
+          )}
+        </div>
       </div>
     </div>
 
@@ -136,20 +136,32 @@ const authored = allPosts
     color: var(--color-accent);
   }
 
-  /* The portrait is the point of a bio page, so it gets real size rather
-     than the thumbnail it had been reduced to. */
-  .bio-header {
+  /* One grid for the whole bio: portrait left, everything else (name, role,
+     location and the copy itself) stacked in the right column. Splitting it
+     into a header row plus a full-width body pushed the copy underneath the
+     portrait, which left a tall empty gap beside it. */
+  .bio-layout {
     display: grid;
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
     gap: var(--space-8);
     align-items: start;
     margin: var(--space-6) 0 var(--space-8);
   }
 
+  /* The portrait is much shorter than the copy, so pin it while the text
+     scrolls past rather than leaving it stranded at the top. */
+  .portrait {
+    position: sticky;
+    top: var(--space-8);
+  }
+
+  .bio-main {
+    min-width: 0;
+  }
+
   /* Portrait dimensions, not a square crop: these are shot as portraits and
      squaring them cuts the top of people's heads off. */
   .portrait {
-    position: relative;
     display: block;
     aspect-ratio: 3 / 4;
     overflow: hidden;
@@ -175,7 +187,7 @@ const authored = allPosts
     opacity: 1;
   }
 
-  .bio-header h1 {
+  .bio-main h1 {
     font-size: var(--text-display-lg);
     line-height: var(--leading-tight);
     margin: 0 0 var(--space-4);
@@ -221,11 +233,7 @@ const authored = allPosts
 
   .location {
     font-weight: var(--weight-bold);
-    margin: 0;
-  }
-
-  .bio-body {
-    max-width: var(--measure);
+    margin: 0 0 var(--space-6);
   }
 
   /* --- Questions ---------------------------------------------------------- */
@@ -308,9 +316,13 @@ const authored = allPosts
   }
 
   @media (max-width: 760px) {
-    .bio-header {
+    .bio-layout {
       grid-template-columns: 1fr;
       gap: var(--space-5);
+    }
+    /* Sticky is meaningless in a single column. */
+    .portrait {
+      position: static;
     }
   }
 </style>
