@@ -1,68 +1,40 @@
 ---
 // Our offers, on one page.
 //
-// Replaces the old interstitial grid + three thin detail pages. Modelled on
-// fundinnovation.dev/approach: the whole proposition on a single scroll with a
-// strong internal rhythm. Here the three offers are three full-bleed brand
-// bands (teal / coral / blue), each with the illustration bleeding on one
-// side and the copy on a floating off-white card on the other.
-//
-// Why a card rather than text straight on the colour: these bands are
-// body-heavy (paragraphs, bulleted programme lists, links) and only teal
-// carries small text at WCAG AA. White on coral is ~3:1 and on draft blue
-// ~3.8:1, both large-text-only (brand book §, and the note in CLAUDE.md). So
-// the colour and illustration do the full-bleed drama; the card keeps the
-// copy legible. The card alternates sides to give the page its rhythm.
+// Each offer is a full-bleed colour banner (number, title, subheading, and the
+// offer's badge once as a section emblem) followed by an editorial body:
+//   - the intro split into a large lead statement beside supporting paragraphs
+//   - each group a colour heading over a flowing, borderless list (hairline
+//     rules, balanced across two columns) so varied item lengths and odd
+//     counts read as intentional rather than as hollow boxes.
+// Deliberately NOT a uniform grid of icon-boxes: hierarchy comes from
+// typography and one section emblem, not repeated identical chrome.
 import Layout from '../../layouts/Layout.astro';
 import ExploreCTA from '../../components/ExploreCTA.astro';
 import { withBase } from '../../lib/base';
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 
 const offers = await getCollection('offers');
 const order = ['open-innovation', 'carve-outs', 'missions'];
 offers.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
 
-// Illustration + ground per offer, matched to meaning rather than assigned at
-// random: the rowing crew pulling together for Open Innovation's many teams,
-// ideas taking flight for Carve-Outs, the climber — the one Brink already
-// pairs with "a bold, long-term vision" — for Missions. Grounds are fixed to
-// each illustration, never rotated: the cranes artwork has coral baked in.
-const artwork: Record<
-  string,
-  { image: string; alt: string; focus?: string; ground: 'teal' | 'blue' | 'coral' }
-> = {
-  'open-innovation': {
-    image: '/images/illo-row.png',
-    alt: 'A rowing crew pulling together through choppy water, torn from the page',
-    ground: 'teal',
-  },
-  'carve-outs': {
-    image: '/images/illo-cranes.png',
-    alt: 'A woman deep in thought as origami cranes take flight from her opened mind',
-    focus: '86% center',
-    ground: 'coral',
-  },
-  missions: {
-    image: '/images/illo-climber.png',
-    alt: 'A climber scaling the torn edge of the page as if it were a rock face',
-    ground: 'blue',
-  },
-};
-
 const allWork = await getCollection('work');
+const relatedFor = (id: string) =>
+  allWork
+    .filter((w) => w.data.offer.includes(id))
+    .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 
-// Render each offer's Markdown in place, and gather its related programmes by
-// tag so the reader can jump straight from an approach to the work that used it.
-const bands = await Promise.all(
-  offers.map(async (offer) => ({
-    offer,
-    art: artwork[offer.id],
-    Content: (await render(offer)).Content,
-    related: allWork
-      .filter((w) => w.data.offer.includes(offer.id))
-      .sort((a, b) => a.data.sortOrder - b.data.sortOrder),
-  }))
-);
+// Inline Markdown -> HTML for the copy that carries links and bold. Escapes
+// first: the content is not trusted markup.
+const inline = (s: string) =>
+  s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*\*/g, '');
 ---
 
 <Layout
@@ -81,50 +53,65 @@ const bands = await Promise.all(
     </header>
   </div>
 
-  {bands.map(({ offer, art, Content, related }, i) => (
-    <section class:list={['offer', `ground-${art.ground}`]} id={offer.id}>
-      {/* Colour banner: number + title in white beside the illustration in a
-          bounded landscape box, so nothing stretches tall. Only large text
-          sits on the colour. */}
-      <div class="offer-banner">
-        <div class="banner-inner container">
-          <div class="banner-head">
-            <p class="banner-num mono">{String(i + 1).padStart(2, '0')}</p>
-            <h2 class="display banner-title">{offer.data.name}</h2>
-          </div>
-          <div class="banner-art">
-            <img
-              src={withBase(art.image)}
-              alt={art.alt}
-              style={art.focus ? `object-position: ${art.focus}` : undefined}
-              loading="lazy"
-            />
+  {offers.map((offer, i) => {
+    const { data } = offer;
+    const related = relatedFor(offer.id);
+    return (
+      <section class:list={['offer', `ground-${data.ground}`]} id={offer.id}>
+        <div class="offer-banner">
+          <div class="banner-inner container">
+            <div class="banner-head">
+              <p class="banner-num mono">{String(i + 1).padStart(2, '0')}</p>
+              <h2 class="display banner-title">{data.name}</h2>
+              <p class="banner-subhead">{data.summary}</p>
+            </div>
+            {data.image && (
+              <div class="banner-emblem">
+                <img src={withBase(data.image)} alt={data.imageAlt ?? ''} loading="lazy" />
+              </div>
+            )}
           </div>
         </div>
-      </div>
 
-      {/* Body: full-width single reading column on white. */}
-      <div class="offer-body container">
-        <div class="offer-body-inner">
-          <p class="offer-summary">{offer.data.summary}</p>
-          <div class="prose offer-prose"><Content /></div>
+        <div class="offer-body container">
+          {(data.lead || data.intro.length > 0) && (
+            <div class="intro">
+              {data.lead && <p class="intro-lead">{data.lead}</p>}
+              {data.intro.length > 0 && (
+                <div class="intro-body">
+                  {data.intro.map((p) => <p>{p}</p>)}
+                </div>
+              )}
+            </div>
+          )}
+
+          {data.groups.map((group) => (
+            <section class="group">
+              <h3 class="group-lead" set:html={inline(group.lead)} />
+              <ul class="group-items">
+                {group.items.map((item) => (
+                  <li class="group-item" set:html={inline(item)} />
+                ))}
+              </ul>
+            </section>
+          ))}
+
+          {data.note && <p class="note" set:html={inline(data.note)} />}
 
           {related.length > 0 && (
-            <nav class="related-programmes" aria-label={`Work using ${offer.data.name}`}>
+            <nav class="related" aria-label={`Work using ${data.name}`}>
               <p class="related-label mono">Related work</p>
               <ul>
                 {related.map((w) => (
-                  <li>
-                    <a href={withBase(`/our-work/${w.id}`)}>{w.data.title}</a>
-                  </li>
+                  <li><a href={withBase(`/our-work/${w.id}`)}>{w.data.title}</a></li>
                 ))}
               </ul>
             </nav>
           )}
         </div>
-      </div>
-    </section>
-  ))}
+      </section>
+    );
+  })}
 
   <ExploreCTA />
 </Layout>
@@ -156,44 +143,25 @@ const bands = await Promise.all(
     color: var(--color-text-muted);
   }
 
-  /* --- Offer sections ----------------------------------------------------- */
-  /* Each offer is a short full-bleed colour banner (number + title beside a
-     bounded landscape illustration) followed by a full-width reading column on
-     white. Only the large banner title sits on the colour, which is the one
-     size that clears WCAG AA on coral and draft blue; all body copy stays on
-     white so it keeps ~13:1. */
-  .offer {
-    scroll-margin-top: var(--space-6);
-  }
+  /* Each offer takes its brand colour as a local variable, used by the banner
+     and the group headings so the module reads as one colour identity. */
+  .offer { scroll-margin-top: var(--space-6); }
+  .ground-teal  { --offer-ink: var(--color-ground-1); }
+  .ground-coral { --offer-ink: var(--color-ground-3); }
+  .ground-blue  { --offer-ink: var(--color-ground-2); }
 
-  .ground-teal .offer-banner { background: var(--color-ground-1); }
-  .ground-blue .offer-banner { background: var(--color-ground-2); }
-  .ground-coral .offer-banner { background: var(--color-ground-3); }
-
+  /* --- Banner ------------------------------------------------------------- */
   .offer-banner {
-    padding: var(--space-7) 0;
+    background: var(--offer-ink);
+    color: var(--color-text-inverted, #fff);
+    padding: var(--space-8) 0;
   }
 
   .banner-inner {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-7);
+    display: flex;
     align-items: center;
-  }
-
-  /* Alternate the illustration side for rhythm: art is column 2 by default,
-     column 1 on every second offer. */
-  .offer:nth-of-type(even) .banner-art {
-    grid-column: 1;
-    grid-row: 1;
-  }
-  .offer:nth-of-type(even) .banner-head {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .banner-head {
-    color: var(--color-text-inverted, #fff);
+    justify-content: space-between;
+    gap: var(--space-6);
   }
 
   .banner-num {
@@ -210,92 +178,126 @@ const bands = await Promise.all(
     line-height: var(--leading-tight);
   }
 
-  /* Bounded landscape box so no illustration stretches tall/thin; the torn
-     transparent edge lets the banner colour show through. */
-  .banner-art {
-    aspect-ratio: 3 / 2;
-    overflow: hidden;
-    border-radius: var(--radius);
+  .banner-subhead {
+    /* Large text (>=24px) so white-on-colour clears AA's 3:1 on coral/blue. */
+    font-size: var(--size-2xl);
+    font-family: var(--font-display);
+    color: inherit;
+    opacity: 0.95;
+    margin: 0;
+    max-width: 32ch;
+    line-height: var(--leading-snug, 1.3);
   }
 
-  .banner-art img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+  /* The badge sits in a white disc so the dark sticker reads on any ground.
+     Used once per offer as a section emblem, never repeated per point. */
+  .banner-emblem {
+    flex-shrink: 0;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 50%;
+    background: var(--color-surface);
+    display: grid;
+    place-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  }
+  .banner-emblem img {
+    width: 62%;
+    height: 62%;
+    object-fit: contain;
     display: block;
   }
 
-  /* --- Body: one comfortable reading column ------------------------------- */
+  /* --- Body --------------------------------------------------------------- */
   .offer-body {
     padding: var(--space-8) 0 var(--space-9);
   }
 
-  .offer-body-inner {
-    max-width: var(--measure);
-  }
-
-  .offer-summary {
-    font-family: var(--font-display);
-    font-size: var(--text-h3);
-    line-height: var(--leading-snug, 1.3);
-    color: var(--color-text);
-    margin: 0 0 var(--space-5);
-    padding-bottom: var(--space-5);
+  /* Intro: a lead statement beside its supporting paragraphs. The left column
+     carries real weight (the statement), so there's no empty gutter. */
+  .intro {
+    display: grid;
+    grid-template-columns: 5fr 6fr;
+    gap: var(--space-6) var(--space-8);
+    align-items: start;
+    padding-bottom: var(--space-7);
     border-bottom: 1px solid var(--color-border);
   }
 
-  .offer-prose {
+  .intro-lead {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display);
+    font-size: var(--size-2xl);
+    line-height: var(--leading-snug, 1.3);
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  .intro-body {
     max-width: var(--measure);
   }
-
-  /* The Markdown carries "Brink specialises in ... through:" lead-ins followed
-     by bulleted example programmes with links. Give the lists room and mark
-     the bullets in brand style. */
-  .offer-prose :global(p) {
+  .intro-body p {
     margin: 0 0 var(--space-4);
-  }
-
-  .offer-prose :global(ul) {
-    list-style: none;
-    margin: 0 0 var(--space-5);
-    padding: 0;
-    display: grid;
-    gap: var(--space-3);
-  }
-
-  .offer-prose :global(li) {
-    position: relative;
-    padding-left: var(--space-5);
     line-height: var(--leading-normal);
   }
+  .intro-body p:last-child { margin-bottom: 0; }
 
-  .offer-prose :global(li)::before {
-    content: '\203A'; /* › */
-    position: absolute;
-    left: 0;
-    color: var(--color-accent);
-    font-weight: var(--weight-bold);
+  /* Groups: a colour heading over a flowing borderless list. Two balanced
+     columns; items keep their natural height and are separated by hairlines,
+     so a short item and a long one sit together without forced box heights,
+     and an odd count never leaves a hollow slot. */
+  .group {
+    padding-top: var(--space-7);
   }
 
-  .offer-prose :global(a) {
+  .group-lead {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display);
+    font-size: var(--size-2xl);
+    line-height: var(--leading-tight);
+    color: var(--offer-ink);
+    margin: 0 0 var(--space-4);
+    max-width: 40ch;
+  }
+
+  .group-items {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    columns: 2;
+    column-gap: var(--space-8);
+  }
+
+  .group-item {
+    break-inside: avoid;
+    padding: var(--space-4) 0;
+    border-top: 1px solid var(--color-border);
+    line-height: var(--leading-normal);
+  }
+  .group-item:first-child { border-top: 0; padding-top: var(--space-2); }
+
+  /* Emphasise the named programme (the link) so entries are scannable. */
+  .group-item :global(a) {
+    font-weight: var(--weight-bold);
     color: var(--color-text);
     text-decoration: underline;
-    text-underline-offset: 2px;
-    text-decoration-color: var(--color-accent);
+    text-underline-offset: 3px;
+    text-decoration-color: var(--offer-ink);
   }
+  .group-item :global(a:hover) { color: var(--offer-ink); }
 
-  .offer-prose :global(a:hover) {
-    color: var(--color-accent);
+  .note {
+    margin: var(--space-6) 0 0;
+    font-size: var(--text-body-sm);
   }
+  .note :global(a) { color: var(--color-accent); }
 
-  /* --- Related programmes ------------------------------------------------- */
-  .related-programmes {
-    margin-top: var(--space-6);
+  /* --- Related work ------------------------------------------------------- */
+  .related {
+    margin-top: var(--space-7);
     padding-top: var(--space-5);
     border-top: 1px solid var(--color-border);
   }
-
   .related-label {
     font-size: var(--text-tag);
     text-transform: uppercase;
@@ -303,8 +305,7 @@ const bands = await Promise.all(
     color: var(--color-text-muted);
     margin: 0 0 var(--space-3);
   }
-
-  .related-programmes ul {
+  .related ul {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -312,8 +313,7 @@ const bands = await Promise.all(
     flex-wrap: wrap;
     gap: var(--space-2) var(--space-3);
   }
-
-  .related-programmes a {
+  .related a {
     display: inline-block;
     font-size: var(--text-body-sm);
     text-decoration: none;
@@ -324,35 +324,17 @@ const bands = await Promise.all(
     padding: var(--space-2) var(--space-3);
     line-height: var(--leading-tight);
   }
-
-  .related-programmes a:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent);
-  }
+  .related a:hover { border-color: var(--offer-ink); color: var(--offer-ink); }
 
   @media (max-width: 820px) {
-    .banner-inner {
-      grid-template-columns: 1fr;
-      gap: var(--space-5);
-    }
-    /* Title above the illustration on every offer, whatever the desktop side. */
-    .offer:nth-of-type(even) .banner-head {
-      grid-column: 1;
-      grid-row: 1;
-    }
-    .offer:nth-of-type(even) .banner-art {
-      grid-column: 1;
-      grid-row: 2;
-    }
-    .banner-art {
-      aspect-ratio: 16 / 10;
-      max-height: 18rem;
-    }
-    .banner-summary {
-      max-width: none;
-    }
-    .offer-body {
-      padding: var(--space-6) 0 var(--space-8);
-    }
+    .banner-emblem { width: 5rem; height: 5rem; }
+    .banner-subhead { max-width: none; }
+  }
+
+  @media (max-width: 680px) {
+    .banner-emblem { display: none; }
+    .intro { grid-template-columns: 1fr; }
+    .group-items { columns: 1; }
+    .offer-banner { padding: var(--space-7) 0; }
   }
 </style>

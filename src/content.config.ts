@@ -143,11 +143,29 @@ const offers = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/offers' }),
   schema: z.object({
     name: z.string(),
+    // Shown as the subheading beneath the title in the coloured banner.
     summary: z.string(),
-    // The Webflow "sticker" illustration for this offer, shown on the
-    // detail page (e.g. the experiment/pilot/octopus stickers scraped
-    // from the live /our-offers page).
+    // Which brand colour the banner takes.
+    ground: z.enum(['teal', 'coral', 'blue']).default('teal'),
+    // The Webflow "sticker" badge for this offer (experiment / pilot /
+    // octopus). Used as the small icon on each of the offer's copy panels.
     image: z.string().optional(),
+    imageAlt: z.string().optional(),
+    // The copy, structured so the template can lay it out editorially: a
+    // punchy opening statement, the rest of the intro as separate paragraphs,
+    // then groups of a heading with its points shown as a flowing list, and an
+    // optional closing note.
+    lead: z.string().optional(),
+    intro: z.array(z.string()).default([]),
+    groups: z
+      .array(
+        z.object({
+          lead: z.string(),
+          items: z.array(z.string()).default([]),
+        })
+      )
+      .default([]),
+    note: z.string().optional(),
   }),
 });
 
