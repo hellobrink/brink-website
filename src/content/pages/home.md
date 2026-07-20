@@ -48,7 +48,7 @@ Read more
 
 ## **Our methods**
 
-How we work with our partners to find obvious solutions to non-trivial problems.
+How we work with our partners to find non-obvious solutions to non-trivial problems.
 
 Read more
 
