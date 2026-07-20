@@ -6,6 +6,8 @@ hasCaseStudy: false
 externalLink: "https://www.100ximpact.org/"
 sortOrder: 1007
 funders: ["LSE", "Marshall Institute"]
+heroImage: "/images/work-100x-impact-accelerator.jpg"
+heroAlt: "100x Impact Accelerator"
 ---
 
 

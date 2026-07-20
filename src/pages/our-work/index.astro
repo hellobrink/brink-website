@@ -77,11 +77,17 @@ const offers = [
         data-status={item.data.status}
       >
         <div class="container band-inner">
+          {/* The programme's name is the headline and its descriptive title
+              becomes the standfirst beneath it. The other way round buried
+              the name in a micro-kicker while a 90-character sentence did
+              the shouting. */}
           <div class="band-copy">
-            {item.data.programmeName && <p class="mono kicker">{item.data.programmeName}</p>}
-            <h3 class="display">
-              <a href={withBase(`/our-work/${item.id}`)}>{item.data.title}</a>
+            <h3 class="display band-name">
+              <a href={withBase(`/our-work/${item.id}`)}>
+                {item.data.programmeName ?? item.data.title}
+              </a>
             </h3>
+            {item.data.programmeName && <p class="band-tagline">{item.data.title}</p>}
             <p class="band-summary">{item.data.summary}</p>
             <span class="mono read-more">
               {item.data.hasCaseStudy ? 'Read the case study' : 'Read more'} &rarr;
@@ -89,10 +95,15 @@ const offers = [
           </div>
 
           <div class="band-aside">
-            {item.data.logo && (
-              <span class="band-logo">
-                <img src={withBase(item.data.logo)} alt={item.data.logoAlt ?? item.data.programmeName ?? ''} loading="lazy" />
-              </span>
+            {/* A photograph of the work, not the logomark. The logo is the
+                brand; the photograph is the point. */}
+            {item.data.heroImage && (
+              <img
+                class="band-photo"
+                src={withBase(item.data.heroImage)}
+                alt={item.data.heroAlt ?? item.data.programmeName ?? item.data.title}
+                loading="lazy"
+              />
             )}
             {(item.data.funders.length > 0 || item.data.partners.length > 0) && (
               <div class="band-credits">
@@ -215,8 +226,7 @@ const offers = [
   }
 
   .work-band {
-    padding: var(--space-8) 0;
-    --band-logo-height: calc(var(--space-10) * 1.6);
+    padding: var(--space-9) 0;
   }
 
   .work-band[hidden] {
@@ -234,7 +244,7 @@ const offers = [
 
   .band-inner {
     display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: var(--space-8);
     align-items: center;
   }
@@ -245,25 +255,14 @@ const offers = [
     align-content: start;
   }
 
-  /* Same white tile as the About page's impact grid, and the same reason:
-     these are third-party marks in every shape and colour, drawn for white.
-     Absolute max-height (never a percentage) so the logo can't burst the
-     tile: see the note in LogoGrid.astro. */
-  .band-logo {
-    display: grid;
-    place-items: center;
+  /* 4:3 rather than a wide letterbox: these are photographs of people, and
+     a long thin crop of a person reads as an accident. */
+  .band-photo {
     width: 100%;
-    height: var(--band-logo-height);
-    padding: var(--space-5);
-    background: var(--color-surface);
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     border-radius: var(--radius);
-  }
-
-  .band-logo img {
-    max-width: 100%;
-    max-height: calc(var(--band-logo-height) - var(--space-5) * 2);
-    width: auto;
-    height: auto;
+    display: block;
   }
 
   .band-copy .kicker {
@@ -271,19 +270,33 @@ const offers = [
     margin: 0 0 var(--space-3);
   }
 
-  .band-copy h3 {
+  .band-name {
     font-size: var(--text-display);
     line-height: var(--leading-tight);
+    margin: 0 0 var(--space-3);
+  }
+
+  .band-tagline {
+    font-size: var(--text-lead);
+    line-height: var(--leading-snug);
     margin: 0 0 var(--space-4);
   }
 
-  .band-copy h3 a {
+  .ground-paper .band-tagline {
+    color: var(--color-text);
+  }
+
+  .ground-teal .band-tagline {
+    color: var(--color-surface);
+  }
+
+  .band-name a {
     color: inherit;
     text-decoration: none;
   }
 
   /* The whole band is the target, so the link stretches to cover it. */
-  .band-copy h3 a::after {
+  .band-name a::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -293,14 +306,14 @@ const offers = [
     position: relative;
   }
 
-  .band-copy h3 a:hover {
+  .band-name a:hover {
     color: var(--color-accent);
   }
 
   .band-summary {
-    font-size: var(--text-body);
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-normal);
     margin: 0 0 var(--space-5);
-    max-width: var(--measure-narrow);
   }
 
   .ground-paper .read-more {

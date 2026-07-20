@@ -1,6 +1,6 @@
 ---
 title: Reimagining the Future of Work in Kenya
-summary: "The Challenge Across Africa, the ‘informal’ economy is a critical lifeline, supporting livelihoods for millions. With 280 million facing food insecurity and 600 million lacking electricity, the informal sector is a key source of employment."
+summary: "The Challenge Across Africa, the ‘informal’ economy is a critical lifeline, supporting livelihoods for millions. With 280 million facing food insecurity and 600 million lacking electricity, the informal sector is a key source of employment. By 2050, it is estimated that the population will reach 2.5 billion people with young people making up half of this. In Kenya, over 99% of firms are micro-ente."
 heroImage: "/images/66fc18165868eded446da75c_caleb-2.jpg"
 heroAlt: Reimagining the Future of Work in Kenya
 sector: [climate]

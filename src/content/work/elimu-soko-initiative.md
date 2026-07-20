@@ -7,6 +7,8 @@ externalLink: "https://dalberg.com/wp-content/uploads/2023/09/Elimu-Soko-Initiat
 sortOrder: 1016
 funders: ["Hempel", "Rwandan Government"]
 partners: ["Three Stones International"]
+heroImage: "/images/work-elimu-soko-initiative.png"
+heroAlt: "Elimu-Soko"
 ---
 
 

@@ -6,6 +6,8 @@ hasCaseStudy: false
 externalLink: "https://www.giz.de/expertise/html/63409.html"
 sortOrder: 1018
 funders: ["GIZ"]
+heroImage: "/images/work-future-forum-2023.jpg"
+heroAlt: "Future Forum 2023"
 ---
 
 

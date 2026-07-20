@@ -1,14 +1,14 @@
 ---
 title: Addressing health inequalities through inclusive design
 programmeName: Macmillan CoLab
-summary: "The Challenge Work with Macmillan Cancer Support to design solutions that address health inequalities; beginning with those in marginalised communities suffering from cancer-related fatigue."
-heroImage: "/images/66cf3379ab9f9364e4406417_download-1.webp"
-heroAlt: Addressing health inequalities through inclusive design
+summary: "In just five months we designed and tested a holistic ‘fatigue safety net’ proposition that was then piloted by healthcare staff across an NHS Trust in two hospitals. Along the way we changed."
 sector: [health]
 offer: [missions]
 status: past
 hasCaseStudy: true
 sortOrder: 9
+heroImage: "/images/work-addressing-health-inequalities-through-inclusi.png"
+heroAlt: "Macmillan CoLab"
 ---
 
 *“The worst hangover in your life, when you’ve just run a marathon… and have the flu.”*

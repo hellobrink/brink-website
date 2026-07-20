@@ -7,6 +7,8 @@ externalLink: "https://atimpactfund.com"
 sortOrder: 1013
 funders: ["FCDO"]
 partners: ["AT2030", "Global Disability Innovation Hub", "Catalyst Fund"]
+heroImage: "/images/work-assistive-tech-impact-fund-atif.png"
+heroAlt: "Assistive Tech Impact Fund"
 ---
 
 

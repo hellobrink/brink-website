@@ -6,6 +6,8 @@ hasCaseStudy: false
 externalLink: "https://www.nesta.org.uk/feature/innovation-squared/"
 sortOrder: 1010
 partners: ["Nesta"]
+heroImage: "/images/work-nesta-innovation-squared.jpg"
+heroAlt: "Nesta"
 ---
 
 

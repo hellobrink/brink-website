@@ -9,6 +9,8 @@ funders: ["Rwanda Development Board (RDB)", "Rwanda ICT"]
 programmeName: "Hanga Pitchfest"
 logo: "/images/logo-hanga-pitchfest.png"
 logoAlt: "Hanga Pitchfest"
+heroImage: "/images/work-funding-tech-enabled-solutions-that-break-the-.jpg"
+heroAlt: "Funding tech-enabled solutions that break the mold"
 ---
 
 

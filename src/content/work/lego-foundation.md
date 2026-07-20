@@ -6,6 +6,8 @@ hasCaseStudy: false
 externalLink: "https://dalberg.com/wp-content/uploads/2023/09/Elimu-Soko-Initiative-Overview-and-Rwanda-Pilot-Results_Dalberg.pdf"
 sortOrder: 1017
 partners: ["LEGO"]
+heroImage: "/images/work-lego-foundation.jpg"
+heroAlt: "LEGO Foundation"
 ---
 
 

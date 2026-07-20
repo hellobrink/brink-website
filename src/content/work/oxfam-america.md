@@ -5,6 +5,8 @@ status: past
 hasCaseStudy: false
 sortOrder: 1014
 funders: ["Oxfam"]
+heroImage: "/images/work-oxfam-america.jpeg"
+heroAlt: "Oxfam America"
 ---
 
 

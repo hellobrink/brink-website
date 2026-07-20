@@ -7,6 +7,8 @@ externalLink: "https://www.transform.global/news/research-the-future-of-work/"
 sortOrder: 1006
 funders: ["TRANSFORM"]
 partners: ["Laterite", "Procol Kenya", "Ideas Unplugged", "Busara"]
+heroImage: "/images/work-future-of-work-in-the-informal-economy.jpg"
+heroAlt: "Future of Work in the Informal Economy"
 ---
 
 

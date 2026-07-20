@@ -7,6 +7,8 @@ externalLink: "https://odi.org/en/about/our-work/learnadapt-innovation-and-adapt
 sortOrder: 1015
 funders: ["FCDO"]
 partners: ["ODI"]
+heroImage: "/images/work-learnadapt.jpg"
+heroAlt: "LearnAdapt"
 ---
 
 

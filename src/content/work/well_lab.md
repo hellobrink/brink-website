@@ -7,6 +7,8 @@ hasCaseStudy: false
 externalLink: "https://goldfish-turbot-988x.squarespace.com/about"
 sortOrder: 1005
 funders: ["Wellcome"]
+heroImage: "/images/work-well_lab.webp"
+heroAlt: "Well_Lab"
 ---
 
 

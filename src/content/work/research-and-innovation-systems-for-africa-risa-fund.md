@@ -6,6 +6,8 @@ hasCaseStudy: false
 externalLink: "https://www.risa-fund.org/"
 sortOrder: 1012
 funders: ["FCDO"]
+heroImage: "/images/work-research-and-innovation-systems-for-africa-ris.jpg"
+heroAlt: "Research and Innovation Systems for Africa"
 ---
 
 
