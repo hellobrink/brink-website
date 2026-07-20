@@ -5,10 +5,12 @@ import { withBase } from '../lib/base';
 import { getCollection } from 'astro:content';
 
 // Front page, styled after fundinnovation.dev's structure but kept in
-// Brink's skin (Signifier / coral / square). Sections: photographic hero,
-// three full-width image panels (work / methods / foundation), the
-// since-2018 key-figures band that counts up on scroll, a latest-news grid
-// pulled live from the blog collection, and "Who we are".
+// Brink's skin (Signifier / coral / square).
+//
+// Section order alternates photography with white space rather than running
+// the image blocks together: photographic hero -> "Who we are" on white ->
+// the work/methods/foundation carousel -> since-2018 key figures (counts up
+// on scroll) -> latest news from the blog collection.
 
 // The three latest posts, newest first. Real content, no carousel — FID's
 // news carousel is hard to scroll, so we take the idea and drop the mechanism.
@@ -17,9 +19,10 @@ const latestPosts = posts
   .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
   .slice(0, 3);
 
-// Full-width image panels replacing the old three-up "Explore Brink" cards.
-// `align` alternates the text side for rhythm and drives the scrim
-// direction so the copy always sits over the darkened edge.
+// Full-width image panels replacing the old three-up "Explore Brink" cards,
+// shown as a horizontal carousel rather than stacked. Copy sits left on
+// every slide: slides replace each other in the same spot, so alternating
+// the side would make the text jump as it rotates.
 const panels = [
   {
     kicker: 'Our work',
@@ -28,7 +31,6 @@ const panels = [
     href: withBase('/our-work'),
     image: '/images/panel-work.jpg',
     alt: 'Two people examining field data together on a Brink programme',
-    align: 'left',
   },
   {
     kicker: 'Our methods',
@@ -37,7 +39,6 @@ const panels = [
     href: withBase('/offers'),
     image: '/images/panel-methods.jpg',
     alt: 'A Brink workshop in progress, ideas mapped across a table',
-    align: 'right',
   },
   {
     kicker: 'Our foundation',
@@ -46,7 +47,6 @@ const panels = [
     href: withBase('/foundation'),
     image: '/images/panel-foundation.jpg',
     alt: 'Two women tending seedlings in a plant nursery',
-    align: 'left',
   },
 ];
 ---
@@ -76,41 +76,100 @@ const panels = [
     </div>
   </section>
 
-  {panels.map((panel) => (
-    <a class:list={['panel', panel.align]} href={panel.href}>
-      <img class="panel-image" src={withBase(panel.image)} alt={panel.alt} loading="lazy" />
-      <div class="panel-inner">
-        <div class="panel-text">
-          <p class="mono kicker">{panel.kicker}</p>
-          <h2 class="display" set:html={panel.title} />
-          <p class="panel-lead">{panel.text}</p>
-          <span class="mono read-more">Explore &rarr;</span>
-        </div>
+  <section class="section who">
+    <div class="container who-inner">
+      <img
+        class="who-photo"
+        src={withBase('/images/6821fa6c49603a0725e6fee9_brink-retreat-25-team.jpeg')}
+        alt="The Brink team together at their 2025 retreat"
+      />
+      <div class="who-body">
+        <h2 class="display who-heading">Who we are</h2>
+        <p class="who-statement">
+          We're a global team of technologists, designers, strategists, and
+          behavioural scientists, united by a commitment to harnessing
+          technology for transformative impact
+        </p>
+        <p>
+          Working alongside our partners we create ideas that put human
+          behaviour at their core.
+        </p>
+        <p>
+          By integrating insights from psychology, anthropology, sociology,
+          and economics, we create the mindsets and mechanisms that deliver
+          real change.
+        </p>
+        <a class="button" href={withBase('/team')}>Read more</a>
       </div>
-    </a>
-  ))}
+    </div>
+  </section>
+
+  {/* Horizontal carousel, not a stack. Three full-bleed photo panels sat
+      directly on top of each other read as one undifferentiated wall of
+      imagery — and directly under the photographic hero, worse. Native
+      scroll-snap does the work: it drags, swipes, and keyboard-scrolls for
+      free, and still shows all three slides if JS never runs. */}
+  <section class="panel-carousel" aria-roledescription="carousel" aria-label="What Brink does">
+    <div class="panel-track" tabindex="0">
+      {panels.map((panel, i) => (
+        <a
+          class="panel"
+          href={panel.href}
+          role="group"
+          aria-roledescription="slide"
+          aria-label={`${i + 1} of ${panels.length}: ${panel.kicker}`}
+        >
+          <img class="panel-image" src={withBase(panel.image)} alt={panel.alt} loading="lazy" />
+          <div class="panel-inner">
+            <div class="panel-text">
+              <p class="mono kicker">{panel.kicker}</p>
+              <h2 class="display" set:html={panel.title} />
+              <p class="panel-lead">{panel.text}</p>
+              <span class="mono read-more">Explore &rarr;</span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="carousel-controls">
+      <button class="carousel-arrow" data-carousel-prev aria-label="Previous slide">&larr;</button>
+      <div class="carousel-dots" role="tablist" aria-label="Choose slide">
+        {panels.map((panel, i) => (
+          <button
+            class="carousel-dot"
+            role="tab"
+            data-carousel-dot={i}
+            aria-label={panel.kicker}
+            aria-selected={i === 0 ? 'true' : 'false'}
+          ></button>
+        ))}
+      </div>
+      <button class="carousel-arrow" data-carousel-next aria-label="Next slide">&rarr;</button>
+    </div>
+  </section>
 
   <section class="section stats">
     <div class="container">
-      <h2 class="mono">Since 2018 Brink has</h2>
+      <h2 class="mono kicker stats-kicker">Since 2018 Brink has</h2>
       <div class="stats-row">
         {/* The number carries the heading (matching the live site's markup),
             but a heading reading just "340" is meaningless in a screen
             reader's heading list — aria-label gives it the whole stat. */}
         <div class="stat">
-          <span class="stat-lead">Supported over</span>
+          <span class="stat-caption">Supported over</span>
           <h3 class="stat-value display" data-count-to="340" aria-label="Supported over 340 innovation teams">340</h3>
-          <span class="stat-label">innovation teams</span>
+          <span class="stat-caption">innovation teams</span>
         </div>
         <div class="stat">
-          <span class="stat-lead">across</span>
+          <span class="stat-caption">across</span>
           <h3 class="stat-value display" data-count-to="53" aria-label="Across 53 countries">53</h3>
-          <span class="stat-label">countries</span>
+          <span class="stat-caption">countries</span>
         </div>
         <div class="stat">
-          <span class="stat-lead">to access more than</span>
+          <span class="stat-caption">to access more than</span>
           <h3 class="stat-value display" data-count-to="60" data-prefix="£" data-suffix="m" aria-label="To access more than £60m in funding">£60m</h3>
-          <span class="stat-label">in funding</span>
+          <span class="stat-caption">in funding</span>
         </div>
       </div>
     </div>
@@ -141,37 +200,119 @@ const panels = [
       </div>
     </section>
   )}
-
-  <section class="section who">
-    <div class="container who-inner">
-      <img
-        class="who-photo"
-        src={withBase('/images/6821fa6c49603a0725e6fee9_brink-retreat-25-team.jpeg')}
-        alt="The Brink team together at their 2025 retreat"
-      />
-      <div class="who-body">
-        <h2 class="display who-heading">Who we are</h2>
-        <p class="who-statement">
-          We're a global team of technologists, designers, strategists, and
-          behavioural scientists, united by a commitment to harnessing
-          technology for transformative impact
-        </p>
-        <p>
-          Working alongside our partners we create ideas that put human
-          behaviour at their core.
-        </p>
-        <p>
-          By integrating insights from psychology, anthropology, sociology,
-          and economics, we create the mindsets and mechanisms that deliver
-          real change.
-        </p>
-        <a class="button" href={withBase('/team')}>Read more</a>
-      </div>
-    </div>
-  </section>
 </Layout>
 
 <script>
+  // --- Panel carousel -------------------------------------------------------
+  // The scrolling itself is native scroll-snap; this only adds the arrows,
+  // dots, and auto-rotation on top. If it never runs, the track is still a
+  // perfectly usable horizontal scroller.
+  const track = document.querySelector<HTMLElement>('.panel-track');
+  const carousel = document.querySelector<HTMLElement>('.panel-carousel');
+
+  if (track && carousel) {
+    const dots = [...carousel.querySelectorAll<HTMLElement>('[data-carousel-dot]')];
+    const slides = track.children.length;
+    const wantsReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const indexOfScroll = () => Math.round(track.scrollLeft / track.clientWidth);
+
+    // The slide movement is animated by hand rather than with
+    // `scrollTo({ behavior: 'smooth' })`. That looks like the obvious call,
+    // but it is a silent no-op on a scroll-snap container in some engines
+    // (and wherever the user has animations switched off at OS level) — the
+    // arrows would simply do nothing, with no error to show for it. A manual
+    // rAF tween always moves.
+    const goTo = (i: number) => {
+      const target = ((i + slides) % slides) * track.clientWidth;
+      const from = track.scrollLeft;
+      const distance = target - from;
+      if (!distance) return;
+
+      // Reduced motion: honour it properly by jumping, not sliding.
+      if (wantsReducedMotion.matches) {
+        track.scrollLeft = target;
+        return;
+      }
+
+      const duration = 500;
+      const start = performance.now();
+      let settled = false;
+      // Snap would fight a frame-by-frame scroll, so lift it for the tween
+      // and restore it after — the restore lands us exactly on the slide.
+      track.style.scrollSnapType = 'none';
+      const settle = () => {
+        if (settled) return;
+        settled = true;
+        track.scrollLeft = target;
+        track.style.scrollSnapType = '';
+        syncDots();
+      };
+      const step = (now: number) => {
+        if (settled) return;
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+        track.scrollLeft = from + distance * eased;
+        if (p < 1) requestAnimationFrame(step);
+        else settle();
+      };
+      // rAF stalls in a background tab; without this the track could be left
+      // mid-slide with snapping still disabled.
+      setTimeout(settle, duration + 300);
+      requestAnimationFrame(step);
+    };
+
+    const syncDots = () => {
+      const current = indexOfScroll();
+      dots.forEach((dot, i) => dot.setAttribute('aria-selected', String(i === current)));
+    };
+    track.addEventListener('scroll', syncDots, { passive: true });
+
+    // Auto-rotate, but never fight the user: pause while they're hovering,
+    // tabbing through, or touching, and stand down entirely for reduced
+    // motion or a background tab.
+    let timer: ReturnType<typeof setInterval> | null = null;
+    const stop = () => {
+      if (timer) clearInterval(timer);
+      timer = null;
+    };
+    const play = () => {
+      stop();
+      if (wantsReducedMotion.matches || document.hidden) return;
+      timer = setInterval(() => goTo(indexOfScroll() + 1), 7000);
+    };
+
+    carousel.querySelector('[data-carousel-prev]')?.addEventListener('click', () => {
+      goTo(indexOfScroll() - 1);
+      play(); // restart the clock so a manual jump gets a full interval
+    });
+    carousel.querySelector('[data-carousel-next]')?.addEventListener('click', () => {
+      goTo(indexOfScroll() + 1);
+      play();
+    });
+    dots.forEach((dot, i) =>
+      dot.addEventListener('click', () => {
+        goTo(i);
+        play();
+      })
+    );
+
+    ['pointerenter', 'focusin', 'touchstart'].forEach((e) =>
+      carousel.addEventListener(e, stop, { passive: true })
+    );
+    ['pointerleave', 'focusout'].forEach((e) => carousel.addEventListener(e, play));
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : play()));
+    wantsReducedMotion.addEventListener('change', play);
+
+    // Only rotate while it's actually on screen — no point animating a
+    // carousel the reader has already scrolled past.
+    new IntersectionObserver(([entry]) => (entry.isIntersecting ? play() : stop()), {
+      threshold: 0.4,
+    }).observe(carousel);
+
+    syncDots();
+  }
+
   // Count the key figures up as they scroll into view. The final value is
   // already in the HTML, so this degrades to a plain number if JS fails —
   // and it's skipped entirely for anyone who prefers reduced motion.
@@ -342,13 +483,36 @@ const panels = [
     font-size: var(--text-tag);
   }
 
-  /* --- Full-width image panels (work / methods / foundation) --------------
-     Each is a full-bleed link: photo, directional teal scrim, and copy that
-     sits over the darkened edge. `align` flips the copy side and the scrim
-     direction so the two always agree. */
+  /* --- Panel carousel (work / methods / foundation) ----------------------
+     Horizontal scroll-snap track, not a vertical stack. Three full-bleed
+     photo panels stacked on top of each other — and sat straight under a
+     photographic hero — read as one undifferentiated wall of imagery.
+     Native scroll-snap handles drag, swipe, trackpad and keyboard for free;
+     the arrows and dots are additions, not the mechanism. */
+  .panel-carousel {
+    position: relative;
+  }
+
+  .panel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* the dots and arrows are the affordance */
+  }
+
+  .panel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .panel-track:focus-visible {
+    outline: var(--border-width-button) solid var(--color-accent);
+    outline-offset: calc(var(--space-1) * -1);
+  }
+
   .panel {
     position: relative;
-    display: block;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
     min-height: min(70vh, 620px);
     color: var(--color-surface);
     text-decoration: none;
@@ -368,25 +532,13 @@ const panels = [
     transform: scale(1.03);
   }
 
+  /* Copy sits left on every slide, so the scrim always darkens the left. */
   .panel::after {
     content: '';
     position: absolute;
     inset: 0;
-  }
-
-  .panel.left::after {
     background: linear-gradient(
       100deg,
-      rgba(6, 51, 61, 0.88) 0%,
-      rgba(6, 51, 61, 0.6) 34%,
-      rgba(6, 51, 61, 0.1) 62%,
-      rgba(6, 51, 61, 0) 80%
-    );
-  }
-
-  .panel.right::after {
-    background: linear-gradient(
-      260deg,
       rgba(6, 51, 61, 0.88) 0%,
       rgba(6, 51, 61, 0.6) 34%,
       rgba(6, 51, 61, 0.1) 62%,
@@ -403,10 +555,6 @@ const panels = [
     min-height: min(70vh, 620px);
     display: flex;
     align-items: center;
-  }
-
-  .panel.right .panel-inner {
-    justify-content: flex-end;
   }
 
   .panel-text {
@@ -437,15 +585,77 @@ const panels = [
     text-decoration: underline;
   }
 
+  /* Controls sit over the photo's bottom-right — the quiet corner, opposite
+     the copy, on all three images. */
+  .carousel-controls {
+    position: absolute;
+    z-index: 2;
+    right: max(var(--space-gutter), calc((100vw - var(--max-width)) / 2 + var(--space-gutter)));
+    bottom: var(--space-6);
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .carousel-arrow {
+    width: var(--space-7);
+    height: var(--space-7);
+    display: grid;
+    place-items: center;
+    background: transparent;
+    border: var(--border-width-button) solid var(--color-surface);
+    border-radius: var(--radius);
+    color: var(--color-surface);
+    font-family: var(--font-mono);
+    font-size: var(--text-body);
+    line-height: 1;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition);
+  }
+
+  .carousel-arrow:hover {
+    background: var(--color-surface);
+    color: var(--color-text);
+  }
+
+  .carousel-dots {
+    display: flex;
+    gap: var(--space-2);
+  }
+
+  /* Square, like everything else in the brand — no pills. */
+  .carousel-dot {
+    width: var(--space-6);
+    height: var(--space-1);
+    padding: 0;
+    border: none;
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background var(--transition);
+  }
+
+  .carousel-dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  .carousel-dot[aria-selected='true'] {
+    background: var(--color-accent);
+  }
+
   @media (max-width: 700px) {
-    /* On a phone the scrim can't clear enough of a busy photo, so drop a
-       flat wash and left-align every panel. */
-    .panel.right .panel-inner {
-      justify-content: flex-start;
-    }
-    .panel.left::after,
-    .panel.right::after {
+    /* On a phone the directional scrim can't clear enough of a busy photo,
+       so drop a flat wash instead. */
+    .panel::after {
       background: rgba(6, 51, 61, 0.72);
+    }
+
+    /* Centred under the copy, clear of the thumb-reach edges. */
+    .carousel-controls {
+      right: auto;
+      left: 0;
+      width: 100%;
+      justify-content: center;
     }
   }
 
@@ -500,9 +710,12 @@ const panels = [
     text-decoration: underline;
   }
 
-  .stats h2.mono {
-    color: var(--color-text-muted);
-    font-weight: var(--weight-body);
+  /* The whole band is deliberately two type treatments, not four: the mono
+     coral kicker (same as every other section kicker on this page) and the
+     big Signifier number. Everything supporting the number — the words above
+     and below it — shares one identical caption style, so the number is the
+     only thing that changes register. */
+  .stats-kicker {
     margin: 0 0 var(--space-6);
   }
 
@@ -517,9 +730,10 @@ const panels = [
     flex-direction: column;
   }
 
-  .stat-lead {
+  .stat-caption {
     font-size: var(--text-body-sm);
     color: var(--color-text-muted);
+    line-height: var(--leading-snug);
   }
 
   .stat-value {
@@ -528,10 +742,6 @@ const panels = [
     color: var(--color-accent);
     line-height: var(--leading-tight);
     margin: 0;
-  }
-
-  .stat-label {
-    font-size: var(--text-body);
   }
 
   .who-inner {
