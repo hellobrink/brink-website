@@ -8,6 +8,7 @@ offer: [carve-outs]
 status: past
 hasCaseStudy: true
 sortOrder: 10
+programmeName: "EdTech Hub"
 standfirst: "Creating the environments for rapid, real world testing of new educational technologies that can deliver better learning outcomes for all children, including the most marginalised."
 challenge:
   - "Accelerate the scale of educational technologies that can deliver better learning outcomes for all children, especially the most marginalised."
@@ -25,8 +26,6 @@ gallery:
   - image: "/images/cs-realising-the-potential-of-technology-to-2.jpeg"
     alt: "Realising the potential of technology to transform education"
   - image: "/images/cs-realising-the-potential-of-technology-to-3.jpeg"
-    alt: "Realising the potential of technology to transform education"
-  - image: "/images/cs-realising-the-potential-of-technology-to-4.jpeg"
     alt: "Realising the potential of technology to transform education"
 ---
 
@@ -59,6 +58,8 @@ Education systems are multifactorial, uncertain or unpredictable environments. I
 In the world of software engineering a sandbox is used to describe a space that allows developers to test new code before rolling it out across the board. In the context of EdTech innovation, a sandbox is a real-life location that’s used for experimentation, where implementers can learn safely and adapt in a small space before rolling out promising ideas more widely.
 
 By creating a sandbox, we by default make evidence generation the job of implementers.
+
+![](/images/cs-realising-the-potential-of-technology-to-4.jpeg)
 
 For example, we may test a new EdTech intervention within the sandbox of a single school. After we’ve adapted to any challenges there, we then roll out the initiative to a cluster of schools. There will be new issues that present themselves at this bigger scale, but once we’ve solved them, then we can extend our approach to an entire education district.
 

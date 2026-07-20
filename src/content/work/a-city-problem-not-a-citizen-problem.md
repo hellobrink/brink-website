@@ -19,6 +19,8 @@ approachIntro:
 approach:
   - "**Progress through practice.** Weintroduced more iterative ways of working, which meant first changing attitudes at leadership level so the organisation could become comfortable in testing its assumptions, learning from its mistakes and experimenting with new ideas."
   - "**Brought people together.** By breaking down internal organisational silos we were able to give teams that don’t normally work together a chance to reflect and collaborate, and this led to more collaborative and collegiate team atmosphere across the organisation."
+storyQuotes:
+  - "This is the city’s problem, not the citizens’ problem"
 ---
 
 The city of Matola sits on the western side of Mozambique’s capital, Maputo. As of 2017, over a million people lived in this busy suburb that’s a centre for industry and manufacturing.
@@ -42,8 +44,6 @@ In December 2021, Brink and ASToN ran workshops with Matola Council staff. Toget
 Through this experience we realised the Matola team would benefit from more research to better understand the problem and the root causes. We worked with them to find tools and approaches for consultation with stakeholders and citizens.
 
 The consultation was eye-opening for everyone. Council staff came to a sudden and unexpected realisation:
-
-This is the city’s problem, not the citizens’ problem
 
 Increasing tax income wasn’t about tackling deliberate non-payment by citizens; it was about using service design and digital transformation to make paying taxes easier.
 

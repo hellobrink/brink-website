@@ -10,6 +10,29 @@ import { readFileSync, writeFileSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const extracted = JSON.parse(readFileSync('/tmp/cs-extracted.json', 'utf8'));
+
+// The programme each case study belongs to, for the micro-heading above the
+// title. Only where it's known; the rest render without a kicker.
+const PROGRAMME = {
+  'realising-the-potential-of-technology-to-transform-education': 'EdTech Hub',
+  'thin-air-that-saves-lives': 'Oxygen CoLab',
+  'a-city-problem-not-a-citizen-problem': 'ASToN',
+  'addressing-health-inequalities-through-inclusive-design': 'Macmillan CoLab',
+  'strengthening-the-digital-maturity-of-science-organisations': 'ISC Digital Journeys',
+  'supporting-emobility-pioneers-in-africa': 'Frontier Tech Hub',
+  'testing-the-production-of-hydroponic-fodder-for-cattle': 'Frontier Tech Hub',
+  'creating-community-across-conflict-zones': 'Humanitarian Grand Challenge',
+  'reimagining-the-future-of-work-in-kenyas-economy': 'TRANSFORM',
+  'repair-reuse-kenya': 'Repair & Reuse CoLab',
+};
+
+// Bold that isn't a leading label ("**word** mid-sentence") is scrape noise.
+// Keep bold only when it opens the string and closes at a colon.
+function stripStrayBold(text) {
+  const label = text.match(/^\*\*[^*]+:\*\*/);
+  const rest = label ? text.slice(label[0].length) : text;
+  return (label ? label[0] : '') + rest.replace(/\*\*/g, '');
+}
 const OUT = 'src/content/work';
 const IMG = 'public/images';
 const BUCKETS = ['66ce261592dea901d76ce690', '66c73a082f737ed8f94cfb47'];
@@ -78,10 +101,13 @@ for (const [slug, r] of Object.entries(extracted)) {
     const file = `cs-${slug.slice(0, 40)}-${gallery.length + 1}${ext}`;
     const ok = await download(decodeURIComponent(img.src), join(IMG, file));
     if (!ok) { missingImages.push(`${slug}: ${img.src}`); continue; }
-    gallery.push({ image: `/images/${file}`, alt: img.alt || r.title });
+    gallery.push({ image: `/images/${file}`, alt: img.alt || r.title, caption: img.caption || '' });
   }
 
   const lines = [...kept];
+  if (PROGRAMME[slug] && !kept.some((l) => l.startsWith('programmeName:'))) {
+    lines.push(`programmeName: ${q(PROGRAMME[slug])}`);
+  }
   if (r.standfirst) lines.push(`standfirst: ${q(r.standfirst)}`);
   if (r.challenge.length) {
     lines.push('challenge:');
@@ -89,7 +115,7 @@ for (const [slug, r] of Object.entries(extracted)) {
   }
   if (r.results.length) {
     lines.push('results:');
-    r.results.forEach((c) => lines.push(`  - ${q(c)}`));
+    r.results.forEach((c) => lines.push(`  - ${q(stripStrayBold(c))}`));
   }
   if (r.approachIntro.length) {
     lines.push('approachIntro:');
@@ -108,11 +134,16 @@ for (const [slug, r] of Object.entries(extracted)) {
     if (r.quote.name) lines.push(`  name: ${q(r.quote.name)}`);
     else lines.push('  name: "TODO: who said this?"');
   }
+  if (r.storyQuotes?.length) {
+    lines.push('storyQuotes:');
+    r.storyQuotes.forEach((sq) => lines.push(`  - ${q(sq)}`));
+  }
   if (gallery.length) {
     lines.push('gallery:');
     gallery.forEach((g) => {
       lines.push(`  - image: ${q(g.image)}`);
       lines.push(`    alt: ${q(g.alt)}`);
+      if (g.caption) lines.push(`    caption: ${q(g.caption)}`);
     });
   }
 

@@ -12,7 +12,12 @@ allWork.sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 //   status: current   ->  full-width band
 //   status: past      ->  grid card
 const current = allWork.filter((item) => item.data.status === 'current');
-const past = allWork.filter((item) => item.data.status === 'past');
+
+// Case studies that a current programme already links to via caseStudyRef are
+// surfaced through that band, so keep them out of the past grid to avoid the
+// same work appearing twice (EdTech Hub did).
+const referenced = new Set(current.map((i) => i.data.caseStudyRef).filter(Boolean));
+const past = allWork.filter((item) => item.data.status === 'past' && !referenced.has(item.id));
 
 // Where "Read more" goes, in priority order. Most of this collection has no
 // case study of its own: those entries belong to programmes that live on

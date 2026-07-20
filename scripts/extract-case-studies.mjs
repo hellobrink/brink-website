@@ -57,11 +57,32 @@ function extract(file) {
   const $ = load(html);
   $('script, style, nav, footer, header').remove();
 
-  // Walk every block element in document order, tagging which section it is in.
+  // A figure holds an image and, often, its caption; capture them together
+  // so the caption travels with the right image. Track which imgs live inside
+  // a figure so the bare-img pass doesn't grab them twice.
+  const inFigure = new Set();
+  $('figure').each((_, fig) => {
+    $(fig).find('img').each((_, im) => inFigure.add(im));
+  });
+
   const blocks = [];
   $('h1, h2, h3, h4, p, li, blockquote, img, figure').each((_, el) => {
     const tag = el.tagName.toLowerCase();
+    if (tag === 'figure') {
+      const im = $(el).find('img').get(0);
+      const src = im ? ($(im).attr('src') || '') : '';
+      if (src.includes('website-files') && !src.includes('-p-') && !src.endsWith('.svg')) {
+        blocks.push({
+          tag: 'img',
+          src: src.split('/').pop(),
+          alt: tidy($(im).attr('alt')),
+          caption: tidy($(el).find('figcaption').text()),
+        });
+      }
+      return;
+    }
     if (tag === 'img') {
+      if (inFigure.has(el)) return;
       const src = $(el).attr('src') || '';
       if (src.includes('website-files') && !src.includes('-p-') && !src.endsWith('.svg')) {
         blocks.push({ tag, src: src.split('/').pop(), alt: tidy($(el).attr('alt')) });
@@ -74,7 +95,7 @@ function extract(file) {
 
   const out = {
     title: '', standfirst: '', challenge: [], results: [], approach: [],
-    approachIntro: [], quote: null, story: [], images: [],
+    approachIntro: [], quote: null, story: [], storyQuotes: [], images: [],
   };
 
   let section = 'intro';
@@ -89,7 +110,7 @@ function extract(file) {
       // before any content.
       if (section === 'intro') continue;
       if (CHROME.test(b.src)) continue;
-      if (!seen.has(b.src)) { seen.add(b.src); out.images.push({ ...b, section }); }
+      if (!seen.has(b.src)) { seen.add(b.src); out.images.push({ src: b.src, alt: b.alt, caption: b.caption || '', section }); }
       continue;
     }
     if (seen.has(b.tag + b.text)) continue;
@@ -158,12 +179,19 @@ function extract(file) {
     }
     if (section === 'story') {
       if (/^(left|right|above|below)\s*:/i.test(b.text)) continue;
+      if (b.tag === 'blockquote' || /^[""].{20,}[""]?$/.test(b.text)) {
+        out.storyQuotes.push(b.text.replace(/^[""]|[""]$/g, ''));
+        continue;
+      }
       out.story.push({ tag: b.tag, text: b.text });
     }
   }
 
-  // The last approach paragraph is usually a closing statement, not a lead-in.
-  if (out.approach.length > 0 && out.approachIntro.length > 1) {
+  // A trailing approach paragraph can be a closing statement, but a line
+  // ending in a colon ("Our work included:") is a lead-in to the list and
+  // must stay put, or it lands at the very bottom of the page.
+  const lastIntro = out.approachIntro[out.approachIntro.length - 1] || '';
+  if (out.approach.length > 0 && out.approachIntro.length > 1 && !/:$/.test(lastIntro.trim())) {
     out.conclusion = out.approachIntro.pop();
   }
   return out;

@@ -28,6 +28,9 @@ const work = defineCollection({
     summary: z.string(),
     heroImage: z.string().optional(),
     heroAlt: z.string().optional(),
+    // object-position for the hero crop, e.g. "center 25%", when the default
+    // centre cut clips faces on a near-square image.
+    heroPosition: z.string().optional(),
     sector: z.array(z.enum(['climate', 'health', 'education'])).default([]),
     offer: z
       .array(z.enum(['open-innovation', 'carve-outs', 'missions']))
@@ -59,6 +62,9 @@ const work = defineCollection({
     approach: z.array(z.string()).default([]),
     approachIntro: z.array(z.string()).default([]),
     conclusion: z.string().optional(),
+    // Extra quotes lifted out of the long narrative, shown as green pull
+    // quotes without a portrait (the speakers are often anonymous).
+    storyQuotes: z.array(z.string()).default([]),
     quote: z
       .object({
         text: z.string(),

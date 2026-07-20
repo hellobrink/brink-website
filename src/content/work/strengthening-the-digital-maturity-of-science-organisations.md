@@ -7,6 +7,7 @@ offer: [carve-outs]
 status: past
 hasCaseStudy: true
 sortOrder: 0
+programmeName: "ISC Digital Journeys"
 standfirst: "The ISC Digital Journeys project was set up to empower science organisations, particularly those with a presence in low- and middle-income countries, to navigate digital transformation."
 challenge:
   - "Science, technology, and innovation (STI) systems are evolving rapidly, but organisations in low-resource settings - especially in low- and middle-income countries - face significant challenges in adopting digital tools like AI and online platforms, as well as developing the necessary ways of working that underpin them. To stay relevant and fully engage in global science systems, these organisations need to urgently accelerate their digital capacity."
@@ -17,11 +18,16 @@ approachIntro:
   - "We worked closely with each member organisation to understand their existing ways of working, and used the digital maturity framework to assess each across multiple dimensions of digital readiness. We then created a tailored Action Plan for each member, highlighting quick wins where they could make tangible, immediate progress towards their digital goals."
   - "Next, we set up a community of dedicated staff from each organisation who had an interest in developing their digital skills and expertise. We guided them through a series of online learning sessions adapted to their needs, and facilitated peer exchange between them. We also provided 1:1 coaching, which allowed for more tailored guidance on digital transformation tools and approaches."
   - "Throughout the process, we synthesised our learnings and developed tools and resources that could be used much more extensively across the international science community, extending the reach beyond the immediate cohort."
+storyQuotes:
+  - "By supporting science organizations to harness the potential of digital technologies, we can improve the value provided to their stakeholders and ensure that no one is left behind in this period of rapid technological change. It is an ambitious goal, but a necessary one, and we must act now. , Salvatore Aricò, CEO, International Science Council"
+  - "The meeting with the external coach, who is an expert in AI, was eye-opening, and allowed us for the first time to start thinking about using AI tools to not only evaluate output, but also to develop new website functionalities.” , ISC Member Participant feedback"
 gallery:
   - image: "/images/cs-strengthening-the-digital-maturity-of-sc-1.jpg"
     alt: "Strengthening the digital maturity of science organisations"
+    caption: "Members of the Digital Journeys cohort meeting at the ISC General Assembly in Muscat, Oman"
   - image: "/images/cs-strengthening-the-digital-maturity-of-sc-2.png"
     alt: "Strengthening the digital maturity of science organisations"
+    caption: "A photo opportunity during the first online session for cohort members"
 ---
 
 Supported by the [International Development Research Centre](https://idrc-crdi.ca/en), the [International Science Council](https://council.science/) explored how science organisations could better harness digital potential and navigate transformative change. This was part of a wider suite of work on [how emerging technologies could impact science systems](https://council.science/our-work/science-systems-futures/).
@@ -30,13 +36,9 @@ The project originated from the International Science Council’s (ISC) report, 
 
 ## Harnessing digital in science organisations
 
-Members of the Digital Journeys cohort meeting at the ISC General Assembly in Muscat, Oman
-
 In low- and middle-income countries (LMICs), persistent barriers like limited infrastructure, underfunding, and underrepresentation in global research networks hinder organisations and their representatives from fully engaging with global opportunities, and risk widening the digital divide. At the same time, while digital tools like AI and online platforms offer significant opportunities to boost participation and collaboration, LMIC organisations must build their digital capacity to harness these opportunities effectively.
 
 The Digital Journeys project was initiated to generate actionable insights on how to support science organisations with a footprint in LMICs and the Global South, and what science organisations can do to improve their digital maturity.
-
-*By supporting science organizations to harness the potential of digital technologies, we can improve the value provided to their stakeholders and ensure that no one is left behind in this period of rapid technological change. It is an ambitious goal, but a necessary one, and we must act now.* **,  Salvatore Aricò, CEO, International Science Council**
 
 ## What was achieved
 
@@ -52,11 +54,7 @@ Over the course of six months (January to June 2025), the project delivered seve
 
 - **Public Goods and Resources:** Reusable resources, including toolkits and reports, were developed, extending the learning to other organisations.
 
-*“The meeting with the external coach, who is an expert in AI, was eye-opening, and allowed us for the first time to start thinking about using AI tools to not only evaluate output, but also to develop new website functionalities.”* **,  ISC Member Participant feedback**
-
 ## How it delivered impact
-
-A photo opportunity during the first online session for cohort members
 
 The real impact of this project came from feeding participants’ direct experience and insights directly into outputs, resulting in resources that are genuinely practical and easy to apply. For instance, through direct coaching support, the International Sociological Association (ISA) successfully transformed its approach to digital events. Building on that experience, we created a structured, practical toolkit for planning and delivering inclusive online and hybrid conferences for all science organisations.
 

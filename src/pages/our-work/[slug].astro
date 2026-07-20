@@ -102,7 +102,12 @@ const nextImage = () => data.gallery[imageCursor++] ?? null;
 
     {data.heroImage && (
       <figure class="hero-figure">
-        <img src={withBase(data.heroImage)} alt={data.heroAlt ?? data.title} fetchpriority="high" />
+        <img
+          src={withBase(data.heroImage)}
+          alt={data.heroAlt ?? data.title}
+          style={data.heroPosition ? `object-position: ${data.heroPosition}` : undefined}
+          fetchpriority="high"
+        />
         {data.heroAlt && <figcaption class="mono">{data.heroAlt}</figcaption>}
       </figure>
     )}
@@ -197,10 +202,12 @@ const nextImage = () => data.gallery[imageCursor++] ?? null;
             </section>
           )}
 
-          {data.gallery.slice(imageCursor).map((g) => (
-            <figure class="story-figure">
-              <img src={withBase(g.image)} alt={g.alt} loading="lazy" />
-              {g.caption && <figcaption class="mono">{g.caption}</figcaption>}
+          {/* Voices lifted out of the narrative. No portrait: these are
+              participants and are often anonymous, so the quote stands
+              alone. */}
+          {data.storyQuotes.map((sq) => (
+            <figure class="pull-quote story-quote">
+              <blockquote><p>{sq}</p></blockquote>
             </figure>
           ))}
 
@@ -406,17 +413,12 @@ const nextImage = () => data.gallery[imageCursor++] ?? null;
     padding: 0;
   }
 
-  /* A coral rule per item rather than bullets: these are findings, and the
-     brand's list marker is a rule, not a dot. */
+  /* Hairline rules between items, not a coral bar on the first: the coral
+     bar read as a section divider landing halfway through "How we did it". */
   .results li,
   .approach li {
     padding: var(--space-4) 0;
     border-top: var(--border-width) solid var(--color-border);
-  }
-
-  .results li:first-child,
-  .approach li:first-child {
-    border-top: var(--border-width-button) solid var(--color-accent);
   }
 
   .story-section :global(a) {
@@ -429,9 +431,15 @@ const nextImage = () => data.gallery[imageCursor++] ?? null;
     color: var(--color-accent);
   }
 
+  /* Body size, so a closing sentence (often just a link out) reads as a
+     footer note rather than another subheading. */
   .conclusion {
-    font-size: var(--text-lead);
-    line-height: var(--leading-snug);
+    font-size: var(--text-body-sm);
+    color: var(--color-text-muted);
+  }
+
+  .conclusion :global(a) {
+    color: var(--color-text);
   }
 
   /* --- Pull quote ---------------------------------------------------------- */
@@ -497,26 +505,39 @@ const nextImage = () => data.gallery[imageCursor++] ?? null;
     opacity: 0.8;
   }
 
-  /* --- Gallery ------------------------------------------------------------- */
-  .gallery {
-    display: grid;
-    gap: var(--space-6);
-    margin: var(--space-8) 0;
+  /* Voices from the narrative: same green panel, no attribution row, a touch
+     smaller than the headline quote so several in a row don't shout. */
+  .story-quote {
+    margin: var(--space-6) 0;
   }
 
-  .gallery figure {
+  .story-quote p {
+    font-size: var(--text-h3);
     margin: 0;
   }
 
-  .gallery img {
+  /* --- Distributed story images ------------------------------------------- */
+  /* `margin: X 0` explicitly zeroes the left/right margin — a bare <figure>
+     keeps its 40px UA side margin, which was leaving the images ~80px
+     narrower than the text column. */
+  .story-figure {
+    margin: var(--space-8) 0;
+  }
+
+  .story-figure img {
     width: 100%;
+    max-height: 32rem;
+    object-fit: cover;
     display: block;
     border-radius: var(--radius);
   }
 
-  .gallery figcaption {
-    padding: 0;
+  .story-figure figcaption {
     margin-top: var(--space-2);
+    font-size: var(--text-2xs);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
   }
 
   .full-story {
@@ -538,9 +559,10 @@ const nextImage = () => data.gallery[imageCursor++] ?? null;
   /* Subheadings inside a long read need to be clearly subordinate to the
      section headings above them, or the page reads as a flat list of equal
      parts. */
-  .story-detail .prose :global(h2) {
+  .story-detail .prose :global(h2),
+  .story-detail .prose :global(h3) {
     font-family: var(--font-display);
-    font-weight: var(--weight-display);
+    font-weight: var(--weight-bold);
     font-size: var(--text-h2);
     line-height: var(--leading-tight);
     margin: var(--space-7) 0 var(--space-3);
@@ -550,13 +572,50 @@ const nextImage = () => data.gallery[imageCursor++] ?? null;
     margin: 0 0 var(--space-4);
   }
 
-  .story-detail .prose :global(ul) {
-    margin: 0 0 var(--space-5);
-    padding-left: var(--space-5);
+  /* Images injected into the long narrative to break it up. Full column
+     width and a little breathing room, with the italic line under them read
+     as a caption. */
+  .story-detail .prose :global(img) {
+    width: 100%;
+    max-height: 32rem;
+    object-fit: cover;
+    display: block;
+    border-radius: var(--radius);
+    margin: var(--space-6) 0 var(--space-2);
   }
 
+  .story-detail .prose :global(img + em),
+  .story-detail .prose :global(p > img ~ em) {
+    display: block;
+    font-style: normal;
+    font-size: var(--text-2xs);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-5);
+  }
+
+  .story-detail .prose :global(ul) {
+    margin: 0 0 var(--space-5);
+    padding-left: 0;
+    list-style: none;
+  }
+
+  /* Coral ">" markers, matching the caret the brand book uses and the hover
+     colour on links elsewhere. */
   .story-detail .prose :global(li) {
-    margin-bottom: var(--space-2);
+    position: relative;
+    padding-left: var(--space-5);
+    margin-bottom: var(--space-3);
+  }
+
+  .story-detail .prose :global(li)::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-weight: var(--weight-bold);
   }
 
   .story-detail .prose :global(a) {
