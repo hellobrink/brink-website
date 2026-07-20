@@ -125,7 +125,7 @@ const panels = [
               <p class="mono kicker">{panel.kicker}</p>
               <h2 class="display" set:html={panel.title} />
               <p class="panel-lead">{panel.text}</p>
-              <span class="mono read-more">Explore &rarr;</span>
+              <span class="mono read-more">Explore {panel.kicker.toLowerCase()} &rarr;</span>
             </div>
           </div>
         </a>
@@ -151,7 +151,7 @@ const panels = [
 
   <section class="section stats">
     <div class="container">
-      <h2 class="mono kicker stats-kicker">Since 2018 Brink has</h2>
+      <h2 class="display stats-heading">Since 2018 Brink has</h2>
       <div class="stats-row">
         {/* The number carries the heading (matching the live site's markup),
             but a heading reading just "340" is meaningless in a screen
@@ -179,7 +179,7 @@ const panels = [
     <section class="section news">
       <div class="container">
         <div class="news-head">
-          <h2 class="display">Latest news</h2>
+          <h2 class="display">Latest thinking</h2>
           <a class="mono read-more" href={withBase('/blog')}>All posts &rarr;</a>
         </div>
         <ul class="news-grid">
@@ -659,7 +659,7 @@ const panels = [
     }
   }
 
-  /* --- Latest news -------------------------------------------------------- */
+  /* --- Latest thinking -------------------------------------------------------- */
   .news-head {
     display: flex;
     align-items: baseline;
@@ -710,13 +710,14 @@ const panels = [
     text-decoration: underline;
   }
 
-  /* The whole band is deliberately two type treatments, not four: the mono
-     coral kicker (same as every other section kicker on this page) and the
-     big Signifier number. Everything supporting the number — the words above
-     and below it — shares one identical caption style, so the number is the
-     only thing that changes register. */
-  .stats-kicker {
-    margin: 0 0 var(--space-6);
+  /* Two type treatments in this band, not four: the Signifier section
+     heading (identical to "Who we are" and "Latest thinking", so all three
+     read as peers) and the big Signifier numeral. The words above and below
+     each number share one caption style, so the numeral is the only change
+     of register. */
+  .stats-heading {
+    font-size: var(--text-display);
+    margin: 0 0 var(--space-7);
   }
 
   .stats-row {
@@ -725,9 +726,14 @@ const panels = [
     gap: var(--space-grid-gap);
   }
 
+  /* The caption words are centred on the numeral rather than left-aligned
+     under it, so "Supported over / 340 / innovation teams" reads as one
+     centred stack. */
   .stat {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 
   .stat-caption {
@@ -762,8 +768,21 @@ const panels = [
     margin-bottom: var(--space-4);
   }
 
+  /* Sized to sit level with the photo beside it. The lead sentence was bold
+     and the column ran taller than the image, so the text overhung it top and
+     bottom. Unbolded, one step down, and with tighter paragraph spacing, the
+     two columns finish together. */
+  .who-body {
+    font-size: var(--text-body-sm);
+  }
+
+  .who-body p {
+    margin-bottom: var(--space-4);
+  }
+
   .who-statement {
-    font-weight: var(--weight-bold);
+    font-size: var(--text-body);
+    line-height: var(--leading-snug);
   }
 
   @media (max-width: 768px) {

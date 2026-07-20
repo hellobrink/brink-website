@@ -65,11 +65,32 @@ const navItems: Array<{
       </ul>
     </nav>
 
+    <button class="search-toggle" aria-label="Search" aria-expanded="false" aria-controls="site-search">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="11" cy="11" r="7" />
+        <line x1="16.5" y1="16.5" x2="21" y2="21" />
+      </svg>
+    </button>
+
     <a class="header-cta" href="mailto:coffee@hellobrink.co">Work with us</a>
 
     <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
       <span></span><span></span><span></span>
     </button>
+  </div>
+
+  <div id="site-search" class="site-search" data-index={withBase('/search.json')} hidden>
+    <div class="search-inner">
+      <label class="mono" for="search-input">Search Brink</label>
+      <input
+        id="search-input"
+        type="search"
+        autocomplete="off"
+        placeholder="Case studies, people, sectors&hellip;"
+      />
+      <p class="mono search-status" role="status" aria-live="polite"></p>
+      <ul class="search-results"></ul>
+    </div>
   </div>
 
   <nav id="mobile-menu" class="mobile-menu" aria-label="Primary (mobile)" hidden>
@@ -109,6 +130,111 @@ const navItems: Array<{
       if (!item.contains(e.relatedTarget as Node)) item.classList.remove('open');
     });
   });
+
+  // --- Site search ---------------------------------------------------------
+  // No backend, so /search.json is a build-time index of every record and the
+  // filtering happens here. It's fetched on first open rather than on page
+  // load — most visits never search, and the index shouldn't cost them.
+  const searchToggle = document.querySelector('.search-toggle');
+  const searchPanel = document.getElementById('site-search');
+  const searchInput = document.getElementById('search-input') as HTMLInputElement | null;
+  const searchResults = document.querySelector('.search-results');
+  const searchStatus = document.querySelector('.search-status');
+
+  if (searchToggle && searchPanel && searchInput && searchResults && searchStatus) {
+    type Doc = { title: string; url: string; kind: string; text: string };
+    let docs: Doc[] | null = null;
+    let loading = false;
+
+    // Base-path aware, written server-side by withBase(). A relative URL
+    // would resolve against the current page and 404 on nested routes.
+    const indexUrl = searchPanel.dataset.index!;
+
+    const loadDocs = async () => {
+      if (docs || loading) return;
+      loading = true;
+      try {
+        docs = await (await fetch(indexUrl)).json();
+      } catch {
+        searchStatus.textContent = 'Search is unavailable right now.';
+      }
+      loading = false;
+    };
+
+    const render = () => {
+      const q = searchInput.value.trim().toLowerCase();
+      searchResults.innerHTML = '';
+      if (!q) {
+        searchStatus.textContent = '';
+        return;
+      }
+      if (!docs) {
+        searchStatus.textContent = 'Loading…';
+        return;
+      }
+      // Title matches first — someone typing "Lea" wants the person, not
+      // every case study that mentions her.
+      const hits = docs
+        .map((d) => {
+          const inTitle = d.title.toLowerCase().includes(q);
+          const inText = d.text.toLowerCase().includes(q);
+          return inTitle || inText ? { d, rank: inTitle ? 0 : 1 } : null;
+        })
+        .filter((x): x is { d: Doc; rank: number } => x !== null)
+        .sort((a, b) => a.rank - b.rank)
+        .slice(0, 12);
+
+      searchStatus.textContent = hits.length
+        ? `${hits.length}${hits.length === 12 ? '+' : ''} result${hits.length === 1 ? '' : 's'}`
+        : 'No results';
+
+      hits.forEach(({ d }) => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = d.url;
+        a.innerHTML = `<span class="result-title"></span><span class="mono result-kind"></span>`;
+        // textContent, not innerHTML — titles are content, not markup.
+        a.querySelector('.result-title')!.textContent = d.title;
+        a.querySelector('.result-kind')!.textContent = d.kind;
+        li.appendChild(a);
+        searchResults.appendChild(li);
+      });
+    };
+
+    const openSearch = async () => {
+      searchPanel.hidden = false;
+      searchToggle.setAttribute('aria-expanded', 'true');
+      searchToggle.classList.add('open');
+      searchInput.focus();
+      await loadDocs();
+      render(); // in case they typed before the index landed
+    };
+
+    const closeSearch = () => {
+      searchPanel.hidden = true;
+      searchToggle.setAttribute('aria-expanded', 'false');
+      searchToggle.classList.remove('open');
+    };
+
+    searchToggle.addEventListener('click', () =>
+      searchPanel.hidden ? openSearch() : closeSearch()
+    );
+    searchInput.addEventListener('input', render);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !searchPanel.hidden) {
+        closeSearch();
+        (searchToggle as HTMLElement).focus();
+      }
+    });
+    // Click outside to dismiss, but not when the click is the toggle itself
+    // (that would close and immediately reopen).
+    document.addEventListener('click', (e) => {
+      const t = e.target as Node;
+      if (!searchPanel.hidden && !searchPanel.contains(t) && !searchToggle.contains(t)) {
+        closeSearch();
+      }
+    });
+  }
 
   // An overlay header is unreadable once it scrolls off the hero, so give it
   // its solid background back.
@@ -259,6 +385,118 @@ const navItems: Array<{
     color: var(--color-text);
   }
 
+  /* --- Search ------------------------------------------------------------ */
+  .search-toggle {
+    display: grid;
+    place-items: center;
+    width: var(--space-6);
+    height: var(--space-6);
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--color-surface);
+    cursor: pointer;
+  }
+
+  .search-toggle svg {
+    width: var(--space-5);
+    height: var(--space-5);
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  .search-toggle:hover,
+  .search-toggle.open {
+    color: var(--color-accent);
+  }
+
+  .site-search {
+    background: var(--color-surface-inverted);
+    border-top: var(--border-width) solid rgba(255, 255, 255, 0.15);
+  }
+
+  .search-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-5) var(--space-gutter) var(--space-6);
+  }
+
+  .search-inner label {
+    display: block;
+    color: var(--color-accent);
+    margin-bottom: var(--space-2);
+  }
+
+  .search-inner input {
+    width: 100%;
+    padding: var(--space-3) 0;
+    background: transparent;
+    border: none;
+    border-bottom: var(--border-width-button) solid var(--color-surface);
+    border-radius: var(--radius);
+    color: var(--color-surface);
+    font-family: var(--font-display);
+    font-weight: var(--weight-display);
+    font-size: var(--text-h1);
+  }
+
+  .search-inner input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  .search-inner input:focus {
+    outline: none;
+    border-bottom-color: var(--color-accent);
+  }
+
+  .search-status {
+    color: var(--color-text-muted);
+    margin: var(--space-3) 0 0;
+    min-height: 1em; /* reserve the line so results don't jump as it fills */
+  }
+
+  .search-results {
+    list-style: none;
+    margin: var(--space-2) 0 0;
+    padding: 0;
+    max-height: 50vh;
+    overflow-y: auto;
+    /* Clear the scrollbar so the right-hand kind labels aren't clipped by it
+       on narrow screens. */
+    padding-right: var(--space-3);
+  }
+
+  /* :global() because the result rows are built in JS. Astro scopes styles
+     by stamping a data attribute on elements it renders — nodes created with
+     createElement never get it, so a plain `.search-results a` rule compiles
+     to a selector that cannot match them and the rows fall back to the
+     default link styling. */
+  .search-results :global(a) {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+    border-bottom: var(--border-width) solid rgba(255, 255, 255, 0.12);
+    color: var(--color-surface);
+    text-decoration: none;
+  }
+
+  .search-results :global(a:hover .result-title) {
+    color: var(--color-accent);
+  }
+
+  .search-results :global(.result-kind) {
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-tag);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
   .menu-toggle {
     display: none;
     background: none;
@@ -329,6 +567,11 @@ const navItems: Array<{
     }
     .menu-toggle {
       display: flex;
+      margin-left: 0;
+    }
+    /* With the nav and CTA gone, search is what pushes the controls right. */
+    .search-toggle {
+      margin-left: auto;
     }
     /* Only when the toggle has opened it — `:not([hidden])`. A bare
        `display: block` would beat the [hidden] attribute's UA style and
