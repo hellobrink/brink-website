@@ -140,6 +140,13 @@ are small — keep them simple, crop closer.
 **Tone of voice.** Make it shorter. Use the simpler word. Focus on what
 Brink has *done* and the impact it made. Then make it shorter again.
 
+**NO EM DASHES. Ever.** Not in copy, not as `—`, not as `&mdash;`. Rob's
+standing rule. Use a colon where the second clause explains the first, a
+comma where it's an aside, or just start a new sentence. This applies to
+anything that renders on screen, including alt text, meta descriptions and
+aria-labels. Check with `grep -rn '—\|&mdash;' src/pages src/components
+src/content/sectors` before committing copy.
+
 **The Brinkle** is the brand's signature framing device: the logo's K form
 used to crop an image, with the K's stem read in negative space, pointing at
 the subject. Rules: real people, frame what matters, and the subject should

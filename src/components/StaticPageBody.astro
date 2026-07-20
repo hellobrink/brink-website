@@ -10,7 +10,7 @@ const { Content } = entry ? await render(entry) : { Content: null };
 ---
 
 <div class="container prose">
-  {Content ? <Content /> : <p>Content for "{slug}" not found — run <code>npm run scrape</code>.</p>}
+  {Content ? <Content /> : <p>Content for "{slug}" not found. Run <code>npm run scrape</code>.</p>}
 </div>
 
 <style>

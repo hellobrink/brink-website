@@ -27,7 +27,7 @@ const panels = [
   {
     kicker: 'Our work',
     title: 'Addressing the world&rsquo;s most pressing issues',
-    text: 'Health, education and climate — programmes designed with the people closest to the challenge.',
+    text: 'Health, education and climate: programmes designed with the people closest to the challenge.',
     href: withBase('/our-work'),
     image: '/images/panel-work.jpg',
     alt: 'Two people examining field data together on a Brink programme',
@@ -35,7 +35,7 @@ const panels = [
   {
     kicker: 'Our methods',
     title: 'Obvious solutions to non-trivial problems',
-    text: 'How we work with our partners — behavioural science and innovation methods, together.',
+    text: 'How we work with our partners: behavioural science and innovation methods, together.',
     href: withBase('/offers'),
     image: '/images/panel-methods.jpg',
     alt: 'A Brink workshop in progress, ideas mapped across a table',
@@ -44,7 +44,8 @@ const panels = [
     kicker: 'Our foundation',
     title: 'Imagining a better future, and making it happen',
     text: 'Bringing people together to grow the ideas that change how the world works.',
-    href: withBase('/foundation'),
+    href: 'https://www.brink-foundation.org/',
+    external: true,
     image: '/images/panel-foundation.jpg',
     alt: 'Two women tending seedlings in a plant nursery',
   },
@@ -115,6 +116,7 @@ const panels = [
         <a
           class="panel"
           href={panel.href}
+          {...(panel.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
           role="group"
           aria-roledescription="slide"
           aria-label={`${i + 1} of ${panels.length}: ${panel.kicker}`}

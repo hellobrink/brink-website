@@ -15,7 +15,7 @@ const { name, role, photo, sectorName } = Astro.props;
     {photo && <img src={withBase(photo)} alt={name} class="cta-photo" />}
     <div>
       <p class="mono">Talk to us about {sectorName}</p>
-      <h3>{name ?? 'TODO: named contact for this sector'}{role && ` — ${role}`}</h3>
+      <h3>{name ?? 'TODO: named contact for this sector'}{role && `, ${role}`}</h3>
     </div>
     <a class="button" href="mailto:coffee@hellobrink.co">Get in touch</a>
   </div>

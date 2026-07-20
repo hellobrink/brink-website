@@ -11,9 +11,12 @@ const { overlay = false } = Astro.props;
 // inherited from Webflow (which hid the whole site behind a click even on a
 // 1440px screen). Grouping under "Our work" is what makes room for sectors
 // without the top level growing unboundedly — see Decision 3 in the brief.
+// `external` items open in a new tab: the Brink Foundation is a separate
+// organisation with its own site, so there's no page for it here.
 const navItems: Array<{
   href: string;
   label: string;
+  external?: boolean;
   children?: Array<{ href: string; label: string }>;
 }> = [
   { href: '/about', label: 'About Brink' },
@@ -37,14 +40,14 @@ const navItems: Array<{
     ],
   },
   { href: '/team', label: 'Team' },
-  { href: '/foundation', label: 'Foundation' },
+  { href: 'https://www.brink-foundation.org/', label: 'Foundation', external: true },
   { href: '/blog', label: 'Blog' },
 ];
 ---
 
 <header class:list={['site-header', { overlay }]}>
   <div class="header-inner">
-    <a href={withBase('/')} class="brand" aria-label="Brink — home">
+    <a href={withBase('/')} class="brand" aria-label="Brink, home">
       <img src={withBase('/images/brink-logo-white.webp')} alt="Brink" width="110" />
     </a>
 
@@ -52,7 +55,10 @@ const navItems: Array<{
       <ul class="nav-list">
         {navItems.map((item) => (
           <li class:list={['nav-item', { 'has-children': item.children }]}>
-            <a href={withBase(item.href)}>{item.label}</a>
+            <a
+              href={item.external ? item.href : withBase(item.href)}
+              {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >{item.label}</a>
             {item.children && (
               <ul class="submenu">
                 {item.children.map((child) => (
@@ -97,7 +103,10 @@ const navItems: Array<{
     <ul>
       {navItems.map((item) => (
         <li>
-          <a href={withBase(item.href)}>{item.label}</a>
+          <a
+            href={item.external ? item.href : withBase(item.href)}
+            {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+          >{item.label}</a>
           {item.children && (
             <ul>
               {item.children.map((child) => (

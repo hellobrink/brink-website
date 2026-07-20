@@ -23,7 +23,7 @@ const authored = allPosts
   .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 ---
 
-<Layout title={data.name} description={`${data.name}${data.role ? ` — ${data.role}` : ''} at Brink.`}>
+<Layout title={data.name} description={`${data.name}${data.role ? `, ${data.role}` : ''} at Brink.`}>
   <article class="container bio">
     <p class="back"><a href={withBase('/team')}>&larr; Meet the team</a></p>
 

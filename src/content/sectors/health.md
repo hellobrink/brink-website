@@ -1,6 +1,6 @@
 ---
 name: Health
-headline: We build health markets with and for underserved communities — markets that deliver ‘what works’.
+headline: "We build health markets with and for underserved communities: markets that deliver ‘what works’."
 positioningLine: "TODO: plain positioning line — \"call Brink when ___\". See brief section 4A.3."
 stats:
   - value: "50"
