@@ -154,11 +154,16 @@ const inline = (s: string) =>
   .offer:nth-of-type(even) .oh-photo { grid-column: 2; grid-row: 1; }
   .offer:nth-of-type(even) .oh-panel { grid-column: 1; grid-row: 1; }
 
-  .oh-photo { overflow: hidden; background: var(--offer-ink); }
+  /* The image is pinned to fill the header rather than setting its height, so
+     the header stays 26rem whatever the photo's aspect ratio. Without this a
+     square photo (e.g. the Macmillan hero) makes its header far taller than
+     the landscape ones. */
+  .oh-photo { position: relative; overflow: hidden; background: var(--offer-ink); }
   .oh-photo img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    min-height: 26rem;
     object-fit: cover;
     display: block;
   }
@@ -311,7 +316,6 @@ const inline = (s: string) =>
     .offer:nth-of-type(even) .oh-photo,
     .offer:nth-of-type(even) .oh-panel { grid-column: 1; }
     .oh-photo { grid-row: 1; aspect-ratio: 16 / 9; }
-    .oh-photo img { min-height: 0; }
     .oh-panel { grid-row: 2; }
     .intro, .groups { grid-template-columns: 1fr; }
     .intro { gap: var(--space-5); }
