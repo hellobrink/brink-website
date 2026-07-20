@@ -179,6 +179,42 @@ Still unused from the book's own website mockup (p23): the blog is called
 **"Latest (re)thinking"** there, and it shows a hashtag filter system
 (`#Health #Education #Funding #Inclusion #Culture`) plus an "I'M IN." CTA.
 
+## The panel toolkit — build pages by assembly
+
+The About page (`src/pages/about.astro`) is the reference implementation.
+Pages are composed from these blocks rather than designed from scratch; add
+to this set rather than writing one-off section CSS.
+
+| Component | Use for |
+|---|---|
+| `IllustratedGrid` | 3-up illustrated cards. Chosen over a carousel wherever all options must stay visible (e.g. the offers — they're the commercial proposition). |
+| `PanelCarousel` | Full-bleed photo slides. Scopes queries to its own root, so a page can hold several. |
+| `VennDiagram` | The behavioural-innovation Venn, as SVG. Inherits stroke from `currentColor`. |
+| `LogoGrid` | "Our impact" — third-party logomarks with read-mores. |
+| `PeopleStrip` | Team preview, pulled live from the `team` collection. |
+| `ExploreCTA` / `NamedContactCTA` | Closing calls to action. |
+
+**Page rhythm:** alternate photographic blocks with white/paper ones. Three
+image-heavy blocks in a row read as one undifferentiated wall — that's why
+the homepage puts "Who we are" between the hero and the carousel, and why
+About puts a white text panel straight after its hero.
+
+**Two rules learned the hard way, both in these components' comments:**
+- Never size an image with `max-width/max-height: 100%` inside a grid item —
+  it does not reliably constrain, and five of eight logos burst their tile.
+  Size the box and let `object-fit: contain` letterbox the content.
+- Never rely on `scrollTo({behavior: 'smooth'})` for carousel movement — it's
+  a silent no-op on scroll-snap containers in some engines. Tween with rAF.
+
+**Illustration grounds are assigned per image, never rotated by index.** Some
+artwork has a colour baked in (the cranes are on coral) and will visibly
+clash against the wrong ground.
+
+**Dev-server staleness:** Vite has repeatedly served stale component CSS in
+this project after edits, which looks exactly like a broken fix. If a style
+change appears not to apply, restart the dev server before debugging it —
+or check `dist/` after `npm run build`, which is always accurate.
+
 ## Verification standard
 
 A change is done when the **content** is right and the build passes — not

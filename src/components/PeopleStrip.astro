@@ -1,0 +1,147 @@
+---
+// "The minds behind Brink" — a preview of the team, pulled live from the
+// team collection so it can never drift out of sync with /team.
+//
+// Deliberately a strip and not a grid: this is a taste that sends people to
+// the full team page, not a directory. Showing 6 of 27 keeps it that way.
+import { getCollection } from 'astro:content';
+import { withBase } from '../lib/base';
+
+interface Props {
+  heading?: string;
+  intro?: string;
+  limit?: number;
+}
+
+const {
+  heading = 'The minds behind Brink',
+  intro,
+  limit = 6,
+} = Astro.props;
+
+const team = (await getCollection('team'))
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
+  .slice(0, limit);
+---
+
+<section class="people">
+  <div class="container">
+    <div class="people-head">
+      <div>
+        <h2 class="display section-heading">{heading}</h2>
+        {intro && <p class="intro">{intro}</p>}
+      </div>
+      <a class="mono more" href={withBase('/team')}>Meet the team &rarr;</a>
+    </div>
+
+    <ul class="people-grid">
+      {team.map((person) => (
+        <li>
+          <a class="person" href={withBase(`/team/${person.id}`)}>
+            {person.data.photo ? (
+              <img src={withBase(person.data.photo)} alt={person.data.photoAlt ?? person.data.name} loading="lazy" />
+            ) : (
+              /* Not everyone has a headshot. An initial keeps the grid even
+                 rather than leaving a ragged hole. */
+              <span class="placeholder" aria-hidden="true">{person.data.name.charAt(0)}</span>
+            )}
+            <span class="person-name">{person.data.name}</span>
+            {person.data.role && <span class="person-role">{person.data.role}</span>}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .people {
+    padding: var(--space-9) 0;
+  }
+
+  .people-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-5);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-7);
+  }
+
+  .section-heading {
+    font-size: var(--text-display);
+    margin: 0;
+  }
+
+  .intro {
+    margin: var(--space-3) 0 0;
+    max-width: var(--measure-narrow);
+  }
+
+  .more {
+    font-size: var(--text-tag);
+    color: var(--color-label);
+    white-space: nowrap;
+  }
+
+  .more:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .people-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .person {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .person img,
+  .placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius);
+    background: var(--color-surface-muted);
+    filter: grayscale(1);
+    transition: filter var(--transition);
+  }
+
+  .person:hover img {
+    filter: none;
+  }
+
+  .placeholder {
+    display: grid;
+    place-items: center;
+    font-family: var(--font-display);
+    font-size: var(--text-display);
+    color: var(--color-text-muted);
+  }
+
+  .person-name {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-tight);
+  }
+
+  .person:hover .person-name {
+    color: var(--color-accent);
+  }
+
+  .person-role {
+    font-size: var(--text-tag);
+    color: var(--color-text-muted);
+  }
+</style>

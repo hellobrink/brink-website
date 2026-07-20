@@ -1,10 +1,378 @@
 ---
+// About Brink — the page the rest of the site's page types get proven on.
+//
+// Structure follows the FID reference: photographic hero -> white text panel
+// -> a set -> panel -> a set, alternating imagery with white space so no two
+// image-heavy blocks stack. Every block here is a reusable component, so the
+// remaining pages become assembly rather than fresh design:
+//
+//   hero (inline)     -> IllustratedGrid -> VennDiagram panel
+//   -> PanelCarousel  -> LogoGrid        -> PeopleStrip -> ExploreCTA
 import Layout from '../layouts/Layout.astro';
-import StaticPageBody from '../components/StaticPageBody.astro';
+import IllustratedGrid from '../components/IllustratedGrid.astro';
+import VennDiagram from '../components/VennDiagram.astro';
+import PanelCarousel from '../components/PanelCarousel.astro';
+import LogoGrid from '../components/LogoGrid.astro';
+import PeopleStrip from '../components/PeopleStrip.astro';
 import ExploreCTA from '../components/ExploreCTA.astro';
+import { getCollection } from 'astro:content';
+import { withBase } from '../lib/base';
+
+// --- Offers -----------------------------------------------------------------
+const offers = await getCollection('offers');
+const offerOrder = ['open-innovation', 'carve-outs', 'missions'];
+offers.sort((a, b) => offerOrder.indexOf(a.id) - offerOrder.indexOf(b.id));
+
+const offerArt: Record<
+  string,
+  { image: string; alt: string; focus?: string; ground: 'teal' | 'blue' | 'coral' }
+> = {
+  'open-innovation': {
+    image: '/images/illo-row.png',
+    alt: 'A rowing crew pulling together through choppy water, torn from the page',
+    ground: 'teal',
+  },
+  'carve-outs': {
+    image: '/images/illo-cranes.png',
+    alt: 'A woman deep in thought as origami cranes take flight from her opened mind',
+    focus: '86% center',
+    ground: 'coral',
+  },
+  missions: {
+    image: '/images/illo-climber.png',
+    alt: 'A climber scaling the torn edge of the page as if it were a rock face',
+    ground: 'blue',
+  },
+};
+
+const offerItems = offers.map((offer) => ({
+  title: offer.data.name,
+  summary: offer.data.summary,
+  href: withBase(`/offers/${offer.id}`),
+  ...offerArt[offer.id],
+}));
+
+// --- Sectors ----------------------------------------------------------------
+// Slide imagery is pulled from each sector's own case studies rather than
+// hand-picked, so it stays truthful as the work collection grows: whatever
+// Brink has actually published in a sector is what represents it.
+const sectors = await getCollection('sectors');
+const sectorOrder = ['health', 'climate', 'education'];
+sectors.sort((a, b) => sectorOrder.indexOf(a.id) - sectorOrder.indexOf(b.id));
+
+const allWork = await getCollection('work');
+const imageForSector = (id: string) =>
+  allWork
+    .filter((w) => w.data.sector.includes(id as any) && w.data.heroImage)
+    .sort((a, b) => a.data.sortOrder - b.data.sortOrder)[0];
+
+const sectorSlides = sectors
+  .map((sector) => {
+    const source = imageForSector(sector.id);
+    if (!source?.data.heroImage) return null; // no photo, no slide
+    return {
+      kicker: sector.data.name,
+      title: sector.data.headline,
+      href: withBase(`/sectors/${sector.id}`),
+      image: source.data.heroImage,
+      alt: source.data.heroAlt ?? `Brink's work in ${sector.data.name.toLowerCase()}`,
+      cta: `Explore ${sector.data.name.toLowerCase()}`,
+    };
+  })
+  .filter((s): s is NonNullable<typeof s> => s !== null);
+
+// --- Our impact -------------------------------------------------------------
+// Programme logomarks, taken from the live About page along with the links
+// they point at.
+const impact = [
+  { name: 'uBora Bora', logo: '/images/logo-ubora-bora.png', href: 'https://www.uborabora.com/' },
+  { name: 'Hanga Pitchfest', logo: '/images/logo-hanga-pitchfest.png', href: 'https://www.hangapitchfest.rw/' },
+  { name: 'Frontier Tech Hub', logo: '/images/logo-frontier-tech-hub.png', href: 'https://www.frontiertechhub.org/' },
+  { name: 'EdTech Hub', logo: '/images/logo-edtech-hub.jpg', href: 'https://edtechhub.org/' },
+  { name: 'Oxygen CoLab', logo: '/images/logo-oxygen-colab.png', href: 'https://www.makingbetterfutures.org/aboutoxycolab' },
+  { name: 'Vaccine Data CoLab', logo: '/images/logo-vaccine-data-colab.png', href: 'https://www.makingbetterfutures.org/aboutvdcl' },
+  { name: 'Creating Hope in Conflict', logo: '/images/logo-creating-hope-in-conflict.png', href: 'https://humanitariangrandchallenge.org/' },
+  { name: 'International Science Council', logo: '/images/logo-international-science-council.svg', href: 'https://council.science/news/digital-journeys-launch/' },
+];
 ---
 
-<Layout title="About Brink">
-  <StaticPageBody slug="about" />
+<Layout
+  title="About Brink"
+  description="Brink is a global team of technologists, designers, strategists and behavioural scientists. We apply behavioural innovation to solve big problems in ways that take human behaviour into account."
+  overlayHeader
+>
+  <section class="hero">
+    <img
+      class="hero-image"
+      src={withBase('/images/67a497c61d1d0f21b88108df_brinkcandids-172.jpg')}
+      alt="Three members of the Brink team in a working session, mapping ideas across sticky notes"
+      fetchpriority="high"
+    />
+    <div class="hero-text">
+      <p class="mono kicker">About Brink</p>
+      <h1>We are Brink</h1>
+      <p class="lead">
+        A global team of technologists, designers, strategists and behavioural
+        scientists. We apply a method we call behavioural innovation to solve
+        big problems in ways that take human behaviour into account.
+      </p>
+      <a class="button inverted" href={withBase('/team')}>Meet the team</a>
+    </div>
+  </section>
+
+  {/* White panel straight after the photographic hero, so imagery never
+      stacks on imagery. */}
+  <section class="section intro-panel">
+    <div class="container intro-inner">
+      <h2 class="display">Who we work with</h2>
+      <div class="intro-body">
+        <p>
+          We love collaborating with those who are frustrated by the status quo
+          and ready to address some of the world&rsquo;s most pressing
+          challenges &mdash; funders creating new models, changemakers seeking
+          fresh approaches, and leaders working to future-proof their
+          institutions.
+        </p>
+        <p>
+          Our latest collaboration is our biggest yet: Brink is now part of
+          <a href="https://africapractice.com/" target="_blank" rel="noopener noreferrer">Africa Practice</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <IllustratedGrid
+    kicker="Our offers"
+    heading="Three ways we work"
+    items={offerItems}
+  />
+
+  {/* Behavioural innovation on teal: it gives the coral Venn somewhere to
+      sit, and puts a dark band between two light ones. */}
+  <section class="bi-panel">
+    <div class="container bi-inner">
+      <div class="bi-copy">
+        <p class="mono kicker">Our proven approach</p>
+        <h2 class="display">Behavioural Innovation</h2>
+        <p class="lead">
+          Behavioural innovation combines the behavioural sciences with
+          innovation methods to deliver lasting impact.
+        </p>
+        <p>
+          By integrating insights from psychology, anthropology, sociology and
+          economics, we create the mindsets and mechanisms that deliver real
+          change. True innovation happens when we:
+        </p>
+        <ul>
+          <li>Put people at the centre, because the real world has real people in it</li>
+          <li>Use insights into how people think and act to fuel breakthrough ideas</li>
+          <li>Deeply understand incentives, to shift systems</li>
+          <li>Treat transforming mindset as seriously as developing skillset</li>
+        </ul>
+        <a class="button inverted" href="https://bi.hellobrink.co/" target="_blank" rel="noopener noreferrer">
+          Learn more
+        </a>
+      </div>
+      <div class="bi-figure">
+        <VennDiagram />
+      </div>
+    </div>
+  </section>
+
+  {sectorSlides.length > 0 && (
+    <section class="sectors">
+      <div class="container sectors-head">
+        <p class="mono kicker">What we do</p>
+        <h2 class="display">Our work spans the world&rsquo;s most pressing issues</h2>
+      </div>
+      <PanelCarousel slides={sectorSlides} label="Sectors Brink works in" />
+    </section>
+  )}
+
+  <LogoGrid
+    heading="Our impact"
+    intro="We're proud to have played a part in creating and running many impactful programmes worldwide."
+    items={impact}
+  />
+
+  <PeopleStrip
+    heading="The minds behind Brink"
+    intro="Strategists, psychologists, designers and tech optimists, working across four continents."
+  />
+
   <ExploreCTA />
 </Layout>
+
+<style>
+  /* --- Hero --------------------------------------------------------------- */
+  .hero {
+    position: relative;
+    min-height: min(80vh, 680px);
+    display: flex;
+    align-items: center;
+    padding: var(--space-9) 0;
+    background: var(--color-surface-inverted);
+    overflow: hidden;
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Favour the right of the frame — the copy sits left, so this keeps the
+       session and its sticky notes beside the text rather than behind it. */
+    object-position: 68% center;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      100deg,
+      rgba(6, 51, 61, 0.94) 0%,
+      rgba(6, 51, 61, 0.8) 34%,
+      rgba(6, 51, 61, 0.2) 64%,
+      rgba(6, 51, 61, 0) 82%
+    );
+  }
+
+  .hero-text {
+    position: relative;
+    z-index: 1;
+    color: var(--color-surface);
+    max-width: 640px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 var(--space-gutter);
+  }
+
+  @media (min-width: 901px) {
+    .hero-text {
+      margin: 0;
+      padding-left: max(var(--space-gutter), calc((100vw - var(--max-width)) / 2 + var(--space-gutter)));
+      max-width: calc(640px + (100vw - var(--max-width)) / 2);
+    }
+  }
+
+  .hero-text .kicker {
+    color: var(--color-surface);
+    opacity: 0.85;
+    margin: 0 0 var(--space-3);
+  }
+
+  .hero-text h1 {
+    font-size: var(--text-hero);
+    color: var(--color-surface);
+    margin-bottom: var(--space-4);
+  }
+
+  .hero-text .lead {
+    font-size: var(--text-lead);
+    margin-bottom: var(--space-6);
+    max-width: 46ch;
+  }
+
+  /* --- Intro panel -------------------------------------------------------- */
+  .section {
+    padding: var(--space-9) 0;
+  }
+
+  .intro-inner {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: var(--space-8);
+    align-items: start;
+  }
+
+  .intro-inner h2 {
+    font-size: var(--text-display);
+    margin: 0;
+  }
+
+  .intro-body p {
+    margin: 0 0 var(--space-4);
+  }
+
+  .intro-body p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* --- Behavioural innovation panel --------------------------------------- */
+  .bi-panel {
+    background: var(--color-surface-inverted);
+    color: var(--color-text-inverted);
+    padding: var(--space-9) 0;
+  }
+
+  .bi-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-9);
+    align-items: center;
+  }
+
+  .bi-copy .kicker {
+    color: var(--color-accent);
+    margin: 0 0 var(--space-3);
+  }
+
+  .bi-copy h2 {
+    font-size: var(--text-display);
+    color: var(--color-surface);
+    margin: 0 0 var(--space-4);
+  }
+
+  .bi-copy .lead {
+    font-size: var(--text-lead);
+  }
+
+  .bi-copy ul {
+    margin: 0 0 var(--space-6);
+    padding-left: var(--space-5);
+  }
+
+  .bi-copy li {
+    margin-bottom: var(--space-2);
+  }
+
+  /* The Venn inherits its stroke from currentColor — coral on teal is 4.02:1,
+     fine for a graphic object. Its caption stays paper white, which is not. */
+  .bi-figure {
+    color: var(--color-accent);
+  }
+
+  .bi-figure :global(figcaption) {
+    color: var(--color-text-inverted);
+  }
+
+  /* --- Sectors ------------------------------------------------------------ */
+  .sectors {
+    padding-top: var(--space-9);
+  }
+
+  .sectors-head {
+    margin-bottom: var(--space-7);
+  }
+
+  .sectors-head .kicker {
+    color: var(--color-label);
+    margin: 0 0 var(--space-3);
+  }
+
+  .sectors-head h2 {
+    font-size: var(--text-display);
+    margin: 0;
+    max-width: var(--measure-narrow);
+  }
+
+  @media (max-width: 860px) {
+    .intro-inner,
+    .bi-inner {
+      grid-template-columns: 1fr;
+      gap: var(--space-7);
+    }
+  }
+</style>

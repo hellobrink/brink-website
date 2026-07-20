@@ -1,0 +1,172 @@
+---
+// Behavioural Innovation, drawn rather than shipped as a PNG.
+//
+// The original (public/images/illo-bi-venn.png) is a hand-drawn coral Venn:
+// two circles, a hatched intersection, an arrow pointing up at the overlap.
+// Rebuilt as SVG so it scales, themes from the tokens, stays sharp, and can
+// do the one thing a flat image can't — actually perform the idea. The two
+// circles start apart and converge on scroll, so the overlap is something
+// the reader watches happen rather than a diagram they're shown.
+//
+// Colour comes from `currentColor`, so the panel decides whether this is
+// coral on paper or paper on teal.
+
+interface Props {
+  left?: string;
+  right?: string;
+  centre?: string;
+}
+const {
+  left = 'Behavioural sciences',
+  right = 'Innovation methods',
+  centre = 'Behavioural Innovation',
+} = Astro.props;
+---
+
+<figure class="venn">
+  <svg viewBox="0 0 620 400" role="img" aria-labelledby="venn-title">
+    <title id="venn-title">
+      {left} combined with {right} produces {centre}
+    </title>
+
+    <defs>
+      {/* The hatch that fills the intersection in the original drawing. */}
+      <pattern id="venn-hatch" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(70)">
+        <line x1="0" y1="0" x2="0" y2="9" stroke="currentColor" stroke-width="3.2" />
+      </pattern>
+      {/* The lens is the intersection of the two circles — clip one by the
+          other and the overlap is what survives. */}
+      <clipPath id="venn-lens">
+        <circle cx="250" cy="170" r="142" />
+      </clipPath>
+    </defs>
+
+    <g class="venn-art">
+      <g class="circle-left">
+        <circle cx="250" cy="170" r="142" fill="none" stroke="currentColor" stroke-width="7" />
+      </g>
+
+      <g class="circle-right">
+        <circle cx="370" cy="170" r="142" fill="none" stroke="currentColor" stroke-width="7" />
+        {/* Hatch drawn as the right circle clipped to the left one. It rides
+            with the right circle so it lands exactly on the overlap. */}
+        <circle cx="370" cy="170" r="142" fill="url(#venn-hatch)" clip-path="url(#venn-lens)" />
+      </g>
+
+      <g class="venn-pointer">
+        <path d="M310 372 L310 306" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" />
+        <path d="M288 328 L310 302 L332 328" fill="none" stroke="currentColor" stroke-width="7"
+              stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+    </g>
+  </svg>
+
+  <figcaption>
+    <span class="mono venn-label venn-label-left">{left}</span>
+    <span class="mono venn-label venn-label-right">{right}</span>
+    <span class="venn-centre">{centre}</span>
+  </figcaption>
+</figure>
+
+<script>
+  // Converge on first view only — replaying it every scroll-past would be a
+  // fidget, not a point.
+  const venns = document.querySelectorAll<HTMLElement>('.venn');
+  if (venns.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.35 }
+    );
+    venns.forEach((v) => io.observe(v));
+  }
+</script>
+
+<style>
+  .venn {
+    margin: 0;
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .venn svg {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+  }
+
+  /* Resting state: circles pushed apart, so there is no overlap yet. */
+  .circle-left,
+  .circle-right,
+  .venn-pointer {
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.6s ease;
+  }
+
+  .circle-left {
+    transform: translateX(-58px);
+  }
+
+  .circle-right {
+    transform: translateX(58px);
+  }
+
+  .venn-pointer {
+    opacity: 0;
+    transform: translateY(var(--space-4));
+  }
+
+  .venn.in .circle-left,
+  .venn.in .circle-right {
+    transform: translateX(0);
+  }
+
+  .venn.in .venn-pointer {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.65s; /* arrives after the circles have met */
+  }
+
+  figcaption {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2) var(--space-5);
+    text-align: center;
+  }
+
+  .venn-label {
+    font-size: var(--text-tag);
+    opacity: 0.85;
+  }
+
+  .venn-centre {
+    grid-column: 1 / -1;
+    font-family: var(--font-display);
+    font-weight: var(--weight-display);
+    font-size: var(--text-h2);
+    line-height: var(--leading-tight);
+  }
+
+  /* The convergence is decorative — the caption already states the idea, so
+     anyone who prefers reduced motion just gets the finished diagram. */
+  @media (prefers-reduced-motion: reduce) {
+    .circle-left,
+    .circle-right {
+      transform: translateX(0);
+    }
+    .venn-pointer {
+      opacity: 1;
+      transform: none;
+    }
+    .circle-left,
+    .circle-right,
+    .venn-pointer {
+      transition: none;
+    }
+  }
+</style>

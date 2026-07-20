@@ -1,0 +1,155 @@
+---
+// "Our impact" — the programme logos, each linking out to the programme.
+//
+// Distinct from LogoStrip, which renders funder/partner *names* as small text
+// badges inside a case study. This is the full-width showcase block: real
+// logomarks, on a white tile, with an explicit read-more.
+//
+// Logos are third-party brand assets in every conceivable shape, colour and
+// aspect ratio. The tile normalises them: a fixed 3:2 box, `object-fit:
+// contain`, a white ground (which is what every one of these marks was drawn
+// for), and generous padding so nothing crowds the edge.
+import { withBase } from '../lib/base';
+
+export interface LogoItem {
+  name: string;
+  logo: string;
+  href: string;
+}
+
+interface Props {
+  heading?: string;
+  intro?: string;
+  items: LogoItem[];
+}
+
+const { heading = 'Our impact', intro, items } = Astro.props;
+---
+
+<section class="logo-grid-section">
+  <div class="container">
+    <h2 class="display section-heading">{heading}</h2>
+    {intro && <p class="intro">{intro}</p>}
+
+    <ul class="logo-grid">
+      {items.map((item) => (
+        <li>
+          <a
+            class="logo-card"
+            href={item.href}
+            {...(item.href.startsWith('http')
+              ? { target: '_blank', rel: 'noopener noreferrer' }
+              : {})}
+          >
+            <span class="logo-tile">
+              {/* The logo carries the programme name, so alt would just
+                  repeat the visible label underneath it. */}
+              <img src={withBase(item.logo)} alt="" loading="lazy" />
+            </span>
+            <span class="logo-name">{item.name}</span>
+            <span class="mono logo-more">Read more &rarr;</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .logo-grid-section {
+    padding: var(--space-9) 0;
+    background: var(--color-surface-muted);
+  }
+
+  .section-heading {
+    font-size: var(--text-display);
+    margin: 0 0 var(--space-4);
+    text-align: center;
+  }
+
+  .intro {
+    text-align: center;
+    max-width: var(--measure-narrow);
+    margin: 0 auto var(--space-8);
+    color: var(--color-text);
+  }
+
+  .logo-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .logo-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    height: 100%;
+    text-decoration: none;
+    color: var(--color-text);
+    text-align: center;
+  }
+
+  /* White, not paper: these marks were drawn for white, and several have a
+     baked-in white background that would otherwise show as a bright rectangle
+     against the paper tone. */
+  .logo-tile {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    /* Ratio rather than a fixed height, so the tile grows with the column and
+       these marks get real presence instead of being letterboxed into a
+       96px sliver. */
+    aspect-ratio: 3 / 2;
+    padding: var(--space-5);
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  /* The image box is sized to the tile and `object-fit: contain` letterboxes
+     the artwork inside it. The obvious `max-width/max-height: 100%` does NOT
+     reliably constrain a grid item — five of these eight logos burst their
+     tile that way, rendering up to 200px inside a 96px box and colliding with
+     the name beneath. Sizing the box and fitting the content is exact. */
+  .logo-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Third-party marks arrive in a riot of colours. Muting them at rest
+       lets the grid read as one block; full colour on hover rewards
+       attention and confirms the card is interactive. */
+    filter: grayscale(1);
+    opacity: 0.75;
+    transition: filter var(--transition), opacity var(--transition);
+  }
+
+  .logo-card:hover .logo-tile img {
+    filter: none;
+    opacity: 1;
+  }
+
+  .logo-name {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display);
+    font-size: var(--text-h3);
+    line-height: var(--leading-tight);
+  }
+
+  /* Teal, per the coral size threshold — coral at this size on a light
+     ground is 3.01:1 and fails AA. */
+  .logo-more {
+    font-size: var(--text-tag);
+    color: var(--color-label);
+    margin-top: auto;
+  }
+
+  .logo-card:hover .logo-more {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+</style>

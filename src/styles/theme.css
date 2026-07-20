@@ -93,6 +93,16 @@
   --color-accent: var(--brink-coral);
   --color-link: var(--brink-coral);
 
+  /* THE CORAL SIZE THRESHOLD.
+     Coral #ff405f on paper white is 3.01:1 — that clears WCAG AA for "large"
+     text (>=24px, or >=18.66px bold) but fails it for anything smaller.
+     So: coral is allowed for large text and on dark grounds, where it has
+     contrast to spare (13.56:1 white-on-teal territory). Small labels,
+     bylines, meta and "read more" links on a light ground use this token
+     instead. Hover states may still go coral — the resting state carries
+     the meaning, the hover is a bonus cue. */
+  --color-label: var(--brink-teal);
+
   --color-surface: var(--brink-white); /* default page background */
   --color-surface-muted: var(--brink-off-white); /* subtle panels */
   --color-surface-inverted: var(--brink-teal); /* dark bands, navbar */

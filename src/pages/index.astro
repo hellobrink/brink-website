@@ -478,8 +478,10 @@ const panels = [
     margin: 0 0 var(--space-3);
   }
 
+  /* Teal, not coral: 12.8px coral on a light ground is 3.01:1 and fails AA.
+     Panels override this to white where it sits over a photo. */
   .read-more {
-    color: var(--color-accent);
+    color: var(--color-label);
     font-size: var(--text-tag);
   }
 
@@ -697,7 +699,7 @@ const panels = [
   }
 
   .news-card .meta {
-    color: var(--color-accent);
+    color: var(--color-label);
     margin: 0 0 var(--space-2);
   }
 

@@ -1,0 +1,327 @@
+---
+// Full-bleed photo carousel — the toolkit version of the homepage panels.
+//
+// Differs from the homepage's inline copy in one important way: it scopes
+// every query to its own root, so a page can carry more than one carousel
+// without them fighting over the same `.panel-track` selector.
+//
+// The movement is a hand-written rAF tween, not `scrollTo({behavior:
+// 'smooth'})`. Smooth is a silent no-op on a scroll-snap container in some
+// engines and wherever animations are off at OS level, which leaves the
+// arrows dead with no error to show for it.
+import { withBase } from '../lib/base';
+
+export interface CarouselSlide {
+  kicker: string;
+  title: string;
+  text?: string;
+  href: string;
+  image: string;
+  alt: string;
+  cta?: string;
+}
+
+interface Props {
+  slides: CarouselSlide[];
+  label: string;
+  /** Seconds between auto-advances; 0 disables rotation. */
+  interval?: number;
+}
+
+const { slides, label, interval = 7 } = Astro.props;
+---
+
+<section
+  class="panel-carousel"
+  aria-roledescription="carousel"
+  aria-label={label}
+  data-interval={interval}
+>
+  <div class="panel-track" tabindex="0">
+    {slides.map((slide, i) => (
+      <a
+        class="panel"
+        href={slide.href}
+        role="group"
+        aria-roledescription="slide"
+        aria-label={`${i + 1} of ${slides.length}: ${slide.kicker}`}
+      >
+        <img class="panel-image" src={withBase(slide.image)} alt={slide.alt} loading="lazy" />
+        <div class="panel-inner">
+          <div class="panel-text">
+            <p class="mono kicker">{slide.kicker}</p>
+            <h3 class="display" set:html={slide.title} />
+            {slide.text && <p class="panel-lead">{slide.text}</p>}
+            <span class="mono read-more">{slide.cta ?? 'Explore'} &rarr;</span>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+
+  {slides.length > 1 && (
+    <div class="carousel-controls">
+      <button class="carousel-arrow" data-prev aria-label="Previous slide">&larr;</button>
+      <div class="carousel-dots" role="tablist" aria-label="Choose slide">
+        {slides.map((slide, i) => (
+          <button
+            class="carousel-dot"
+            role="tab"
+            data-dot={i}
+            aria-label={slide.kicker}
+            aria-selected={i === 0 ? 'true' : 'false'}
+          ></button>
+        ))}
+      </div>
+      <button class="carousel-arrow" data-next aria-label="Next slide">&rarr;</button>
+    </div>
+  )}
+</section>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.panel-carousel').forEach((root) => {
+    const track = root.querySelector<HTMLElement>('.panel-track');
+    if (!track) return;
+
+    const dots = [...root.querySelectorAll<HTMLElement>('[data-dot]')];
+    const count = track.children.length;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const interval = Number(root.dataset.interval ?? 7) * 1000;
+
+    const current = () => Math.round(track.scrollLeft / track.clientWidth);
+
+    const syncDots = () => {
+      const i = current();
+      dots.forEach((d, n) => d.setAttribute('aria-selected', String(n === i)));
+    };
+    track.addEventListener('scroll', syncDots, { passive: true });
+
+    const goTo = (i: number) => {
+      const target = ((i + count) % count) * track.clientWidth;
+      const from = track.scrollLeft;
+      const distance = target - from;
+      if (!distance) return;
+      if (reduced.matches) {
+        track.scrollLeft = target;
+        return;
+      }
+
+      const duration = 500;
+      const start = performance.now();
+      let settled = false;
+      track.style.scrollSnapType = 'none'; // snapping fights a manual tween
+      const settle = () => {
+        if (settled) return;
+        settled = true;
+        track.scrollLeft = target;
+        track.style.scrollSnapType = '';
+        syncDots();
+      };
+      const step = (now: number) => {
+        if (settled) return;
+        const p = Math.min((now - start) / duration, 1);
+        track.scrollLeft = from + distance * (1 - Math.pow(1 - p, 3));
+        if (p < 1) requestAnimationFrame(step);
+        else settle();
+      };
+      // rAF stalls in a background tab; without this the track could be left
+      // mid-slide with snapping still switched off.
+      setTimeout(settle, duration + 300);
+      requestAnimationFrame(step);
+    };
+
+    let timer: ReturnType<typeof setInterval> | null = null;
+    const stop = () => {
+      if (timer) clearInterval(timer);
+      timer = null;
+    };
+    const play = () => {
+      stop();
+      if (!interval || reduced.matches || document.hidden || count < 2) return;
+      timer = setInterval(() => goTo(current() + 1), interval);
+    };
+
+    root.querySelector('[data-prev]')?.addEventListener('click', () => { goTo(current() - 1); play(); });
+    root.querySelector('[data-next]')?.addEventListener('click', () => { goTo(current() + 1); play(); });
+    dots.forEach((d, i) => d.addEventListener('click', () => { goTo(i); play(); }));
+
+    ['pointerenter', 'focusin', 'touchstart'].forEach((e) =>
+      root.addEventListener(e, stop, { passive: true })
+    );
+    ['pointerleave', 'focusout'].forEach((e) => root.addEventListener(e, play));
+    document.addEventListener('visibilitychange', () => (document.hidden ? stop() : play()));
+    reduced.addEventListener('change', play);
+
+    // Only rotate while on screen.
+    new IntersectionObserver(([e]) => (e.isIntersecting ? play() : stop()), { threshold: 0.4 })
+      .observe(root);
+
+    syncDots();
+  });
+</script>
+
+<style>
+  .panel-carousel {
+    position: relative;
+  }
+
+  .panel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .panel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  .panel-track:focus-visible {
+    outline: var(--border-width-button) solid var(--color-accent);
+    outline-offset: calc(var(--space-1) * -1);
+  }
+
+  .panel {
+    position: relative;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    min-height: min(66vh, 560px);
+    color: var(--color-surface);
+    text-decoration: none;
+    overflow: hidden;
+  }
+
+  .panel-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+
+  .panel:hover .panel-image {
+    transform: scale(1.03);
+  }
+
+  .panel::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      100deg,
+      rgba(6, 51, 61, 0.88) 0%,
+      rgba(6, 51, 61, 0.6) 34%,
+      rgba(6, 51, 61, 0.1) 62%,
+      rgba(6, 51, 61, 0) 80%
+    );
+  }
+
+  .panel-inner {
+    position: relative;
+    z-index: 1;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-gutter);
+    min-height: min(66vh, 560px);
+    display: flex;
+    align-items: center;
+  }
+
+  .panel-text {
+    max-width: 30rem;
+  }
+
+  .kicker {
+    color: var(--color-surface);
+    opacity: 0.85;
+    margin: 0 0 var(--space-3);
+  }
+
+  .panel h3.display {
+    font-size: var(--text-display);
+    color: var(--color-surface);
+    margin: 0 0 var(--space-4);
+  }
+
+  .panel-lead {
+    font-size: var(--text-lead);
+    margin: 0 0 var(--space-5);
+  }
+
+  .read-more {
+    color: var(--color-surface);
+    font-size: var(--text-tag);
+  }
+
+  .panel:hover .read-more {
+    text-decoration: underline;
+  }
+
+  .carousel-controls {
+    position: absolute;
+    z-index: 2;
+    right: max(var(--space-gutter), calc((100vw - var(--max-width)) / 2 + var(--space-gutter)));
+    bottom: var(--space-6);
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+
+  .carousel-arrow {
+    width: var(--space-7);
+    height: var(--space-7);
+    display: grid;
+    place-items: center;
+    background: transparent;
+    border: var(--border-width-button) solid var(--color-surface);
+    border-radius: var(--radius);
+    color: var(--color-surface);
+    font-family: var(--font-mono);
+    font-size: var(--text-body);
+    line-height: 1;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition);
+  }
+
+  .carousel-arrow:hover {
+    background: var(--color-surface);
+    color: var(--color-text);
+  }
+
+  .carousel-dots {
+    display: flex;
+    gap: var(--space-2);
+  }
+
+  .carousel-dot {
+    width: var(--space-6);
+    height: var(--space-1);
+    padding: 0;
+    border: none;
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background var(--transition);
+  }
+
+  .carousel-dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  .carousel-dot[aria-selected='true'] {
+    background: var(--color-accent);
+  }
+
+  @media (max-width: 700px) {
+    .panel::after {
+      background: rgba(6, 51, 61, 0.72);
+    }
+    .carousel-controls {
+      right: auto;
+      left: 0;
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
