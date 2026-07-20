@@ -2,12 +2,17 @@
 // Our offers, on one page.
 //
 // Replaces the old interstitial grid + three thin detail pages. Modelled on
-// fundinnovation.dev/approach, which puts the whole proposition on a single
-// scroll with a strong internal rhythm: hero -> numbered blocks, each with the
-// same internal shape -> CTA. Here the three offers become three numbered
-// bands that alternate the illustration side, each on its own brand ground,
-// with the full descriptive copy (and its real programme links) rendered in
-// place rather than hidden behind a click.
+// fundinnovation.dev/approach: the whole proposition on a single scroll with a
+// strong internal rhythm. Here the three offers are three full-bleed brand
+// bands (teal / coral / blue), each with the illustration bleeding on one
+// side and the copy on a floating off-white card on the other.
+//
+// Why a card rather than text straight on the colour: these bands are
+// body-heavy (paragraphs, bulleted programme lists, links) and only teal
+// carries small text at WCAG AA. White on coral is ~3:1 and on draft blue
+// ~3.8:1, both large-text-only (brand book §, and the note in CLAUDE.md). So
+// the colour and illustration do the full-bleed drama; the card keeps the
+// copy legible. The card alternates sides to give the page its rhythm.
 import Layout from '../../layouts/Layout.astro';
 import ExploreCTA from '../../components/ExploreCTA.astro';
 import { withBase } from '../../lib/base';
@@ -18,11 +23,10 @@ const order = ['open-innovation', 'carve-outs', 'missions'];
 offers.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
 
 // Illustration + ground per offer, matched to meaning rather than assigned at
-// random (see the old grid's note): the rowing crew pulling together for Open
-// Innovation's many teams, ideas taking flight for Carve-Outs, the climber —
-// the one Brink already pairs with "a bold, long-term vision" — for Missions.
-// Grounds are fixed to each illustration, never rotated: the cranes artwork
-// has coral baked in and would clash on any other ground.
+// random: the rowing crew pulling together for Open Innovation's many teams,
+// ideas taking flight for Carve-Outs, the climber — the one Brink already
+// pairs with "a bold, long-term vision" — for Missions. Grounds are fixed to
+// each illustration, never rotated: the cranes artwork has coral baked in.
 const artwork: Record<
   string,
   { image: string; alt: string; focus?: string; ground: 'teal' | 'blue' | 'coral' }
@@ -48,8 +52,7 @@ const artwork: Record<
 const allWork = await getCollection('work');
 
 // Render each offer's Markdown in place, and gather its related programmes by
-// tag so the reader can jump straight from an approach to the work that used
-// it.
+// tag so the reader can jump straight from an approach to the work that used it.
 const bands = await Promise.all(
   offers.map(async (offer) => ({
     offer,
@@ -79,9 +82,9 @@ const bands = await Promise.all(
   </div>
 
   {bands.map(({ offer, art, Content, related }, i) => (
-    <section class="offer-band" id={offer.id}>
-      <div class="container band-inner">
-        <div class:list={['band-media', `ground-${art.ground}`]}>
+    <section class:list={['offer-band', `ground-${art.ground}`]} id={offer.id}>
+      <div class="band-inner container">
+        <div class="band-media">
           <img
             src={withBase(art.image)}
             alt={art.alt}
@@ -89,7 +92,7 @@ const bands = await Promise.all(
             loading="lazy"
           />
         </div>
-        <div class="band-body">
+        <div class="band-card">
           <p class="band-num mono">{String(i + 1).padStart(2, '0')}</p>
           <h2 class="display band-title">{offer.data.name}</h2>
           <p class="band-summary">{offer.data.summary}</p>
@@ -117,7 +120,7 @@ const bands = await Promise.all(
 
 <style>
   .page-header {
-    padding: var(--space-8) 0 var(--space-6);
+    padding: var(--space-8) 0 var(--space-7);
     max-width: var(--measure);
   }
 
@@ -142,53 +145,60 @@ const bands = await Promise.all(
     color: var(--color-text-muted);
   }
 
-  /* --- The numbered bands ------------------------------------------------- */
+  /* --- Full-bleed brand bands --------------------------------------------- */
+  /* The section spans edge to edge in its brand colour; the illustration sits
+     directly on that colour (its torn transparent edge lets the colour show
+     through — the point of the artwork) and the copy sits on a white card. */
   .offer-band {
-    padding: var(--space-8) 0;
-    border-top: 1px solid var(--color-border);
-    scroll-margin-top: var(--space-8);
-  }
-
-  .band-inner {
-    display: grid;
-    grid-template-columns: 5fr 7fr;
-    gap: var(--space-7);
-    align-items: start;
-  }
-
-  /* Alternate the illustration side so the page has rhythm rather than a
-     single stacked column. The media is column 1 by default; on even bands it
-     moves to column 2 and the body takes column 1. */
-  .offer-band:nth-child(even) .band-media {
-    grid-column: 2;
-    grid-row: 1;
-  }
-  .offer-band:nth-child(even) .band-body {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  /* The illustration sits on its brand ground; the transparent parts of the
-     PNG let the colour show through, and the torn kraft edge is the point
-     (brand book §06). Pinned near the top so it tracks the copy on long bands. */
-  .band-media {
-    border-radius: var(--radius);
-    overflow: hidden;
-    aspect-ratio: 4 / 5;
-    position: sticky;
-    top: var(--space-6);
+    padding: var(--space-9) 0;
+    scroll-margin-top: var(--space-6);
   }
 
   .ground-teal { background: var(--color-ground-1); }
   .ground-blue { background: var(--color-ground-2); }
   .ground-coral { background: var(--color-ground-3); }
 
+  .band-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    /* Stretch, not center: the card is taller than the illustration, and
+       centering left a large empty band of colour above the image. The
+       illustration fills the full height of the band beside the card. */
+    align-items: stretch;
+  }
+
+  /* Alternate the illustration side so the three bands have rhythm. Media is
+     column 1 by default; on even bands it swaps to column 2. */
+  .offer-band:nth-of-type(even) .band-media {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .offer-band:nth-of-type(even) .band-card {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .band-media {
+    overflow: hidden;
+    min-height: 24rem;
+  }
+
   .band-media img {
     width: 100%;
     height: 100%;
+    min-height: 24rem;
     object-fit: cover;
     object-position: center;
     display: block;
+  }
+
+  /* The copy card. White on the coloured band, so the text keeps ~13:1 teal
+     on white whatever colour the band is. */
+  .band-card {
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    padding: var(--space-7);
   }
 
   .band-num {
@@ -207,7 +217,6 @@ const bands = await Promise.all(
     font-size: var(--text-lead);
     color: var(--color-text-muted);
     margin: 0 0 var(--space-5);
-    max-width: var(--measure);
   }
 
   .offer-prose {
@@ -296,20 +305,32 @@ const bands = await Promise.all(
   }
 
   @media (max-width: 820px) {
+    .offer-band {
+      padding: var(--space-7) 0;
+    }
     .band-inner {
       grid-template-columns: 1fr;
-      gap: var(--space-5);
+      gap: 0;
     }
-    /* Stack with the illustration on top on every band, whatever the desktop
-       side. */
-    .offer-band:nth-child(even) .band-media,
-    .offer-band:nth-child(even) .band-body {
+    /* Illustration on top on every band, whatever the desktop side. */
+    .offer-band:nth-of-type(even) .band-media,
+    .offer-band:nth-of-type(even) .band-card {
       grid-column: 1;
     }
     .band-media {
-      position: static;
+      grid-row: 1;
       aspect-ratio: 16 / 10;
-      max-height: 22rem;
+      min-height: 0;
+      max-height: 20rem;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+    .band-media img {
+      min-height: 0;
+    }
+    .band-card {
+      grid-row: 2;
+      border-radius: 0 0 var(--radius) var(--radius);
+      padding: var(--space-6);
     }
   }
 </style>
