@@ -1,6 +1,6 @@
 ---
 title: Realising the potential of technology to transform education
-summary: "The Challenge Accelerate the scale of educational technologies that can deliver better learning outcomes for all children, especially the most marginalised. WHAT WAS ACHIEVED Leading innovation as part of the FCDO-funded Global [EdTech Hub](https://edtechhub.org/?ref=hellobrink.co), Brink’s role is to make room for experimentation and to convert evidence into implementation in Kenya, Malawi, Zanzi"
+summary: "The Challenge Accelerate the scale of educational technologies that can deliver better learning outcomes for all children, especially the most marginalised."
 heroImage: "/images/66cf26b8d20d5d0bb011e59e_shutterstock_1193231542.webp"
 heroAlt: Realising the potential of technology to transform education
 sector: [education]

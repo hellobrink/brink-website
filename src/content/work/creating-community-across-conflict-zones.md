@@ -1,7 +1,7 @@
 ---
 title: Creating community across conflict zones
 programmeName: Humanitarian Grand Challenge
-summary: The Challenge Beyond financial support, offer a sense of community and connections to innovators working to help people impacted by humanitarian crises caused by conflict. WHAT WAS ACHIEVED Developed a supportive and dynamic community that allows those working in unpredictable and extreme environments to come together and make meaningful connections, identify new opportunities and form sector-chan
+summary: "The Challenge Beyond financial support, offer a sense of community and connections to innovators working to help people impacted by humanitarian crises caused by conflict."
 heroImage: "/images/66cf33cfcd82da1966514461_hirs_ev_photo_0.webp"
 heroAlt: Creating community across conflict zones
 sector: [health]
