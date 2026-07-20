@@ -9,6 +9,21 @@ hasCaseStudy: true
 sortOrder: 8
 heroImage: "/images/work-creating-community-across-conflict-zones.webp"
 heroAlt: "Humanitarian Grand Challenge"
+standfirst: "Creating Hope in Conflict: A Humanitarian Grand Challenge is the first innovation challenge to focus on humanitarian crises caused by conflict. Launched in 2018, partners collectively contributed USD $38 million to enable humanitarian actors and agencies, local emergency responders, and the private sector to work alongside affected communities to respond more nimbly to complex humanitarian emergencies. This Humanitarian Grand Challenge identifies and scales innovations to help people affected by humanitarian crises caused by conflict."
+challenge:
+  - "Beyond financial support, offer a sense of community and connections to innovators working to help people impacted by humanitarian crises caused by conflict."
+results:
+  - "Developed a supportive and dynamic community that allows those working in unpredictable and extreme environments to come together and make meaningful connections, identify new opportunities and form sector-changing collaborations."
+approachIntro:
+  - "**An ecosystem built for extreme environments.**Innovating in conflict zones means being able to respond to unpredictable and extreme changes in the environment; the support offered to Humanitarian Grand Challenge innovators must reflect these realities, allowing for flexibility and robust adaptiveness."
+  - "**Built around real needs and behaviours.**The innovators that made up our community not only have vastly differing needs but are working across many time zones with varying degrees of internet connectivity, as well as experiencing different types of conflict, so we are constructing an ecosystem that is dynamic and accessible enough to be useful and usable to all of them."
+  - "**Offering support beyond the norm.** As the Covid-19 pandemic highlighted issues around mental health and work/life balance, we were able to respond in real time, creating much needed space for difficult and candid conversation as well as encouraging innovators to support each other, through advice, guidance and empathy. The ability to travel during the pandemic also meant adapting and utilising innovations to connect from across the world."
+  - "**Not just supporting, but empowering.**The community infrastructure actively encourages autonomy and self-reliance, with the aim of creating a self-sustaining community that can continue to grow and become increasingly valuable over time."
+gallery:
+  - image: "/images/cs-creating-community-across-conflict-zones-1.jpeg"
+    alt: "Creating community across conflict zones"
+  - image: "/images/cs-creating-community-across-conflict-zones-2.jpeg"
+    alt: "Creating community across conflict zones"
 ---
 
 [Creating Hope in Conflict: A Humanitarian Grand Challenge](https://humanitariangrandchallenge.org/?ref=hellobrink.co), is a partnership of the U.S. Agency for International Development, the U.K. Foreign, Commonwealth & Development Office, the Ministry of Foreign Affairs of the Netherlands, and Global Affairs Canada, with support from Grand Challenges Canada. The Humanitarian Grand Challenge identifies and scales innovations that apply new insights, technologies, and approaches to improve – and in many cases, save – the lives of the most vulnerable people and the hardest-to-reach in humanitarian crises caused by conflict. As well, the Humanitarian Grand Challenge seeks to create wider systems-level changes within the humanitarian sector.
@@ -16,8 +31,6 @@ heroAlt: "Humanitarian Grand Challenge"
 Understanding that operating and delivering aid in conflict zones is incredibly complex and poses unique challenges, the Humanitarian Grand Challenge team was very intentional and realistic about the support needed by innovators when reaching their goals, and involved more than simply financial support. Additional help has been built into the programme, bringing on the World Food Programme’s Innovation Accelerator and Brink to help deliver a supportive network around its innovators that would harness cooperation, create value and spark new opportunities.
 
 Working with innovators operating in conflict zones raised a whole host of unique challenges, even before the Covid-19 pandemic began and shifted the parameters of the project. By constructing a dynamic and versatile support structure centered around the needs and behaviours of its users we were able to create a positive outcome out of this new and unexpected way of operating.
-
-![](/images/66cf33eb09603d1e3512fa1b_walking-with-crutches.jpeg)
 
 ## Creating community in conflict
 
@@ -34,8 +47,6 @@ To make this happen Humanitarian Grand Challenge brought in Brink alongside the 
 When working with people who are operating in conflict zones you learn quickly that an ability to adapt is paramount and that flexibility is key. In these kinds of environments the situation can change quickly and dramatically, so the humanitarian responses have to be equally responsive. This meant that any attempt to put restrictions around the innovation teams or to second guess their needs would just harm their ability to do their work.
 
 So we began by listening. We listened to what the teams really needed and built a supportive community that could not only respond to those immediate needs, but was flexible enough to adapt when those needs changed.
-
-![](/images/66cf33eb0c2c9b7d51552bbf_gcam2.jpeg)
 
 ## From the physical to the virtual
 

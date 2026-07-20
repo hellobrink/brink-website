@@ -33,9 +33,23 @@ const isStructured =
 
 const hasBody = (item.body ?? '').replace(/<!--[\s\S]*?-->/g, '').trim().length > 0;
 
-// Turn **bold** leads into markup: the approach items each open with a
-// short bolded label, which is the only inline formatting these fields use.
-const bold = (s: string) => s.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+// These fields hold Markdown-ish inline formatting lifted from the live
+// pages: bolded labels and the occasional link. Every field that can contain
+// them has to be run through this, not just the approach list. Escaping
+// first, because the content is not trusted markup.
+const inline = (s: string) =>
+  s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/(^|[\s(])\*([^*]+)\*/g, '$1<em>$2</em>')
+    // Empty bold pairs ("****") survive in the scraped copy where a
+    // zero-width character sat between the asterisks. Anything left after
+    // the conversions above is an orphan, so drop it rather than print it.
+    .replace(/\*\*/g, '');
 
 // Other work in the same sector, for the footer.
 const allWork = await getCollection('work');
@@ -82,7 +96,7 @@ const facts: Array<{ label: string; value: string }> = [
           {data.challenge.length > 0 && (
             <section class="story-section">
               <h2 class="display">The challenge</h2>
-              {data.challenge.map((p) => <p>{p}</p>)}
+              {data.challenge.map((p) => <p set:html={inline(p)} />)}
             </section>
           )}
 
@@ -90,7 +104,7 @@ const facts: Array<{ label: string; value: string }> = [
             <section class="story-section">
               <h2 class="display">What was achieved</h2>
               <ul class="results">
-                {data.results.map((r) => <li>{r}</li>)}
+                {data.results.map((r) => <li set:html={inline(r)} />)}
               </ul>
             </section>
           )}
@@ -118,10 +132,10 @@ const facts: Array<{ label: string; value: string }> = [
           {(data.approachIntro.length > 0 || data.approach.length > 0) && (
             <section class="story-section">
               <h2 class="display">How we did it</h2>
-              {data.approachIntro.map((p) => <p>{p}</p>)}
+              {data.approachIntro.map((p) => <p set:html={inline(p)} />)}
               {data.approach.length > 0 && (
                 <ul class="approach">
-                  {data.approach.map((a) => <li set:html={bold(a)} />)}
+                  {data.approach.map((a) => <li set:html={inline(a)} />)}
                 </ul>
               )}
 
@@ -143,14 +157,20 @@ const facts: Array<{ label: string; value: string }> = [
 
           {data.conclusion && (
             <section class="story-section">
-              <p class="conclusion">{data.conclusion}</p>
+              <p class="conclusion" set:html={inline(data.conclusion)} />
             </section>
           )}
 
+          {/* The long-form narrative. Length varies enormously across the
+              collection: some entries have none, the biggest has 1,400
+              words with its own subheadings. It gets a heading of its own so
+              a reader knows the summary above is complete and this is the
+              optional deep read. */}
           {hasBody && (
-            <div class="prose extra-body">
-              <Content />
-            </div>
+            <section class="story-detail">
+              <h2 class="display">The story in more detail</h2>
+              <div class="prose"><Content /></div>
+            </section>
           )}
 
           {data.fullStoryUrl && (
@@ -367,6 +387,16 @@ const facts: Array<{ label: string; value: string }> = [
     border-top: var(--border-width-button) solid var(--color-accent);
   }
 
+  .story-section :global(a) {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .story-section :global(a:hover) {
+    color: var(--color-accent);
+  }
+
   .conclusion {
     font-size: var(--text-lead);
     line-height: var(--leading-snug);
@@ -461,8 +491,50 @@ const facts: Array<{ label: string; value: string }> = [
     margin: var(--space-8) 0 0;
   }
 
-  .extra-body {
-    margin-top: var(--space-8);
+  /* --- Long-form narrative ------------------------------------------------ */
+  .story-detail {
+    margin-top: var(--space-9);
+    padding-top: var(--space-7);
+    border-top: var(--border-width-button) solid var(--color-accent);
+  }
+
+  .story-detail > h2 {
+    font-size: var(--text-display);
+    margin: 0 0 var(--space-6);
+  }
+
+  /* Subheadings inside a long read need to be clearly subordinate to the
+     section headings above them, or the page reads as a flat list of equal
+     parts. */
+  .story-detail .prose :global(h2) {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display);
+    font-size: var(--text-h2);
+    line-height: var(--leading-tight);
+    margin: var(--space-7) 0 var(--space-3);
+  }
+
+  .story-detail .prose :global(p) {
+    margin: 0 0 var(--space-4);
+  }
+
+  .story-detail .prose :global(ul) {
+    margin: 0 0 var(--space-5);
+    padding-left: var(--space-5);
+  }
+
+  .story-detail .prose :global(li) {
+    margin-bottom: var(--space-2);
+  }
+
+  .story-detail .prose :global(a) {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .story-detail .prose :global(a:hover) {
+    color: var(--color-accent);
   }
 
   /* --- Facts card ---------------------------------------------------------- */

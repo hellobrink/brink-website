@@ -9,6 +9,20 @@ offer: [carve-outs]
 status: past
 hasCaseStudy: true
 sortOrder: 7
+standfirst: "As part of our work with the Africa Smart Towns Network of 11 cities across Africa (aka ASToN), Brink worked with the City of Matola in Mozambique on a project to increase tax income for the city council. Local officials were convinced that tax non-payment was because citizens were choosing to avoid paying taxes; but when they dug deeper, the team found very different reasons - and came up with creative new service ideas to experiment with."
+challenge:
+  - "Understand why income from taxes in the City of Matola in Mozambique was so low and create innovative new ways for the council to provide effective local services."
+results:
+  - "Challenged assumptions and introduced ‘bureaucratic innovation’ right across the council, leading to smart, citizen-centered services that make paying taxes simpler."
+approachIntro:
+  - "**Enabling crucial conversations:**As outsiders we were able to broach some uncomfortable topics and uncover new ground: By streamlining priorities, tackling bottlenecks and hacking away at reporting and budgeting approaches we left teams with more clarity and focus, along with a more positive and efficient approach to delivery."
+approach:
+  - "**Progress through practice.** Weintroduced more iterative ways of working, which meant first changing attitudes at leadership level so the organisation could become comfortable in testing its assumptions, learning from its mistakes and experimenting with new ideas."
+  - "**Brought people together.** By breaking down internal organisational silos we were able to give teams that don’t normally work together a chance to reflect and collaborate, and this led to more collaborative and collegiate team atmosphere across the organisation."
+gallery:
+  - image: "/images/placeholder.svg"
+    alt: "Image to follow"
+    caption: "TODO: image needed for this case study"
 ---
 
 The city of Matola sits on the western side of Mozambique’s capital, Maputo. As of 2017, over a million people lived in this busy suburb that’s a centre for industry and manufacturing.
@@ -33,7 +47,7 @@ Through this experience we realised the Matola team would benefit from more rese
 
 The consultation was eye-opening for everyone. Council staff came to a sudden and unexpected realisation:
 
-> This is the city’s problem, not the citizens’ problem
+This is the city’s problem, not the citizens’ problem
 
 Increasing tax income wasn’t about tackling deliberate non-payment by citizens; it was about using service design and digital transformation to make paying taxes easier.
 

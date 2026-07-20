@@ -8,6 +8,26 @@ offer: [carve-outs]
 status: past
 hasCaseStudy: true
 sortOrder: 10
+standfirst: "Creating the environments for rapid, real world testing of new educational technologies that can deliver better learning outcomes for all children, including the most marginalised."
+challenge:
+  - "Accelerate the scale of educational technologies that can deliver better learning outcomes for all children, especially the most marginalised."
+results:
+  - "Leading innovation as part of the FCDO-funded Global [EdTech Hub](https://edtechhub.org/?ref=hellobrink.co), Brink’s role is to make room for experimentation and to convert evidence into implementation in Kenya, Malawi, Zanzibar, Sierra Leone and Tanzania."
+approachIntro:
+  - "Implementation science in the education sector is needed more than ever. As part of the [EdTech Hub](https://edtechhub.org/?ref=hellobrink.co), Brink has developed a credible framework and portfolio which bridges theory and practice:"
+approach:
+  - "Incentivising evidence-based decision making throughout implementation;"
+  - "Rolling out the tools, experts and funding required for rigorous, systemic experimentation;"
+  - "And bringing the right actors together around a goal to provide a credible path to scale."
+gallery:
+  - image: "/images/cs-realising-the-potential-of-technology-to-1.jpeg"
+    alt: "Realising the potential of technology to transform education"
+  - image: "/images/cs-realising-the-potential-of-technology-to-2.jpeg"
+    alt: "Realising the potential of technology to transform education"
+  - image: "/images/cs-realising-the-potential-of-technology-to-3.jpeg"
+    alt: "Realising the potential of technology to transform education"
+  - image: "/images/cs-realising-the-potential-of-technology-to-4.jpeg"
+    alt: "Realising the potential of technology to transform education"
 ---
 
 ## The global learning crisis
@@ -25,8 +45,6 @@ Of the realisation that technology had the potential to transform education worl
 The core aim of the EdTech Hub is to push the effectiveness of EdTech interventions up, and to help implementers and decision-makers understand what works when it comes to tech in education.
 
 With a track record of bad implementation in the sector, the EdTech Hub was challenged with showing how education technology can be implemented at scale, so better learning outcomes can be delivered for all children, but especially the most marginalised.
-
-![](/images/66cf26f1c65c71995e75a251_shutterstock_1994400374.jpeg)
 
 ## Brink is appointed innovation lead
 
@@ -46,10 +64,6 @@ For example, we may test a new EdTech intervention within the sandbox of a singl
 
 Our sandboxes are designed to close the ‘know-do’ gap - the gap between what we know works and what is delivered.
 
-![](/images/66cf26f103381b80ccc1eea5_pexels-rodnae-productions-6936070-3.jpeg)
-
-![](/images/66cf26f1d20d5d0bb0121e6c_shutterstock_1805639617-01-1.jpeg)
-
 ## Looking for innovation beyond the tech product
 
 In practice, this means that the products we work with may change completely, or be dropped altogether if they don’t solve the problem. It also means that we can experiment with the myriad systems and pressures surrounding the intervention if we think that might solve the problem more effectively. We refer to this system in which an intervention exists as its ‘enabling environment’.
@@ -65,8 +79,6 @@ Finally, our success in scaling EdTech has depended on our ability to engage and
 Where a Sandbox goal has linked to a clear government priority is where we’ve seen the most success at bringing people together. And where we’ve seen misalignment of goals, the ability of the EdTech intervention to scale has directly been impacted.
 
 Sandboxes are therefore about balance - between consistently supporting national government priorities, while making sure different parties have the freedom to experiment to achieve the goal across all aspects of an education system. This has meant purposefully designing sandbox environments around a specific goal, that at the same time retain the freedom to work with different partners and incentivise them to try different ideas and generate evidence while they learn across different parts of the system.
-
-![](/images/66cf26f125f39cc127328292_shutterstock_1920498233-1.jpeg)
 
 ## Selected success stories
 

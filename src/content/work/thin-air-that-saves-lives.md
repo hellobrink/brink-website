@@ -17,6 +17,19 @@ funders:
 partners:
   - name: "UNICEF"
     url: "https://www.unicef.org.uk/"
+standfirst: "As the Covid-19 pandemic took its grip on the world in early 2020, global demand for oxygen surged. Pure oxygen in cylinders is expensive, and proved hard to find. Simple technology exists to turn ordinary air into medical-grade oxygen - but that technology is fragile, and manufacturers couldn’t see viable or profitable ways to build something tougher. By bringing people together to discuss the issues, we helped to pinpoint a crucial problem - and a simple solution, which saved thousands of lives."
+challenge:
+  - "Improve access to medical oxygen in low and middle income countries."
+results:
+  - "Brought together manufacturers, engineers, innovators, hackers and backers to accelerate the development of new and innovative robust oxygen concentrators in low-resource settings."
+approachIntro:
+  - "[The Oxygen CoLab](https://www.makingbetterfutures.org/?ref=hellobrink.co)**:**We worked with local communities, UNICEF, NGOs, academic institutions, manufacturers, engineers, innovators and many other makers, hackers and backers to create a global network uniquely skilled to tackle the problem of oxygen concentrator design and distribution."
+approach:
+  - "**A concentrator built to last.** Convened our pool of experts to undertake a human-centered design evaluation with a view to solving the three biggest oxygen concentrator design challenges."
+  - "**Hack the market.** To prove the market for these devices in order and begin to attract investment from big players we piloted a new service model called oxygen-as-a-service in Tanzania and India."
+gallery:
+  - image: "/images/cs-thin-air-that-saves-lives-1.jpeg"
+    alt: "Improving access to medical oxygen in low and middle income countries"
 ---
 
 ## There's something in the air
@@ -32,8 +45,6 @@ In the global south, it’s a different picture. Here oxygen concentrators are b
 Oxygen concentrators rapidly break down and end up in equipment graveyards in the global south. They need a reliable power supply; they can be easily damaged if there’s a power outage. They also don’t cope very well in hot, humid weather conditions or in environments where there’s a lot of dust. The filter mechanisms can get blocked up, and the sieve beds take on moisture rendering the machine useless.
 
 To meet this challenge we established the [Oxygen CoLab](https://www.makingbetterfutures.org/?ref=hellobrink.co), a global network to connect, support and empower key players with the aim of designing an oxygen concentrator able to cope with use in LMIC’s.
-
-![](/images/66e2fe2d901d473b60a2ffc3_intro-concentrator.jpeg)
 
 ## Designing a better oxygen concentrator
 
@@ -58,13 +69,17 @@ And, in Spring of 2022, [a usability study began](https://medium.com/covidaction
 As well as a design evaluation the Oxygen CoLab also tackled innovations in the oxygen concentrator business model. Specifically we wanted to show that we could:
 
 - Develop a replicable, scalable and sustainable business model
+
 - Demonstrate demand and growing market opportunities;
+
 - Understand the human factors and servicing needs in providing medical oxygen as a reliable and accessible service.
 
 To achieve these aims the Oxygen CoLab established the [‘oxygen-as-a-service’ pilot scheme](https://medium.com/covidaction/inviting-expressions-of-interest-realising-the-value-of-oxygen-as-a-service-in-low-resource-69e0a17c50c3?ref=hellobrink.co), which offers up to £180,000 to an individual, firm or consortium that’s able to deliver a pilot able to tackle the inevitable entrepreneurial complexities, such as:
 
 - What is the largest market segment with the greatest growth potential and what are the needs and approval processes for those segments?
+
 - How will maintenance be performed on the concentrators, especially as there is an absence of spare parts and skilled maintenance employees in local supply chains?
+
 - How will they create new efficiencies in delivery, installation, and clinical training?
 
 In 2021, after a ‘Dragon’s Den’ selection process, initial oxygen-as-a-service pilot grants were awarded to [FREO2](https://freo2.org/?ref=hellobrink.co) in Tanzania, and [Sanrai](https://freo2.org/?ref=hellobrink.co) and [Philips](https://www.philips.co.uk/healthcare/solutions/sleep-and-respiratory-care/oxygen?ref=hellobrink.co), both in India. We’re looking forward to sharing the learnings from each of these programmes as they develop, and you can read more about how FREO2 is piloting their O2aaS programme in Tanzania, [in this article.](https://medium.com/covidaction/oxygen-as-a-service-is-saving-young-lives-f855a9221873?ref=hellobrink.co)
