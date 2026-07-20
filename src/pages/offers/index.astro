@@ -82,20 +82,31 @@ const bands = await Promise.all(
   </div>
 
   {bands.map(({ offer, art, Content, related }, i) => (
-    <section class:list={['offer-band', `ground-${art.ground}`]} id={offer.id}>
-      <div class="band-inner container">
-        <div class="band-media">
-          <img
-            src={withBase(art.image)}
-            alt={art.alt}
-            style={art.focus ? `object-position: ${art.focus}` : undefined}
-            loading="lazy"
-          />
+    <section class:list={['offer', `ground-${art.ground}`]} id={offer.id}>
+      {/* Colour banner: number + title in white beside the illustration in a
+          bounded landscape box, so nothing stretches tall. Only large text
+          sits on the colour. */}
+      <div class="offer-banner">
+        <div class="banner-inner container">
+          <div class="banner-head">
+            <p class="banner-num mono">{String(i + 1).padStart(2, '0')}</p>
+            <h2 class="display banner-title">{offer.data.name}</h2>
+          </div>
+          <div class="banner-art">
+            <img
+              src={withBase(art.image)}
+              alt={art.alt}
+              style={art.focus ? `object-position: ${art.focus}` : undefined}
+              loading="lazy"
+            />
+          </div>
         </div>
-        <div class="band-card">
-          <p class="band-num mono">{String(i + 1).padStart(2, '0')}</p>
-          <h2 class="display band-title">{offer.data.name}</h2>
-          <p class="band-summary">{offer.data.summary}</p>
+      </div>
+
+      {/* Body: full-width single reading column on white. */}
+      <div class="offer-body container">
+        <div class="offer-body-inner">
+          <p class="offer-summary">{offer.data.summary}</p>
           <div class="prose offer-prose"><Content /></div>
 
           {related.length > 0 && (
@@ -145,78 +156,93 @@ const bands = await Promise.all(
     color: var(--color-text-muted);
   }
 
-  /* --- Full-bleed brand bands --------------------------------------------- */
-  /* The section spans edge to edge in its brand colour; the illustration sits
-     directly on that colour (its torn transparent edge lets the colour show
-     through — the point of the artwork) and the copy sits on a white card. */
-  .offer-band {
-    padding: var(--space-9) 0;
+  /* --- Offer sections ----------------------------------------------------- */
+  /* Each offer is a short full-bleed colour banner (number + title beside a
+     bounded landscape illustration) followed by a full-width reading column on
+     white. Only the large banner title sits on the colour, which is the one
+     size that clears WCAG AA on coral and draft blue; all body copy stays on
+     white so it keeps ~13:1. */
+  .offer {
     scroll-margin-top: var(--space-6);
   }
 
-  .ground-teal { background: var(--color-ground-1); }
-  .ground-blue { background: var(--color-ground-2); }
-  .ground-coral { background: var(--color-ground-3); }
+  .ground-teal .offer-banner { background: var(--color-ground-1); }
+  .ground-blue .offer-banner { background: var(--color-ground-2); }
+  .ground-coral .offer-banner { background: var(--color-ground-3); }
 
-  .band-inner {
+  .offer-banner {
+    padding: var(--space-7) 0;
+  }
+
+  .banner-inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-8);
-    /* Stretch, not center: the card is taller than the illustration, and
-       centering left a large empty band of colour above the image. The
-       illustration fills the full height of the band beside the card. */
-    align-items: stretch;
+    gap: var(--space-7);
+    align-items: center;
   }
 
-  /* Alternate the illustration side so the three bands have rhythm. Media is
-     column 1 by default; on even bands it swaps to column 2. */
-  .offer-band:nth-of-type(even) .band-media {
-    grid-column: 2;
-    grid-row: 1;
-  }
-  .offer-band:nth-of-type(even) .band-card {
+  /* Alternate the illustration side for rhythm: art is column 2 by default,
+     column 1 on every second offer. */
+  .offer:nth-of-type(even) .banner-art {
     grid-column: 1;
     grid-row: 1;
   }
-
-  .band-media {
-    overflow: hidden;
-    min-height: 24rem;
+  .offer:nth-of-type(even) .banner-head {
+    grid-column: 2;
+    grid-row: 1;
   }
 
-  .band-media img {
+  .banner-head {
+    color: var(--color-text-inverted, #fff);
+  }
+
+  .banner-num {
+    font-size: var(--text-h3);
+    font-weight: var(--weight-bold);
+    opacity: 0.85;
+    margin: 0 0 var(--space-2);
+  }
+
+  .banner-title {
+    font-size: var(--text-display);
+    color: inherit;
+    margin: 0 0 var(--space-3);
+    line-height: var(--leading-tight);
+  }
+
+  /* Bounded landscape box so no illustration stretches tall/thin; the torn
+     transparent edge lets the banner colour show through. */
+  .banner-art {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    border-radius: var(--radius);
+  }
+
+  .banner-art img {
     width: 100%;
     height: 100%;
-    min-height: 24rem;
     object-fit: cover;
     object-position: center;
     display: block;
   }
 
-  /* The copy card. White on the coloured band, so the text keeps ~13:1 teal
-     on white whatever colour the band is. */
-  .band-card {
-    background: var(--color-surface);
-    border-radius: var(--radius);
-    padding: var(--space-7);
+  /* --- Body: one comfortable reading column ------------------------------- */
+  .offer-body {
+    padding: var(--space-8) 0 var(--space-9);
   }
 
-  .band-num {
+  .offer-body-inner {
+    max-width: var(--measure);
+  }
+
+  .offer-summary {
+    font-family: var(--font-display);
     font-size: var(--text-h3);
-    color: var(--color-accent);
-    margin: 0 0 var(--space-2);
-  }
-
-  .band-title {
-    font-size: var(--text-h1);
-    margin: 0 0 var(--space-3);
-    line-height: var(--leading-tight);
-  }
-
-  .band-summary {
-    font-size: var(--text-lead);
-    color: var(--color-text-muted);
+    line-height: var(--leading-snug, 1.3);
+    color: var(--color-text);
     margin: 0 0 var(--space-5);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--color-border);
   }
 
   .offer-prose {
@@ -305,32 +331,28 @@ const bands = await Promise.all(
   }
 
   @media (max-width: 820px) {
-    .offer-band {
-      padding: var(--space-7) 0;
-    }
-    .band-inner {
+    .banner-inner {
       grid-template-columns: 1fr;
-      gap: 0;
+      gap: var(--space-5);
     }
-    /* Illustration on top on every band, whatever the desktop side. */
-    .offer-band:nth-of-type(even) .band-media,
-    .offer-band:nth-of-type(even) .band-card {
+    /* Title above the illustration on every offer, whatever the desktop side. */
+    .offer:nth-of-type(even) .banner-head {
       grid-column: 1;
-    }
-    .band-media {
       grid-row: 1;
-      aspect-ratio: 16 / 10;
-      min-height: 0;
-      max-height: 20rem;
-      border-radius: var(--radius) var(--radius) 0 0;
     }
-    .band-media img {
-      min-height: 0;
-    }
-    .band-card {
+    .offer:nth-of-type(even) .banner-art {
+      grid-column: 1;
       grid-row: 2;
-      border-radius: 0 0 var(--radius) var(--radius);
-      padding: var(--space-6);
+    }
+    .banner-art {
+      aspect-ratio: 16 / 10;
+      max-height: 18rem;
+    }
+    .banner-summary {
+      max-width: none;
+    }
+    .offer-body {
+      padding: var(--space-6) 0 var(--space-8);
     }
   }
 </style>
