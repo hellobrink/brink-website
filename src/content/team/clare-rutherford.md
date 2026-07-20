@@ -5,6 +5,13 @@ location: Manchester, UK
 photo: "/images/66d61888445d704ae1788711_clare_1.webp"
 photoAlt: Clare Rutherford
 sortOrder: 7
+photoHover: "/images/team-hover-clare-rutherford.webp"
+regions: [UK]
+teams: ["Operations"]
+questions:
+  - "TODO placeholder: Lorem ipsum dolor sit amet, consectetur adipiscing elit?"
+  - "TODO placeholder: Sed do eiusmod tempor incididunt ut labore et dolore magna?"
+  - "TODO placeholder: Ut enim ad minim veniam, quis nostrud exercitation ullamco?"
 ---
 
 Clare is Brink’s People Manager, which means she covers anything and everything on how we look after our Brinksters. This includes our full colleague lifecycle from recruitment and onboarding, to how our people develop at Brink. She works closely with our ops team, founder and growth managers.

@@ -4,6 +4,13 @@ role: STORYTELLING EXECUTIVE
 photo: "/images/66d621005056c7e5806d568d_mwaniki_1.webp"
 photoAlt: Mwaniki Nyaga
 sortOrder: 20
+photoHover: "/images/team-hover-mwaniki-nyaga.webp"
+regions: [Africa]
+teams: ["Storytelling"]
+questions:
+  - "TODO placeholder: Lorem ipsum dolor sit amet, consectetur adipiscing elit?"
+  - "TODO placeholder: Sed do eiusmod tempor incididunt ut labore et dolore magna?"
+  - "TODO placeholder: Ut enim ad minim veniam, quis nostrud exercitation ullamco?"
 ---
 
 Kenya

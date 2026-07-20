@@ -1,73 +1,260 @@
 ---
+// Meet the team.
+//
+// Full-bleed teal page, which is how the live site does it and is worth
+// keeping: the page runs straight out of the teal navbar with no seam, and
+// the portraits (all shot on light backgrounds) pop against it.
+//
+// Two behaviours from the old site restored here:
+//   - filtering by region and team
+//   - a second portrait that swaps in on hover, which is most of the page's
+//     personality
 import Layout from '../../layouts/Layout.astro';
 import { withBase } from '../../lib/base';
 import { getCollection } from 'astro:content';
 
 const members = await getCollection('team');
 members.sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+
+// Filters are derived from the content rather than hard-coded, so adding a
+// region or team to a Markdown file is all it takes to add a filter button.
+// Regions and teams stay separate groups because they answer different
+// questions: where someone is, and what they do.
+const regions = [...new Set(members.flatMap((m) => m.data.regions))].sort();
+const teams = [...new Set(members.flatMap((m) => m.data.teams))].sort();
 ---
 
 <Layout
   title="Meet the Team"
   description="Brink is made up of thinkers, doers and dreamers from diverse backgrounds: a global team from London to Nairobi."
 >
-  <div class="container">
-    <header class="page-header">
-      <h1>Meet the team</h1>
-      <p>
-        Brink is made up of thinkers, doers and dreamers from diverse
-        backgrounds. We are a global team, from London to South Wales, Kigali
-        to Paris and Nairobi to Barcelona. Each of us are tackling different,
-        gnarly challenges, and sharing what we learn and discover as we go.
-      </p>
-    </header>
+  <div class="team-page">
+    <div class="container">
+      <header class="page-header">
+        <h1 class="display">Meet the team</h1>
+        <p>
+          Brink is made up of thinkers, doers and dreamers from diverse
+          backgrounds. We are a global team, from London to South Wales, Kigali
+          to Paris and Nairobi to Barcelona. Each of us are tackling different,
+          gnarly challenges, and sharing what we learn and discover as we go.
+        </p>
+      </header>
 
-    <ul class="team-grid">
-      {members.map((m) => (
-        <li class="team-member">
-          <a href={withBase(`/team/${m.id}`)}>
-            {m.data.photo && <img src={withBase(m.data.photo)} alt={m.data.photoAlt ?? m.data.name} />}
-            <h2>{m.data.name}</h2>
-            {m.data.role && <p class="role mono">{m.data.role}</p>}
-            {m.data.location && <p class="location">{m.data.location}</p>}
-          </a>
-        </li>
-      ))}
-    </ul>
+      <div class="filters" role="group" aria-label="Filter the team">
+        <button class="filter is-active" data-filter="all" aria-pressed="true">All</button>
+        {regions.map((r) => (
+          <button class="filter" data-filter={r} aria-pressed="false">{r}</button>
+        ))}
+        <span class="filter-divider" aria-hidden="true"></span>
+        {teams.map((t) => (
+          <button class="filter" data-filter={t} aria-pressed="false">{t}</button>
+        ))}
+      </div>
+
+      <p class="mono filter-status" role="status" aria-live="polite"></p>
+
+      <ul class="team-grid">
+        {members.map((m) => (
+          <li
+            class="team-member"
+            data-tags={[...m.data.regions, ...m.data.teams].join('|')}
+          >
+            <a href={withBase(`/team/${m.id}`)}>
+              <span class="portrait">
+                {m.data.photo && (
+                  <img
+                    class="portrait-main"
+                    src={withBase(m.data.photo)}
+                    alt={m.data.photoAlt ?? m.data.name}
+                    loading="lazy"
+                  />
+                )}
+                {/* Second portrait sits on top and fades in on hover. It's
+                    decorative: the first image already carries the name, so
+                    this one is hidden from screen readers. */}
+                {m.data.photoHover && (
+                  <img
+                    class="portrait-hover"
+                    src={withBase(m.data.photoHover)}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                  />
+                )}
+              </span>
+              <h2>{m.data.name}</h2>
+              {m.data.role && <p class="role mono">{m.data.role}</p>}
+              {m.data.location && <p class="location">{m.data.location}</p>}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
 </Layout>
 
+<script>
+  const grid = document.querySelector('.team-grid');
+  const buttons = [...document.querySelectorAll<HTMLButtonElement>('.filter')];
+  const status = document.querySelector('.filter-status');
+
+  if (grid && buttons.length) {
+    const members = [...grid.querySelectorAll<HTMLElement>('.team-member')];
+
+    const apply = (filter: string) => {
+      let shown = 0;
+      members.forEach((m) => {
+        const tags = (m.dataset.tags ?? '').split('|');
+        const match = filter === 'all' || tags.includes(filter);
+        m.hidden = !match;
+        if (match) shown++;
+      });
+      buttons.forEach((b) => {
+        const on = b.dataset.filter === filter;
+        b.classList.toggle('is-active', on);
+        b.setAttribute('aria-pressed', String(on));
+      });
+      // Announced rather than only visual, so the filter is usable without
+      // being able to see the grid reflow.
+      if (status) {
+        status.textContent =
+          filter === 'all'
+            ? `${shown} people`
+            : `${shown} ${shown === 1 ? 'person' : 'people'} in ${filter}`;
+      }
+    };
+
+    buttons.forEach((b) => b.addEventListener('click', () => apply(b.dataset.filter!)));
+    apply('all');
+  }
+</script>
+
 <style>
+  /* Runs out of the navbar with no seam. */
+  .team-page {
+    background: var(--color-surface-inverted);
+    color: var(--color-text-inverted);
+    padding-bottom: var(--space-10);
+  }
+
   .page-header {
-    padding: var(--space-6) 0 var(--space-5);
+    padding: var(--space-9) 0 var(--space-7);
     max-width: var(--measure);
   }
 
+  .page-header h1 {
+    font-size: var(--text-h1);
+    color: var(--color-surface);
+    margin-bottom: var(--space-4);
+  }
+
+  .page-header p {
+    font-size: var(--text-lead);
+    margin: 0;
+  }
+
+  /* --- Filters ------------------------------------------------------------ */
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+
+  .filter {
+    font-family: var(--font-mono);
+    font-size: var(--text-tag);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-label);
+    padding: var(--space-2) var(--space-4);
+    background: transparent;
+    border: var(--border-width) solid rgba(255, 255, 255, 0.35);
+    border-radius: var(--radius);
+    color: var(--color-surface);
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition),
+      border-color var(--transition);
+  }
+
+  .filter:hover {
+    border-color: var(--color-surface);
+  }
+
+  .filter.is-active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-surface);
+  }
+
+  /* Separates "where" from "what they do" without a second row of chrome. */
+  .filter-divider {
+    width: var(--border-width);
+    align-self: stretch;
+    background: rgba(255, 255, 255, 0.25);
+    margin: 0 var(--space-2);
+  }
+
+  .filter-status {
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-7);
+    min-height: 1em; /* reserve the line so the grid doesn't jump */
+  }
+
+  /* --- Grid --------------------------------------------------------------- */
   .team-grid {
     list-style: none;
-    margin: 0 0 var(--space-9);
+    margin: 0;
     padding: 0;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: var(--space-6);
+    gap: var(--space-7) var(--space-6);
+  }
+
+  .team-member[hidden] {
+    display: none; /* beat the grid item's own display value */
   }
 
   .team-member a {
     display: block;
     text-decoration: none;
-    color: var(--color-text);
+    color: var(--color-text-inverted);
   }
 
-  .team-member img {
-    width: 100%;
+  /* The two portraits are stacked, so the swap is a cross-fade in place with
+     no reflow and no flash of empty space. */
+  .portrait {
+    position: relative;
+    display: block;
     aspect-ratio: 1 / 1;
-    object-fit: cover;
+    overflow: hidden;
     border-radius: var(--radius);
+    background: rgba(255, 255, 255, 0.08);
     margin-bottom: var(--space-3);
+  }
+
+  .portrait img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .portrait-hover {
+    opacity: 0;
+    transition: opacity var(--transition);
+  }
+
+  .team-member a:hover .portrait-hover,
+  .team-member a:focus-visible .portrait-hover {
+    opacity: 1;
   }
 
   .team-member h2 {
     font-size: var(--text-h3);
+    color: var(--color-surface);
     margin: 0 0 var(--space-1);
   }
 
@@ -76,7 +263,7 @@ members.sort((a, b) => a.data.sortOrder - b.data.sortOrder);
   }
 
   .role {
-    color: var(--color-label);
+    color: var(--color-accent);
     margin: 0 0 var(--space-1);
   }
 
@@ -84,5 +271,25 @@ members.sort((a, b) => a.data.sortOrder - b.data.sortOrder);
     font-size: var(--text-body-sm);
     color: var(--color-text-muted);
     margin: 0;
+  }
+
+  /* Touch devices have no hover, so the second portrait would never be seen.
+     Cross-fade the pair on a slow loop instead. */
+  @media (hover: none) {
+    .portrait-hover {
+      animation: portrait-swap 9s ease-in-out infinite;
+    }
+    @keyframes portrait-swap {
+      0%, 42% { opacity: 0; }
+      50%, 92% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .portrait-hover {
+      animation: none;
+      transition: none;
+    }
   }
 </style>

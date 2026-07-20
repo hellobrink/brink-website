@@ -1,4 +1,10 @@
 ---
+// A single team bio.
+//
+// Three things restored from the live site: a much larger portrait, the
+// "Questions X is exploring right now" block with its coral rule, and
+// related posts shown as cards with thumbnails rather than a bare list of
+// links.
 import Layout from '../../layouts/Layout.astro';
 import { withBase } from '../../lib/base';
 import { getCollection, render } from 'astro:content';
@@ -15,8 +21,10 @@ const { member } = Astro.props;
 const { Content } = await render(member);
 const { data } = member;
 
-// Posts this person wrote — the live bio pages list these, and it's the
-// reason the blog collection carries an authorSlug.
+const firstName = data.name.split(' ')[0];
+
+// Posts this person wrote. The blog collection carries an authorSlug for
+// exactly this.
 const allPosts = await getCollection('blog');
 const authored = allPosts
   .filter((p) => p.data.authorSlug === member.id)
@@ -24,35 +32,75 @@ const authored = allPosts
 ---
 
 <Layout title={data.name} description={`${data.name}${data.role ? `, ${data.role}` : ''} at Brink.`}>
-  <article class="container bio">
-    <p class="back"><a href={withBase('/team')}>&larr; Meet the team</a></p>
+  <article class="bio">
+    <div class="container">
+      <p class="back"><a href={withBase('/team')}>&larr; Meet the team</a></p>
 
-    <header class="bio-header">
-      {data.photo && <img class="portrait" src={withBase(data.photo)} alt={data.photoAlt ?? data.name} />}
-      <div>
-        <h1>{data.name}</h1>
-        {data.role && <p class="role mono">{data.role}</p>}
-        {data.location && <p class="location">{data.location}</p>}
-        {data.linkedin && (
-          <p><a href={data.linkedin} target="_blank" rel="noopener">LinkedIn</a></p>
+      <header class="bio-header">
+        {data.photo && (
+          <span class="portrait">
+            <img
+              class="portrait-main"
+              src={withBase(data.photo)}
+              alt={data.photoAlt ?? data.name}
+              fetchpriority="high"
+            />
+            {/* Same swap as the team grid, so the pair of portraits behaves
+                consistently across both pages. */}
+            {data.photoHover && (
+              <img class="portrait-hover" src={withBase(data.photoHover)} alt="" aria-hidden="true" />
+            )}
+          </span>
+        )}
+        <div class="bio-meta">
+          <h1 class="display">{data.name}</h1>
+          {data.role && <p class="role mono">{data.role}</p>}
+          {data.location && <p class="location">{data.location}</p>}
+          {data.linkedin && (
+            <p class="linkedin">
+              <a href={data.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn &rarr;</a>
+            </p>
+          )}
+        </div>
+      </header>
+
+      <div class="bio-body">
+        <div class="prose">
+          <Content />
+        </div>
+
+        {data.questions.length > 0 && (
+          <section class="questions">
+            <h2 class="display">Questions {firstName} is exploring in their work right now</h2>
+            <ul>
+              {data.questions.map((q) => <li>{q}</li>)}
+            </ul>
+          </section>
         )}
       </div>
-    </header>
-
-    <div class="prose">
-      <Content />
     </div>
 
     {authored.length > 0 && (
       <section class="authored">
-        <h2>{data.name.split(' ')[0]}'s posts</h2>
-        <ul>
-          {authored.map((post) => (
-            <li>
-              <a href={withBase(`/blog/${post.id}`)}>{post.data.title}</a>
-            </li>
-          ))}
-        </ul>
+        <div class="container">
+          <h2 class="display">{firstName}&rsquo;s writing</h2>
+          <ul class="post-grid">
+            {authored.map((post) => (
+              <li>
+                <a class="post-card" href={withBase(`/blog/${post.id}`)}>
+                  {post.data.heroImage && (
+                    <img
+                      src={withBase(post.data.heroImage)}
+                      alt={post.data.heroAlt ?? post.data.title}
+                      loading="lazy"
+                    />
+                  )}
+                  <h3>{post.data.title}</h3>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
     )}
   </article>
@@ -62,7 +110,6 @@ const authored = allPosts
   .bio {
     padding-top: var(--space-6);
     padding-bottom: var(--space-9);
-    max-width: var(--measure);
   }
 
   .back a {
@@ -71,60 +118,164 @@ const authored = allPosts
     letter-spacing: var(--tracking-label);
     text-transform: uppercase;
     text-decoration: none;
-    color: var(--color-text-muted);
+    color: var(--color-label);
   }
 
+  .back a:hover {
+    color: var(--color-accent);
+  }
+
+  /* The portrait is the point of a bio page, so it gets real size rather
+     than the thumbnail it had been reduced to. */
   .bio-header {
-    display: flex;
-    gap: var(--space-6);
-    align-items: flex-start;
-    margin: var(--space-5) 0 var(--space-7);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-8);
+    align-items: center;
+    margin: var(--space-6) 0 var(--space-8);
   }
 
   .portrait {
-    width: 200px;
+    position: relative;
+    display: block;
     aspect-ratio: 1 / 1;
-    object-fit: cover;
+    overflow: hidden;
     border-radius: var(--radius);
-    flex-shrink: 0;
+    background: var(--color-surface-muted);
+  }
+
+  .portrait img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .portrait-hover {
+    opacity: 0;
+    transition: opacity var(--transition);
+  }
+
+  .portrait:hover .portrait-hover {
+    opacity: 1;
   }
 
   .bio-header h1 {
-    margin-bottom: var(--space-2);
+    font-size: var(--text-display);
+    margin: 0 0 var(--space-3);
   }
 
   .role {
-    color: var(--color-label);
-    margin: 0 0 var(--space-1);
+    color: var(--color-accent);
+    margin: 0 0 var(--space-2);
   }
 
   .location {
     color: var(--color-text-muted);
-    margin: 0 0 var(--space-3);
+    margin: 0 0 var(--space-4);
   }
 
-  .authored {
+  .linkedin a {
+    font-family: var(--font-mono);
+    font-size: var(--text-tag);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-label);
+    color: var(--color-label);
+    text-decoration: none;
+  }
+
+  .linkedin a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .bio-body {
+    max-width: var(--measure);
+  }
+
+  /* --- Questions ---------------------------------------------------------- */
+  /* The coral rule above this block is how the live site marks it out, and
+     it's the one moment of brand colour on an otherwise plain page. */
+  .questions {
     margin-top: var(--space-8);
-    padding-top: var(--space-5);
-    border-top: var(--border-width) solid var(--color-border);
+    padding-top: var(--space-6);
+    border-top: var(--border-width-button) solid var(--color-accent);
   }
 
-  .authored ul {
+  .questions h2 {
+    font-size: var(--text-h2);
+    margin: 0 0 var(--space-5);
+    max-width: var(--measure-narrow);
+  }
+
+  .questions ul {
     list-style: none;
+    margin: 0;
     padding: 0;
   }
 
-  .authored li {
-    margin-bottom: var(--space-2);
+  .questions li {
+    padding: var(--space-4) 0;
+    border-bottom: var(--border-width) solid var(--color-border);
+    font-size: var(--text-body);
   }
 
-  @media (max-width: 640px) {
+  .questions li:first-child {
+    padding-top: 0;
+  }
+
+  /* --- Authored posts ----------------------------------------------------- */
+  .authored {
+    margin-top: var(--space-9);
+    padding-top: var(--space-8);
+    background: var(--color-surface-muted);
+    padding-bottom: var(--space-8);
+  }
+
+  .authored h2 {
+    font-size: var(--text-display);
+    margin: 0 0 var(--space-6);
+  }
+
+  .post-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .post-card {
+    display: block;
+    text-decoration: none;
+    color: var(--color-text);
+  }
+
+  .post-card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: var(--space-3);
+  }
+
+  .post-card h3 {
+    font-size: var(--text-h3);
+    margin: 0;
+  }
+
+  .post-card:hover h3 {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 760px) {
     .bio-header {
-      flex-direction: column;
-    }
-    .portrait {
-      width: 100%;
-      max-width: 260px;
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
     }
   }
 </style>

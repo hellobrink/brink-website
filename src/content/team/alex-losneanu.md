@@ -4,6 +4,12 @@ role: Innovation Director
 photo: "/images/66d6150d565356fb8e364cd7_alex_1.webp"
 photoAlt: Alex Losneanu
 sortOrder: 1
+photoHover: "/images/team-hover-alex-losneanu.webp"
+regions: [Europe]
+teams: ["Venturing"]
+questions:
+  - "How do you design a systemic fund to bring together progressive investors and partners to collectively make long-term change?"
+  - "How might a multi-pronged, cross-disciplinary approach help address antimicrobial resistance in low and middle income countries?"
 ---
 
 Barcelona
@@ -13,12 +19,3 @@ Alex leads the [Better Futures CoLab](https://www.makingbetterfutures.org/?ref=h
 Alex is a strategist with 13 years of experience, consulting for governments and large corporates across multiple industries such as healthcare, energy, manufacturing, big tech, FMCG. She holds an MSc in Intercultural Communication for Business from the University of Warwick, and is currently training to become a coach with the Coach Training Institute.
 
 Before Brink, she worked in strategy consulting, launching new ventures such as a global healthcare platform for the ageing population, a new government service to tackle fuel poverty, a new defence training business, or the commercialisation of new quantum-inspired tech. She loved the thrill of building new things, and wanted to connect it all to global and purposeful work. So, she joined Brink!
-
-Questions
-
-Alex
-
-is exploring in their work right now:
-
-- How do you design a systemic fund to bring together progressive investors and partners to collectively make long-term change?
-- How might a multi-pronged, cross-disciplinary approach help address antimicrobial resistance in low and middle income countries?

@@ -5,6 +5,13 @@ location: London, UK
 photo: "/images/66d61ee1b8989d2d1eda8031_johannes_1.webp"
 photoAlt: Johannes Meyer
 sortOrder: 15
+photoHover: "/images/team-hover-johannes-meyer.webp"
+regions: [UK]
+teams: ["Learning Journeys"]
+questions:
+  - "TODO placeholder: Lorem ipsum dolor sit amet, consectetur adipiscing elit?"
+  - "TODO placeholder: Sed do eiusmod tempor incididunt ut labore et dolore magna?"
+  - "TODO placeholder: Ut enim ad minim veniam, quis nostrud exercitation ullamco?"
 ---
 
 Johannes believes that through a combination of creativity and meeting our human fears, biases and beliefs head on we can deeply change the world. As Innovation Manager, he works with people, teams and organisations to practice ways in which they can be creative and brave. His coaching style is informed by his experience in human-centered design, innovation strategy, facilitation and psychotherapy.

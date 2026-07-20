@@ -6,6 +6,13 @@ photo: "/images/66d617aa4b588f2b5d331076_katy_1-2.webp"
 photoAlt: Catherine Wambũi Kuria
 linkedin: "https://rw.linkedin.com/in/catherinewambuikuria"
 sortOrder: 6
+photoHover: "/images/team-hover-catherine-wambui-kuria.jpg"
+regions: [Africa]
+teams: ["Delivery"]
+questions:
+  - "TODO placeholder: Lorem ipsum dolor sit amet, consectetur adipiscing elit?"
+  - "TODO placeholder: Sed do eiusmod tempor incididunt ut labore et dolore magna?"
+  - "TODO placeholder: Ut enim ad minim veniam, quis nostrud exercitation ullamco?"
 ---
 
 Catherine is a mission-driven program manager with over seven years ofexperience working across Africa’s education, health, and entrepreneurship ecosystems.

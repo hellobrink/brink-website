@@ -5,6 +5,13 @@ photo: "/images/681a125936c3c5519f46ed45_gracie_2.jpg"
 photoAlt: Grace Owiti
 linkedin: "https://www.linkedin.com/in/grace-owiti/"
 sortOrder: 11
+photoHover: "/images/team-hover-grace-owiti.jpg"
+regions: [Africa]
+teams: ["Collectives"]
+questions:
+  - "TODO placeholder: Lorem ipsum dolor sit amet, consectetur adipiscing elit?"
+  - "TODO placeholder: Sed do eiusmod tempor incididunt ut labore et dolore magna?"
+  - "TODO placeholder: Ut enim ad minim veniam, quis nostrud exercitation ullamco?"
 ---
 
 Nairobi

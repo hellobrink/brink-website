@@ -117,12 +117,20 @@ const team = defineCollection({
     location: z.string().optional(),
     photo: z.string().optional(),
     photoAlt: z.string().optional(),
+    // Second portrait, swapped in on hover. Every team member has one on the
+    // live site (Name_1 / Name_2), and the swap is a big part of the page's
+    // character, so it is worth keeping.
+    photoHover: z.string().optional(),
     linkedin: z.string().url().optional(),
     // The live /team page filters by these. Free text rather than an enum:
     // the taxonomy is the client's and shouldn't hard-fail a build if they
     // add a region or team.
     regions: z.array(z.string()).default([]),
     teams: z.array(z.string()).default([]),
+    // "Questions <name> is exploring in their work right now". Lifted out of
+    // the Markdown body because the bio page gives it its own treatment, and
+    // because the scraper had shredded the heading into three fragments.
+    questions: z.array(z.string()).default([]),
     sortOrder: z.number().default(0),
   }),
 });
