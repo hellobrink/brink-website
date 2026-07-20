@@ -9,7 +9,7 @@ Across Brink’s work with FCDO, city mayors, the World Bank and everything in b
 **Brink addresses cultural and systemic barriers to innovation through:**
 
 - Dedicated funding vehicles like the £25M [EdTech Hub](https://edtechhub.org/) (2020-present) influencing national education policies
-- City-level programs such as the [Africa Smart Towns Network](https://www.do4africa.org/en/african-smart-towns-network-aston/)supporting 11 municipalities with €50-55K grants to test digital initiatives that eventually shifted city hall strategy
+- City-level programmes such as the [Africa Smart Towns Network](https://www.do4africa.org/en/african-smart-towns-network-aston/) supporting 11 municipalities with €50-55K grants to test digital initiatives that eventually shifted city hall strategy
 - [Frontier technology experimentation](https://www.frontiertechhub.org/) across FCDO including £14.3M in drone/AI pilots for development challenges
 
 **Key features include:**

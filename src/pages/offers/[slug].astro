@@ -1,109 +1,31 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import CaseStudyCard from '../../components/CaseStudyCard.astro';
+// The three offers now live on one page (offers/index.astro). These routes
+// stay only to redirect any existing /offers/<slug>/ links to the matching
+// anchor on that page, so nothing 404s. Static build, so it's a meta refresh.
 import { withBase } from '../../lib/base';
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const offers = await getCollection('offers');
-  return offers.map((offer) => ({
-    params: { slug: offer.id },
-    props: { offer },
-  }));
+  return offers.map((offer) => ({ params: { slug: offer.id } }));
 }
 
-const { offer } = Astro.props;
-const { Content } = await render(offer);
-
-const allWork = await getCollection('work');
-const relatedWork = allWork
-  .filter((item) => item.data.offer.includes(offer.id))
-  .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+const { slug } = Astro.params;
+const target = withBase(`/offers/#${slug}`);
 ---
 
-<Layout title={offer.data.name} description={offer.data.summary}>
-  <article class="container offer-detail">
-    <p class="back"><a href={withBase('/offers')}>&larr; All offers</a></p>
-    <header class="offer-header">
-      <div>
-        <h1>{offer.data.name}</h1>
-        <p class="summary">{offer.data.summary}</p>
-      </div>
-      {offer.data.image && (
-        <img src={withBase(offer.data.image)} alt="" class="sticker" />
-      )}
-    </header>
-    <div class="prose">
-      <Content />
-    </div>
-
-    {relatedWork.length > 0 && (
-      <section class="related">
-        <h2>Related work</h2>
-        <ul class="grid">
-          {relatedWork.map((item) => (
-            <li>
-              <CaseStudyCard
-                slug={item.id}
-                title={item.data.title}
-                headlineResult={item.data.headlineResult}
-                heroImage={item.data.heroImage}
-                heroAlt={item.data.heroAlt}
-              />
-            </li>
-          ))}
-        </ul>
-      </section>
-    )}
-  </article>
-</Layout>
-
-<style>
-  .offer-detail {
-    padding-top: var(--space-6);
-    padding-bottom: var(--space-9);
-  }
-
-  .back a {
-    font-family: var(--font-mono);
-    font-size: var(--text-tag);
-    text-decoration: none;
-    color: var(--color-text-muted);
-  }
-
-  .offer-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: var(--space-6);
-  }
-
-  .sticker {
-    width: 120px;
-    height: auto;
-    flex-shrink: 0;
-  }
-
-  .summary {
-    font-size: var(--text-body);
-    color: var(--color-text-muted);
-    max-width: var(--measure-narrow);
-  }
-
-  .prose {
-    max-width: var(--measure);
-  }
-
-  .related {
-    margin-top: var(--space-8);
-  }
-
-  .grid {
-    list-style: none;
-    margin: var(--space-5) 0;
-    padding: 0;
-    display: grid;
-    gap: var(--space-5);
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  }
-</style>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={target} />
+    <title>Redirecting…</title>
+    <script is:inline define:vars={{ target }}>
+      window.location.replace(target);
+    </script>
+  </head>
+  <body>
+    <p>This page has moved. <a href={target}>Continue to our offers</a>.</p>
+  </body>
+</html>
