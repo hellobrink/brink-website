@@ -61,9 +61,8 @@ const offers = [
   </div>
 
   {/* Current work: full-width bands, alternating paper and teal so no two
-      neighbours share a ground. Only one of these six has a photograph, so
-      the band has to look deliberate without one: where there's no image the
-      second column carries the funder and partner names instead. */}
+      neighbours share a ground. Copy on the left with its credits beneath,
+      photograph on the right stretched to match the copy's height. */}
   <section class="work-group" data-group="current">
     <div class="container">
       <h2 class="display group-heading">Current programmes and projects</h2>
@@ -92,11 +91,36 @@ const offers = [
             <span class="mono read-more">
               {item.data.hasCaseStudy ? 'Read the case study' : 'Read more'} &rarr;
             </span>
+
+            {/* Attribution, not calls to action: small, quiet, and under the
+                link rather than competing with the photograph. */}
+            {(item.data.funders.length > 0 || item.data.partners.length > 0) && (
+              <div class="band-credits">
+                {([['Funders', item.data.funders], ['Partners', item.data.partners]] as const).map(
+                  ([label, list]) =>
+                    list.length > 0 && (
+                      <p class="credit">
+                        <span class="mono credit-label">{label}</span>
+                        {list.map((c, n) => (
+                          <>
+                            {n > 0 && <span class="sep" aria-hidden="true">·</span>}
+                            {c.url ? (
+                              <a href={c.url} target="_blank" rel="noopener noreferrer">{c.name}</a>
+                            ) : (
+                              <span>{c.name}</span>
+                            )}
+                          </>
+                        ))}
+                      </p>
+                    )
+                )}
+              </div>
+            )}
           </div>
 
+          {/* A photograph of the work, not the logomark. The logo is the
+              brand; the photograph is the point. */}
           <div class="band-aside">
-            {/* A photograph of the work, not the logomark. The logo is the
-                brand; the photograph is the point. */}
             {item.data.heroImage && (
               <img
                 class="band-photo"
@@ -104,29 +128,6 @@ const offers = [
                 alt={item.data.heroAlt ?? item.data.programmeName ?? item.data.title}
                 loading="lazy"
               />
-            )}
-            {(item.data.funders.length > 0 || item.data.partners.length > 0) && (
-              <div class="band-credits">
-                {([['Funders', item.data.funders], ['Partners', item.data.partners]] as const).map(
-                  ([label, list]) =>
-                    list.length > 0 && (
-                      <div class="credit">
-                        <p class="mono credit-label">{label}</p>
-                        <ul>
-                          {list.map((c) => (
-                            <li>
-                              {c.url ? (
-                                <a href={c.url} target="_blank" rel="noopener noreferrer">{c.name}</a>
-                              ) : (
-                                c.name
-                              )}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )
-                )}
-              </div>
             )}
           </div>
         </div>
@@ -249,24 +250,30 @@ const offers = [
     color: var(--color-text-inverted);
   }
 
+  /* `stretch`, so the row's height is set by the copy and the photograph
+     matches it instead of floating centred against a taller column. */
   .band-inner {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: var(--space-8);
-    align-items: center;
+    align-items: stretch;
   }
 
+  /* The photo is absolutely positioned inside this stretched cell rather
+     than sized with a percentage height. A percentage would have to resolve
+     against the grid area while the item is also being stretched by it,
+     which browsers treat as cyclic and quietly drop: the same trap
+     documented in LogoGrid.astro. inset:0 has no such problem. */
   .band-aside {
-    display: grid;
-    gap: var(--space-5);
-    align-content: start;
+    position: relative;
+    min-height: 18rem;
   }
 
-  /* 4:3 rather than a wide letterbox: these are photographs of people, and
-     a long thin crop of a person reads as an accident. */
   .band-photo {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    aspect-ratio: 4 / 3;
+    height: 100%;
     object-fit: cover;
     border-radius: var(--radius);
     display: block;
@@ -345,45 +352,54 @@ const offers = [
     gap: var(--space-5);
   }
 
-  .credit-label {
-    color: var(--color-accent);
-    margin: 0 0 var(--space-2);
-  }
-
   .credit ul {
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
-  /* Several programmes have five or six credits, so these are set at body
-     size in a wrapping row rather than as a tall serif list. */
-  .credit ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-1) var(--space-4);
+  /* Above the band's stretched headline link, or the credits aren't
+     clickable. */
+  .band-credits {
+    position: relative;
+    z-index: 1;
+    margin-top: var(--space-6);
   }
 
-  .credit li {
-    font-size: var(--text-body-sm);
-    line-height: var(--leading-snug);
+  .credit {
+    font-size: var(--text-tag);
+    line-height: var(--leading-normal);
+    margin: 0 0 var(--space-2);
+  }
+
+  .credit-label {
+    font-size: var(--text-2xs);
+    color: var(--color-accent);
+    margin-right: var(--space-3);
+  }
+
+  .sep {
+    margin: 0 var(--space-2);
+    opacity: 0.5;
+  }
+
+  .ground-paper .credit {
+    color: var(--color-text-muted);
+  }
+
+  .ground-teal .credit {
+    color: var(--color-text-inverted);
+    opacity: 0.75;
   }
 
   .credit a {
     color: inherit;
-    text-decoration: none;
-    border-bottom: var(--border-width) solid currentColor;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
   }
 
   .credit a:hover {
     color: var(--color-accent);
-  }
-
-  /* The band headline is a stretched link covering the whole band, so the
-     credit links need lifting above it to stay clickable. */
-  .band-credits {
-    position: relative;
-    z-index: 1;
   }
 
   /* --- Past work: compact grid --------------------------------------------- */
