@@ -1,6 +1,6 @@
 ---
 title: Improving access to medical oxygen in low and middle income countries
-summary: "Brought together manufacturers, engineers, innovators, hackers and backers to accelerate the development of new and innovative robust oxygen concentrators in low-resource settings."
+summary: "The FCDO-funded Oxygen CoLab exists to address the shortage of oxygen provision in low-resource settings. To date, across the portfolio of five grantees, more than 10,000 patients have been treated; and in 2024, for the first time ever, there will be fit-for-purpose oxygen concentrators for low-resource settings in the world."
 sector: [health]
 offer: [missions]
 status: current
@@ -11,6 +11,12 @@ logo: "/images/logo-oxygen-colab.png"
 logoAlt: "Oxygen CoLab"
 heroImage: "/images/work-thin-air-that-saves-lives.jpeg"
 heroAlt: "Improving access to medical oxygen"
+funders:
+  - name: "FCDO"
+    url: "https://www.gov.uk/government/organisations/foreign-commonwealth-development-office"
+partners:
+  - name: "UNICEF"
+    url: "https://www.unicef.org.uk/"
 ---
 
 ## There's something in the air

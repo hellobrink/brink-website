@@ -10,6 +10,22 @@ logo: "/images/logo-vaccine-data-colab.png"
 logoAlt: "Vaccine Data CoLab"
 heroImage: "/images/work-bringing-together-partners-and-funders-to-crea.png"
 heroAlt: "Bringing together partners and funders"
+funders:
+  - name: "FCDO"
+    url: "https://www.gov.uk/government/organisations/foreign-commonwealth-development-office"
+partners:
+  - name: "Infectious Disease Institute"
+    url: "https://idi.mak.ac.ug/"
+  - name: "Makarere University"
+    url: "https://www.mak.ac.ug/"
+  - name: "Dev Afrique"
+    url: "https://devafrique.com/"
+  - name: "DT Global"
+    url: "https://dt-global.com/"
+  - name: "Vaccine Confidence Project"
+    url: "https://www.vaccineconfidence.org/"
+  - name: "Data for Implementation"
+    url: "https://datafi.thepalladiumgroup.com/"
 ---
 
 

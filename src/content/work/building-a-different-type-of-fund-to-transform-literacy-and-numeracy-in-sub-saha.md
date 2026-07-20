@@ -5,12 +5,17 @@ status: current
 hasCaseStudy: false
 externalLink: "https://www.gatesfoundation.org/"
 sortOrder: 1000
-funders: ["Bill and Melinda Gates Foundation"]
 programmeName: "uBora Bora"
 logo: "/images/logo-ubora-bora.png"
 logoAlt: "uBora Bora"
 heroImage: "/images/work-building-a-different-type-of-fund-to-transform.jpg"
 heroAlt: "Building a different type of fund to transform literacy"
+funders:
+  - name: "Bill and Melinda Gates Foundation"
+    url: "https://www.gatesfoundation.org/"
+partners:
+  - name: "Laterite"
+    url: "https://www.laterite.com/"
 ---
 
 

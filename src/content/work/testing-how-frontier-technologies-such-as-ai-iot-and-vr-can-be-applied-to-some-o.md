@@ -10,6 +10,14 @@ logo: "/images/logo-frontier-tech-hub.png"
 logoAlt: "Frontier Tech Hub"
 heroImage: "/images/work-testing-how-frontier-technologies-such-as-ai-i.png"
 heroAlt: "Testing how frontier technologies such as AI"
+funders:
+  - name: "FCDO"
+    url: "https://www.gov.uk/government/organisations/foreign-commonwealth-development-office"
+partners:
+  - name: "Results For Development"
+    url: "https://r4d.org/"
+  - name: "DT Global"
+    url: "https://dt-global.com/"
 ---
 
 

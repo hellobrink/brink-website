@@ -7,6 +7,11 @@ import { glob } from 'astro/loaders';
 // else is a lighter summary. Sector and offer pages pull from here by tag
 // rather than maintaining separate content. See brief section "Possible
 // content model" / Decision 1.
+const credit = z.union([
+  z.string().transform((name) => ({ name, url: undefined as string | undefined })),
+  z.object({ name: z.string(), url: z.string().url().optional() }),
+]);
+
 const work = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/work' }),
   schema: z.object({
@@ -28,8 +33,11 @@ const work = defineCollection({
       .array(z.enum(['open-innovation', 'carve-outs', 'missions']))
       .default([]),
     status: z.enum(['current', 'past']).default('past'),
-    funders: z.array(z.string()).default([]),
-    partners: z.array(z.string()).default([]),
+    // A credit is either a plain name or a name with a link. The string form
+    // is normalised to the object form, so the 24 older entries that are
+    // just names keep working and new ones can carry a URL.
+    funders: z.array(credit).default([]),
+    partners: z.array(credit).default([]),
     externalLink: z.string().url().optional(),
     hasCaseStudy: z.boolean().default(false),
     // Headline result shown on case-study cards, e.g. "£2.4m unlocked for
