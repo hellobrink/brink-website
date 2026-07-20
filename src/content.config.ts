@@ -39,6 +39,11 @@ const work = defineCollection({
     funders: z.array(credit).default([]),
     partners: z.array(credit).default([]),
     externalLink: z.string().url().optional(),
+    // Some programmes have no case study of their own but Brink's write-up
+    // lives on a sibling entry. EdTech Hub is the clearest: the current
+    // programme card links to the "Realising the potential of technology"
+    // case study. Slug of that other work item.
+    caseStudyRef: z.string().optional(),
     hasCaseStudy: z.boolean().default(false),
     // Headline result shown on case-study cards, e.g. "£2.4m unlocked for
     // 12 climate-tech teams". Only meaningful when hasCaseStudy is true.

@@ -14,6 +14,26 @@ allWork.sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 const current = allWork.filter((item) => item.data.status === 'current');
 const past = allWork.filter((item) => item.data.status === 'past');
 
+// Where "Read more" goes, in priority order. Most of this collection has no
+// case study of its own: those entries belong to programmes that live on
+// their own sites, and sending them to a thin internal summary page instead
+// of the real thing was the wrong default.
+//   1. its own case study, if it has one
+//   2. a sibling entry's case study, if the write-up lives there
+//   3. the programme's own site, opened in a new tab
+function destination(item: (typeof allWork)[number]) {
+  if (item.data.hasCaseStudy) {
+    return { href: withBase(`/our-work/${item.id}`), external: false, label: 'Read the case study' };
+  }
+  if (item.data.caseStudyRef) {
+    return { href: withBase(`/our-work/${item.data.caseStudyRef}`), external: false, label: 'Read the case study' };
+  }
+  if (item.data.externalLink) {
+    return { href: item.data.externalLink, external: true, label: 'Visit the programme' };
+  }
+  return { href: withBase(`/our-work/${item.id}`), external: false, label: 'Read more' };
+}
+
 const sectors = ['climate', 'health', 'education'];
 const offers = [
   { value: 'open-innovation', label: 'Open Innovation' },
@@ -75,21 +95,27 @@ const offers = [
         data-offer={item.data.offer.join(',')}
         data-status={item.data.status}
       >
-        <div class="container band-inner">
+        <div class="container band-inner" data-dest={destination(item).href}>
           {/* The programme's name is the headline and its descriptive title
               becomes the standfirst beneath it. The other way round buried
               the name in a micro-kicker while a 90-character sentence did
               the shouting. */}
           <div class="band-copy">
             <h3 class="display band-name">
-              <a href={withBase(`/our-work/${item.id}`)}>
+              <a
+                href={destination(item).href}
+                {...(destination(item).external
+                  ? { target: '_blank', rel: 'noopener noreferrer' }
+                  : {})}
+              >
                 {item.data.programmeName ?? item.data.title}
               </a>
             </h3>
             {item.data.programmeName && <p class="band-tagline">{item.data.title}</p>}
             <p class="band-summary">{item.data.summary}</p>
             <span class="mono read-more">
-              {item.data.hasCaseStudy ? 'Read the case study' : 'Read more'} &rarr;
+              {destination(item).label}
+              {destination(item).external ? ' \u2197' : ' \u2192'}
             </span>
 
             {/* Attribution, not calls to action: small, quiet, and under the
@@ -146,7 +172,10 @@ const offers = [
             data-offer={item.data.offer.join(',')}
             data-status={item.data.status}
           >
-            <a href={withBase(`/our-work/${item.id}`)}>
+            <a
+              href={destination(item).href}
+              {...(destination(item).external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            >
               {item.data.heroImage && (
                 <img src={withBase(item.data.heroImage)} alt={item.data.heroAlt ?? item.data.title} loading="lazy" />
               )}
