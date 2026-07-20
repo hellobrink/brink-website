@@ -51,8 +51,9 @@ const facts: Array<{ label: string; value: string }> = [
     label: 'Sector',
     value: data.sector.map((s) => s[0].toUpperCase() + s.slice(1)).join(', '),
   },
-  data.dates && { label: 'Dates', value: data.dates },
-  { label: 'Status', value: data.status === 'current' ? 'Current' : 'Completed' },
+  // Timeline rather than status: "Completed" tells a reader nothing they
+  // can use, whereas the dates place the work in time.
+  data.timeline && { label: 'Timeline', value: data.timeline },
 ].filter(Boolean) as Array<{ label: string; value: string }>;
 ---
 
@@ -165,7 +166,7 @@ const facts: Array<{ label: string; value: string }> = [
             narrative and pinned so they stay available the whole way down. */}
         <aside class="facts">
           <div class="facts-inner">
-            <h2 class="facts-title">{data.programmeName ?? data.title}</h2>
+            {/* No heading: the first row already names the programme. */}
             <dl>
               {facts.map((f) => (
                 <div class="fact">
@@ -476,16 +477,13 @@ const facts: Array<{ label: string; value: string }> = [
     padding: var(--space-6);
   }
 
-  .facts-title {
-    font-family: var(--font-display);
-    font-weight: var(--weight-display);
-    font-size: var(--text-h2);
-    line-height: var(--leading-tight);
+  .facts dl {
     margin: 0 0 var(--space-5);
   }
 
-  .facts dl {
-    margin: 0 0 var(--space-5);
+  /* Without the heading the first row needs its own top edge. */
+  .fact:first-child {
+    border-top: var(--border-width) solid var(--color-border);
   }
 
   .fact {

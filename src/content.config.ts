@@ -68,7 +68,7 @@ const work = defineCollection({
         photoAlt: z.string().optional(),
       })
       .optional(),
-    dates: z.string().optional(),
+    timeline: z.string().optional(),
     location: z.string().optional(),
     fullStoryUrl: z.string().url().optional(),
     gallery: z.array(z.object({ image: z.string(), alt: z.string(), caption: z.string().optional() })).default([]),

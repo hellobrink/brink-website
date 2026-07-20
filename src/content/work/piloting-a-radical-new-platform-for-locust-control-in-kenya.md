@@ -11,6 +11,7 @@ hasCaseStudy: true
 sortOrder: 2
 programmeName: "Frontier Tech Hub"
 location: "Samburu, Kenya"
+timeline: "June 2020 - March 2022"
 funders:
   - name: "FCDO"
     url: "https://www.gov.uk/government/organisations/foreign-commonwealth-development-office"
