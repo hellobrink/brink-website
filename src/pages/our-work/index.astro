@@ -347,29 +347,20 @@ const offers = [
     text-decoration: underline;
   }
 
-  .band-credits {
-    display: grid;
-    gap: var(--space-5);
-  }
-
-  .credit ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
   /* Above the band's stretched headline link, or the credits aren't
-     clickable. */
+     clickable. Plain block flow: an earlier `display: grid` with a 24px gap
+     survived a rewrite here and stacked on top of the paragraph margin,
+     making a 32px gap between two lines that belong together. */
   .band-credits {
     position: relative;
     z-index: 1;
-    margin-top: var(--space-6);
+    margin-top: var(--space-5);
   }
 
   .credit {
     font-size: var(--text-tag);
-    line-height: var(--leading-normal);
-    margin: 0 0 var(--space-2);
+    line-height: var(--leading-snug);
+    margin: 0 0 var(--space-1);
   }
 
   .credit-label {
