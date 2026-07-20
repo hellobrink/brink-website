@@ -2,8 +2,8 @@
 title: Piloting a radical new platform for locust control in Kenya
 standfirst: Exploring whether drones could be used as a nimble, low-cost and environmentally friendlier complement to traditional locust control.
 summary: "Exploring whether drones could be used as a nimble, low-cost and environmentally friendlier complement to traditional locust control, particularly for early-stage outbreaks, hard-to-reach areas and smaller swarms."
-heroImage: "/images/683d5762f30860405aebbdf1_locust_drone.png"
-heroAlt: "John Muikiah from Astral Aerial controls a drone in Samburu"
+heroImage: "/images/locust-hero-drone.webp"
+heroAlt: "A retrofitted DJI Agras drone in flight above its operator during field testing in Kenya"
 sector: [climate]
 offer: [missions]
 status: past
@@ -33,6 +33,8 @@ quote:
   text: "The drones can reach areas the existing methods cannot. It fills the gap in low cost control because when you have an inaccessible area where the aircraft, the vehicles and handheld sprayers cannot reach, you can use a drone."
   name: "Violet Ochieng"
   role: "MSc student and researcher working with CABI"
+  photo: "/images/locust-violet-portrait.png"
+  photoAlt: "Violet Ochieng"
 approachIntro:
   - "Through the Frontier Tech Hub, Brink supported FCDO pioneer Tristan Eagling, local drone operator Astral Aerial, and scientific partner CABI to develop and test a drone-based locust control method in real field conditions."
   - "Brink's role focused on coaching across the full experimentation journey, supporting the team to iterate technical designs, engage communities and ecosystem stakeholders, document evidence, and develop system-level insights on the potential for scale and integration into formal response systems."
@@ -40,5 +42,15 @@ approach:
   - "**Technical design and retrofitting.** Brought together technical expertise to pivot to Ultra Low Volume (ULV) spraying, retrofitting DJI Agras drones to carry new nozzles sourced from the UK. This significantly improved battery life, droplet precision, and alignment with FAO guidance."
   - "**Field testing and optimisation.** Guided sprint-based testing of in-field response, drone spray rates, heights, wind effects, and payload configurations. Supported data collection with live locusts and artificial markers to validate coverage, mortality, and swath width."
   - "**Storytelling and stakeholder engagement.** Supported dissemination via workshops, conferences, and multimedia stories. Generated evidence that was taken up by the UN FAO and other actors."
+gallery:
+  - image: "/images/locust-violet-cabi.webp"
+    alt: "Violet Ochieng carrying crates of locusts at the CABI research facility"
+    caption: "Violet Ochieng with crates of locusts at the CABI research facility in KALRO Muguga"
+  - image: "/images/locust-field-testing.webp"
+    alt: "An operator flying a spray drone over scrubland in Samburu"
+    caption: "Testing spray rates, heights and payload configurations in the field"
+  - image: "/images/locust-market-demo.webp"
+    alt: "A crowd at a livestock market in Samburu watching a drone spraying demonstration"
+    caption: "A drone spraying demonstration at the local market in Samburu"
 conclusion: "This pilot showed that drones can play a niche but valuable role in locust control: responding quickly to small or early-stage outbreaks, operating safely in populated or inaccessible areas, and reducing environmental risk through more targeted spraying. While uptake will likely depend on future funding, especially between swarming cycles, this work laid the foundations for future integration into national and international locust response systems."
 ---

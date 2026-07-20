@@ -59,7 +59,15 @@ const work = defineCollection({
     approach: z.array(z.string()).default([]),
     approachIntro: z.array(z.string()).default([]),
     conclusion: z.string().optional(),
-    quote: z.object({ text: z.string(), name: z.string(), role: z.string().optional() }).optional(),
+    quote: z
+      .object({
+        text: z.string(),
+        name: z.string(),
+        role: z.string().optional(),
+        photo: z.string().optional(),
+        photoAlt: z.string().optional(),
+      })
+      .optional(),
     dates: z.string().optional(),
     location: z.string().optional(),
     fullStoryUrl: z.string().url().optional(),

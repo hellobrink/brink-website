@@ -95,12 +95,22 @@ const facts: Array<{ label: string; value: string }> = [
           )}
 
           {data.quote && (
-            <figure class="pull-quote">
-              <blockquote><p>{data.quote.text}</p></blockquote>
-              <figcaption>
-                <span class="quote-name">{data.quote.name}</span>
-                {data.quote.role && <span class="quote-role">{data.quote.role}</span>}
-              </figcaption>
+            <figure class:list={['pull-quote', { 'has-portrait': data.quote.photo }]}>
+              {data.quote.photo && (
+                <img
+                  class="quote-portrait"
+                  src={withBase(data.quote.photo)}
+                  alt={data.quote.photoAlt ?? data.quote.name}
+                  loading="lazy"
+                />
+              )}
+              <div class="quote-body">
+                <blockquote><p>{data.quote.text}</p></blockquote>
+                <figcaption>
+                  <span class="quote-name">{data.quote.name}</span>
+                  {data.quote.role && <span class="quote-role">{data.quote.role}</span>}
+                </figcaption>
+              </div>
             </figure>
           )}
 
@@ -113,18 +123,21 @@ const facts: Array<{ label: string; value: string }> = [
                   {data.approach.map((a) => <li set:html={bold(a)} />)}
                 </ul>
               )}
-            </section>
-          )}
 
-          {data.gallery.length > 0 && (
-            <div class="gallery">
-              {data.gallery.map((g) => (
-                <figure>
-                  <img src={withBase(g.image)} alt={g.alt} loading="lazy" />
-                  {g.caption && <figcaption class="mono">{g.caption}</figcaption>}
-                </figure>
-              ))}
-            </div>
+              {/* The images sit inside this section because they show the
+                  work being done: the lab, the field tests, the community
+                  demo. After the section they read as decoration. */}
+              {data.gallery.length > 0 && (
+                <div class="gallery">
+                  {data.gallery.map((g) => (
+                    <figure>
+                      <img src={withBase(g.image)} alt={g.alt} loading="lazy" />
+                      {g.caption && <figcaption class="mono">{g.caption}</figcaption>}
+                    </figure>
+                  ))}
+                </div>
+              )}
+            </section>
           )}
 
           {data.conclusion && (
@@ -367,6 +380,23 @@ const facts: Array<{ label: string; value: string }> = [
     border-radius: var(--radius);
   }
 
+  /* Portrait beside the words: the speaker is a researcher on the project,
+     and showing her makes the quote a person rather than a decoration. */
+  .pull-quote.has-portrait {
+    display: grid;
+    grid-template-columns: 8rem minmax(0, 1fr);
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .quote-portrait {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: var(--radius-circle);
+    display: block;
+  }
+
   .pull-quote blockquote {
     margin: 0;
     padding: 0;
@@ -374,15 +404,15 @@ const facts: Array<{ label: string; value: string }> = [
   }
 
   /* --text-h1 turned a two-sentence quote into a wall that dominated the
-     page. A step down, with the measure capped, keeps it a highlight. */
+     page; --text-display was still shouting once the portrait was beside it.
+     At h2 the quote reads as a considered aside. */
   .pull-quote p {
     font-family: var(--font-display);
     font-weight: var(--weight-display);
-    font-size: var(--text-display);
+    font-size: var(--text-h2);
     line-height: var(--leading-snug);
     color: var(--color-surface);
     margin: 0 0 var(--space-5);
-    max-width: 30ch;
   }
 
   .pull-quote figcaption {
@@ -569,6 +599,17 @@ const facts: Array<{ label: string; value: string }> = [
 
   .related-grid a:hover h3 {
     color: var(--color-accent);
+  }
+
+  @media (max-width: 700px) {
+    /* Portrait above the quote once the column is too narrow to sit beside. */
+    .pull-quote.has-portrait {
+      grid-template-columns: 1fr;
+      gap: var(--space-5);
+    }
+    .quote-portrait {
+      width: 6rem;
+    }
   }
 
   @media (max-width: 900px) {
