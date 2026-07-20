@@ -1,0 +1,173 @@
+---
+// A 3-up grid of illustrated cards — the first reusable panel type in the
+// toolkit. Chosen over a carousel for the offers because these are Brink's
+// commercial proposition: a carousel would hide two thirds of what Brink
+// sells behind a rotation.
+//
+// How Brink's illustrations work, which drives the whole design: each PNG is
+// greyscale photo collage containing its own torn kraft-paper edge, with the
+// figure sitting on transparency. The rip IS the terrain — the climber climbs
+// it. So the card supplies a flat block of brand colour that shows through
+// behind the figure (brand book §06), and the three grounds rotate so a set
+// reads as deliberate.
+//
+// The grounds also solve a practical problem: the source illustrations have
+// wildly different aspect ratios (0.53 portrait to 2.47 banner). The card
+// fixes the shape and `object-position` picks the part of each image worth
+// keeping, so nothing needs cropping in an image editor.
+import { withBase } from '../lib/base';
+
+export interface GridItem {
+  title: string;
+  summary: string;
+  href: string;
+  image: string;
+  alt: string;
+  /** Which part of the illustration to keep when the card crops it. */
+  focus?: string;
+  /** Which brand ground sits behind the artwork. Set explicitly, never by
+      rotation: an illustration that already has a colour baked into it must
+      be given the matching ground or the card visibly changes colour at the
+      seam. */
+  ground?: 'teal' | 'blue' | 'coral';
+}
+
+interface Props {
+  heading?: string;
+  kicker?: string;
+  items: GridItem[];
+}
+
+const { heading, kicker, items } = Astro.props;
+---
+
+<section class="illustrated-grid">
+  <div class="container">
+    {kicker && <p class="mono kicker">{kicker}</p>}
+    {heading && <h2 class="display grid-heading">{heading}</h2>}
+
+    <ul class="grid">
+      {items.map((item, i) => (
+        <li>
+          <a class:list={['card', `ground-${item.ground ?? 'teal'}`]} href={item.href}>
+            <div class="art">
+              <img
+                src={withBase(item.image)}
+                alt={item.alt}
+                style={item.focus ? `object-position: ${item.focus}` : undefined}
+                loading="lazy"
+              />
+            </div>
+            <div class="body">
+              <h3>{item.title}</h3>
+              <p>{item.summary}</p>
+              <span class="mono more">Explore &rarr;</span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .illustrated-grid {
+    padding: var(--space-9) 0;
+  }
+
+  .grid-heading {
+    font-size: var(--text-display);
+    margin: 0 0 var(--space-7);
+  }
+
+  .grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-6);
+  }
+
+  /* The copy sits on paper white, not on the coloured ground — which is
+     Brink's own pattern (a white card floating on the colour) and the only
+     accessible option. Measured against the brand book's WCAG guidance, no
+     coloured ground carries small text at AA: white on coral is 3.41:1 and
+     on draft blue 4.32:1, both large-text-only. Teal on paper white is
+     ~13:1. The colour stays where it belongs — behind the artwork, where it
+     has no text to carry. */
+  .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: var(--color-text);
+    background: var(--color-surface-muted);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .ground-teal .art { background: var(--color-ground-1); }
+  .ground-blue .art { background: var(--color-ground-2); }
+  .ground-coral .art { background: var(--color-ground-3); }
+
+  /* The illustration bleeds to the card edges; the ground shows through the
+     transparent parts of the PNG. */
+  .art {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+  }
+
+  .art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+
+  .card:hover .art img {
+    transform: scale(1.04);
+  }
+
+  .body {
+    padding: var(--space-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    flex: 1;
+  }
+
+  .body h3 {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display);
+    font-size: var(--text-h2);
+    color: var(--color-text);
+    margin: 0;
+    line-height: var(--leading-tight);
+  }
+
+  .body p {
+    margin: 0;
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-normal);
+  }
+
+  /* Teal, not coral. Coral on the paper ground measures 3.01:1 — fine for
+     large text, a fail for a 12.8px label (AA wants 4.5:1). The arrow and
+     the hover underline carry the affordance instead, and coral returns on
+     hover where it's a state change rather than the only cue.
+     NOTE: coral-on-light small text is used in ~20 other places in this repo
+     and has the same problem — see the accessibility note in CLAUDE.md. */
+  .more {
+    margin-top: auto; /* pin to the bottom so the CTAs line up across cards */
+    font-size: var(--text-tag);
+    color: var(--color-text);
+  }
+
+  .card:hover .more {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+</style>

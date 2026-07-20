@@ -3,10 +3,51 @@ import Layout from '../../layouts/Layout.astro';
 import { withBase } from '../../lib/base';
 import { getCollection } from 'astro:content';
 import ExploreCTA from '../../components/ExploreCTA.astro';
+import IllustratedGrid from '../../components/IllustratedGrid.astro';
 
 const offers = await getCollection('offers');
 const order = ['open-innovation', 'carve-outs', 'missions'];
 offers.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
+
+// Illustration per offer, matched to meaning rather than assigned at random:
+// a rowing crew pulling together for Open Innovation's many teams; ideas
+// taking flight out of an opened mind for Carve-Outs; and the climber — the
+// one Brink already pairs with "a bold, long-term vision" — for Missions.
+//
+// `focus` picks what survives the crop. The cranes image is a 2.47 banner
+// with its subject hard right, so it needs pushing right; the two portrait
+// illustrations sit fine centred.
+// Grounds are assigned per illustration, not rotated: the cranes artwork has
+// coral baked into it and would clash against any other ground, and Brink
+// itself pairs the climber with draft blue on bi.hellobrink.co.
+const artwork: Record<
+  string,
+  { image: string; alt: string; focus?: string; ground: 'teal' | 'blue' | 'coral' }
+> = {
+  'open-innovation': {
+    image: '/images/illo-row.png',
+    alt: 'A rowing crew pulling together through choppy water, torn from the page',
+    ground: 'teal',
+  },
+  'carve-outs': {
+    image: '/images/illo-cranes.png',
+    alt: 'A woman deep in thought as origami cranes take flight from her opened mind',
+    focus: '86% center',
+    ground: 'coral',
+  },
+  missions: {
+    image: '/images/illo-climber.png',
+    alt: 'A climber scaling the torn edge of the page as if it were a rock face',
+    ground: 'blue',
+  },
+};
+
+const offerItems = offers.map((offer) => ({
+  title: offer.data.name,
+  summary: offer.data.summary,
+  href: withBase(`/offers/${offer.id}`),
+  ...artwork[offer.id],
+}));
 ---
 
 <Layout title="Our Offers" description="How Brink works: Open Innovation, Innovation Carve-Outs and Innovation Missions.">
@@ -14,17 +55,10 @@ offers.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
     <header class="page-header">
       <h1>Our offers</h1>
     </header>
-    <ul class="offers-grid">
-      {offers.map((offer) => (
-        <li>
-          <a href={withBase(`/offers/${offer.id}`)}>
-            <h2>{offer.data.name}</h2>
-            <p>{offer.data.summary}</p>
-          </a>
-        </li>
-      ))}
-    </ul>
   </div>
+
+  <IllustratedGrid items={offerItems} />
+
   <ExploreCTA />
 </Layout>
 

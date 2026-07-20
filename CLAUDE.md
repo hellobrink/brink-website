@@ -147,17 +147,37 @@ be "framed not constrained" — break them out of the crop and play with
 depth. **Currently unused on the site.** It's the most distinctive unused
 asset Brink has.
 
-**Known deviations from the book in this build** (deliberate or inherited —
-resolve, don't quietly propagate):
-- **Mono typeface.** The book specifies **Roboto Mono** "notationally, for
-  notes & diagrams". The Webflow site used **Inconsolata**, and this build
-  inherited it via `--font-inconsolata`. One of the two is wrong.
-- **`--brink-grey: #789096`** is not in the brand palette at all; it came
-  from the Webflow stylesheet and is doing a lot of work as
-  `--color-text-muted`. The book has no muted-text colour.
-- The book's own website mockup (p23) calls the blog **"Latest
-  (re)thinking"**, and shows a hashtag filter system
-  (`#Health #Education #Funding #Inclusion #Culture`) plus an "I'M IN." CTA.
+**Accepted deviations from the book — ruled on by Rob, do not "fix" these:**
+- **Inconsolata, not Roboto Mono.** The book specifies Roboto Mono
+  notationally; Brink has shipped Inconsolata for two years and it stays.
+  Keep `--font-mono: var(--font-inconsolata)`.
+- **`--brink-grey: #789096` stays** as `--color-text-muted`, despite not
+  being in the book's palette. It came from the Webflow stylesheet and is
+  used throughout.
+
+Both are conscious exceptions, not oversights. Don't open PRs to align them.
+
+**Not yet, but wanted eventually:** the Brinkle. Deferred until structure
+and content are finished — revisit as a later design pass.
+
+**Open accessibility issue — coral on light grounds.** Electric coral
+`#ff405f` on paper white `#f0f1ef` measures **3.01:1**. That passes for
+large text but **fails WCAG AA (4.5:1) for anything under ~18.66px** — which
+is exactly how it's mostly used: mono kickers, "read more" links, card meta,
+author bylines. There are ~20 `color: var(--color-accent)` declarations in
+`src/`; the ones on teal grounds (header, footer) are fine, the ones on
+white or paper are not. `IllustratedGrid` already avoids it (teal label,
+coral on hover). The rest is unresolved and needs a site-wide decision —
+darken the coral for text use, only use it above a size threshold, or accept
+large-text-only. Flagged to Rob, not yet ruled on.
+
+Measured contrast for reference: white on coral 3.41, white on draft blue
+4.32, teal on coral 3.97, teal on paper white ~13, white on teal 13.56.
+**No coloured ground carries small text at AA** — put copy on paper white.
+
+Still unused from the book's own website mockup (p23): the blog is called
+**"Latest (re)thinking"** there, and it shows a hashtag filter system
+(`#Health #Education #Funding #Inclusion #Culture`) plus an "I'M IN." CTA.
 
 ## Verification standard
 

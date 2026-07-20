@@ -36,6 +36,12 @@
   --brink-faded: #dadedd;
   --brink-grey: #789096;
   --brink-white: #ffffff;
+  /* Secondary. The brand book restricts these to "small accents, charts and
+     graphs" — but Brink itself uses draft blue as a full panel ground on
+     bi.hellobrink.co, which is where the illustrations come from, so they're
+     available as illustration grounds and nowhere else. */
+  --brink-draft-blue: #4472ec;
+  --brink-cc-pink: #e99cd1;
 
   /* Typefaces. Signifier is Brink's licensed display serif (self-hosted). */
   --font-signifier: 'Signifier', Georgia, serif;
@@ -92,6 +98,14 @@
   --color-surface-inverted: var(--brink-teal); /* dark bands, navbar */
   --color-border: var(--brink-faded);
   --color-rule: var(--brink-coral); /* section divider rules */
+
+  /* Illustration grounds. Brink's illustrations are greyscale photo collage
+     with a torn kraft-paper edge, sitting on transparency — they need a flat
+     block of colour behind them (brand book, section 06). These three rotate
+     across a set so a grid reads as deliberate rather than as found images. */
+  --color-ground-1: var(--brink-teal);
+  --color-ground-2: var(--brink-draft-blue);
+  --color-ground-3: var(--brink-coral);
 
   /* --- Typography roles --- */
   --font-display: var(--font-signifier); /* big serif statements */
