@@ -101,6 +101,64 @@ labels); teal `#06333d`, coral `#ff405f`, off-white `#f0f1ef`.
 Legacy aliases (`--brand-red` → `--color-accent` etc.) exist in
 `global.css` so older branches keep building. Don't use them in new code.
 
+## The brand book is the source of truth
+
+`(START HERE) Brand book.pdf` (29pp) is Brink's official brand guide. Where
+it and the old Webflow site disagree, **the book wins** — the live site was
+built by non-designers over ~2 years and drifted.
+
+**Core thought: "Innovation as if people matter."** The book's own words:
+"If you remember just one thing from this brand book, this should be it."
+It describes behavioural innovation, the projects, and the team culture at
+once. It is the homepage hero headline — treat it as fixed, not as copy to
+be A/B'd.
+
+Purpose: *to accelerate better futures by championing behavioural
+innovation.* Personality: **incisive, worldly, playful, experimental.**
+Beliefs: safe spaces for truth and trial and error; making hard stuff feel
+possible; always learning; the power of the collective.
+
+**Colour.** The palette is *intentionally minimal* "to allow our diversity
+of projects to be the hero." Primary: deep teal `#06333d`, electric coral
+`#ff405f` (highlights), paper white `#f0f1ef`. Draft blue `#4472ec` and CC
+pink `#e99cd1` are **secondary — small accents, charts and graphs only.**
+Don't promote them to surfaces or body text.
+
+The book gives WCAG AA/AAA contrast pairings and calls accessibility
+"B.P.M — because people matter." Contrast is a brand value here, not just a
+lint rule.
+
+**Illustration** (answers "what goes behind a transparent PNG?"): keep to
+`#06333d` with accents of `#ff405f` on the paper tone `#f0f1ef`. So a
+transparent illustration sits on **paper white**, not white and not an
+arbitrary tint. Represented people must be diverse. "Playful yes, cute no."
+
+**Imagery.** Real people and real projects over stock, always; capture
+spirit and agency; pick the frame that makes the story legible. Blog images
+are small — keep them simple, crop closer.
+
+**Tone of voice.** Make it shorter. Use the simpler word. Focus on what
+Brink has *done* and the impact it made. Then make it shorter again.
+
+**The Brinkle** is the brand's signature framing device: the logo's K form
+used to crop an image, with the K's stem read in negative space, pointing at
+the subject. Rules: real people, frame what matters, and the subject should
+be "framed not constrained" — break them out of the crop and play with
+depth. **Currently unused on the site.** It's the most distinctive unused
+asset Brink has.
+
+**Known deviations from the book in this build** (deliberate or inherited —
+resolve, don't quietly propagate):
+- **Mono typeface.** The book specifies **Roboto Mono** "notationally, for
+  notes & diagrams". The Webflow site used **Inconsolata**, and this build
+  inherited it via `--font-inconsolata`. One of the two is wrong.
+- **`--brink-grey: #789096`** is not in the brand palette at all; it came
+  from the Webflow stylesheet and is doing a lot of work as
+  `--color-text-muted`. The book has no muted-text colour.
+- The book's own website mockup (p23) calls the blog **"Latest
+  (re)thinking"**, and shows a hashtag filter system
+  (`#Health #Education #Funding #Inclusion #Culture`) plus an "I'M IN." CTA.
+
 ## Verification standard
 
 A change is done when the **content** is right and the build passes — not
