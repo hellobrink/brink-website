@@ -40,7 +40,14 @@ export const GET: APIRoute = async () => {
       title: e.data.title,
       url: withBase(`/our-work/${e.id}`),
       kind: e.data.hasCaseStudy ? 'Case study' : 'Our work',
-      text: [e.data.summary, e.data.headlineResult, ...e.data.funders, ...e.data.partners, plain(e.body)]
+      // Credits are {name, url} objects, so index the names.
+      text: [
+        e.data.summary,
+        e.data.headlineResult,
+        ...e.data.funders.map((c) => c.name),
+        ...e.data.partners.map((c) => c.name),
+        plain(e.body),
+      ]
         .filter(Boolean)
         .join(' '),
     })),

@@ -37,7 +37,11 @@ const relatedWork = allWork
   })
   .slice(0, 4);
 
-const funderPartnerNames = [...new Set(relatedWork.flatMap((w) => [...w.data.funders, ...w.data.partners]))];
+// Credits are {name, url} objects since they gained links; LogoStrip wants
+// plain names.
+const funderPartnerNames = [
+  ...new Set(relatedWork.flatMap((w) => [...w.data.funders, ...w.data.partners].map((c) => c.name))),
+];
 ---
 
 <Layout title={data.name} description={data.positioningLine}>

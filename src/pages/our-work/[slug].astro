@@ -32,7 +32,7 @@ const tags = [...data.sector, ...data.offer];
     <h1>{data.title}</h1>
     <p class="summary">{data.summary}</p>
 
-    <LogoStrip names={[...data.funders, ...data.partners]} />
+    <LogoStrip names={[...data.funders, ...data.partners].map((c) => c.name)} />
 
     {data.heroImage && <img class="hero" src={withBase(data.heroImage)} alt={data.heroAlt ?? data.title} />}
 
