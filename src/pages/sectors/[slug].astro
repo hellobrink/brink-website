@@ -1,201 +1,328 @@
 ---
-// Structure follows the restructure brief, section 4A.3 "Potential revised
-// page structure": hero + positioning line -> funder/partner logo strip ->
-// "what we do" -> impact metrics tied to results -> short challenge bridge
-// -> shared behavioural panel -> case-study cards with headline result ->
-// named-contact CTA. The scraped positioningLine/whatWeDo fields are TODO
-// placeholders (see CONTENT_GUIDE.md) — that copy needs writing, not
-// scraping, per the brief's own diagnosis of the current pages.
+// A sector page: Climate, Health or Education.
+//
+// Structure (designed for this content, overriding the older brief's
+// carousel/4-card guidance):
+//   hero (accent band) -> impact stats (mirrors the homepage) -> the challenge
+//   (problem statement + approach beside a photo) -> the three principles as a
+//   numbered trio -> the shared Behavioural Innovation band -> case studies ->
+//   the sector's named contact.
+// Each sector carries one brand colour as its accent; small labels stay neutral
+// so nothing relies on small text over coral/blue (which fails AA).
 import Layout from '../../layouts/Layout.astro';
-import LogoStrip from '../../components/LogoStrip.astro';
-import ImpactMetric from '../../components/ImpactMetric.astro';
-import PrinciplesTrio from '../../components/PrinciplesTrio.astro';
-import BehaviouralPanel from '../../components/BehaviouralPanel.astro';
-import CaseStudyCard from '../../components/CaseStudyCard.astro';
-import NamedContactCTA from '../../components/NamedContactCTA.astro';
-import { getCollection, render } from 'astro:content';
 import { withBase } from '../../lib/base';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const sectors = await getCollection('sectors');
-  return sectors.map((sector) => ({
-    params: { slug: sector.id },
-    props: { sector },
-  }));
+  return sectors.map((sector) => ({ params: { slug: sector.id }, props: { sector } }));
 }
 
 const { sector } = Astro.props;
-const { Content } = await render(sector);
 const { data } = sector;
 
+// Internal case studies borrow their hero photo and alt from the work entry.
 const allWork = await getCollection('work');
-const relatedWork = allWork
-  .filter((item) => item.data.sector.includes(sector.id))
-  .sort((a, b) => {
-    if (a.data.hasCaseStudy !== b.data.hasCaseStudy) return a.data.hasCaseStudy ? -1 : 1;
-    return a.data.sortOrder - b.data.sortOrder;
-  })
-  .slice(0, 4);
-
-// Credits are {name, url} objects since they gained links; LogoStrip wants
-// plain names.
-const funderPartnerNames = [
-  ...new Set(relatedWork.flatMap((w) => [...w.data.funders, ...w.data.partners].map((c) => c.name))),
-];
+const workMap = Object.fromEntries(
+  allWork.map((w) => [w.id, { heroImage: w.data.heroImage, heroAlt: w.data.heroAlt }])
+);
 ---
 
-<Layout title={data.name} description={data.positioningLine}>
-  <article class="sector">
-    <header class="hero container">
-      <h1>{data.headline}</h1>
-      <p class="positioning">{data.positioningLine}</p>
-      {data.heroImage && (
-        <img
-          class="hero-image"
-          src={withBase(data.heroImage)}
-          alt={data.heroAlt ?? ''}
-        />
-      )}
+<Layout title={data.name} description={data.positioningLine ?? data.headline}>
+  <article class:list={['sector', `accent-${data.accent}`]}>
+    <header class="hero">
+      <div class="container">
+        <p class="hero-eyebrow mono">{data.name}</p>
+        <h1 class="display hero-headline">{data.headline}</h1>
+      </div>
     </header>
 
-    <div class="container">
-      <LogoStrip names={funderPartnerNames} />
-    </div>
+    {data.stats.length > 0 && (
+      <section class="stats">
+        <div class="container">
+          <p class="stats-heading mono">Since 2018, Brink has</p>
+          <div class="stats-row">
+            {data.stats.map((s) => (
+              <div class="stat">
+                {s.pre && <span class="stat-cap">{s.pre}</span>}
+                <span class="stat-value display">{s.value}</span>
+                {s.post && <span class="stat-cap">{s.post}</span>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
 
-    {data.whatWeDo?.length > 0 && (
-      <section class="container what-we-do">
-        <h2>What we do in {data.name.toLowerCase()}</h2>
-        <ul>
-          {data.whatWeDo.map((service) => (
-            <li>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
+    {data.challenge.length > 0 && (
+      <section class="section container challenge">
+        <div class="challenge-grid">
+          <div class="challenge-text">
+            <p class="eyebrow mono">The challenge</p>
+            {data.challenge.map((p, i) => (
+              <p class:list={['challenge-p', { lead: i === 0 }]}>{p}</p>
+            ))}
+            {data.approach.length > 0 && (
+              <div class="approach">
+                <p class="eyebrow mono">Our approach</p>
+                {data.approach.map((p) => <p>{p}</p>)}
+              </div>
+            )}
+          </div>
+          {data.challengeImage && (
+            <figure class="challenge-figure">
+              <img src={withBase(data.challengeImage)} alt={data.challengeImageAlt ?? ''} loading="lazy" />
+            </figure>
+          )}
+        </div>
+      </section>
+    )}
+
+    {data.principles.length > 0 && (
+      <section class="section container principles">
+        <h2 class="display section-title">How we work in {data.name.toLowerCase()}</h2>
+        <ol class="principles-row">
+          {data.principles.map((pr, i) => (
+            <li class="principle">
+              <span class="principle-num display" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              <h3 class="principle-title display">{pr.title}</h3>
+              {pr.body.map((b) => <p>{b}</p>)}
             </li>
           ))}
-        </ul>
+        </ol>
       </section>
     )}
 
-    {data.stats?.length > 0 && (
-      <section class="container stats">
-        {data.stats.map((stat) => (
-          <ImpactMetric value={stat.value} label={stat.label} caseStudySlug={stat.caseStudySlug} />
-        ))}
-      </section>
-    )}
-
-    <section class="container challenge">
-      <p>{data.challengeText}</p>
+    <section class="behavioural">
+      <div class="container behavioural-inner">
+        <div class="behavioural-head">
+          <p class="eyebrow mono">Behavioural Innovation</p>
+          <h2 class="display">Behaviour-led design for real-world complexity</h2>
+        </div>
+        <div class="behavioural-body">
+          <p>
+            Many programmes falter because they chase perfect models, not messy reality. While
+            projects built on tidy systems may impress on paper, they soon fade when they hit the
+            real world.
+          </p>
+          <p>
+            Behavioural Innovation combines the behavioural sciences with innovation methodologies,
+            equipping teams to navigate human quirks and unstable systems so they can turn
+            unpredictability into opportunity. Instead of sticking to fixed playbooks, we prototype
+            fast, learn in the field, and refine repeatedly.
+          </p>
+        </div>
+      </div>
     </section>
 
-    {data.principles && (
-      <section class="container">
-        <PrinciplesTrio principles={data.principles} />
-      </section>
-    )}
-
-    <BehaviouralPanel />
-
-    {relatedWork.length > 0 && (
-      <section class="container case-studies">
-        <h2>Our work in {data.name.toLowerCase()}</h2>
-        <ul class="grid">
-          {relatedWork.map((item) => (
-            <li>
-              <CaseStudyCard
-                slug={item.id}
-                title={item.data.title}
-                headlineResult={item.data.headlineResult}
-                heroImage={item.data.heroImage}
-                heroAlt={item.data.heroAlt}
-              />
-            </li>
-          ))}
+    {data.caseStudies.length > 0 && (
+      <section class="section container case-studies">
+        <h2 class="display section-title">{data.name} in practice</h2>
+        <ul class="cs-grid">
+          {data.caseStudies.map((cs) => {
+            const internal = cs.slug ? workMap[cs.slug] : null;
+            const href = cs.slug ? withBase(`/our-work/${cs.slug}`) : cs.url;
+            const img = cs.image ?? internal?.heroImage;
+            const external = !cs.slug && cs.url;
+            return (
+              <li class:list={['cs-card', { 'no-photo': !img }]}>
+                <a
+                  href={href}
+                  target={external ? '_blank' : undefined}
+                  rel={external ? 'noopener noreferrer' : undefined}
+                >
+                  {img && (
+                    <div class="cs-photo">
+                      <img src={withBase(img)} alt={internal?.heroAlt ?? cs.title} loading="lazy" />
+                    </div>
+                  )}
+                  <div class="cs-body">
+                    <h3 class="cs-title">{cs.title}</h3>
+                    {cs.quote && <p class="cs-quote">&ldquo;{cs.quote}&rdquo;</p>}
+                    <span class="cs-link mono">
+                      {external ? 'Visit the programme ↗' : 'Read the case study →'}
+                    </span>
+                  </div>
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </section>
     )}
 
-    <div class="container extra-content prose">
-      <Content />
-    </div>
-
-    <NamedContactCTA
-      name={data.namedContact?.name}
-      role={data.namedContact?.role}
-      photo={data.namedContact?.photo}
-      sectorName={data.name}
-    />
+    {data.contact && (
+      <section class="contact">
+        <div class="container contact-inner">
+          {data.contact.photo && (
+            <img class="contact-photo" src={withBase(data.contact.photo)} alt={data.contact.name} loading="lazy" />
+          )}
+          <div class="contact-copy">
+            <h2 class="display">We&rsquo;d love to hear from you</h2>
+            <p>
+              If you&rsquo;d like to talk to us about our work in {data.name.toLowerCase()}, the best
+              person to get in touch with is {data.contact.name}, our {data.contact.role}.
+            </p>
+            <a class="button" href={`mailto:${data.contact.email}`}>
+              Email {data.contact.name.split(' ')[0]}
+            </a>
+          </div>
+        </div>
+      </section>
+    )}
   </article>
 </Layout>
 
 <style>
+  .accent-teal  { --accent-ink: var(--color-ground-1); }
+  .accent-coral { --accent-ink: var(--color-ground-3); }
+  .accent-blue  { --accent-ink: var(--color-ground-2); }
+
+  .section { padding: var(--space-8) 0; }
+  .section-title {
+    font-size: var(--text-h1);
+    line-height: var(--leading-tight);
+    margin: 0 0 var(--space-6);
+  }
+  /* Small labels stay neutral: accent-coloured small text fails AA on coral
+     and draft blue. The accent shows through large elements instead. */
+  .eyebrow {
+    font-size: var(--text-tag);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-3);
+  }
+
+  /* --- Hero --------------------------------------------------------------- */
   .hero {
-    padding: var(--space-8) 0 var(--space-4);
-    max-width: var(--measure-narrow);
+    background: var(--accent-ink);
+    color: var(--color-text-inverted, #fff);
+    padding: clamp(3rem, 8vw, 6rem) 0;
+  }
+  .hero-eyebrow {
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 40px;
+    padding: 5px 14px;
+    font-size: var(--text-tag);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    margin: 0 0 var(--space-5);
+  }
+  .hero-headline {
+    font-size: var(--text-display);
+    line-height: var(--leading-tight);
+    color: inherit;
+    margin: 0;
+    max-width: 20ch;
   }
 
-  .positioning {
-    font-size: var(--text-body);
-    color: var(--color-text-muted);
+  /* --- Impact stats (mirrors the homepage) -------------------------------- */
+  .stats { padding: var(--space-8) 0; border-bottom: 1px solid var(--color-border); }
+  .stats-heading { font-size: var(--text-tag); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-text-muted); margin: 0 0 var(--space-6); }
+  .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+  .stat { display: flex; flex-direction: column; gap: var(--space-1); }
+  .stat-cap { font-size: var(--text-body-sm); color: var(--color-text-muted); max-width: 22ch; }
+  .stat-value {
+    font-size: clamp(2.75rem, 7vw, 4.5rem);
+    line-height: 1;
+    color: var(--accent-ink);
+    margin: var(--space-1) 0;
+    font-variant-numeric: tabular-nums;
   }
 
-  .hero-image {
-    display: block;
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    margin-top: 1.5rem;
+  /* --- Challenge ---------------------------------------------------------- */
+  .challenge-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: var(--space-8);
+    align-items: start;
   }
-
-  .what-we-do {
-    padding-top: var(--space-6);
-    padding-bottom: var(--space-6);
+  .challenge-p { margin: 0 0 var(--space-4); line-height: var(--leading-normal); }
+  .challenge-p.lead {
+    font-family: var(--font-display);
+    font-size: var(--size-2xl);
+    line-height: var(--leading-snug, 1.3);
+    color: var(--color-text);
   }
+  .approach { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--color-border); }
+  .approach p:not(.eyebrow) { margin: 0 0 var(--space-3); line-height: var(--leading-normal); }
+  .challenge-figure { margin: 0; border-radius: var(--radius); overflow: hidden; }
+  .challenge-figure img { width: 100%; height: 100%; max-height: 30rem; object-fit: cover; display: block; }
 
-  .what-we-do ul {
+  /* --- Principles --------------------------------------------------------- */
+  .principles-row {
     list-style: none;
-    margin: var(--space-4) 0 0;
+    margin: 0;
     padding: 0;
     display: grid;
-    gap: var(--space-5);
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-7);
   }
-
-  .what-we-do h3 {
-    font-size: var(--text-h3);
+  .principle { display: flex; flex-direction: column; }
+  .principle-num {
+    font-size: var(--text-h1);
+    line-height: 1;
+    color: var(--accent-ink);
+    margin-bottom: var(--space-3);
   }
+  .principle-title { font-size: var(--text-h3); line-height: var(--leading-tight); margin: 0 0 var(--space-3); }
+  .principle p { margin: 0 0 var(--space-3); line-height: var(--leading-normal); color: var(--color-text-soft, var(--color-text)); }
 
-  .stats {
-    display: flex;
-    flex-wrap: wrap;
+  /* --- Behavioural Innovation (shared band) ------------------------------- */
+  .behavioural { background: var(--color-surface-muted); padding: var(--space-8) 0; }
+  .behavioural-inner { display: grid; grid-template-columns: 2fr 3fr; gap: var(--space-7); align-items: start; }
+  .behavioural-head h2 { font-size: var(--text-h2); line-height: var(--leading-tight); margin: 0; }
+  .behavioural-body p { margin: 0 0 var(--space-4); line-height: var(--leading-normal); }
+  .behavioural-body p:last-child { margin-bottom: 0; }
+
+  /* --- Case studies ------------------------------------------------------- */
+  .cs-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-6);
-    padding-top: var(--space-4);
-    padding-bottom: var(--space-4);
   }
-
-  .challenge {
-    max-width: var(--measure-narrow);
-    padding-top: var(--space-4);
-    padding-bottom: var(--space-4);
-    color: var(--color-text-muted);
+  .cs-card a {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: var(--color-text);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.2s ease;
   }
+  .cs-card a:hover { border-color: var(--accent-ink); }
+  .cs-card.no-photo a { border-top: 3px solid var(--accent-ink); }
+  .cs-photo { aspect-ratio: 16 / 9; overflow: hidden; background: var(--accent-ink); }
+  .cs-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+  .cs-card a:hover .cs-photo img { transform: scale(1.04); }
+  .cs-body { padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-3); flex: 1; }
+  .cs-title { font-family: var(--font-display); font-weight: var(--weight-display); font-size: var(--text-h3); line-height: var(--leading-tight); margin: 0; }
+  .cs-quote { font-family: var(--font-display); font-size: var(--text-body); line-height: var(--leading-snug, 1.35); color: var(--color-text-muted); margin: 0; }
+  .cs-link { margin-top: auto; font-size: var(--text-tag); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-text); }
+  .cs-card a:hover .cs-link { color: var(--accent-ink); }
 
-  .case-studies {
-    padding-top: var(--space-4);
-    padding-bottom: var(--space-6);
-  }
+  /* --- Contact ------------------------------------------------------------ */
+  .contact { border-top: 1px solid var(--color-border); padding: var(--space-9) 0; }
+  .contact-inner { display: flex; align-items: center; gap: var(--space-7); flex-wrap: wrap; }
+  .contact-photo { width: 128px; height: 128px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+  .contact-copy { flex: 1; min-width: 18rem; }
+  .contact-copy h2 { font-size: var(--text-h2); margin: 0 0 var(--space-3); }
+  .contact-copy p { margin: 0 0 var(--space-5); max-width: 52ch; color: var(--color-text-muted); }
 
-  .grid {
-    list-style: none;
-    margin: var(--space-5) 0;
-    padding: 0;
-    display: grid;
-    gap: var(--space-5);
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  }
-
-  .extra-content {
-    color: var(--color-text-muted);
-    font-size: var(--text-body-sm);
+  @media (max-width: 860px) {
+    .challenge-grid,
+    .principles-row,
+    .behavioural-inner,
+    .cs-grid { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: 1fr; gap: var(--space-5); }
+    .challenge-figure { grid-row: 1; }
   }
 </style>

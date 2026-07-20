@@ -98,39 +98,43 @@ const sectors = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/sectors' }),
   schema: z.object({
     name: z.string(),
+    // Which brand colour this sector takes as its accent.
+    accent: z.enum(['teal', 'coral', 'blue']).default('teal'),
+    // Hero value proposition.
     headline: z.string(),
-    heroImage: z.string().optional(),
-    heroAlt: z.string().optional(),
-    // Plain, not poetic: "who this is for and what Brink does". See brief
-    // section 4A.3's diagnosis — pages currently set a mood without
-    // landing the proposition.
-    positioningLine: z.string(),
+    // Kept for the search index and the About-page sector carousel.
+    positioningLine: z.string().optional(),
+    // Impact stats, shaped like the homepage's: caption / number / caption.
     stats: z
-      .array(
-        z.object({
-          value: z.string(),
-          label: z.string(),
-          caseStudySlug: z.string().optional(),
-        })
-      )
+      .array(z.object({ pre: z.string().optional(), value: z.string(), post: z.string().optional() }))
       .default([]),
-    whatWeDo: z
+    // Problem statement: the challenge, then Brink's approach, beside a photo.
+    challenge: z.array(z.string()).default([]),
+    approach: z.array(z.string()).default([]),
+    challengeImage: z.string().optional(),
+    challengeImageAlt: z.string().optional(),
+    // The three principles: a heading and a short body each.
+    principles: z
+      .array(z.object({ title: z.string(), body: z.array(z.string()).default([]) }))
+      .default([]),
+    // Case studies to link through to. `slug` points at an internal work
+    // entry; `url` is used for programmes hosted elsewhere.
+    caseStudies: z
       .array(
         z.object({
           title: z.string(),
-          description: z.string(),
+          quote: z.string().optional(),
+          slug: z.string().optional(),
+          url: z.string().optional(),
+          image: z.string().optional(),
         })
       )
       .default([]),
-    challengeText: z.string(),
-    // The brief calls for exactly 3 ("principles trio"), but that's an
-    // editorial target, not something worth hard-failing the whole site
-    // build over if an editor is mid-edit with 2 or 4.
-    principles: z.array(z.string()).max(3).optional(),
-    namedContact: z
+    contact: z
       .object({
         name: z.string(),
         role: z.string(),
+        email: z.string(),
         photo: z.string().optional(),
       })
       .optional(),
