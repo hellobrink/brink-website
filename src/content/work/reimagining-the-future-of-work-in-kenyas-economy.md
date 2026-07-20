@@ -1,6 +1,6 @@
 ---
 title: Reimagining the Future of Work in Kenya
-summary: "The Challenge Across Africa, the ‘informal’ economy is a critical lifeline, supporting livelihoods for millions. With 280 million facing food insecurity and 600 million lacking electricity, the informal sector is a key source of employment. By 2050, it is estimated that the population will reach 2.5 billion people with young people making up half of this. In Kenya, over 99% of firms are micro-ente."
+summary: "Across Africa, the ‘informal’ economy is a critical lifeline, supporting livelihoods for millions. With 280 million facing food insecurity and 600 million lacking electricity, the informal sector is a key source of employment. By 2050, it is estimated that the population will reach 2.5 billion people with young people making up half of this."
 heroImage: "/images/66fc18165868eded446da75c_caleb-2.jpg"
 heroAlt: Reimagining the Future of Work in Kenya
 sector: [climate]
@@ -31,10 +31,14 @@ quote:
   photo: "/images/quote-hilda-hendricks.jpg"
   photoAlt: "Hilde Hendrickx"
 storyQuotes:
-  - "We’re talking about potentially a billion young people by 2050 across sub-Saharan Africa.In that case, we shouldn’t be talking about the informal economy of this continent, but rather, just the economy.”-[Anuj Tanna](https://www.linkedin.com/in/anujtanna/), CEO & Co-Founder of MESH, one of our partners."
-  - "Some high profile organisations have interviewed us in the past but none have ever come back to try to work out a solution with us” - Citizen Scientist"
-  - "I didn’t think such high profile organisations would be interested in the views of an ordinary small-scale trader.” - Citizen Scientist"
-  - "To me ‘it was the best’ where ‘we our voices are being heard’ and participants from different sectors - today i’m happy and looking forward to another forum for the practical part of this research” - Co-design meetup, Kisumu participant."
+  - text: "We’re talking about potentially a billion young people by 2050 across sub-Saharan Africa. In that case, we shouldn’t be talking about the informal economy of this continent, but rather, just the economy."
+    attribution: "[Anuj Tanna](https://www.linkedin.com/in/anujtanna/), CEO & Co-Founder of MESH, one of our partners"
+  - text: "Some high profile organisations have interviewed us in the past but none have ever come back to try to work out a solution with us."
+    attribution: "Citizen Scientist"
+  - text: "I didn’t think such high profile organisations would be interested in the views of an ordinary small-scale trader."
+    attribution: "Citizen Scientist"
+  - text: "To me it was the best, where our voices are being heard, with participants from different sectors. Today I’m happy and looking forward to another forum for the practical part of this research."
+    attribution: "Co-design meetup participant, Kisumu"
 gallery:
   - image: "/images/cs-reimagining-the-future-of-work-in-kenyas-1.jpeg"
     alt: "Reimagining the Future of Work in Kenya"

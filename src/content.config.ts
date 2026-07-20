@@ -63,8 +63,17 @@ const work = defineCollection({
     approachIntro: z.array(z.string()).default([]),
     conclusion: z.string().optional(),
     // Extra quotes lifted out of the long narrative, shown as green pull
-    // quotes without a portrait (the speakers are often anonymous).
-    storyQuotes: z.array(z.string()).default([]),
+    // quotes without a portrait (the speakers are often anonymous). A plain
+    // string is an unattributed quote; the object form carries an attribution
+    // line, which may contain a Markdown link.
+    storyQuotes: z
+      .array(
+        z.union([
+          z.string(),
+          z.object({ text: z.string(), attribution: z.string().optional() }),
+        ])
+      )
+      .default([]),
     quote: z
       .object({
         text: z.string(),

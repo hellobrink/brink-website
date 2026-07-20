@@ -205,11 +205,16 @@ const nextImage = () => data.gallery[imageCursor++] ?? null;
           {/* Voices lifted out of the narrative. No portrait: these are
               participants and are often anonymous, so the quote stands
               alone. */}
-          {data.storyQuotes.map((sq) => (
-            <figure class="pull-quote story-quote">
-              <blockquote><p>{sq}</p></blockquote>
-            </figure>
-          ))}
+          {data.storyQuotes
+            .map((sq) => (typeof sq === 'string' ? { text: sq } : sq))
+            .map((sq) => (
+              <figure class="pull-quote story-quote">
+                <blockquote><p>{sq.text}</p></blockquote>
+                {sq.attribution && (
+                  <figcaption set:html={inline(sq.attribution)} />
+                )}
+              </figure>
+            ))}
 
           {data.fullStoryUrl && (
             <p class="full-story">
@@ -505,8 +510,9 @@ const nextImage = () => data.gallery[imageCursor++] ?? null;
     opacity: 0.8;
   }
 
-  /* Voices from the narrative: same green panel, no attribution row, a touch
-     smaller than the headline quote so several in a row don't shout. */
+  /* Voices from the narrative: same green panel, a touch smaller than the
+     headline quote so several in a row don't shout. Most are anonymous, but
+     some carry a named attribution line (which may hold a link). */
   .story-quote {
     margin: var(--space-6) 0;
   }
@@ -514,6 +520,20 @@ const nextImage = () => data.gallery[imageCursor++] ?? null;
   .story-quote p {
     font-size: var(--text-h3);
     margin: 0;
+  }
+
+  .story-quote figcaption {
+    margin-top: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-tag);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-label);
+    color: var(--color-accent);
+  }
+
+  .story-quote figcaption :global(a) {
+    color: inherit;
+    text-underline-offset: 2px;
   }
 
   /* --- Distributed story images ------------------------------------------- */

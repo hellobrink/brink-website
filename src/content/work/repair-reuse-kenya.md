@@ -1,6 +1,6 @@
 ---
 title: Imagining a better future for the repair and reuse economy in Kenya
-summary: "The Challenge Left: Purity, a college graduate working in both tailoring and catering. Right: Lincoln Wamae founder of Linccell Technology, a personal electric mobility company. Kenya’s repair and reuse sector is significant yet undervalued, contributing £1.12 billion GBP (1.5% of Kenya’s GDP). Despite its economic and environmental value, the sector remains underfunded, lacks policy support, and."
+summary: "Kenya’s repair and reuse sector is significant yet undervalued, contributing £1.12 billion GBP (1.5% of Kenya’s GDP). Despite its economic and environmental value, the sector remains underfunded, lacks policy support, and is largely excluded from investment frameworks."
 heroImage: "/images/68358b9c0b036a562e75e93b_screenshot-2025-05-27-at-105323.png"
 heroAlt: Three repairers from bicycle and solar-energy networks in Kenya
 heroPosition: "center 20%"
@@ -37,10 +37,13 @@ quote:
 gallery:
   - image: "/images/cs-repair-reuse-kenya-1.jpg"
     alt: "Imagining a better future for the repair and reuse economy in Kenya"
+    caption: "Purity, a college graduate working in both tailoring and catering"
   - image: "/images/cs-repair-reuse-kenya-2.jpg"
     alt: "Imagining a better future for the repair and reuse economy in Kenya"
+    caption: "Lincoln Wamae founder of Linccell Technology, a personal electric mobility company"
   - image: "/images/cs-repair-reuse-kenya-4.webp"
     alt: "Imagining a better future for the repair and reuse economy in Kenya"
+    caption: "Bicycle repairer, Mark using replacement parts to repair a customer's bike"
 ---
 
 

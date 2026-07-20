@@ -7,8 +7,8 @@ offer: [missions]
 status: past
 hasCaseStudy: true
 sortOrder: 9
-heroImage: "/images/work-addressing-health-inequalities-through-inclusi.png"
-heroAlt: "Macmillan CoLab"
+heroImage: "/images/work-health-macmillan-hero.jpg"
+heroAlt: "A Macmillan nurse in conversation with a patient in a hospital corridor"
 standfirst: "In 2022 we partnered with Macmillan Cancer Support to evolve the way the organisation designs both for and with marginalised people living with cancer. In just five months we designed and tested a CoLab proposition that fundamentally shifted how Macmillan’s service design and innovation teams develop inclusive solutions."
 challenge:
   - "Work with Macmillan Cancer Support to design solutions that address health inequalities; beginning with those in marginalised communities suffering from cancer-related fatigue."

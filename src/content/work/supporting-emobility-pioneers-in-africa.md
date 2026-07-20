@@ -1,6 +1,6 @@
 ---
 title: Supporting e-mobility pioneers in Africa
-summary: "The Challenge Left: An Ampersand electric motorcycle taxi. Right: An Ampersand rider at the Hurlingham, Nairobi swap station. Motorcycle taxis are a dominant mode of transport in East Africa, yet high fuel costs and emissions burden drivers and the environment. While electric motorcycles offered a solution, adoption was hindered by high upfront costs, battery limitations, and lack of charging infr."
+summary: "Motorcycle taxis are a dominant mode of transport in East Africa, yet high fuel costs and emissions burden drivers and the environment. While electric motorcycles offered a solution, adoption was hindered by high upfront costs, battery limitations, and lack of charging infrastructure."
 heroImage: "/images/682ec9bba6e42db5a2651f54_ampersand.jpeg"
 heroAlt: Supporting e-mobility pioneers in Africa
 sector: [climate]
@@ -34,8 +34,10 @@ quote:
 gallery:
   - image: "/images/cs-supporting-emobility-pioneers-in-africa-1.jpg"
     alt: "Supporting e-mobility pioneers in Africa"
+    caption: "An Ampersand electric motorcycle taxi"
   - image: "/images/cs-supporting-emobility-pioneers-in-africa-2.jpeg"
     alt: "Supporting e-mobility pioneers in Africa"
+    caption: "An Ampersand rider at the Hurlingham, Nairobi swap station"
   - image: "/images/cs-supporting-emobility-pioneers-in-africa-4.jpg"
     alt: "Supporting e-mobility pioneers in Africa"
 ---
