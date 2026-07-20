@@ -1,14 +1,11 @@
 ---
 // Our offers, on one page.
 //
-// Each offer is a full-bleed colour banner (number, title, subheading)
-// followed by an editorial body built for white space and rhythm:
-//   - the intro as a large lead statement, with the supporting paragraphs
-//     dropped down and offset on the right
-//   - the two point-groups alternated: the first sits on the left, the second
-//     is offset to the right, each a heading over a plain bullet list.
-// No per-item icons and no hairline rules: hierarchy comes from type, position
-// and white space. Headings stay dark (coloured headings fought the links).
+// Each offer opens with a full-width photographic header: a photograph paired
+// with a brand-colour panel carrying the number, title and subheading. The
+// full detail — intro, the two point-groups, related work — then flows below
+// it at full width. The photograph does the visual work so the copy underneath
+// can stay calm; nothing is cut. The header photo alternates sides for rhythm.
 import Layout from '../../layouts/Layout.astro';
 import ExploreCTA from '../../components/ExploreCTA.astro';
 import { withBase } from '../../lib/base';
@@ -24,8 +21,7 @@ const relatedFor = (id: string) =>
     .filter((w) => w.data.offer.includes(id))
     .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
 
-// Inline Markdown -> HTML for copy that carries links and bold. Escapes first:
-// the content is not trusted markup.
+// Inline Markdown -> HTML for copy that carries links and bold. Escapes first.
 const inline = (s: string) =>
   s
     .replace(/&/g, '&amp;')
@@ -56,15 +52,21 @@ const inline = (s: string) =>
   {offers.map((offer, i) => {
     const { data } = offer;
     const related = relatedFor(offer.id);
+    const num = String(i + 1).padStart(2, '0');
     return (
       <section class:list={['offer', `ground-${data.ground}`]} id={offer.id}>
-        <div class="offer-banner">
-          <div class="banner-inner container">
-            <p class="banner-num mono">{String(i + 1).padStart(2, '0')}</p>
-            <h2 class="display banner-title">{data.name}</h2>
-            <p class="banner-subhead">{data.summary}</p>
+        <header class="offer-header">
+          {data.heroImage && (
+            <div class="oh-photo">
+              <img src={withBase(data.heroImage)} alt={data.heroAlt ?? ''} loading="lazy" />
+            </div>
+          )}
+          <div class="oh-panel">
+            <span class="oh-num" aria-hidden="true">{num}</span>
+            <h2 class="display oh-title">{data.name}</h2>
+            <p class="oh-subhead">{data.summary}</p>
           </div>
-        </div>
+        </header>
 
         <div class="offer-body container">
           {(data.lead || data.intro.length > 0) && (
@@ -78,16 +80,18 @@ const inline = (s: string) =>
             </div>
           )}
 
-          {data.groups.map((group, gi) => (
-            <section class:list={['group', gi % 2 === 0 ? 'left' : 'right']}>
-              <h3 class="group-lead" set:html={inline(group.lead)} />
-              <ul class="bullets">
-                {group.items.map((item) => (
-                  <li set:html={inline(item)} />
-                ))}
-              </ul>
-            </section>
-          ))}
+          {data.groups.length > 0 && (
+            <div class="groups">
+              {data.groups.map((group) => (
+                <section class="group">
+                  <h3 class="group-lead" set:html={inline(group.lead)} />
+                  <ul class="bullets">
+                    {group.items.map((item) => <li set:html={inline(item)} />)}
+                  </ul>
+                </section>
+              ))}
+            </div>
+          )}
 
           {data.note && <p class="note" set:html={inline(data.note)} />}
 
@@ -114,7 +118,6 @@ const inline = (s: string) =>
     padding: var(--space-8) 0 var(--space-7);
     max-width: var(--measure);
   }
-
   .kicker {
     font-size: var(--text-tag);
     text-transform: uppercase;
@@ -122,13 +125,11 @@ const inline = (s: string) =>
     color: var(--color-accent);
     margin: 0 0 var(--space-3);
   }
-
   h1.display {
     font-size: var(--text-display);
     margin: 0 0 var(--space-4);
     line-height: var(--leading-tight);
   }
-
   .page-intro {
     font-size: var(--text-lead);
     max-width: var(--measure-narrow);
@@ -141,35 +142,54 @@ const inline = (s: string) =>
   .ground-coral { --offer-ink: var(--color-ground-3); }
   .ground-blue  { --offer-ink: var(--color-ground-2); }
 
-  /* --- Banner ------------------------------------------------------------- */
-  .offer-banner {
+  /* --- Photographic header ------------------------------------------------ */
+  /* Full-bleed: a photograph beside a brand-colour panel carrying the title.
+     All the header text is large, so white-on-colour clears AA on every
+     ground. The photo alternates sides down the page. */
+  .offer-header {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    min-height: 26rem;
+  }
+  .offer:nth-of-type(even) .oh-photo { grid-column: 2; grid-row: 1; }
+  .offer:nth-of-type(even) .oh-panel { grid-column: 1; grid-row: 1; }
+
+  .oh-photo { overflow: hidden; background: var(--offer-ink); }
+  .oh-photo img {
+    width: 100%;
+    height: 100%;
+    min-height: 26rem;
+    object-fit: cover;
+    display: block;
+  }
+
+  .oh-panel {
     background: var(--offer-ink);
     color: var(--color-text-inverted, #fff);
-    padding: var(--space-8) 0;
+    padding: clamp(1.75rem, 4vw, 3rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-
-  .banner-num {
-    font-size: var(--text-h3);
-    font-weight: var(--weight-bold);
-    opacity: 0.85;
-    margin: 0 0 var(--space-2);
+  .oh-num {
+    font-family: var(--font-mono);
+    font-size: var(--text-h2);
+    opacity: 0.55;
+    margin-bottom: var(--space-3);
   }
-
-  .banner-title {
+  .oh-title {
     font-size: var(--text-display);
     color: inherit;
     margin: 0 0 var(--space-3);
     line-height: var(--leading-tight);
   }
-
-  .banner-subhead {
-    /* Large text (>=24px) so white-on-colour clears AA's 3:1 on coral/blue. */
-    font-size: var(--size-2xl);
+  .oh-subhead {
     font-family: var(--font-display);
+    font-size: var(--size-2xl);
     color: inherit;
     opacity: 0.95;
     margin: 0;
-    max-width: 32ch;
+    max-width: 26ch;
     line-height: var(--leading-snug, 1.3);
   }
 
@@ -178,15 +198,15 @@ const inline = (s: string) =>
     padding: var(--space-8) 0 var(--space-9);
   }
 
-  /* Intro: a big lead statement, with the supporting paragraphs dropped down
-     and offset on the right so it doesn't read as one solid block. */
+  /* Intro: lead statement beside the supporting paragraphs. */
   .intro {
     display: grid;
-    grid-template-columns: 5fr 6fr;
-    gap: var(--space-8);
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-7);
     align-items: start;
+    padding-bottom: var(--space-7);
+    border-bottom: 1px solid var(--color-border);
   }
-
   .intro-lead {
     font-family: var(--font-display);
     font-weight: var(--weight-display);
@@ -195,41 +215,26 @@ const inline = (s: string) =>
     color: var(--color-text);
     margin: 0;
   }
-
-  .intro-body {
-    max-width: var(--measure);
-    /* Drop the sub-paragraphs well down the lead so the page steps: lead
-       (upper left) -> sub-paragraphs (lower right) -> group 1 (left) ->
-       group 2 (right). */
-    margin-top: clamp(3rem, 8vw, 7rem);
-  }
-  .intro-body p {
-    margin: 0 0 var(--space-4);
-    line-height: var(--leading-normal);
-  }
+  .intro-body { max-width: var(--measure); }
+  .intro-body p { margin: 0 0 var(--space-4); line-height: var(--leading-normal); }
   .intro-body p:last-child { margin-bottom: 0; }
 
-  /* Point-groups: alternated for rhythm and white space. The first sits on the
-     left; the second is offset to the right. Each is a heading over a plain
-     bullet list, at a comfortable half-width measure. */
-  .group {
-    max-width: 40rem;
-    margin-top: var(--space-9);
+  /* The two point-groups sit side by side so the detail reads as two tidy
+     columns rather than one long vertical stack. */
+  .groups {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+    margin-top: var(--space-7);
   }
-  /* Pushed to the right, but text stays left-aligned for readability. */
-  .group.right {
-    margin-left: auto;
-  }
-
   .group-lead {
     font-family: var(--font-display);
     font-weight: var(--weight-display);
-    font-size: var(--size-2xl);
+    font-size: var(--text-h2);
     line-height: var(--leading-tight);
     color: var(--color-text);
-    margin: 0 0 var(--space-5);
+    margin: 0 0 var(--space-4);
   }
-
   .bullets {
     list-style: none;
     margin: 0;
@@ -243,14 +248,12 @@ const inline = (s: string) =>
     line-height: var(--leading-normal);
   }
   .bullets li::before {
-    content: '\203A'; /* › */
+    content: '\203A';
     position: absolute;
     left: 0;
     color: var(--color-accent);
     font-weight: var(--weight-bold);
   }
-
-  /* Links consistent across every module: dark text, coral underline. */
   .bullets :global(a),
   .note :global(a) {
     color: var(--color-text);
@@ -263,14 +266,15 @@ const inline = (s: string) =>
   .note :global(a:hover) { color: var(--color-accent); }
 
   .note {
-    margin: var(--space-7) 0 0;
+    grid-column: 1 / -1;
+    margin: var(--space-6) 0 0;
     font-size: var(--text-body-sm);
   }
-  .note :global(a) { font-weight: var(--weight-regular, 400); }
+  .note :global(a) { font-weight: var(--weight-regular, 400); color: var(--color-accent); }
 
   /* --- Related work ------------------------------------------------------- */
   .related {
-    margin-top: var(--space-9);
+    margin-top: var(--space-8);
     padding-top: var(--space-5);
     border-top: 1px solid var(--color-border);
   }
@@ -302,15 +306,15 @@ const inline = (s: string) =>
   }
   .related a:hover { border-color: var(--color-accent); color: var(--color-accent); }
 
-  @media (max-width: 820px) {
-    .banner-subhead { max-width: none; }
-  }
-
-  @media (max-width: 680px) {
-    .intro { grid-template-columns: 1fr; gap: var(--space-5); }
-    .intro-body { margin-top: 0; }
-    .group { max-width: none; margin-top: var(--space-7); }
-    .group.right .group-lead { text-align: left; }
-    .offer-banner { padding: var(--space-7) 0; }
+  @media (max-width: 860px) {
+    .offer-header { grid-template-columns: 1fr; min-height: 0; }
+    .offer:nth-of-type(even) .oh-photo,
+    .offer:nth-of-type(even) .oh-panel { grid-column: 1; }
+    .oh-photo { grid-row: 1; aspect-ratio: 16 / 9; }
+    .oh-photo img { min-height: 0; }
+    .oh-panel { grid-row: 2; }
+    .intro, .groups { grid-template-columns: 1fr; }
+    .intro { gap: var(--space-5); }
+    .groups { gap: var(--space-7); }
   }
 </style>

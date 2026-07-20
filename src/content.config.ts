@@ -147,8 +147,11 @@ const offers = defineCollection({
     summary: z.string(),
     // Which brand colour the banner takes.
     ground: z.enum(['teal', 'coral', 'blue']).default('teal'),
-    // The Webflow "sticker" badge for this offer (experiment / pilot /
-    // octopus). Used as the small icon on each of the offer's copy panels.
+    // Photographic header for the offer's section.
+    heroImage: z.string().optional(),
+    heroAlt: z.string().optional(),
+    // The Webflow "sticker" badge (experiment / pilot / octopus). Retained in
+    // frontmatter but not currently rendered.
     image: z.string().optional(),
     imageAlt: z.string().optional(),
     // The copy, structured so the template can lay it out editorially: a

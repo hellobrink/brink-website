@@ -2,6 +2,8 @@
 name: Innovation Carve-Outs
 summary: Creating space for innovation to be freely pursued and scaled
 ground: coral
+heroImage: "/images/682ec9bba6e42db5a2651f54_ampersand.jpeg"
+heroAlt: "An Ampersand electric motorcycle taxi in Nairobi"
 image: "/images/66d6f6f632b8420d2ec2fa8a_pilot_sticker.png"
 imageAlt: Innovation Carve-Outs badge
 lead: "Across Brink’s work with FCDO, city mayors, the World Bank and everything in between, we’ve heard the same thing time and again: “it’s easier to sign off £50m than £50k”."
