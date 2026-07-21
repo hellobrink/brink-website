@@ -36,12 +36,18 @@ principles:
 caseStudies:
   - title: "EdTech Hub"
     slug: "realising-the-potential-of-technology-to-transform-education"
+    # TODO: replace with the masked-children-on-tablets photo Rob sent (can't
+    # pull a pasted image into the repo); placeholder for now so it stops
+    # repeating the sector hero image.
+    image: "/images/placeholder.svg"
     quote: "Creating the environments for testing technologies that can deliver better learning outcomes for all children."
   - title: "AI Observatory"
     url: "https://edtechhub.org/"
+    image: "/images/cs-ai-observatory.jpeg"
     quote: "Tracking AI’s impact on the learning divide in low- and middle-income countries."
   - title: "AI Action Lab"
     url: "https://edtechhub.org/"
+    image: "/images/cs-ai-action-lab.jpg"
     quote: "Piloting AI tools directly with ministries of education and teachers."
 contact:
   name: "Alex Losneanu"
