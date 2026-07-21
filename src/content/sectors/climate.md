@@ -1,7 +1,7 @@
 ---
 name: Climate
 accent: teal
-headline: "At Brink we tackle the climate crisis with solutions that are scalable, implementable, and rooted in local reality."
+headline: "We build solutions for the climate crisis that are scalable, implementable and rooted in local reality."
 positioningLine: "Scalable, implementable climate solutions, rooted in local reality."
 stats:
   - pre: "Supported over"

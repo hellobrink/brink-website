@@ -1,7 +1,7 @@
 ---
 name: Education
 accent: blue
-headline: "At Brink we tackle the global learning crisis with technology that’s grounded in evidence and designed to scale."
+headline: "We tackle the global learning crisis with technology that’s grounded in evidence and designed to scale."
 positioningLine: "Evidence-based education technology, built with governments and educators, designed to scale."
 stats:
   - pre: "Supported over"
