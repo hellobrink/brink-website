@@ -18,8 +18,8 @@ challenge:
   - "The real barrier to climate impact isn’t missing money or tech; it’s the distance between funders and the people who live with the outcomes."
 approach:
   - "Brink closes that gap by co-designing with local decision-makers, wiring behavioural insights into the solutions and systems (and that includes us), and building finance that rewards learning."
-challengeImage: "/images/locust-hero-drone.webp"
-challengeImageAlt: "A spray drone being tested for locust control in Kenya"
+challengeImage: "/images/climate-challenge-locust.webp"
+challengeImageAlt: "Field testing of a locust-control drone in Kenya"
 principles:
   - title: "Solutions that work today and scale tomorrow"
     body:
