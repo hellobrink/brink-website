@@ -41,6 +41,7 @@ caseStudies:
     quote: "By turning data into action, we’re ensuring that the right vaccine gets to the right place, at the right time. Saving lives and accelerating health outcomes across Africa."
   - title: "Thin air that saves lives"
     slug: "thin-air-that-saves-lives"
+    image: "/images/45A6268_1.jpg"
     quote: "As a hospital manager, I have many issues every day. Since HealthPort got here, [medical] oxygen is not one of them!"
   - title: "Hanga SRH"
     url: "https://www.hangapitchfest.rw/#/srh"

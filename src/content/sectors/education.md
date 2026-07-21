@@ -36,10 +36,9 @@ principles:
 caseStudies:
   - title: "EdTech Hub"
     slug: "realising-the-potential-of-technology-to-transform-education"
-    # TODO: replace with the masked-children-on-tablets photo Rob sent (can't
-    # pull a pasted image into the repo); placeholder for now so it stops
-    # repeating the sector hero image.
-    image: "/images/placeholder.svg"
+    # A different photo from the EdTech case study so the card doesn't repeat
+    # the sector hero image.
+    image: "/images/cs-realising-the-potential-of-technology-to-3.jpeg"
     quote: "Creating the environments for testing technologies that can deliver better learning outcomes for all children."
   - title: "AI Observatory"
     url: "https://edtechhub.org/"
