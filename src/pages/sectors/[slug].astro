@@ -40,15 +40,31 @@ const workMap = Object.fromEntries(
     {data.stats.length > 0 && (
       <section class="stats">
         <div class="container">
-          <p class="stats-heading mono">Since 2018, Brink has</p>
+          <h2 class="stats-heading display">Since 2018, Brink has</h2>
           <div class="stats-row">
-            {data.stats.map((s) => (
-              <div class="stat">
-                {s.pre && <span class="stat-cap">{s.pre}</span>}
-                <span class="stat-value display">{s.value}</span>
-                {s.post && <span class="stat-cap">{s.post}</span>}
-              </div>
-            ))}
+            {data.stats.map((s) => {
+              // Split "£6m" / "1.5m" into prefix, number and suffix so the
+              // figure can count up like the homepage's.
+              const m = s.value.match(/^(\D*)([\d.]+)(\D*)$/);
+              const prefix = m?.[1] ?? '';
+              const numStr = m?.[2] ?? '';
+              const suffix = m?.[3] ?? '';
+              const decimals = numStr.includes('.') ? numStr.split('.')[1].length : 0;
+              return (
+                <div class="stat">
+                  {s.pre && <span class="stat-cap">{s.pre}</span>}
+                  <span
+                    class="stat-value display"
+                    data-count-to={numStr}
+                    data-prefix={prefix}
+                    data-suffix={suffix}
+                    data-decimals={String(decimals)}
+                    aria-label={[s.pre, s.value, s.post].filter(Boolean).join(' ')}
+                  >{s.value}</span>
+                  {s.post && <span class="stat-cap">{s.post}</span>}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -173,6 +189,58 @@ const workMap = Object.fromEntries(
   </article>
 </Layout>
 
+<script>
+  // Count the impact figures up as they scroll into view. The final value is
+  // already in the HTML, so this degrades to a plain number if JS fails, and
+  // it's skipped for anyone who prefers reduced motion. Mirrors the homepage.
+  const stats = document.querySelectorAll<HTMLElement>('.stat-value[data-count-to]');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (stats.length && !reduced) {
+    const run = (el: HTMLElement) => {
+      const target = Number(el.dataset.countTo);
+      const prefix = el.dataset.prefix ?? '';
+      const suffix = el.dataset.suffix ?? '';
+      const decimals = Number(el.dataset.decimals ?? '0');
+      const fmt = (n: number) => `${prefix}${n.toFixed(decimals)}${suffix}`;
+      const finalText = fmt(target);
+      const duration = 1100;
+      const start = performance.now();
+      let done = false;
+      const settle = () => {
+        if (done) return;
+        done = true;
+        el.textContent = finalText;
+      };
+      const tick = (now: number) => {
+        if (done) return;
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+        el.textContent = fmt(target * eased);
+        if (p < 1) requestAnimationFrame(tick);
+        else settle();
+      };
+      setTimeout(settle, duration + 300);
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) settle();
+      });
+      requestAnimationFrame(tick);
+    };
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          run(entry.target as HTMLElement);
+          io.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.6 }
+    );
+    stats.forEach((s) => io.observe(s));
+  }
+</script>
+
 <style>
   .accent-teal  { --accent-ink: var(--color-ground-1); }
   .accent-coral { --accent-ink: var(--color-ground-3); }
@@ -220,7 +288,14 @@ const workMap = Object.fromEntries(
 
   /* --- Impact stats (mirrors the homepage) -------------------------------- */
   .stats { padding: var(--space-8) 0; border-bottom: 1px solid var(--color-border); }
-  .stats-heading { font-size: var(--text-tag); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-text-muted); margin: 0 0 var(--space-6); }
+  .stats-heading {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display);
+    font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+    margin: 0 0 var(--space-6);
+  }
   .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
   .stat { display: flex; flex-direction: column; gap: var(--space-1); }
   .stat-cap { font-size: var(--text-body-sm); color: var(--color-text-muted); max-width: 22ch; }
@@ -261,13 +336,21 @@ const workMap = Object.fromEntries(
     gap: var(--space-7);
   }
   .principle { display: flex; flex-direction: column; }
+  /* A quiet index number over a bold, accent-coloured headline, so the
+     principle titles read as headlines and carry the sector's colour. */
   .principle-num {
-    font-size: var(--text-h1);
+    font-size: var(--text-h2);
     line-height: 1;
-    color: var(--accent-ink);
-    margin-bottom: var(--space-3);
+    color: var(--color-text-muted);
+    opacity: 0.55;
+    margin-bottom: var(--space-2);
   }
-  .principle-title { font-size: var(--text-h3); line-height: var(--leading-tight); margin: 0 0 var(--space-3); }
+  .principle-title {
+    font-size: var(--size-2xl);
+    line-height: var(--leading-tight);
+    color: var(--accent-ink);
+    margin: 0 0 var(--space-4);
+  }
   .principle p { margin: 0 0 var(--space-3); line-height: var(--leading-normal); color: var(--color-text-soft, var(--color-text)); }
 
   /* --- Behavioural Innovation (shared band) ------------------------------- */
