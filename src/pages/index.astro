@@ -188,11 +188,16 @@ const panels = [
           {latestPosts.map((post) => (
             <li>
               <a class="news-card" href={withBase(`/blog/${post.id}`)}>
-                {post.data.heroImage && (
-                  <img src={withBase(post.data.heroImage)} alt={post.data.heroAlt ?? post.data.title} loading="lazy" />
+                {/* The wide cards want the landscape banner, not the square
+                    thumbnail (which the blog index uses). */}
+                {(post.data.bannerImage ?? post.data.heroImage) && (
+                  <img src={withBase(post.data.bannerImage ?? post.data.heroImage)} alt={post.data.bannerAlt ?? post.data.heroAlt ?? post.data.title} loading="lazy" />
                 )}
                 <div class="news-body">
-                  {post.data.authorName && <p class="mono meta">{post.data.authorName}</p>}
+                  {(() => {
+                    const authors = [post.data.authorName, post.data.authorName2].filter(Boolean).join(' & ');
+                    return authors && <p class="mono meta">{authors}</p>;
+                  })()}
                   <h3>{post.data.title}</h3>
                 </div>
               </a>
