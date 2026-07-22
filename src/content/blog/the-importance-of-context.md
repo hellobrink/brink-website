@@ -33,11 +33,11 @@ The work I’d been doing in Lagos and across other cities on the continent (Kig
 
 This work, for me, brought to life ideas shared by [Walter Rodney](https://en.wikipedia.org/wiki/Walter_Rodney), a Guyanese historian, political activist, and author. He worked extensively in Tanzania, where he taught at the University of Dar es Salaam, contributing to critical scholarship and Pan-Africanist movements that challenged colonial and neo-colonial exploitation of the African continent:
 
-## *“More often than not, the term ‘development’ is used in an exclusive economic sense – the justification being that the type of economy is itself an index of other social features.*
-
-## *What then is economic development?*
-
-## *A society develops economically as its members increase jointly their capacity for dealing with the environment. This capacity for dealing with the environment is dependent on the extent to which they understand the laws of nature (science), on the extent to which they put that understanding into practice by devising tools (technology), and on the manner in which work is organised. “ (Rodney, 1972, p. 8)*
+> “More often than not, the term ‘development’ is used in an exclusive economic sense – the justification being that the type of economy is itself an index of other social features.
+>
+> What then is economic development?
+>
+> A society develops economically as its members increase jointly their capacity for dealing with the environment. This capacity for dealing with the environment is dependent on the extent to which they understand the laws of nature (science), on the extent to which they put that understanding into practice by devising tools (technology), and on the manner in which work is organised. “ (Rodney, 1972, p. 8)
 
 Through the ALU Hubs Learning experience, we learned that contextual realities can be barriers to ideas of change, especially if the systems in which we look to innovate are resistant to change.
 

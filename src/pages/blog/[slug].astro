@@ -187,4 +187,13 @@ const authors = [
   .prose :global(blockquote p:last-child) {
     margin-bottom: 0;
   }
+  /* A long, multi-paragraph quotation (e.g. quoting a paper) is not a pull-out
+     quote: render it smaller and without the panel, so it reads as a citation. */
+  .prose :global(blockquote:has(p + p)) {
+    background: none;
+    border-radius: 0;
+    padding: var(--space-1) 0 var(--space-1) var(--space-5);
+    font-size: var(--text-lead);
+    line-height: var(--leading-normal);
+  }
 </style>
