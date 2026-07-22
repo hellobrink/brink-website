@@ -17,10 +17,9 @@ In December of 2023, I was on the brink of joining Brink.
 
 I had just returned from a trip to Lagos where I had been working on building contextualised learning experiences for students of the African Leadership University (ALU). My work in Lagos was a representation of why a 21-year-old me decided to abandon the pursuit of a masters degree in African Studies, and leave the UK to learn about Africans right here on the continent.
 
-<figure class="post-figure">
-<img src="/images/68b5b62d07927800140ee45a_5a302d89.png" alt="" />
-<figcaption>Makoko Slums, Lagos, Nigeria</figcaption>
-</figure>
+![](/images/68b5b62d07927800140ee45a_5a302d89.png)
+
+<p class="post-caption">Makoko Slums, Lagos, Nigeria</p>
 
 For those who know me, that statement might sound ridiculous. They would say, “Hamza, weren’t you born and raised on the continent?” and they would be right. However, it was not the ideas of this continent that raised me, rather the perception of it through the lens of a western ideology-based education system.
 

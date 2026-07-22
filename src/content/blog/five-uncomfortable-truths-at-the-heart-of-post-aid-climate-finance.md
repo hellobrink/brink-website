@@ -23,10 +23,9 @@ Alongside plummeting figures around the impact of these cuts, there's been plent
 
 In 2026, [leaders are looking to alternative and blended-finance mechanisms like social investing and carbon markets to fill the gap](https://www.reuters.com/sustainability/society-equity/comment-with-usaid-crisis-we-need-carbon-markets-help-fill-gap-climate-finance-2025-02-11/) left by aid cuts. But one week into the year, the US withdrew from the United Nations Framework Convention on Climate Change ([UNFCCC](https://unfccc.int/)), severing ties with international compliance markets and eliminating any US obligation to buy credits to meet climate goals. [In one fell swoop, the world's second-largest emitter created a $10-25bn climate finance gap.](https://www.ctvc.co/us-climate-retreat-leaves-a-10bn-hole-in-carbon-markets-278/?ref=ctvc-by-sightline-climate-newsletter)
 
-<figure class="post-figure">
-<img src="/images/697a34a418c9768beca0c639_9aa8c630.png" alt="" />
-<figcaption>A best-selling wine from the Republican Red Winery in California.</figcaption>
-</figure>
+![](/images/697a34a418c9768beca0c639_9aa8c630.png)
+
+<p class="post-caption">A best-selling wine from the Republican Red Winery in California.</p>
 
 The gap isn't just about money though. With even less resources, now is the time to scrutinise what it *really* takes to fund self-sufficient solutions.
 
@@ -42,10 +41,9 @@ This isn't just about software retraining - it's about the gap between global fr
 
 [We’ve worked with agricultural ventures in Rwanda](https://www.isanolodge.com/go-muhazi) that had to close early because asset lifecycle financing is consistently underfunded. This is the unglamorous but critical work of maintaining, translating, and adapting technology after purchase. When a shiny monitoring solution is only available in another language, it’s the smallholder farmers who miss out.
 
-<figure class="post-figure">
-<img src="/images/697a34a418c9768beca0c630_2aeba422.png" alt="" />
-<figcaption>Two emerging insights from our first Go Muhazi cohort.</figcaption>
-</figure>
+![](/images/697a34a418c9768beca0c630_2aeba422.png)
+
+<p class="post-caption">Two emerging insights from our first Go Muhazi cohort.</p>
 
 ## **Sophisticated solutions fail without affordable, maintainable hardware**
 
@@ -85,10 +83,9 @@ The same dynamic exists in export markets. In Colombia, growing cocoa is a legal
 
 The tech provides a solution that works — but who should bear the cost?
 
-<figure class="post-figure">
-<img src="/images/697a34a418c9768beca0c636_419569a6.png" alt="" />
-<figcaption>Carlos Pedraza sharing the FOLIA platform with a cocoa farmer</figcaption>
-</figure>
+![](/images/697a34a418c9768beca0c636_419569a6.png)
+
+<p class="post-caption">Carlos Pedraza sharing the FOLIA platform with a cocoa farmer</p>
 
 ## **Solutions need 3-5 year horizons, not 2-year grant cycles**
 

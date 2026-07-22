@@ -52,10 +52,9 @@ There's an Einstein quote I use all the time: not everything that counts can be 
 
 If you want to change a system, you can't be bound by it. The solution may come from that system, but you have to start by changing your own mindset and questioning it. For me, the worst thing I can hear is "But we've always done it like that." I just ask dumb questions. I ask lots of those questions all the time, hoping that those questions will trigger something in somebody else.
 
-<figure class="post-figure">
-<img src="/images/68b59fe57e64b73b8a6b6166_kuza-17-scaled.jpg" alt="" />
-<figcaption>Image courtesy of Kuza One.</figcaption>
-</figure>
+![](/images/68b59fe57e64b73b8a6b6166_kuza-17-scaled.jpg)
+
+<p class="post-caption">Image courtesy of Kuza One.</p>
 
 ## **How do you go about achieving that delicate balance between scaling complex systems and maintaining trust?**
 
