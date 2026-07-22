@@ -21,23 +21,12 @@ For us, this is a timeless truth.
 
 This video is our articulation of the beliefs we hold dear, and how, in this current climate, these beliefs feel more vital than ever.
 
-Loading subtitles…
-
-▶
-
-🔈
-
-CC
-
-0:00
-
-## Share the video
-
-[📱WhatsApp](https://api.whatsapp.com/send?text=Check%20this%20out:%20https://hellobrink.github.io/video-assets/BRINK.mp4) [📘Facebook](https://www.facebook.com/sharer/sharer.php?u=https://hellobrink.github.io/video-assets/BRINK.mp4) [𝕏X](https://twitter.com/intent/tweet?url=https://hellobrink.github.io/video-assets/BRINK.mp4&text=Watch%20this%20from%20Brink:) [✉️Email](mailto:?subject=Brink%20Campaign%20Video&body=Check%20this%20out:%20https://hellobrink.github.io/video-assets/BRINK.mp4) [🔗Embed](javascript:void(0);)
-
-Copy
-
-<iframe src="https://hellobrink.github.io/video-assets/BRINK.mp4" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+<figure class="post-video">
+<video controls playsinline preload="metadata" poster="https://hellobrink.github.io/video-assets/Brink%20campaign%20tb.png">
+<source src="https://hellobrink.github.io/video-assets/BRINK.mp4" type="video/mp4" />
+Your browser can’t play this embedded video. <a href="https://hellobrink.github.io/video-assets/BRINK.mp4">Watch it here</a>.
+</video>
+</figure>
 
 ## Beyond beliefs: Making things happen
 
@@ -68,5 +57,3 @@ We’re ready. We're sure you are too. So come talk with us.
 Over the next few weeks, we'll be bringing those people with the energy, resources and ideas needed to address preventable crises in areas like health, education, and climate. If you'd like to be part of those conversations, let us know using this form. We’ll only use your details to keep you in the loop — no spam, ever.
 
 Thank you! Check your inbox for confirmation, and we'll be in touch soon.
-
-Oops! Something went wrong. Please try again.

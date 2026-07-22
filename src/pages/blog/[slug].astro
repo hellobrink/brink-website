@@ -166,6 +166,20 @@ const authors = [
     margin-bottom: 0;
   }
 
+  /* Embedded video (a one-off on the founders' post): full width with native
+     controls. */
+  .prose :global(.post-video) {
+    margin: var(--space-6) 0;
+  }
+  .prose :global(.post-video video) {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
+    background: #000;
+  }
+
   /* Pull quotes: set apart from the (serif, upright) section headings with an
      italic face inside a tinted panel and a coral rule. */
   .prose :global(blockquote) {
