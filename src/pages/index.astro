@@ -188,10 +188,9 @@ const panels = [
           {latestPosts.map((post) => (
             <li>
               <a class="news-card" href={withBase(`/blog/${post.id}`)}>
-                {/* The wide cards want the landscape banner, not the square
-                    thumbnail (which the blog index uses). */}
-                {(post.data.bannerImage ?? post.data.heroImage) && (
-                  <img src={withBase(post.data.bannerImage ?? post.data.heroImage)} alt={post.data.bannerAlt ?? post.data.heroAlt ?? post.data.title} loading="lazy" />
+                {/* Square card + square thumbnail, so the images aren't cropped. */}
+                {post.data.heroImage && (
+                  <img src={withBase(post.data.heroImage)} alt={post.data.heroAlt ?? post.data.title} loading="lazy" />
                 )}
                 <div class="news-body">
                   {(() => {
@@ -700,7 +699,7 @@ const panels = [
 
   .news-card img {
     width: 100%;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     margin-bottom: var(--space-3);
   }
