@@ -1,0 +1,407 @@
+---
+// The Behavioural Innovation showcase — the standalone guide/toolkit page that
+// currently lives at bi.hellobrink.co (built to echo designthinking.ideo.com).
+// Rebuilt in the site's design system as a scroll-driven page: full-bleed teal
+// panels, oversized bold type, coral underlines that draw in on scroll, the
+// collage illustrations, and the animated Venn. The last two sections (Tools &
+// Guides, Discover more) are reworked as card grids, which the Webflow original
+// left as plain text lists.
+import Layout from '../layouts/Layout.astro';
+import VennDiagram from '../components/VennDiagram.astro';
+import { withBase } from '../lib/base';
+
+// The three "imagine you are…" scenarios, each paired with one of the torn
+// collage illustrations (a rowing crew for the team, cranes taking flight for
+// the fund, the climber for the long-term vision).
+const scenarios = [
+  {
+    image: '/images/illo-row.png',
+    alt: 'A rowing crew pulling together',
+    body: [
+      'Imagine you are running a team tasked with finding new ways to meet complex challenges. You might not think to start with the unsexy business of procurement processes, performance reviews and budget sheets.',
+      'But if we want people to perform at their best then we have to design systems that give them the permission and impetus they need to experiment, learn and adapt.',
+      'By baking incentives and encouragement into the mechanics of your organisation you not only drive individual behaviours, you demonstrate how much you truly value the hard work of innovation.',
+    ],
+  },
+  {
+    image: '/images/illo-cranes.png',
+    alt: 'Origami cranes taking flight',
+    focus: '86% center',
+    body: [
+      'Or maybe you are designing a fund seeking to address some of the world’s most complex issues. You probably wouldn’t be questioned if you started by putting a handful of recognised experts in a room together.',
+      'But what if you instead began by designing ways to encourage multiple ideas from a more diverse range of sources? Developed learning networks, encouraged collaboration across disciplines, and then formed a powerful, collective voice.',
+      'Then you could create far greater impact and start driving positive change in entirely new ways.',
+    ],
+  },
+  {
+    image: '/images/illo-climber.png',
+    alt: 'A climber scaling a torn edge',
+    body: [
+      'If your team was working towards a bold, long-term vision you might be expected to start by creating grand, complex strategies. But rigid plans inevitably falter at the first hurdle because they crowd out the humility you need to keep course correcting.',
+      'Real impact comes when you’re able to ditch the ego so you can create an environment in which innovators are comfortable flexing their thinking.',
+      'Then they become secure enough to adapt their approaches as new evidence and insights arise.',
+    ],
+  },
+];
+
+const proof = [
+  { text: 'Brought together innovators to develop new kinds of oxygen concentrators that are capable of saving lives in low-resource settings.', url: withBase('/our-work/thin-air-that-saves-lives') },
+  { text: 'Transformed the behaviour and culture at Oxfam America, leading to radical new ways of working and creating the potential to make a bigger difference in the world.', url: 'https://hellobrink.co/new-ways-for-oxfam-america-to-make-a-bigger-impact-in-the-world/' },
+  { text: 'Worked with Macmillan Cancer Support to address health inequalities, beginning with those in marginalised communities.', url: withBase('/our-work/addressing-health-inequalities-through-inclusive-design') },
+  { text: 'Created environments for the testing of new educational technologies that can deliver better learning outcomes for all children, including the most marginalised.', url: withBase('/our-work/realising-the-potential-of-technology-to-transform-education') },
+  { text: 'Developed a supportive and dynamic community for humanitarian innovators working in unpredictable and extreme environments.', url: withBase('/our-work/creating-community-across-conflict-zones') },
+];
+
+// Tools grouped by the stage of work they support. Echoes Brink's method-cards.
+const toolGroups = [
+  {
+    stage: 'Setting teams up for success',
+    tools: [
+      { title: 'Mindset, Mechanisms and Methods checklist', body: 'Use this before tackling a complex challenge to make sure you have the mindset, mechanisms and methods in place to make a real impact.', url: 'https://drive.google.com/file/d/1ZyM9ITZMwVBiVPDsCI8xmddsiZQT0OvN/view' },
+      { title: 'Mindsetting Dojo', body: 'Cultivate an innovation mindset in a team by practising the ability to listen, learn, share and build.', url: 'https://drive.google.com/file/d/1o8-nm5g-Mzx0qCSiX84Ja8UFYa8UWUts/view' },
+    ],
+  },
+  {
+    stage: 'Shifting people’s behaviour',
+    tools: [
+      { title: 'Incentives Cards', body: 'Consider the different internal and external incentives that motivate people to act.', url: 'https://drive.google.com/file/d/1dwlUXfloCoHYxXU0mTb5SDEq1nLeK6T0/view' },
+      { title: 'MASTER Framework Cards', body: 'Design ways to shift behaviours based on what we know motivates and influences people.', url: 'https://drive.google.com/file/d/15lquRhM8Qk1ECR0HLabTFj8rIlZn4WCq/view' },
+    ],
+  },
+  {
+    stage: 'Testing and growing new ideas',
+    tools: [
+      { title: 'Experiment Method Cards', body: 'Created with the Frontier Tech Hub, these give you ideas for experiments to test your thinking and validate hypotheses.', url: 'https://drive.google.com/file/d/1ahGEVQLcvwO5th37DZyzcQBEC3TPG1UK/view' },
+      { title: '6Ps Audit Tool', body: 'Used in the EdTech Hub to assess programmes and interventions, so you can identify what needs testing to make an impact at scale.', url: 'https://docs.edtechhub.org/lib/58EFZM9F/download/TDL82EL8/Rahman%20and%20Carter%20-%202022%20-%20%E2%80%986Ps%E2%80%99%20audit%20tool.pdf' },
+    ],
+  },
+];
+
+const discover = [
+  { title: 'Choosing without choosing', body: 'How the defaults around you are shaping what you do and who you are, and how you can rethink them.', url: 'https://hellobrink.co/choosing-without-choosing/', ground: 'teal' },
+  { title: 'How to get people to do what you want', body: 'The power of using incentives to shift human behaviours.', url: 'https://hellobrink.co/how-to-get-people-to-do-what-you-want-the-secrets-of-incentives/', ground: 'coral' },
+  { title: 'Creating psychological safety', body: 'What a culture of psychological safety looks like, and how you can develop it.', url: 'https://www.hellobrink.co/post/tips-for-creating-psychological-safety', ground: 'blue' },
+  { title: 'To create anything, first build a team', body: 'Why the team you build matters more than the idea you start with.', url: 'https://hellobrink.co/to-create-anything-first-build-a-team/', ground: 'coral' },
+  { title: 'I disagree', body: 'The dangerous, and essential, business of sharing feedback.', url: 'https://hellobrink.co/i-disagree-the-dangerous-business-of-sharing-feedback/', ground: 'blue' },
+  { title: 'Hear this', body: 'Why innovators need to be better listeners.', url: 'https://hellobrink.co/hear-this-why-innovators-need-to-be-better-listeners/', ground: 'teal' },
+];
+---
+
+<Layout
+  title="Behavioural Innovation"
+  description="A guide and toolkit to Behavioural Innovation: combining the behavioural sciences with innovation methodologies to transform entire systems."
+>
+  <div class="bi">
+    <!-- HERO -->
+    <section class="panel hero reveal">
+      <div class="panel-inner">
+        <div class="hero-copy">
+          <p class="lead">
+            Behavioural Innovation is a proven approach for those looking to create meaningful, lasting
+            <span class="ul">change</span> in the world.
+          </p>
+          <p>A combination of the behavioural sciences and innovation methodologies, it is designed to enable the transformation of entire systems.</p>
+          <p class="steal">This page is both a guide and a toolkit. Please steal it with pride.</p>
+        </div>
+        <div class="hero-art">
+          <img src={withBase('/images/bi-stairs.png')} alt="People climbing a steep flight of steps, helping each other up" loading="eager" />
+        </div>
+      </div>
+    </section>
+
+    <!-- THE PROBLEM: HUMANS -->
+    <section class="panel reveal">
+      <div class="panel-inner narrow">
+        <p class="lead">To create meaningful change in the world, we must first understand the messy, multi-layered <span class="ul">humans</span> that live in it.</p>
+        <p>Humans are unpredictable, irrational things. We respond very differently depending on where we are and what we want.</p>
+        <p>And yet, work in areas like health, education and climate is often designed as though the world was a neat and linear place, populated by utterly rational people.</p>
+        <p>At Brink, we believe that challenges like the climate crisis, food insecurity, infant mortality, learning poverty and wealth inequality are <span class="ul">preventable</span>.</p>
+        <p>What’s missing is the ability to take human behaviours into account when designing solutions that can make a real dent in these challenges.</p>
+      </div>
+    </section>
+
+    <!-- WHAT IS BI + VENN -->
+    <section class="panel reveal">
+      <div class="panel-inner venn-panel">
+        <div class="venn-copy">
+          <p class="lead">Behavioural Innovation is our proven method for unlocking the human behaviours capable of making <span class="ul">real dents</span>.</p>
+          <p>It combines the behavioural sciences with innovation methodologies, giving teams the framework they need to anticipate the unpredictable, work with the irrational, and design for the volatile.</p>
+          <p>It’s an approach that encourages a move away from dogmatic theory and rigid programmes, towards creative and frequent iteration.</p>
+          <p><a class="inline-link" href={withBase('/offers')}>Read more about how Brink applies Behavioural Innovation &rarr;</a></p>
+        </div>
+        <div class="venn-holder">
+          <VennDiagram left={["Behavioural", "sciences"]} right={["Innovation", "methods"]} />
+        </div>
+      </div>
+    </section>
+
+    <!-- THREE SCENARIOS -->
+    {scenarios.map((s, i) => (
+      <section class:list={['panel', 'scenario', 'reveal', { flip: i % 2 === 1 }]}>
+        <div class="panel-inner scenario-inner">
+          <div class="scenario-art">
+            <img src={withBase(s.image)} alt={s.alt} style={s.focus ? `object-position: ${s.focus}` : undefined} loading="lazy" />
+          </div>
+          <div class="scenario-copy">
+            {s.body.map((p, j) => <p class:list={[{ lead: j === 0 }]}>{p}</p>)}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <!-- MORE THAN A THEORY -->
+    <section class="panel proof reveal">
+      <div class="panel-inner">
+        <h2 class="section-head">More than a theory</h2>
+        <p class="proof-intro">Here are some of the positive, lasting changes Brink has created through Behavioural Innovation.</p>
+        <ul class="proof-list">
+          {proof.map((p) => (
+            <li>
+              <a href={p.url} target={p.url.startsWith('http') ? '_blank' : undefined} rel={p.url.startsWith('http') ? 'noopener noreferrer' : undefined}>
+                <span>{p.text}</span>
+                <span class="proof-arrow" aria-hidden="true">&rarr;</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- TOOLS & GUIDES (redesigned as method-card grid) -->
+    <section class="light-section" id="tools">
+      <div class="container">
+        <header class="light-head">
+          <p class="mono kicker">Tools &amp; Guides</p>
+          <h2 class="display">Steal our toolkit</h2>
+          <p class="light-intro">Some of the tools and frameworks we’ve created and adapted, so you can apply Behavioural Innovation methods at different stages of your work.</p>
+        </header>
+        {toolGroups.map((group, gi) => (
+          <div class="tool-group">
+            <h3 class="tool-stage">{group.stage}</h3>
+            <ul class="tool-grid">
+              {group.tools.map((t, ti) => (
+                <li class:list={['tool-card', `ground-${['teal', 'coral', 'blue'][(gi * 2 + ti) % 3]}`]}>
+                  <a href={t.url} target="_blank" rel="noopener noreferrer">
+                    <span class="tool-tile" aria-hidden="true"></span>
+                    <span class="tool-body">
+                      <span class="tool-title">{t.title}</span>
+                      <span class="tool-desc">{t.body}</span>
+                      <span class="tool-cta mono">Download &darr;</span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- DISCOVER MORE (redesigned as card grid) -->
+    <section class="light-section discover">
+      <div class="container">
+        <header class="light-head">
+          <p class="mono kicker">Discover more</p>
+          <h2 class="display">Go deeper on the ideas</h2>
+        </header>
+        <ul class="discover-grid">
+          {discover.map((d) => (
+            <li class:list={['discover-card', `ground-${d.ground}`]}>
+              <a href={d.url} target="_blank" rel="noopener noreferrer">
+                <span class="discover-tile" aria-hidden="true"></span>
+                <span class="discover-body">
+                  <span class="discover-title">{d.title}</span>
+                  <span class="discover-desc">{d.body}</span>
+                  <span class="discover-cta mono">Read &rarr;</span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="panel cta reveal">
+      <div class="panel-inner narrow center">
+        <p class="lead">Want to put Behavioural Innovation to work on a challenge that matters?</p>
+        <a class="button" href={withBase('/offers')}>See how we work together</a>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<script>
+  // Reveal panels and draw the coral underlines as they scroll into view.
+  // Skipped entirely for anyone who prefers reduced motion.
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced) {
+    document.querySelectorAll('.reveal, .ul').forEach((el) => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (!e.isIntersecting) return;
+          e.target.classList.add('in');
+          e.target.querySelectorAll?.('.ul').forEach((u) => u.classList.add('in'));
+          io.unobserve(e.target);
+        });
+      },
+      { threshold: 0.25 }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  }
+</script>
+
+<style>
+  .bi { --bi-ink: var(--color-ground-1); }
+
+  /* --- Full-bleed teal panels --------------------------------------------- */
+  .panel {
+    background: var(--bi-ink);
+    color: var(--color-text-inverted, #fff);
+    padding: clamp(4rem, 12vh, 9rem) 0;
+  }
+  .panel + .panel { border-top: 1px solid rgba(255, 255, 255, 0.08); }
+  .panel-inner {
+    width: min(100% - 2 * var(--space-5), var(--container-max, 1120px));
+    margin: 0 auto;
+  }
+  .panel-inner.narrow { max-width: 40ch; }
+  .panel-inner.center { text-align: center; }
+
+  .panel p {
+    font-family: var(--font-body);
+    font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+    line-height: 1.5;
+    font-weight: var(--weight-medium, 500);
+    margin: 0 0 var(--space-5);
+  }
+  .panel p:last-child { margin-bottom: 0; }
+  .panel .lead {
+    font-weight: var(--weight-bold, 700);
+    font-size: clamp(1.7rem, 3.6vw, 2.9rem);
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--space-6);
+  }
+  .panel .steal { font-style: italic; opacity: 0.85; }
+  .inline-link { color: #fff; text-decoration: underline; text-decoration-color: var(--color-accent); text-underline-offset: 3px; }
+  .inline-link:hover { color: var(--color-accent); }
+
+  /* Coral underline that draws itself in when the line reveals. */
+  .ul {
+    position: relative;
+    white-space: nowrap;
+  }
+  .ul::after {
+    content: '';
+    position: absolute;
+    left: -0.05em;
+    right: -0.05em;
+    bottom: -0.06em;
+    height: 0.14em;
+    background: var(--color-accent);
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+  }
+  .ul.in::after { transform: scaleX(1); }
+
+  /* --- Reveal animation --------------------------------------------------- */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .ul::after { transition: none; }
+  }
+
+  /* --- Hero --------------------------------------------------------------- */
+  .hero-inner, .hero .panel-inner { }
+  .hero .panel-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+  .hero-art img { width: 100%; height: auto; display: block; }
+
+  /* --- Venn panel --------------------------------------------------------- */
+  .venn-panel {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+  .venn-holder { color: var(--color-accent); --venn-label-color: #fff; }
+
+  /* --- Scenarios ---------------------------------------------------------- */
+  .scenario-inner {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: var(--space-8);
+    align-items: center;
+  }
+  .scenario.flip .scenario-art { grid-column: 2; grid-row: 1; }
+  .scenario.flip .scenario-copy { grid-column: 1; grid-row: 1; }
+  .scenario-art { aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--radius); }
+  .scenario-art img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  /* --- Proof -------------------------------------------------------------- */
+  .section-head { font-family: var(--font-body); font-weight: var(--weight-bold, 700); font-size: clamp(1.8rem, 4vw, 3rem); margin: 0 0 var(--space-3); color: #fff; }
+  .proof-intro { max-width: 46ch; opacity: 0.9; }
+  .proof-list { list-style: none; margin: var(--space-6) 0 0; padding: 0; }
+  .proof-list li { border-top: 1px solid rgba(255, 255, 255, 0.18); }
+  .proof-list a {
+    display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-5);
+    padding: var(--space-5) 0; text-decoration: none; color: #fff;
+    font-size: clamp(1.1rem, 1.7vw, 1.45rem); font-weight: var(--weight-medium, 500);
+  }
+  .proof-list a:hover { color: var(--color-accent); }
+  .proof-arrow { flex-shrink: 0; color: var(--color-accent); }
+
+  /* --- Light sections: Tools & Discover ----------------------------------- */
+  .light-section { background: var(--color-surface); padding: var(--space-9) 0; }
+  .light-section.discover { background: var(--color-surface-muted); }
+  .light-head { max-width: var(--measure); margin: 0 0 var(--space-7); }
+  .kicker { font-size: var(--text-tag); text-transform: uppercase; letter-spacing: var(--tracking-label); color: var(--color-accent); margin: 0 0 var(--space-3); }
+  .light-head .display { font-size: var(--text-display); margin: 0 0 var(--space-3); }
+  .light-intro { color: var(--color-text-muted); font-size: var(--text-lead); margin: 0; }
+
+  .tool-group { margin-bottom: var(--space-8); }
+  .tool-stage {
+    font-family: var(--font-mono); font-size: var(--text-tag); letter-spacing: var(--tracking-label);
+    text-transform: uppercase; color: var(--color-text-muted); margin: 0 0 var(--space-4);
+    padding-bottom: var(--space-3); border-bottom: 1px solid var(--color-border);
+  }
+  .tool-grid, .discover-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+
+  .tool-card a, .discover-card a {
+    display: flex; flex-direction: column; height: 100%; text-decoration: none; color: var(--color-text);
+    background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius);
+    overflow: hidden; transition: border-color 0.2s ease, transform 0.2s ease;
+  }
+  .light-section.discover .tool-card a, .light-section.discover .discover-card a { background: var(--color-surface); }
+  .tool-card a:hover, .discover-card a:hover { border-color: var(--card-ink); transform: translateY(-2px); }
+
+  .ground-teal { --card-ink: var(--color-ground-1); }
+  .ground-coral { --card-ink: var(--color-ground-3); }
+  .ground-blue { --card-ink: var(--color-ground-2); }
+
+  .tool-tile, .discover-tile { height: 8px; background: var(--card-ink); }
+  .tool-body, .discover-body { padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-3); flex: 1; }
+  .tool-title, .discover-title { font-family: var(--font-display); font-weight: var(--weight-display); font-size: var(--text-h3); line-height: var(--leading-tight); }
+  .tool-desc, .discover-desc { font-size: var(--text-body-sm); color: var(--color-text-muted); line-height: var(--leading-normal); }
+  .tool-cta, .discover-cta { margin-top: auto; font-size: var(--text-tag); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--card-ink); }
+
+  /* --- CTA ---------------------------------------------------------------- */
+  .cta .button { margin-top: var(--space-5); }
+
+  @media (max-width: 820px) {
+    .hero .panel-inner, .venn-panel, .scenario-inner { grid-template-columns: 1fr; gap: var(--space-6); }
+    .scenario.flip .scenario-art, .scenario.flip .scenario-copy { grid-column: 1; }
+    .scenario.flip .scenario-art { grid-row: 1; }
+    .hero-art { max-width: 20rem; margin: 0 auto; }
+  }
+</style>
