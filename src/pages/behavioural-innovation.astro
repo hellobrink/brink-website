@@ -182,11 +182,11 @@ const discover = [
               {group.tools.map((t, ti) => (
                 <li class:list={['tool-card', `ground-${['teal', 'coral', 'blue'][(gi * 2 + ti) % 3]}`]}>
                   <a href={t.url} target="_blank" rel="noopener noreferrer">
-                    <span class="tool-tile" aria-hidden="true"></span>
-                    <span class="tool-body">
-                      <span class="tool-title">{t.title}</span>
-                      <span class="tool-desc">{t.body}</span>
-                      <span class="tool-cta mono">Download &darr;</span>
+                    <span class="card-title">{t.title}</span>
+                    <span class="card-desc">{t.body}</span>
+                    <span class="card-foot">
+                      <img class="card-logo" src={withBase('/images/brink-logotype-dark.png')} alt="Brink" loading="lazy" />
+                      <span class="card-cta mono">Download &darr;</span>
                     </span>
                   </a>
                 </li>
@@ -208,11 +208,11 @@ const discover = [
           {discover.map((d) => (
             <li class:list={['discover-card', `ground-${d.ground}`]}>
               <a href={d.url} target="_blank" rel="noopener noreferrer">
-                <span class="discover-tile" aria-hidden="true"></span>
-                <span class="discover-body">
-                  <span class="discover-title">{d.title}</span>
-                  <span class="discover-desc">{d.body}</span>
-                  <span class="discover-cta mono">Read &rarr;</span>
+                <span class="card-title">{d.title}</span>
+                <span class="card-desc">{d.body}</span>
+                <span class="card-foot">
+                  <img class="card-logo" src={withBase('/images/brink-logotype-dark.png')} alt="Brink" loading="lazy" />
+                  <span class="card-cta mono">Read &rarr;</span>
                 </span>
               </a>
             </li>
@@ -248,20 +248,6 @@ const discover = [
       { threshold: 0.2 }
     );
     document.querySelectorAll('.reveal, .scenario-card').forEach((el) => io.observe(el));
-
-    // The white copy boxes drift a little horizontally as the section scrolls
-    // past, for a touch of dynamism (and to keep them clearly readable).
-    const cards = [...document.querySelectorAll('.scenario-card')];
-    const onScroll = () => {
-      const vh = window.innerHeight;
-      for (const c of cards) {
-        const r = c.getBoundingClientRect();
-        const prog = Math.max(-1, Math.min(1, (r.top + r.height / 2 - vh / 2) / vh));
-        c.style.setProperty('--drift', (prog * -34).toFixed(1) + 'px');
-      }
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
   }
 </script>
 
@@ -352,7 +338,6 @@ const discover = [
     margin: clamp(2rem, 9vh, 5.5rem) clamp(1.5rem, 5vw, 4.5rem);
     padding: clamp(1.75rem, 3.4vw, 3.5rem);
     opacity: 0;
-    transform: translateX(var(--drift, 0px));
     transition: opacity 0.7s ease;
   }
   .scenario-card.in { opacity: 1; }
@@ -418,15 +403,17 @@ const discover = [
   /* --- Proof -------------------------------------------------------------- */
   .section-head { font-family: var(--font-body); font-weight: var(--weight-bold, 700); font-size: clamp(1.8rem, 4vw, 3rem); margin: 0 0 var(--space-3); color: #fff; }
   .proof-intro { max-width: 46ch; opacity: 0.9; }
-  .proof-list { list-style: none; margin: var(--space-6) 0 0; padding: 0; }
-  .proof-list li { border-top: 1px solid rgba(255, 255, 255, 0.18); }
+  .proof-list { list-style: none; margin: var(--space-6) 0 0; padding: 0; display: grid; gap: var(--space-3); }
+  .proof-list li { border-radius: var(--radius); overflow: hidden; }
+  .proof-list li:nth-child(odd) { background: rgba(255, 255, 255, 0.06); }
+  .proof-list li:nth-child(even) { background: rgba(0, 0, 0, 0.18); }
   .proof-list a {
-    display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-5);
-    padding: var(--space-5) 0; text-decoration: none; color: #fff;
-    font-size: clamp(1.1rem, 1.7vw, 1.45rem); font-weight: var(--weight-medium, 500);
+    display: flex; align-items: center; justify-content: space-between; gap: var(--space-5);
+    padding: var(--space-5) var(--space-6); text-decoration: none; color: #fff;
+    font-size: clamp(1.05rem, 1.5vw, 1.35rem); font-weight: var(--weight-medium, 500);
   }
   .proof-list a:hover { color: var(--color-accent); }
-  .proof-arrow { flex-shrink: 0; color: var(--color-accent); }
+  .proof-arrow { flex-shrink: 0; color: var(--color-accent); font-size: 1.4em; }
 
   /* --- Light sections: Tools & Discover ----------------------------------- */
   .light-section { background: var(--color-surface); padding: var(--space-9) 0; }
@@ -442,24 +429,34 @@ const discover = [
     text-transform: uppercase; color: var(--color-text-muted); margin: 0 0 var(--space-4);
     padding-bottom: var(--space-3); border-bottom: 1px solid var(--color-border);
   }
-  .tool-grid, .discover-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
-
-  .tool-card a, .discover-card a {
-    display: flex; flex-direction: column; height: 100%; text-decoration: none; color: var(--color-text);
-    background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius);
-    overflow: hidden; transition: border-color 0.2s ease, transform 0.2s ease;
-  }
-  .tool-card a:hover, .discover-card a:hover { border-color: var(--card-ink); transform: translateY(-2px); }
+  .tool-grid, .discover-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); }
 
   .ground-teal { --card-ink: var(--color-ground-1); }
   .ground-coral { --card-ink: var(--color-ground-3); }
   .ground-blue { --card-ink: var(--color-ground-2); }
 
-  .tool-tile, .discover-tile { height: 8px; background: var(--card-ink); }
-  .tool-body, .discover-body { padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-3); flex: 1; }
-  .tool-title, .discover-title { font-family: var(--font-display); font-weight: var(--weight-display); font-size: var(--text-h3); line-height: var(--leading-tight); }
-  .tool-desc, .discover-desc { font-size: var(--text-body-sm); color: var(--color-text-muted); line-height: var(--leading-normal); }
-  .tool-cta, .discover-cta { margin-top: auto; font-size: var(--text-tag); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--card-ink); }
+  /* Method cards: rounded, a coloured outline and heading, and the Brink mark
+     in the corner, so the toolkit reads as a physical deck rather than web rows. */
+  .tool-card a, .discover-card a {
+    display: flex; flex-direction: column; gap: var(--space-3); height: 100%;
+    min-height: 16rem;
+    text-decoration: none; color: var(--color-text);
+    background: var(--color-surface);
+    border: 2px solid var(--card-ink);
+    border-radius: 18px;
+    padding: var(--space-5) var(--space-5) var(--space-4);
+    box-shadow: 0 10px 30px -18px rgba(6, 51, 61, 0.5);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .tool-card a:hover, .discover-card a:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 42px -20px rgba(6, 51, 61, 0.6);
+  }
+  .card-title { font-family: var(--font-display); font-weight: var(--weight-display); font-size: var(--text-h3); line-height: var(--leading-tight); color: var(--card-ink); }
+  .card-desc { font-size: var(--text-body-sm); color: var(--color-text-muted); line-height: var(--leading-normal); }
+  .card-foot { margin-top: auto; padding-top: var(--space-4); display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); border-top: 1px solid var(--color-border); }
+  .card-logo { height: 14px; width: auto; opacity: 0.8; }
+  .card-cta { font-size: var(--text-tag); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--card-ink); }
 
   .cta .button { margin-top: var(--space-5); }
 
@@ -472,6 +469,6 @@ const discover = [
     .scenario { grid-template-columns: 1fr; min-height: 0; }
     .scenario-media { grid-row: 1 !important; aspect-ratio: 4 / 3; }
     .scenario.media-right .scenario-card { grid-row: 2; }
-    .scenario-card { margin: 0; transform: none; }
+    .scenario-card { margin: 0; }
   }
 </style>
