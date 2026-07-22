@@ -1,10 +1,13 @@
 ---
 title: "Brink in East Africa: the road so far, and the road ahead"
-summary: Over 100. That’s how many innovations Brink has supported across East Africa in the past seven years.
-authorSlug: alice-carter
-authorName: Alice Carter
+date: "October 10, 2025"
+authorName: "Alice Carter"
+authorSlug: "alice-carter"
 heroImage: "/images/68e8fe8729ca31a7ddaad726_landscapeea.jpeg"
 heroAlt: "Brink in East Africa: the road so far, and the road ahead"
+bannerImage: "/images/68e8fe8729ca31a7ddaad726_landscapeea.jpeg"
+bannerAlt: "Brink in East Africa: the road so far, and the road ahead"
+summary: "Over 100. That’s how many innovations Brink has supported across East Africa in the past seven years."
 sortOrder: 6
 ---
 

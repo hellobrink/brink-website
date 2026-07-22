@@ -1,10 +1,15 @@
 ---
-title: Five uncomfortable truths at the heart of post-aid climate finance
-summary: "2025 will be remembered for forcing an uncomfortable question: what happens when the aid architecture collapses?"
-authorSlug: lil-patuck
-authorName: Lil Patuck
+title: "Five uncomfortable truths at the heart of post-aid climate finance"
+date: "January 29, 2026"
+authorName: "Lil Patuck"
+authorSlug: "lil-patuck"
+authorName2: "Nathan Kably"
+authorSlug2: "nathan-kably"
 heroImage: "/images/6989f7e49f10c2a390180554_banner-800x800.png"
-heroAlt: Five uncomfortable truths at the heart of post-aid climate finance
+heroAlt: "Five uncomfortable truths at the heart of post-aid climate finance"
+bannerImage: "/images/6989c24518da3e945b5e23b1_1.png"
+bannerAlt: "Five uncomfortable truths at the heart of post-aid climate finance"
+summary: "2025 will be remembered for forcing an uncomfortable question: what happens when the aid architecture collapses?"
 sortOrder: 3
 ---
 

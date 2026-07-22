@@ -223,14 +223,25 @@ const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: z.object({
     title: z.string(),
+    // The post's standfirst (Webflow's subtitle / meta-description field),
+    // shown under the title on the post and on the index card. Not every post
+    // has one set.
+    subheading: z.string().optional(),
     summary: z.string().optional(),
     date: z.string().optional(),
     // Matches a team member's slug where the author is one of ours, so the
     // bio page can list their posts.
     authorSlug: z.string().optional(),
     authorName: z.string().optional(),
+    // Second author, for the handful of co-written posts.
+    authorSlug2: z.string().optional(),
+    authorName2: z.string().optional(),
+    // Square thumbnail for the index card.
     heroImage: z.string().optional(),
     heroAlt: z.string().optional(),
+    // Landscape banner shown full-width at the top of the post.
+    bannerImage: z.string().optional(),
+    bannerAlt: z.string().optional(),
     sortOrder: z.number().default(0),
   }),
 });

@@ -1,10 +1,13 @@
 ---
-title: Fuelling civil society’s frontline against disinformation
-summary: We all feel the heat from false or weaponised information.
-authorSlug: miranda-dixon
-authorName: Miranda Dixon
+title: "Fuelling civil society’s frontline against disinformation"
+date: "June 26, 2025"
+authorName: "Miranda Dixon"
+authorSlug: "miranda-dixon"
 heroImage: "/images/685d52dce13a187b11854448_misinformation-tb.png"
-heroAlt: Fuelling civil society’s frontline against disinformation
+heroAlt: "Fuelling civil society’s frontline against disinformation"
+bannerImage: "/images/685d52c352b6e0e003b5baa4_misinformation.png"
+bannerAlt: "Fuelling civil society’s frontline against disinformation"
+summary: "We all feel the heat from false or weaponised information."
 sortOrder: 12
 ---
 

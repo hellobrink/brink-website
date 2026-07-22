@@ -1,10 +1,13 @@
 ---
-title: Are accelerator programmes dead?
-summary: Every other week I find myself having a conversation about the best way to support entrepreneurs in Africa.
-authorSlug: alice-carter
-authorName: Alice Carter
+title: "Are accelerator programmes dead?"
+date: "March 31, 2026"
+authorName: "Alice Carter"
+authorSlug: "alice-carter"
 heroImage: "/images/69cbb123ddff4bd0618ab9f2_acceleratorstb.png"
-heroAlt: Are accelerator programmes dead?
+heroAlt: "Are accelerator programmes dead?"
+bannerImage: "/images/69cbafd3689779e3c879d184_accelerators1.png"
+bannerAlt: "Are accelerator programmes dead?"
+summary: "Every other week I find myself having a conversation about the best way to support entrepreneurs in Africa."
 sortOrder: 1
 ---
 

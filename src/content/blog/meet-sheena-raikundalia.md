@@ -1,10 +1,14 @@
 ---
 title: "Meet Brink Foundation's newest board member: Sheena Raikundalia"
-summary: "Since we established the Brink Foundation two and a half years ago, we've been searching for someone who can bring a rare blend of cross-sector insight, deep roots in African innovation ecosystems, and the strategic clarity to help us continue to grow boldly."
-authorSlug: rob-hinchcliffe
-authorName: Rob Hinchcliffe
+subheading: "We're excited for you to meet the newest addition to our non-executive board."
+date: "August 20, 2025"
+authorName: "Rob Hinchcliffe"
+authorSlug: "rob-hinchcliffe"
 heroImage: "/images/68a5d4d69e930570a98ff91c_sheena.jpeg"
 heroAlt: "Meet Brink Foundation's newest board member: Sheena Raikundalia"
+bannerImage: "/images/6821d73c0dfac2c0979d3dfd_Screenshot-2025-05-12-at-12.10.44.png"
+bannerAlt: "Meet Brink Foundation's newest board member: Sheena Raikundalia"
+summary: "Since we established the Brink Foundation two and a half years ago, we've been searching for someone who can bring a rare blend of cross-sector insight, deep roots in African innovation ecosystems, and the strategic clarity to help us continue to grow boldly."
 sortOrder: 8
 ---
 

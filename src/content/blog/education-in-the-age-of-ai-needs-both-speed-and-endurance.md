@@ -1,10 +1,16 @@
 ---
 title: "Education in the age of AI needs both speed and endurance: What happens when fast meets slow?"
-summary: Right now, education systems are being asked to do something fundamentally tough. They are being asked to run a hundred metre dash and a marathon at the same time.
-authorSlug: gita-luz
-authorName: Gita Luz
+subheading: "Some thoughts from the India AI Impact Summit"
+date: "March 11, 2026"
+authorName: "Gita Luz"
+authorSlug: "gita-luz"
+authorName2: "Flic Burgess"
+authorSlug2: "flic-burgess"
 heroImage: "/images/69b12fc7c313841f9da525e5_banner-800-x-800.png"
 heroAlt: "Education in the age of AI needs both speed and endurance: What happens when fast meets slow?"
+bannerImage: "/images/69b12fc2024c6db95a1d093b_banner-1200-x-390.png"
+bannerAlt: "Education in the age of AI needs both speed and endurance: What happens when fast meets slow?"
+summary: "Right now, education systems are being asked to do something fundamentally tough. They are being asked to run a hundred metre dash and a marathon at the same time."
 sortOrder: 2
 ---
 

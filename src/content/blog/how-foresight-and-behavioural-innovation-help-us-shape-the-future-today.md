@@ -1,10 +1,13 @@
 ---
 title: "The Future Starts Now: How foresight and behavioural innovation help us shape the future today"
-summary: When you read the news and think about how to keep abreast of events or perhaps even stay ahead, how do you feel? If the answer is unsettled, uneasy, uncertain or completely unsure, you are not alone.
-authorSlug: gita-luz
-authorName: Gita Luz
-heroImage: "/images/6821dd58670ff3c2d0c18dc2_screenshot-2025-05-12-at-123648.png"
+date: "March 25, 2025"
+authorName: "Gita Luz"
+authorSlug: "gita-luz"
+heroImage: "/images/6821dd58670ff3c2d0c18dc2_Screenshot-2025-05-12-at-12.36.48.png"
 heroAlt: "The Future Starts Now: How foresight and behavioural innovation help us shape the future today"
+bannerImage: "/images/67e2c4892b464a0b4bf20640_conference.jpeg"
+bannerAlt: "The Future Starts Now: How foresight and behavioural innovation help us shape the future today"
+summary: "When you read the news and think about how to keep abreast of events or perhaps even stay ahead, how do you feel? If the answer is unsettled, uneasy, uncertain or completely unsure, you are not alone."
 sortOrder: 19
 ---
 

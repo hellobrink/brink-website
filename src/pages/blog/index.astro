@@ -15,21 +15,23 @@ posts.sort((a, b) => a.data.sortOrder - b.data.sortOrder);
     </header>
 
     <ul class="post-grid">
-      {posts.map((post) => (
-        <li class="post">
-          <a href={withBase(`/blog/${post.id}`)}>
-            {post.data.heroImage && (
-              <img src={withBase(post.data.heroImage)} alt={post.data.heroAlt ?? post.data.title} />
-            )}
-            <div class="post-body">
-              {post.data.date && <p class="mono meta">{post.data.date}</p>}
-              <h2>{post.data.title}</h2>
-              {post.data.summary && <p class="summary">{post.data.summary}</p>}
-              {post.data.authorName && <p class="author">{post.data.authorName}</p>}
-            </div>
-          </a>
-        </li>
-      ))}
+      {posts.map((post) => {
+        const authors = [post.data.authorName, post.data.authorName2].filter(Boolean).join(' & ');
+        return (
+          <li class="post">
+            <a href={withBase(`/blog/${post.id}`)}>
+              {post.data.heroImage && (
+                <img src={withBase(post.data.heroImage)} alt={post.data.heroAlt ?? post.data.title} loading="lazy" />
+              )}
+              <div class="post-body">
+                <h2>{post.data.title}</h2>
+                {post.data.subheading && <p class="subheading">{post.data.subheading}</p>}
+                {authors && <p class="author">{authors}</p>}
+              </div>
+            </a>
+          </li>
+        );
+      })}
     </ul>
 
     <p class="archive-note">
@@ -64,38 +66,44 @@ posts.sort((a, b) => a.data.sortOrder - b.data.sortOrder);
     overflow: hidden;
   }
 
+  /* Square thumbnail: the CMS thumbnail images are square, so they sit tidily
+     in the card without heavy cropping. */
   .post img {
     width: 100%;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 1 / 1;
     object-fit: cover;
+    display: block;
   }
 
   .post-body {
     padding: var(--space-4);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
   }
 
   .post h2 {
     font-size: var(--text-h3);
-    margin: 0 0 var(--space-2);
+    line-height: var(--leading-tight);
+    margin: 0;
   }
 
   .post a:hover h2 {
     color: var(--color-accent);
   }
 
-  .meta {
-    color: var(--color-text-muted);
-    margin: 0 0 var(--space-2);
-  }
-
-  .summary {
+  .subheading {
     font-size: var(--text-body-sm);
     color: var(--color-text-muted);
-    margin: 0 0 var(--space-2);
+    margin: 0;
+    line-height: var(--leading-normal);
   }
 
   .author {
-    font-size: var(--text-body-sm);
+    font-family: var(--font-mono);
+    font-size: var(--text-tag);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
     color: var(--color-label);
     margin: 0;
   }

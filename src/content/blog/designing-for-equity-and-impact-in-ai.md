@@ -1,10 +1,13 @@
 ---
-title: Designing for equity and impact in AI
+title: "Designing for equity and impact in AI"
+date: "March 27, 2025"
+authorName: "Alice Carter"
+authorSlug: "alice-carter"
+heroImage: "/images/67e4fe6185fbe1f99a7cf144_Screenshot-2025-03-27-at-07.28.54.png"
+heroAlt: "Designing for equity and impact in AI"
+bannerImage: "/images/67ea613ec99816d24205e3ee_aiobsbanner-1.png"
+bannerAlt: "Designing for equity and impact in AI"
 summary: "You don’t need us to tell you that the realm of AI is buzzing with potential. But it’s also an undeniably chaotic space; and, if we're not very careful, there’s a risk of ghettoising many of the people who should be benefiting from this brave new world. So we're asking a simple question: How can thi"
-authorSlug: alice-carter
-authorName: Alice Carter
-heroImage: "/images/67e4fe6185fbe1f99a7cf144_screenshot-2025-03-27-at-072854.png"
-heroAlt: Designing for equity and impact in AI
 sortOrder: 18
 ---
 

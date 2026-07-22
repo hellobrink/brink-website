@@ -1,9 +1,14 @@
 ---
-title: Reflecting on the Brink Retreat, 2025
-summary: We are what we are because of who we all are. That spirit of Ubuntuis one of our core values at Brink. It’s also the reason we come together every year, in person, away from things like screens, deadlines, and Zoom calls.
-authorName: Rob Hinchcliffe
-heroImage: "/images/68122fbb16d521de459d539d_screenshot-2025-04-30-at-151201.png"
-heroAlt: Reflecting on the Brink Retreat, 2025
+title: "Reflecting on the Brink Retreat, 2025"
+subheading: "A few notes from our annual retreat"
+date: "May 6, 2025"
+authorName: "Rob Hinchcliffe"
+authorSlug: "rob-hinchcliffe"
+heroImage: "/images/68122fbb16d521de459d539d_Screenshot-2025-04-30-at-15.12.01.png"
+heroAlt: "Reflecting on the Brink Retreat, 2025"
+bannerImage: "/images/68122fa66512feac62977f9f_BrinkRetreat25-24.jpg"
+bannerAlt: "Reflecting on the Brink Retreat, 2025"
+summary: "We are what we are because of who we all are. That spirit of Ubuntuis one of our core values at Brink. It’s also the reason we come together every year, in person, away from things like screens, deadlines, and Zoom calls."
 sortOrder: 14
 ---
 

@@ -1,10 +1,16 @@
 ---
-title: The bridges we need between evidence and impact
-summary: A Senegalese Wolof griot in 1890, and Bhats in western India in the mid 1800s.
-authorSlug: lil-patuck
-authorName: Lil Patuck
-heroImage: "/images/6943ecb76b4387dd39b62121_screenshot-2025-12-18-at-114557.png"
-heroAlt: The bridges we need between evidence and impact
+title: "The bridges we need between evidence and impact"
+subheading: "Why we need griots more today than ever."
+date: "December 18, 2025"
+authorName: "Lil Patuck"
+authorSlug: "lil-patuck"
+authorName2: "Mwaniki Nyaga"
+authorSlug2: "mwaniki-nyaga"
+heroImage: "/images/6943ecb76b4387dd39b62121_Screenshot-2025-12-18-at-11.45.57.png"
+heroAlt: "The bridges we need between evidence and impact"
+bannerImage: "/images/6943ea94813e23b235b0a012_download2-1.webp"
+bannerAlt: "The bridges we need between evidence and impact"
+summary: "A Senegalese Wolof griot in 1890, and Bhats in western India in the mid 1800s."
 sortOrder: 4
 ---
 

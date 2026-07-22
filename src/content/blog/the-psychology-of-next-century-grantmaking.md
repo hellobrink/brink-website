@@ -1,10 +1,14 @@
 ---
-title: The psychology of next-century grantmaking
+title: "The psychology of next-century grantmaking"
+subheading: "After years of experiencing this firsthand, we set up Brink Foundation to shift the grantmaking paradigm."
+date: "April 6, 2025"
+authorName: "Lea Simpson"
+authorSlug: "lea-simpson"
+heroImage: "/images/682333dfad7a0153243b7ba7_Screenshot-2025-05-13-at-12.58.04.png"
+heroAlt: "The psychology of next-century grantmaking"
+bannerImage: "/images/682333d4d6e286a238562900_Screenshot-2025-05-13-at-12.57.34.jpg"
+bannerAlt: "The psychology of next-century grantmaking"
 summary: "Technological advances and a more connected world have brought tremendous improvements to our lives, but they've also introduced new risks and widened existing divides. For the first time, five transformative platforms—energy storage, gene editing, artificial intelligence, blockchain, and robotics—a"
-authorSlug: lea-simpson
-authorName: Lea Simpson
-heroImage: "/images/682333dfad7a0153243b7ba7_screenshot-2025-05-13-at-125804.png"
-heroAlt: The psychology of next-century grantmaking
 sortOrder: 17
 ---
 

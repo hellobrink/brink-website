@@ -1,10 +1,13 @@
 ---
-title: Why innovation has to start with humans (and pickles)
-summary: I’m an optimist. Even in a world that feels more complex and chaotic by the day - with learning poverty, food insecurity, climate change, and widening inequality - I still believe we can make progress. But not by doing more of the same.
-authorSlug: alice-carter
-authorName: Alice Carter
-heroImage: "/images/68235d1fd60518cc257f9bec_screenshot-2025-05-13-at-155410.png"
-heroAlt: Why innovation has to start with humans (and pickles)
+title: "Why innovation has to start with humans (and pickles)"
+date: "May 14, 2025"
+authorName: "Alice Carter"
+authorSlug: "alice-carter"
+heroImage: "/images/68235d1fd60518cc257f9bec_Screenshot-2025-05-13-at-15.54.10.png"
+heroAlt: "Why innovation has to start with humans (and pickles)"
+bannerImage: "/images/68235cff8dd1c2cd23540086_picklebanner.png"
+bannerAlt: "Why innovation has to start with humans (and pickles)"
+summary: "I’m an optimist. Even in a world that feels more complex and chaotic by the day - with learning poverty, food insecurity, climate change, and widening inequality - I still believe we can make progress. But not by doing more of the same."
 sortOrder: 13
 ---
 

@@ -1,10 +1,13 @@
 ---
-title: Climate capital is still struggling to scale promising innovations
-summary: "A few weeks ago, I was at London Climate Action Week 2026 talking to a range of smart and informed people across sessions that included the Global Innovation Fund's launch of its new climate resilience strategy, EARTHON on last-mile innovation, MS Amlin's half-day workshop on insurability in the age"
-authorSlug: nathan-kably
-authorName: Nathan Kably
+title: "Climate capital is still struggling to scale promising innovations"
+date: "July 8, 2026"
+authorName: "Nathan Kably"
+authorSlug: "nathan-kably"
 heroImage: "/images/6a4e7044062c939df35ad8c8_climate_funds.png"
-heroAlt: Climate capital is still struggling to scale promising innovations
+heroAlt: "Climate capital is still struggling to scale promising innovations"
+bannerImage: "/images/6a4e7020e1fb0e11d453f73a_climate_funds.png"
+bannerAlt: "Climate capital is still struggling to scale promising innovations"
+summary: "A few weeks ago, I was at London Climate Action Week 2026 talking to a range of smart and informed people across sessions that included the Global Innovation Fund's launch of its new climate resilience strategy, EARTHON on last-mile innovation, MS Amlin's half-day workshop on insurability in the age"
 sortOrder: 0
 ---
 

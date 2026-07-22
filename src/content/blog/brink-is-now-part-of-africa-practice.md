@@ -1,10 +1,16 @@
 ---
-title: Brink is now part of Africa Practice
-summary: "Seven years ago, we started Brink with a simple conviction: that innovation only works when it's human. We wanted to prove that when you trust people and create the right conditions, extraordinary things happen. And they have."
-authorSlug: lea-simpson
-authorName: Lea Simpson
+title: "Brink is now part of Africa Practice"
+subheading: "We’re excited to announce that Brink has been acquired by Africa Practice."
+date: "December 11, 2025"
+authorName: "Lea Simpson"
+authorSlug: "lea-simpson"
+authorName2: "Abi Freeman"
+authorSlug2: "abi-freeman"
 heroImage: "/images/69399e1a80fbc19985285113_collage-trees-texture_final_smalle.png"
-heroAlt: Brink is now part of Africa Practice
+heroAlt: "Brink is now part of Africa Practice"
+bannerImage: "/images/69399deeca62b45bd5247c29_banner-for-blog_final.png"
+bannerAlt: "Brink is now part of Africa Practice"
+summary: "Seven years ago, we started Brink with a simple conviction: that innovation only works when it's human. We wanted to prove that when you trust people and create the right conditions, extraordinary things happen. And they have."
 sortOrder: 5
 ---
 

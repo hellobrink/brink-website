@@ -1,10 +1,14 @@
 ---
-title: Brink is joining forces with Enabel’s Innovation Hub
+title: "Brink is joining forces with Enabel’s Innovation Hub"
+subheading: "We're collaborating with Enabel, the Belgian government’s development agency with a mission to turn bold ideas into real-world progress."
+date: "April 24, 2025"
+authorName: "Abi Freeman"
+authorSlug: "abi-freeman"
+heroImage: "/images/67eea2cab197da15375fd281_tbFarm-Radio_San-Womens-Listening-Group-016-1-scaled-e1737971603577-copy.png"
+heroAlt: "Brink is joining forces with Enabel’s Innovation Hub"
+bannerImage: "/images/67eea28b100f0ec9b2455935_Farm-Radio_San-Womens-Listening-Group-016-1-scaled-e1737971603577.webp"
+bannerAlt: "Brink is joining forces with Enabel’s Innovation Hub"
 summary: "Starting this month, we’re kicking off something new and exciting: a collaboration with Enabel, the Belgian government’s development agency with a mission to turn bold ideas into real-world progress."
-authorSlug: abi-freeman
-authorName: Abi Freeman
-heroImage: "/images/67eea2cab197da15375fd281_tbfarm-radio_san-womens-listening-group-016-1-scaled-e1.png"
-heroAlt: Brink is joining forces with Enabel’s Innovation Hub
 sortOrder: 15
 ---
 

@@ -1,10 +1,14 @@
 ---
-title: How AI Is changing the way we imagine the future
-summary: "\"I had worked hard for nearly two years, for the sole purpose of infusing life into an inanimate body. For this I had deprived myself of rest and health. I had desired it with an ardour that far exceeded moderation; but now that I had finished, the beauty of the dream vanished, and breathless horror"
-authorSlug: david-vigoureux
-authorName: David Vigoureux
+title: "How AI Is changing the way we imagine the future"
+subheading: "How creating tangible things from the future to share today can help articulate the implications of long-term trends and changes."
+date: "July 15, 2025"
+authorName: "David Vigoureux"
+authorSlug: "david-vigoureux"
 heroImage: "/images/68763df5a35009637b6d916f_chatgpt-image-jul-15-2025-12_17_38-pm.jpg"
-heroAlt: How AI Is changing the way we imagine the future
+heroAlt: "How AI Is changing the way we imagine the future"
+bannerImage: "/images/68763df5a35009637b6d916f_chatgpt-image-jul-15-2025-12_17_38-pm.jpg"
+bannerAlt: "How AI Is changing the way we imagine the future"
+summary: "\\\"I had worked hard for nearly two years, for the sole purpose of infusing life into an inanimate body. For this I had deprived myself of rest and health. I had desired it with an ardour that far exceeded moderation; but now that I had finished, the beauty of the dream vanished, and breathless horror"
 sortOrder: 10
 ---
 

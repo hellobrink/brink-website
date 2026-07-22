@@ -5,43 +5,54 @@ import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  return posts.map((post) => ({
-    params: { slug: post.id },
-    props: { post },
-  }));
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
 }
 
 const { post } = Astro.props;
 const { Content } = await render(post);
 const { data } = post;
 
-// Link the byline to the author's bio where they're one of ours.
+// Link each byline to the author's bio where they're one of ours.
 const team = await getCollection('team');
-const author = data.authorSlug ? team.find((m) => m.id === data.authorSlug) : undefined;
+const bio = (slug?: string) => (slug ? team.find((m) => m.id === slug) : undefined);
+const authors = [
+  { name: data.authorName, member: bio(data.authorSlug) },
+  data.authorName2 ? { name: data.authorName2, member: bio(data.authorSlug2) } : null,
+].filter(Boolean) as { name: string; member: any }[];
 ---
 
-<Layout title={data.title} description={data.summary}>
-  <article class="container post">
-    <p class="back"><a href={withBase('/blog')}>&larr; All posts</a></p>
+<Layout title={data.title} description={data.subheading ?? data.summary}>
+  <article class="post">
+    <div class="container narrow">
+      <p class="back"><a href={withBase('/blog')}>&larr; All posts</a></p>
+      <h1>{data.title}</h1>
+      <p class="byline mono">
+        {authors.map((a, i) => (
+          <>
+            {i > 0 ? ' & ' : ''}
+            {a.member ? (
+              <a href={withBase(`/team/${a.member.id}`)}>{a.name}</a>
+            ) : (
+              a.name
+            )}
+          </>
+        ))}
+        {data.date && authors.length > 0 ? ' · ' : ''}
+        {data.date}
+      </p>
+      {data.subheading && <p class="standfirst">{data.subheading}</p>}
+    </div>
 
-    <h1>{data.title}</h1>
+    {data.bannerImage && (
+      <figure class="post-banner">
+        <img src={withBase(data.bannerImage)} alt={data.bannerAlt ?? data.title} />
+      </figure>
+    )}
 
-    <p class="meta mono">
-      {data.date}
-      {data.date && (data.authorName || author) && ' · '}
-      {author ? (
-        <a href={withBase(`/team/${author.id}`)}>{author.data.name}</a>
-      ) : (
-        data.authorName
-      )}
-    </p>
-
-    {data.summary && <p class="summary">{data.summary}</p>}
-
-    {data.heroImage && <img class="hero" src={withBase(data.heroImage)} alt={data.heroAlt ?? data.title} />}
-
-    <div class="prose">
-      <Content />
+    <div class="container narrow">
+      <div class="prose">
+        <Content />
+      </div>
     </div>
   </article>
 </Layout>
@@ -50,50 +61,95 @@ const author = data.authorSlug ? team.find((m) => m.id === data.authorSlug) : un
   .post {
     padding-top: var(--space-6);
     padding-bottom: var(--space-9);
-    max-width: var(--measure);
   }
 
-  .post h1 {
-    font-size: var(--text-display-lg);
-    line-height: var(--leading-tight);
+  .narrow {
+    max-width: var(--measure);
   }
 
   .back a {
     font-family: var(--font-mono);
-    font-size: var(--text-label);
+    font-size: var(--text-tag);
     letter-spacing: var(--tracking-label);
     text-transform: uppercase;
     text-decoration: none;
     color: var(--color-text-muted);
   }
 
-  .meta {
-    color: var(--color-text-muted);
-    margin-bottom: var(--space-4);
+  .post h1 {
+    font-size: var(--text-display-lg);
+    line-height: var(--leading-tight);
+    margin: var(--space-4) 0 var(--space-4);
   }
 
-  .summary {
-    font-size: var(--text-body);
+  .byline {
+    font-size: var(--text-tag);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
     color: var(--color-text-muted);
+    margin: 0 0 var(--space-4);
+  }
+  .byline a { color: var(--color-text); text-decoration: none; }
+  .byline a:hover { color: var(--color-accent); }
+
+  /* Standfirst: clearly below the H1, not competing with it. */
+  .standfirst {
+    font-family: var(--font-display);
+    font-size: var(--text-lead);
+    line-height: var(--leading-snug, 1.35);
+    color: var(--color-text-muted);
+    margin: 0;
+    max-width: var(--measure);
   }
 
-  .hero {
+  /* Full-bleed banner: the images are landscape, so let them run edge to edge
+     regardless of the container padding. */
+  .post-banner {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin: var(--space-7) -50vw;
+  }
+  .post-banner img {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* --- Article body ------------------------------------------------------- */
+  .prose :global(img) {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
     margin: var(--space-5) 0;
     border-radius: var(--radius);
   }
 
-  .prose :global(img) {
-    width: auto;
-    max-width: 100%;
-    max-height: 520px;
-    margin: var(--space-5) 0;
-  }
-
+  /* Heading hierarchy: H1 is the big title; in-article headings step down
+     clearly from it. */
   .prose :global(h2) {
     font-family: var(--font-display);
     font-weight: var(--weight-display);
-    font-size: var(--text-display);
-    line-height: var(--leading-snug);
+    font-size: var(--size-2xl);
+    line-height: var(--leading-tight);
     margin-top: var(--space-7);
+    margin-bottom: var(--space-3);
+  }
+  .prose :global(h3) {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display);
+    font-size: var(--text-h2);
+    line-height: var(--leading-tight);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-2);
+  }
+  .prose :global(h4) {
+    font-size: var(--text-h3);
+    font-weight: var(--weight-bold);
+    margin-top: var(--space-5);
+    margin-bottom: var(--space-2);
   }
 </style>
