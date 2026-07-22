@@ -12,7 +12,8 @@ import { withBase } from '../lib/base';
 
 const scenarios = [
   {
-    image: '/images/illo-row.png',
+    image: '/images/bi-row.png',
+    ground: 'pink',
     alt: 'A rowing crew pulling together',
     mediaRight: false,
     body: [
@@ -22,7 +23,8 @@ const scenarios = [
     ],
   },
   {
-    image: '/images/illo-cranes.png',
+    image: '/images/bi-cranes.png',
+    ground: 'coral',
     alt: 'Origami cranes taking flight from a person’s mind',
     mediaRight: true,
     body: [
@@ -32,7 +34,8 @@ const scenarios = [
     ],
   },
   {
-    image: '/images/illo-climber.png',
+    image: '/images/bi-climber.png',
+    ground: 'blue',
     alt: 'A climber scaling a torn edge',
     mediaRight: false,
     body: [
@@ -136,11 +139,11 @@ const discover = [
 
     <!-- THREE SCENARIOS -->
     {scenarios.map((s) => (
-      <section class:list={['split', 'scenario', s.mediaRight ? 'media-right' : 'media-left']}>
-        <div class="split-media">
+      <section class:list={['scenario', `g-${s.ground}`, s.mediaRight ? 'media-right' : 'media-left']}>
+        <div class="scenario-media">
           <img src={withBase(s.image)} alt={s.alt} loading="lazy" />
         </div>
-        <div class="split-copy reveal">
+        <div class="scenario-card">
           {s.body.map((p, j) => <p class:list={[{ lead: j === 0 }]}>{p}</p>)}
         </div>
       </section>
@@ -231,7 +234,7 @@ const discover = [
 <script>
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (reduced) {
-    document.querySelectorAll('.reveal, .ul').forEach((el) => el.classList.add('in'));
+    document.querySelectorAll('.reveal, .scenario-card, .ul').forEach((el) => el.classList.add('in'));
   } else {
     const io = new IntersectionObserver(
       (entries) => {
@@ -244,7 +247,21 @@ const discover = [
       },
       { threshold: 0.2 }
     );
-    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    document.querySelectorAll('.reveal, .scenario-card').forEach((el) => io.observe(el));
+
+    // The white copy boxes drift a little horizontally as the section scrolls
+    // past, for a touch of dynamism (and to keep them clearly readable).
+    const cards = [...document.querySelectorAll('.scenario-card')];
+    const onScroll = () => {
+      const vh = window.innerHeight;
+      for (const c of cards) {
+        const r = c.getBoundingClientRect();
+        const prog = Math.max(-1, Math.min(1, (r.top + r.height / 2 - vh / 2) / vh));
+        c.style.setProperty('--drift', (prog * -34).toFixed(1) + 'px');
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 </script>
 
@@ -301,12 +318,56 @@ const discover = [
     margin-bottom: var(--space-5);
     max-width: 20ch;
   }
-  /* Scenario first paragraphs are long, so a touch smaller than the hero. */
-  .split.scenario .lead {
-    font-size: clamp(1.2rem, 1.8vw, 1.55rem);
-    max-width: 26ch;
-  }
   .split .steal { font-style: italic; opacity: 0.85; }
+
+  /* --- Scenario panels: full colour ground, image on it, white copy box ---- */
+  .scenario {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    overflow: hidden;
+  }
+  .scenario.g-pink { background: var(--brink-cc-pink); }
+  .scenario.g-coral { background: var(--color-ground-3); }
+  .scenario.g-blue { background: var(--color-ground-2); }
+  .scenario.media-right .scenario-media { grid-column: 2; grid-row: 1; }
+  .scenario.media-right .scenario-card { grid-column: 1; grid-row: 1; }
+
+  /* Contained so the whole subject shows (rather than cropping it away), hugging
+     the outer edge with the ground colour filling the rest. */
+  .scenario-media { position: relative; }
+  .scenario-media img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: contain; object-position: left center;
+  }
+  .scenario.media-right .scenario-media img { object-position: right center; }
+
+  .scenario-card {
+    align-self: center;
+    background: var(--color-surface);
+    color: var(--color-text);
+    margin: clamp(2rem, 9vh, 5.5rem) clamp(1.5rem, 5vw, 4.5rem);
+    padding: clamp(1.75rem, 3.4vw, 3.5rem);
+    opacity: 0;
+    transform: translateX(var(--drift, 0px));
+    transition: opacity 0.7s ease;
+  }
+  .scenario-card.in { opacity: 1; }
+  .scenario-card p {
+    font-family: var(--font-body);
+    font-size: clamp(1rem, 1.2vw, 1.15rem);
+    line-height: 1.5; font-weight: var(--weight-medium, 500);
+    color: var(--color-text); margin: 0 0 var(--space-4);
+  }
+  .scenario-card p:last-child { margin-bottom: 0; }
+  .scenario-card .lead {
+    font-weight: var(--weight-bold, 700);
+    font-size: clamp(1.3rem, 2vw, 1.75rem);
+    line-height: 1.15; letter-spacing: -0.01em; margin-bottom: var(--space-5);
+  }
 
   /* --- Standard contained panels (Venn, proof, CTA) ----------------------- */
   .panel {
@@ -408,5 +469,9 @@ const discover = [
     .split.media-right .split-copy { grid-row: 2; }
     .split-copy { padding: clamp(1.75rem, 7vw, 3rem); }
     .venn-panel { grid-template-columns: 1fr; gap: var(--space-6); }
+    .scenario { grid-template-columns: 1fr; min-height: 0; }
+    .scenario-media { grid-row: 1 !important; aspect-ratio: 4 / 3; }
+    .scenario.media-right .scenario-card { grid-row: 2; }
+    .scenario-card { margin: 0; transform: none; }
   }
 </style>
