@@ -13,11 +13,16 @@ const { overlay = false } = Astro.props;
 // without the top level growing unboundedly — see Decision 3 in the brief.
 // `external` items open in a new tab: the Brink Foundation is a separate
 // organisation with its own site, so there's no page for it here.
+// `feature` marks the lead item in a dropdown; `divider` draws a rule above an
+// item to separate a group. Behavioural Innovation is Brink's overarching
+// approach, so it leads "Our methods" and the three delivery offers sit under a
+// divider beneath it — one flat list rather than a nested fly-out, which keeps
+// the menu usable on touch and matches the single-level mobile menu.
 const navItems: Array<{
   href: string;
   label: string;
   external?: boolean;
-  children?: Array<{ href: string; label: string }>;
+  children?: Array<{ href: string; label: string; feature?: boolean; divider?: boolean }>;
 }> = [
   { href: '/about', label: 'About Brink' },
   {
@@ -31,10 +36,11 @@ const navItems: Array<{
     ],
   },
   {
-    href: '/offers',
-    label: 'Our offers',
+    href: '/behavioural-innovation',
+    label: 'Our methods',
     children: [
-      { href: '/offers/open-innovation', label: 'Open Innovation' },
+      { href: '/behavioural-innovation', label: 'Behavioural Innovation', feature: true },
+      { href: '/offers/open-innovation', label: 'Open Innovation', divider: true },
       { href: '/offers/carve-outs', label: 'Innovation Carve-Outs' },
       { href: '/offers/missions', label: 'Innovation Missions' },
     ],
@@ -62,7 +68,9 @@ const navItems: Array<{
             {item.children && (
               <ul class="submenu">
                 {item.children.map((child) => (
-                  <li><a href={withBase(child.href)}>{child.label}</a></li>
+                  <li class:list={[{ 'submenu-divider': child.divider }]}>
+                    <a class:list={[{ feature: child.feature }]} href={withBase(child.href)}>{child.label}</a>
+                  </li>
                 ))}
               </ul>
             )}
@@ -110,7 +118,9 @@ const navItems: Array<{
           {item.children && (
             <ul>
               {item.children.map((child) => (
-                <li><a href={withBase(child.href)}>{child.label}</a></li>
+                <li class:list={[{ 'submenu-divider': child.divider }]}>
+                  <a class:list={[{ feature: child.feature }]} href={withBase(child.href)}>{child.label}</a>
+                </li>
               ))}
             </ul>
           )}
@@ -376,6 +386,19 @@ const navItems: Array<{
     color: var(--color-accent);
   }
 
+  /* The lead item (Behavioural Innovation) reads as the headline of the group;
+     the offers below it are set off by a rule. */
+  .submenu a.feature {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display);
+  }
+
+  .submenu .submenu-divider {
+    margin-top: var(--space-2);
+    padding-top: var(--space-2);
+    border-top: var(--border-width) solid rgba(255, 255, 255, 0.15);
+  }
+
   .header-cta {
     font-family: var(--font-mono);
     font-size: var(--text-tag);
@@ -565,6 +588,17 @@ const navItems: Array<{
     text-decoration: none;
     padding: var(--space-1) 0;
     opacity: 0.75;
+  }
+
+  .mobile-menu ul ul a.feature {
+    opacity: 1;
+    color: var(--color-accent);
+  }
+
+  .mobile-menu ul ul .submenu-divider {
+    margin-top: var(--space-2);
+    padding-top: var(--space-2);
+    border-top: var(--border-width) solid rgba(255, 255, 255, 0.15);
   }
 
   /* Below this the horizontal nav can't fit without crowding, so fall back
