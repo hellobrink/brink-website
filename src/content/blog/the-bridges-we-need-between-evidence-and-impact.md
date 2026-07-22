@@ -14,9 +14,10 @@ summary: "A Senegalese Wolof griot in 1890, and Bhats in western India in the mi
 sortOrder: 4
 ---
 
-![](/images/6943e8ee40e031a293b0e762_banner-2.png)
-
-A Senegalese Wolof griot in 1890, and Bhats in western India in the mid 1800s.
+<figure class="post-figure">
+<img src="/images/6943e8ee40e031a293b0e762_banner-2.png" alt="" />
+<figcaption>A Senegalese Wolof griot in 1890, and Bhats in western India in the mid 1800s.</figcaption>
+</figure>
 
 Good work dies in obscurity every day simply because the stories that could carry these solutions to decision-makers aren't getting told widely enough or loudly enough.
 
@@ -50,13 +51,15 @@ Without access to storytelling expertise or communities of practice, important w
 
 Over the past five years Brink has worked to close that gap, taking cohorts of ventures, civil servants, journalists, innovators and scientists through engagements that build their confidence, skills and ability to experiment with new storytelling approaches. We’ve seen [technologists paint murals to convey flood-risk data in Nepa](https://www.globalresiliencepartnership.org/flood-risk-communication-through-mural-in-nepal/)l, [doctors destigmatising perceptions around sexual and reproductive health](https://www.hangapitchfest.rw/#/srh), and [innovators come front and center](https://youtu.be/cVCIx4pWxKc?si=Us54XLpLx9omCHpc) in the push to build equitable access to medical oxygen.
 
-![](/images/6943e915d25abc35319d0165_10ffb7fc.png)
+<figure class="post-figure">
+<img src="/images/6943e915d25abc35319d0165_10ffb7fc.png" alt="" />
+<figcaption>Credit: Youth Innovation Lab</figcaption>
+</figure>
 
-Credit: Youth Innovation Lab
-
-![](/images/69440d703893b6ae7d1cbc4c__45a6268_1.jpg)
-
-Credit: FREO2 Foundation
+<figure class="post-figure">
+<img src="/images/69440d703893b6ae7d1cbc4c__45a6268_1.jpg" alt="" />
+<figcaption>Credit: FREO2 Foundation</figcaption>
+</figure>
 
 We want to level the playing field on which people's voices are raised and create environments where innovators are equipped to build their own bridges between evidence and the audiences who need to hear it. While brands pour resources into storytellers who serve profit, those working on climate solutions, health innovations, and critical narrative shifts need access the same storytelling infrastructure.
 
