@@ -29,6 +29,13 @@ strict priority order. Tick items off as they land.
 - [ ] **6 team bios** still have placeholder "questions" — awaiting real content
       from the team.
 - [ ] **Case-study missing details** — awaiting docs from Rob to mass-edit.
+- [ ] **Case-study details spreadsheet** — a Google-Sheets-openable file listing
+      every live case study, columns: Programme, Location, Sector, Timeline
+      (From / To, with an "ongoing" option), Funders, Partners. Pre-filled from
+      the current site; dropdown validation on Sector (climate / health /
+      education, flag anything new); From and To as separate columns. Team fills
+      the gaps and returns it, then update the site from it. (This is the
+      mechanism for the "missing details" item above.)
 - [ ] **Alt text** on ~93 scraped images (GitHub issue #9).
 - [ ] **Run-together sentences** from the Webflow scrape (issue #10), plus minor
       formatting artifacts in the migrated blog back-catalogue.
