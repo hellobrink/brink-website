@@ -1,0 +1,126 @@
+---
+import { withBase } from '../lib/base';
+
+// Privacy-first analytics consent. Google Analytics is NOT loaded until the
+// visitor explicitly accepts; declining loads nothing and is remembered, so no
+// analytics cookie is ever set without consent. The same GA4 property as the
+// current Webflow site (G-ENH09N044D) so history is continuous.
+const GA_ID = 'G-ENH09N044D';
+const CONSENT_KEY = 'brink-cookie-consent';
+const privacyUrl = withBase('/privacy-policy');
+---
+
+<div
+  id="cookie-banner"
+  class="cookie-banner"
+  role="dialog"
+  aria-label="Cookie consent"
+  aria-live="polite"
+  hidden
+>
+  <p class="cookie-text">
+    We use analytics cookies to understand how the site is used. Accept to help
+    us improve it, or decline &mdash; either way you can read our
+    <a href={privacyUrl}>privacy policy</a>.
+  </p>
+  <div class="cookie-actions">
+    <button type="button" id="cookie-decline" class="cookie-btn cookie-btn--ghost">Decline</button>
+    <button type="button" id="cookie-accept" class="cookie-btn">Accept</button>
+  </div>
+</div>
+
+<script define:vars={{ GA_ID, CONSENT_KEY }}>
+  (function () {
+    const banner = document.getElementById('cookie-banner');
+
+    function loadGA() {
+      if (window.__brinkGA) return;
+      window.__brinkGA = true;
+      const s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+      document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', GA_ID, { anonymize_ip: true });
+    }
+
+    function decide(choice) {
+      try { localStorage.setItem(CONSENT_KEY, choice); } catch (e) {}
+      banner.hidden = true;
+      if (choice === 'accepted') loadGA();
+    }
+
+    let choice = null;
+    try { choice = localStorage.getItem(CONSENT_KEY); } catch (e) {}
+
+    if (choice === 'accepted') {
+      loadGA();
+    } else if (choice !== 'declined') {
+      banner.hidden = false;
+    }
+
+    document.getElementById('cookie-accept').addEventListener('click', () => decide('accepted'));
+    document.getElementById('cookie-decline').addEventListener('click', () => decide('declined'));
+
+    // Lets a "Cookie settings" link (e.g. in the footer) reopen the choice, so
+    // consent can be withdrawn as easily as it was given.
+    window.showCookieBanner = function () { banner.hidden = false; };
+  })();
+</script>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 200;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-gutter);
+    background: var(--color-surface-inverted);
+    color: var(--color-text-inverted);
+    border-top: 3px solid var(--color-accent);
+  }
+
+  .cookie-text {
+    margin: 0;
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-normal);
+    max-width: 46rem;
+  }
+  .cookie-text a { color: var(--color-accent); text-decoration: underline; }
+
+  .cookie-actions { display: flex; gap: var(--space-3); flex-shrink: 0; }
+
+  .cookie-btn {
+    font-family: var(--font-mono);
+    font-size: var(--text-tag);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    padding: var(--space-2) var(--space-5);
+    border: var(--border-width-button) solid var(--color-accent);
+    background: var(--color-accent);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition);
+  }
+  .cookie-btn:hover { background: transparent; color: var(--color-accent); }
+
+  .cookie-btn--ghost {
+    background: transparent;
+    border-color: var(--color-text-inverted);
+    color: var(--color-text-inverted);
+  }
+  .cookie-btn--ghost:hover { border-color: var(--color-accent); color: var(--color-accent); }
+
+  @media (max-width: 640px) {
+    .cookie-banner { flex-direction: column; align-items: stretch; text-align: center; }
+    .cookie-actions { justify-content: center; }
+  }
+</style>
