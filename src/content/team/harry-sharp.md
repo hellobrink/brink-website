@@ -1,6 +1,7 @@
 ---
 name: Harry Sharp
 role: Innovation Manager
+location: UK
 photo: "/images/66d61b87a3d726df387d59cc_harry_1.webp"
 photoAlt: Harry Sharp
 linkedin: "https://www.linkedin.com/in/sharpharry/"

@@ -15,6 +15,6 @@ questions:
   - "How can we shift the funding landscape to make space for experimentation, failure and continuous learning?"
 ---
 
-Flic is an experienced teacher and school leader. She is passionate about building organisational cultures grounded in equity and scaling practices and systems that allow students from all backgrounds to thrive. She’s a Teach First alumni and prior to Brink, Flic supported professional development across Rwanda, Burkina Faso, Sierra Leone, Liberia and Nepal.
+Flic is an Innovation Manager at Brink, working across the Brink Foundation and EdTech Hub portfolios. Her work focuses on helping education systems test and scale approaches that strengthen foundational literacy and numeracy. She designs innovation programmes and implementation research initiatives that support governments and delivery partners to generate practical evidence and adapt programmes in real time. This includes running sandboxes, coaching learning cycles, and synthesising insights across portfolios to inform better decision-making.
 
-At Brink, Flic works across uBoraBora and EdTech Hub teams to grow impactful ventures and interventions to contribute to improved outcomes in learning.
+Flic has over ten years’ experience in education. She began her career as a teacher through Teach First and later served as Assistant Principal, specialising in phonics and early literacy and supporting teachers to implement structured, evidence-based approaches to reading instruction. Alongside her work in schools, she has supported professional development and instructional improvement across education systems in Rwanda, Burkina Faso, Sierra Leone, Liberia and Nepal. She holds an Ed.M. in International Education Policy from Harvard University.

@@ -1,6 +1,7 @@
 ---
 name: Lea Simpson
 role: Founder
+location: Barcelona, Spain
 photo: "/images/66d61f9d6dbacf8bcf17f447_lea_1.webp"
 photoAlt: Lea Simpson
 linkedin: "https://uk.linkedin.com/in/leasimpson"
@@ -14,10 +15,10 @@ questions:
   - "What is the role of frontier tech and aid money to solve big global challenges?"
 ---
 
-Lisbon, London and a few places in-between
+Lea is one of Brink's co-founders and inventors of Behavioural Innovation. Her brain is wired around a few obsessions: How do we keep things simple? What do people actually need? What if the world looked completely different?
 
-Lea is one of Brink’s two co-founders and Director of a number of our programmes and funds. It’s her job to make sure that teams have what they need to deliver impact. From making sure our strategies are sound, to being the team’s champion as we work through the good bad and ugly together.
+At the heart of it, Lea is fascinated by human nature, by the ways we come together brilliantly, and the ways we get spectacularly in our own way. Her life's work is finding paths toward a world where people work more usefully, and more joyfully together.
 
-Lea has over 20 years experience working from Silicon Valley to Kathmandu on all things tech, innovation and supporting organisations and governments to get fit for the future. She has a degree in psychology and is a trained coach in a number of disciplines. Most of Lea’s experience is in the real world and comes from leading teams, raising capital, running funds and making hard things happen.
+At Brink, she directs a number of programmes and funds. In practice, that means making sure teams have everything they need to deliver real impact, from pressure-testing strategy to being a champion for the team through the good, the bad, and the genuinely ugly.
 
-“When you say yes to this, what do you have to say no to?” - someone asked Lea during coach training in 2015. This question about her last job changed her life. It was obvious that she had to pack in her VC-backed, digital transformation consultancy and do what she’d been advising her big corporate clients to do: pivot. Without knowing what would come next, Lea took a leap into redirecting her time and talent into something that made a positive contribution to the world and its most wicked challenges. Brink is that thing.
+Lea brings over 25 years of experience across everything from Silicon Valley to Kathmandu, working at the intersection of tech, innovation, and helping organisations and governments get fit for the future. She has a degree in psychology and is a trained coach across several disciplines, but most of what she knows was earned in the real world: leading teams, raising capital, running funds, and making hard things happen.

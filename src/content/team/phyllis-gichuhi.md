@@ -1,6 +1,6 @@
 ---
 name: Phyllis Gichuhi
-role: INNOVATION EXECUTIVE
+role: Innovation Manager
 location: Nairobi, Kenya
 photo: "/images/66e43d2fa5829ec9ec521136_phil_1.webp"
 photoAlt: Phyllis Gichuhi
@@ -14,15 +14,8 @@ questions:
   - "What does meaningful impact investing in Africa look like?"
 ---
 
-**What do I do at Brink?**
+Phyllis is an Innovation Manager at Brink working across two programmes. On the Frontier Tech Hub, she supports FCDO Advisors to test frontier-technology solutions to complex development challenges, helping them design experiments, gather evidence, and translate early-stage pilots into credible pathways for scale. She has worked with Advisors and partners across Africa, Asia and South America.On the Hanga SRH programme, she supports Sub-Saharan African ventures using technology to address sexual and reproductive health challenges. Her work focuses on helping founders strengthen their business models ready for scale.
 
-Innovation Executive
+Alongside this, Phyllis works with Brink’s Growth Team to identify and shape new opportunities. She helps align Brink’s stripes and offerings with emerging opportunities across funders and collaborators, while strengthening internal processes to support effective business development.
 
-**Talk to me about?**
-
-Circular Economy, Behaviour Change, Social Impact, Systems thinking, Dogs and Motorcycles!
-
-**Fun fact?**
-
-- I never had a dimple until 3 yrs ago. The dimple on my right cheek is actually a pinched nerve from a car accident.
-- I love motorcycles. I currently ride a Suzuki Gixxer named Mateo.
+Before joining Brink, Phyllis worked with Mr. Green Africa,Kenya’s largest plastic recycler, helping design circular supply chains that challenge how waste is valued. She developed B2C plastic collection models that strengthened supply and increased the company’s visibility. She also helped establish an early corporate partnership with TotalEnergies to support the rollout of Nairobi’s first plastic buy-back centres.

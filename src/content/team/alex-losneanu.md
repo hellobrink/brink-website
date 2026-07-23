@@ -1,6 +1,7 @@
 ---
 name: Alex Losneanu
 role: Innovation Director
+location: Barcelona, Spain
 photo: "/images/66d6150d565356fb8e364cd7_alex_1.webp"
 photoAlt: Alex Losneanu
 sortOrder: 1

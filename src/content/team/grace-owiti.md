@@ -1,6 +1,7 @@
 ---
 name: Grace Owiti
 role: COLLECTIVES EXECUTIVE
+location: Nairobi
 photo: "/images/681a125936c3c5519f46ed45_gracie_2.jpg"
 photoAlt: Grace Owiti
 linkedin: "https://www.linkedin.com/in/grace-owiti/"
@@ -14,12 +15,12 @@ questions:
   - "What changes when implementation evidence is treated not simply as reporting, but as story, and who gets to tell it?"
 ---
 
-Nairobi
+Grace Owiti is a Collectives Executive at Brink, working at the intersection of community building, knowledge design, and strategic communications. Her work is rooted in a simple belief: when people feel genuinely heard, the conditions for meaningful change begin to emerge.
 
-Grace Owiti is a Collectives Executive, where she leads the design and delivery of the Bora Learning Network part of uBoraBora a programme supporting implementation research in foundational literacy and numeracy across Sub-Saharan Africa.
+She currently works across two programmes. As Learning Network Lead for uBoraBora an initiative advancing foundational literacy and numeracy across Sub-Saharan Africa Grace designs and facilitates learning experiences that help grantees connect, reflect on implementation, and act on evidence. Her work includes convening peer learning sessions, shaping cross-sector gatherings, and developing communications approaches that make complex implementation work accessible and human.
 
-Her role spans network design, community facilitation, peer learning architecture, and communications strategy, ensuring grantees are not only connected, but equipped to share, adapt, and act on evidence in real time.
+Grace also contributes to the EdTech Hub AI Observatory, where she leads teacher engagement and horizon-scanning efforts. Her focus is creating spaces where teachers’ experiences and questions actively inform how AI in education is understood, funded, and built.
 
-With over seven years' experience in community building, engagement strategy, and experience design, Grace has worked across higher education, edtech, and social innovation ecosystems. Prior to Brink, she led employee experience initiatives, designed learning systems and engagement strategies.
+Across her work, Grace focuses on building the conditions for collective learning and helping communities surface and share the stories emerging from their work.
 
-Grace combines technical fluency with a deep understanding of people and systems. Outside her role at Brink, Grace mentors young women in tech and supports health outreach programmes for children with disabilities. She holds certifications in business intelligence, data analytics, customer engagement, and performance systems; and brings a rigorous, collaborative, and human-centred approach to every project she leads.
+Grace brings nine years of experience across community building, edtech, social innovation, and strategic operations. Before joining Brink, she led people experience and data analytics work at the African Leadership University in Kigali. She holds certifications in business intelligence, data analytics, and customer engagement, and is based in Nairobi where she mentors young women in tech and supports health outreach initiatives for children with disabilities.
