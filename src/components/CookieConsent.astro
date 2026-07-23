@@ -20,7 +20,7 @@ const privacyUrl = withBase('/privacy-policy');
 >
   <p class="cookie-text">
     We use analytics cookies to understand how the site is used. Accept to help
-    us improve it, or decline &mdash; either way you can read our
+    us improve it, or decline. Either way, you can read our
     <a href={privacyUrl}>privacy policy</a>.
   </p>
   <div class="cookie-actions">
@@ -87,6 +87,10 @@ const privacyUrl = withBase('/privacy-policy');
     color: var(--color-text-inverted);
     border-top: 3px solid var(--color-accent);
   }
+
+  /* The class sets display:flex, which would otherwise beat the [hidden]
+     attribute's UA display:none and leave the banner permanently on screen. */
+  .cookie-banner[hidden] { display: none; }
 
   .cookie-text {
     margin: 0;
