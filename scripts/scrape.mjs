@@ -19,7 +19,7 @@
 // Run with: npm run scrape
 
 import * as cheerio from 'cheerio';
-import { mkdir, writeFile, rm } from 'node:fs/promises';
+import { mkdir, writeFile, rm, readdir } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 
@@ -775,8 +775,20 @@ async function scrapeBlog(teamSlugs) {
   });
   console.log(`Found ${slugs.length} posts on the index; taking ${Math.min(BLOG_LIMIT, slugs.length)}.`);
 
-  let sortOrder = 0;
-  for (const slug of slugs.slice(0, BLOG_LIMIT)) {
+  const DATE_RE =
+    /\b(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},\s+\d{4}\b/;
+  const realBlogDir = path.join(ROOT, 'src/content/blog');
+  const take = slugs.slice(0, BLOG_LIMIT);
+
+  for (let i = 0; i < take.length; i++) {
+    const slug = take[i];
+
+    // Skip posts already migrated: the first 20 were hand-refined (curated
+    // subheadings, co-authors, a video embed, pull-quote fixes) and must not
+    // be re-scraped. promote would skip them as conflicts anyway, but this
+    // also saves the fetch and is kinder to the live site.
+    if (existsSync(path.join(realBlogDir, `${slug}.md`))) continue;
+
     const $ = await fetchDoc(`/post/${slug}`);
     if (!$) continue;
 
@@ -789,36 +801,64 @@ async function scrapeBlog(teamSlugs) {
     const bodyEl = $('.blog-rich-text, .blog-content').first();
     const body = bodyEl.length ? await richTextToMarkdown($, bodyEl.get(0)) : '';
 
-    // The byline sits in `.tag-text-sm` (the sibling `.tag-readout` wraps it
-    // with Webflow's ">" glyph). Link it to a bio where the author is ours.
-    const authorName = collapse($('.tag-text-sm').first().text());
-    const authorHref = $('a[href^="/team/"]').first().attr('href');
-    const authorSlug = authorHref?.match(/^\/team\/([^/?#]+)$/)?.[1];
+    // The byline and the date both render as `.tag-text-sm`; the date is the
+    // one shaped like "October 10, 2025". Authors are the `/team/` links —
+    // a few posts are co-written, so capture up to two.
+    const tags = $('.tag-text-sm').map((_, e) => collapse($(e).text())).get();
+    const dateText = tags.find((t) => DATE_RE.test(t));
+    const nameTags = tags.filter((t) => t && !DATE_RE.test(t));
+    const teamSlugsInPost = [
+      ...new Set($('a[href^="/team/"]').map((_, a) => $(a).attr('href')).get()),
+    ]
+      .map((h) => h.match(/^\/team\/([^/?#]+)$/)?.[1])
+      .filter(Boolean);
 
-    // Take the thumbnail from this post's own index card (see above). Do NOT
-    // pick images off the post page: they're all `.square-image` thumbnails
-    // in a hidden related-posts rail, so indexing into them gave every post
-    // either a random other post's picture or the author's headshot.
-    const heroImage = await downloadImage(thumbs.get(slug));
+    // The social image is the real hero/banner. The post page itself only has
+    // thumbnail-sized images in a hidden related-posts rail, so fall back to
+    // this post's own index-card thumbnail if there's no og:image.
+    const ogImage = $('meta[property="og:image"]').attr('content');
+    const heroImage =
+      (await downloadImage(ogImage)) ?? (await downloadImage(thumbs.get(slug)));
 
-    // No <time> element and no date class on these pages — the live posts
-    // simply don't show one. Left undefined rather than invented.
-    const dateText = collapse($('time').first().text());
+    const firstPara = body
+      .split('\n\n')
+      .find((b) => b && !b.startsWith('![') && !b.startsWith('#'));
+    const summary = firstPara ? stripMarkdown(firstPara).slice(0, 280) : undefined;
 
-    // Posts have no summary field either; use the opening paragraph.
-    const firstPara = body.split('\n\n').find((b) => b && !b.startsWith('![') && !b.startsWith('#'));
-    const summary = firstPara ? stripMarkdown(firstPara).slice(0, 300) : undefined;
+    // Webflow's meta-description is the closest thing to the standfirst. Only
+    // keep it when it's a real subtitle — not a duplicate of the title or the
+    // opening line we already use as the summary.
+    let subheading = collapse($('meta[property="og:description"]').attr('content') || '');
+    if (
+      !subheading ||
+      subheading === title ||
+      (summary && summary.startsWith(subheading.slice(0, 40)))
+    ) {
+      subheading = undefined;
+    }
 
-    await writeContentFile('blog', slug, {
-      title,
-      summary,
-      date: dateText || undefined,
-      authorSlug: teamSlugs?.has(authorSlug) ? authorSlug : undefined,
-      authorName: authorName || undefined,
-      heroImage,
-      heroAlt: heroImage ? title : undefined,
-      sortOrder: sortOrder++,
-    }, body || '<!-- TODO: post body did not extract cleanly, check the live page. -->');
+    await writeContentFile(
+      'blog',
+      slug,
+      {
+        title,
+        subheading,
+        date: dateText || undefined,
+        authorName: nameTags[0] || undefined,
+        authorSlug: teamSlugs?.has(teamSlugsInPost[0]) ? teamSlugsInPost[0] : undefined,
+        authorName2: nameTags[1] || undefined,
+        authorSlug2: teamSlugs?.has(teamSlugsInPost[1]) ? teamSlugsInPost[1] : undefined,
+        heroImage,
+        heroAlt: heroImage ? title : undefined,
+        bannerImage: heroImage,
+        bannerAlt: heroImage ? title : undefined,
+        summary,
+        sortOrder: i,
+      },
+      body || '<!-- TODO: post body did not extract cleanly, check the live page. -->'
+    );
+
+    await new Promise((r) => setTimeout(r, 250)); // be polite to the live site
   }
 }
 
@@ -857,15 +897,27 @@ async function main() {
   await mkdir(IMG_DIR, { recursive: true });
   await mkdir(CONTENT_DIR, { recursive: true });
 
-  const ourWorkEntries = await fetchOurWorkEntries();
-  const { matched } = await scrapeCaseStudies(ourWorkEntries);
-  await writeUnmatchedOurWork(ourWorkEntries, matched);
-  await scrapeOffers();
-  await scrapeSectors();
-  await scrapeSharedPanel();
-  const teamSlugs = await scrapeTeam();
-  await scrapeBlog(teamSlugs);
-  await scrapeStaticPages();
+  // ONLY=blog re-scrapes just the blog — used to migrate the back-catalogue
+  // without re-fetching (and risking a promote conflict on) the other
+  // collections. Team slugs are read off disk rather than re-scraped.
+  if (process.env.ONLY === 'blog') {
+    const teamSlugs = new Set(
+      (await readdir(path.join(ROOT, 'src/content/team')))
+        .filter((f) => f.endsWith('.md'))
+        .map((f) => f.replace(/\.md$/, ''))
+    );
+    await scrapeBlog(teamSlugs);
+  } else {
+    const ourWorkEntries = await fetchOurWorkEntries();
+    const { matched } = await scrapeCaseStudies(ourWorkEntries);
+    await writeUnmatchedOurWork(ourWorkEntries, matched);
+    await scrapeOffers();
+    await scrapeSectors();
+    await scrapeSharedPanel();
+    const teamSlugs = await scrapeTeam();
+    await scrapeBlog(teamSlugs);
+    await scrapeStaticPages();
+  }
 
   console.log('\n=== Done ===');
   console.log(`Pages fetched: ${stats.pagesFetched}`);
