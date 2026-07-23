@@ -10,9 +10,9 @@ photoHover: "/images/team-hover-lea-simpson.jpg"
 regions: [Europe]
 teams: ["Founders"]
 questions:
-  - "As Brink grows, how do we create the kind of context that makes it possible for every Brinkster to be their best and deliver career-defining work in their time with us?"
-  - "What is the role of technology in easing the global learning crisis?"
-  - "What is the role of frontier tech and aid money to solve big global challenges?"
+  - "As AI and other technologies mature around us, how can we shape a more equitably distributed future?"
+  - "Where are the women in power, how can we be them, find them and support them?"
+  - "What would we do if there were no constraints?"
 ---
 
 Lea is one of Brink's co-founders and inventors of Behavioural Innovation. Her brain is wired around a few obsessions: How do we keep things simple? What do people actually need? What if the world looked completely different?

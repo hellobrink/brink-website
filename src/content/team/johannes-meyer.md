@@ -10,8 +10,8 @@ regions: [UK]
 teams: ["Learning Journeys"]
 questions:
   - "How can AI support the transfer of contextual knowledge in complex organisations?"
-  - "What incentives need to be present for learning to translate into sustainable organisational and behavioural change?"
-  - "How can we better support people in positions of power and decision-making to transcend systemic constraints while leveraging their first-hand expertise in that system?"
+  - "What incentives need to be present for learning to translate into sustainable organisational, behavioural change?"
+  - "How can we better support people in positions of power and decision making to transcend systemic constraints while leveraging their first-hand expertise in that system?"
 ---
 
 Johannes leads Brink’s Learning practice, combining innovation coaching, capability building and culture change to support technology integration initiatives across Brink’s programmes.

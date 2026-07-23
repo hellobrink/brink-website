@@ -10,7 +10,7 @@ photoHover: "/images/team-hover-flic-burgess.webp"
 regions: [UK]
 teams: ["Venturing"]
 questions:
-  - "How can we generate more evidence around implementation of FLN programs to unlock greater scale of impactful ideas?"
+  - "How systems can make responsible decisions with imperfect evidence?"
   - "How can we support teachers to thrive in their classrooms so they can support every learner to succeed?"
   - "How can we shift the funding landscape to make space for experimentation, failure and continuous learning?"
 ---

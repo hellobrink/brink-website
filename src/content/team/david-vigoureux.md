@@ -10,9 +10,9 @@ photoHover: "/images/team-hover-david-vigoureux.jpg"
 regions: [UK]
 teams: ["Venturing"]
 questions:
-  - "What can African local authorities learn from each other when it comes to building digital public services?"
-  - "What can we learn about business models for electric vehicles in low-income settings, where battery charging might not be easily available?"
-  - "What is the potential role of Hydroponically-grown cattle fodder to relieve land pressures for herdsmen across Africa?"
+  - "How can technologies help locate and identify forcibly disappeared people in Mexico, providing closure to their families?"
+  - "How can AI tools bring new possibilities to strategic foresight and immersive workshops?"
+  - "How can science organisations harness digital tools and ways of working to navigate transformative change?"
 ---
 
 David is an Innovation Manager at Brink. He coaches a wide variety of teams as they build their own ventures, helping them use different tools to experiment and reflect on their work, as well as offering them critical advice and friendship. He also uses strategic foresight tools to help teams explore technology trends and the future.

@@ -10,8 +10,9 @@ photoHover: "/images/team-hover-alice-carter.webp"
 regions: [Africa]
 teams: ["Delivery"]
 questions:
-  - "How might digital transformation and digital practices be used to creating sustainable & inclusive cities?"
-  - "How do we turn evidence into innovation and scale the use of technology in education for the most marginalised?"
+  - "How will AI reshape public services and economic opportunity in emerging economies?"
+  - "How can African countries move from aid-driven innovation to private-sector-led growth?"
+  - "How do we design innovation ecosystems, not just individual projects?"
 ---
 
 Alice Carter is a Director at Brink, where she helps lead the organisation. She oversees a portfolio of innovation programmes including the EdTech Hub and AI Observatory, Hanga Sexual and Reproductive Health, and Go Muhazi. She also leads Brink’s work in East Africa, building partnerships in the region and building a new physical home for Brink’s work in the region - an innovation lodge on Lake Muhazi in Rwanda, developed in partnership with UMVA.

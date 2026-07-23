@@ -10,9 +10,10 @@ photoHover: "/images/team-hover-gita-luz.webp"
 regions: [UK]
 teams: ["Venturing"]
 questions:
-  - "How can we build fairer and more equitable health outcomes that aren’t determined by where you live in the world?"
-  - "How do we change money so it changes the world? (talk to me about incentives, systems and harnessing the decision making power of money and markets)"
-  - "How do we learn from and amplify low-cost frugal innovation from the Global South?'"
+  - "How can we build fairer and more equitable systems & outcomes that aren't determined by where you live in the world?"
+  - "How do we change money so it changes the world? (Talk to me about incentives, systems and harnessing the decision-making power of money and markets.)"
+  - "How do we learn from and amplify Global South wisdom like diskarte (creative problem solving), jugaad (frugal and flexible innovation) and ubuntu (humanity to others)?"
+  - "How do you scale impact through the power of tech and AI?"
 ---
 
 Building a fairer & more equitable future, one bold experiment at a time.

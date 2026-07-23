@@ -8,9 +8,9 @@ sortOrder: 24
 photoHover: "/images/team-hover-rob-hinchcliffe.jpeg"
 regions: [UK]
 questions:
-  - "What does the future of ‘social media’ hold and how can we make the most of this transition stage we’re in?"
-  - "How do you tell the story of an organisation or a project in an authentic and innovative way?"
-  - "How do you balance data-driven, evidence-based rigour with emotional storytelling?"
+  - "What does the future of ‘social media’ hold and which platforms and channels will emerge from the current?"
+  - "How do you best tell the story of ‘messy’ and unpredictable’ human behaviours in a cohesive and impactful way?"
+  - "How do we harness the power of AI while preserving our distinctive and unique voice?"
 ---
 
 Rob is Brink's Communications Lead, which means he spends the majority of his time finding exciting and innovative ways to share Brink's knowledge and expertise with the world. That might involve telling the stories behind the incredible work that Brink does, or finding ways to communicate the potential Behavioural Innovation has to make a positive change in the world.

@@ -10,8 +10,8 @@ photoHover: "/images/team-hover-kelley-rowe.jpg"
 regions: [Africa]
 teams: ["Venturing"]
 questions:
-  - "How do we collectively ensure we are designing and enabling a better and inclusive future where **no-one is left behind**?"
-  - "How do we get rid of the ‘noise’ and truly create inclusive economies where humans and the environment are held at the centre?"
+  - "How do we collectively ensure we are designing and enabling a better and inclusive future where no-one is left behind?"
+  - "How do we get rid of the 'noise' and truly create inclusive economies where humans and the environment are held at the centre?"
   - "And can the circular economy create this type of reality, and if so, how?"
 ---
 

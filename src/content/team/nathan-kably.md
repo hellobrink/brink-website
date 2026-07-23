@@ -10,9 +10,9 @@ photoHover: "/images/team-hover-nathan-kably.jpg"
 regions: [UK]
 teams: ["Venturing"]
 questions:
-  - "How and where does investment and innovation in e.g. EdTech produce most impact?"
-  - "Which approaches (e.g. innovation, research) bring most value in what context, and to solve what problem?"
-  - "How do you create change through more experiential means (design fiction, experiential futures, creative facilitation, etc.)?"
+  - "What does it actually take to back the right early-stage venture? Not just the idea, but the team, the timing, the conditions that let something fragile become something real?"
+  - "Can you fund for good and fund for growth, or do you always have to choose? Innovation and investment don't always speak the same language. What does it look like when they finally do?"
+  - "What separates organisations that talk about innovation from ones that actually live it? After coaching ventures and large organisations alike, I keep coming back to this. The gap is rarely about ideas. So what is it about?"
 ---
 
 Nathan is an Innovation Lead who backs ideas that matter. He leads innovation and investment funds for good, and coaches tech ventures and larger organisations on how to build, grow, and sustain meaningful innovation. Currently, he leads The award-winning Frontier Tech Hub's portfolio fund of early-stage tech ventures. With a passion for working at the intersection of creativity, strategy and problem-solving, Nathan loves wrangling wild information into coherent opportunities, and validating them through robust experimentation. Using a blend of lean startup, research methods and strategy, his work generates impact through evidence-informed, human-centred solutions.

@@ -10,9 +10,8 @@ photoHover: "/images/team-hover-bryony-nicholson.webp"
 regions: [UK]
 teams: ["Collectives"]
 questions:
-  - "How can collaboration, not competition, enable and develop innovation in humanitarian contexts?"
-  - "What do we at Brink need to know about international and intercultural facilitation to enable us to support our diverse global communities effectively?"
-  - "How can small groups of individuals work together to generate change faster?"
+  - "As AI and other technologies develop, what role might our place-based and embodied communities play in working towards hopeful futures?"
+  - "How can we encourage the real-world behaviours that resilient communities need - where people can have sweaty conversations, make requests of each other, and admit they made a mistake - when the online world feeds polarisation?"
 ---
 
 As a Community Lead at Brink, Bryony works across funds and programmes to lead teams, build communities and support people to make more impact through collaboration; at the heart of all change is a group of people working together. Bryony believes in the transformative potential of the collective to redistribute power; something she believes to be essential if international development is going to sustainably impact the lives of the poorest and most marginalised.
