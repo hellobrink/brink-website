@@ -1,5 +1,5 @@
 ---
-title: Are accelerator programmes dead?
+title: Are accelerator programmes dead??
 subheading: ''
 summary: Every other week I find myself having a conversation about the best way to support entrepreneurs in Africa.
 date: March 31, 2026
