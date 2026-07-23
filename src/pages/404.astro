@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { withBase } from '../lib/base';
+---
+
+<Layout title="Page not found" description="The page you were looking for isn't here.">
+  <section class="notfound container">
+    <p class="mono kicker">Error 404</p>
+    <h1>We couldn&rsquo;t find that page</h1>
+    <p class="lead">It may have moved, or the link might be out of date.</p>
+    <div class="actions">
+      <a class="button" href={withBase('/')}>Back to home</a>
+      <a class="button" href={withBase('/our-work')}>Explore our work</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .notfound {
+    padding: var(--space-9) 0;
+    max-width: var(--measure);
+  }
+  .kicker {
+    color: var(--color-accent);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    font-size: var(--text-tag);
+    margin: 0 0 var(--space-3);
+  }
+  .notfound h1 {
+    font-size: var(--text-display-lg);
+    line-height: var(--leading-tight);
+    margin: 0 0 var(--space-4);
+  }
+  .notfound .lead {
+    color: var(--color-text-muted);
+    font-size: var(--text-lead);
+    margin: 0;
+  }
+  .actions {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+    flex-wrap: wrap;
+  }
+</style>

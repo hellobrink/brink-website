@@ -1,0 +1,10 @@
+# This is the staging/preview on GitHub Pages, not the live site (hellobrink.co
+# is still on Webflow). Block indexing so the preview doesn't compete with the
+# live site or leak /brink-website URLs into search.
+#
+# AT CUTOVER: change this to allow crawling and add a Sitemap: line, e.g.
+#   User-agent: *
+#   Allow: /
+#   Sitemap: https://hellobrink.co/sitemap-index.xml
+User-agent: *
+Disallow: /

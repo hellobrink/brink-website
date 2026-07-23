@@ -10,13 +10,26 @@ interface Props {
   description?: string;
   /** Let the header sit transparent over a full-bleed hero image. */
   overlayHeader?: boolean;
+  /** Social share image, base-relative (e.g. "/images/foo.jpg"). Pages pass
+   *  their own hero/banner; otherwise a brand default is used. */
+  ogImage?: string;
+  /** og:type — "article" for posts, "website" for everything else. */
+  ogType?: 'website' | 'article';
 }
 
 const {
   title,
   description = 'Brink is a global team of technologists, designers, strategists, and behavioural scientists working on open innovation.',
   overlayHeader = false,
+  ogImage = '/images/hero-sowing-field.jpg',
+  ogType = 'website',
 } = Astro.props;
+
+// Absolute URLs for canonical + social tags. Astro.site is the deploy origin
+// (regenerated at cutover when it becomes the custom domain).
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.pathname;
+const ogImageUrl = Astro.site ? new URL(withBase(ogImage), Astro.site).href : withBase(ogImage);
+const ogTitle = title === 'Home' ? 'Brink' : title;
 ---
 
 <!doctype html>
@@ -26,6 +39,19 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href={withBase('/favicon.png')} />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Brink" />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
     <title>{title} · Brink</title>
   </head>
   <body>

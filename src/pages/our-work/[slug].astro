@@ -88,7 +88,7 @@ let imageCursor = 0;
 const nextImage = () => data.gallery[imageCursor++] ?? null;
 ---
 
-<Layout title={data.title} description={data.standfirst ?? data.summary}>
+<Layout title={data.title} description={data.standfirst ?? data.summary} ogImage={data.heroImage} ogType="article">
   <article class="work-detail">
     <div class="container">
       <p class="back"><a href={withBase('/our-work')}>&larr; All work</a></p>

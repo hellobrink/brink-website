@@ -28,7 +28,7 @@ const workMap = Object.fromEntries(
 );
 ---
 
-<Layout title={data.name} description={data.positioningLine ?? data.headline}>
+<Layout title={data.name} description={data.positioningLine ?? data.headline} ogImage={data.challengeImage}>
   <article class:list={['sector', `accent-${data.accent}`]}>
     <header class="hero">
       <div class="container">

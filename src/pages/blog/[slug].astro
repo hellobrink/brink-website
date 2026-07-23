@@ -21,7 +21,7 @@ const authors = [
 ].filter(Boolean) as { name: string; member: any }[];
 ---
 
-<Layout title={data.title} description={data.subheading ?? data.summary}>
+<Layout title={data.title} description={data.subheading ?? data.summary} ogImage={data.bannerImage ?? data.heroImage} ogType="article">
   <article class="post">
     <div class="container narrow">
       <p class="back"><a href={withBase('/blog')}>&larr; All posts</a></p>
