@@ -10,6 +10,14 @@ import Layout from '../layouts/Layout.astro';
 import VennDiagram from '../components/VennDiagram.astro';
 import { withBase } from '../lib/base';
 
+// Some 'go deeper' links now point at posts we've migrated; the rest are still
+// external. Internal links get the base path and open in-tab; external links
+// open in a new tab.
+const linkAttrs = (u) =>
+  u.startsWith('/')
+    ? { href: withBase(u) }
+    : { href: u, target: '_blank', rel: 'noopener noreferrer' };
+
 const scenarios = [
   {
     image: '/images/bi-row.png',
@@ -79,12 +87,12 @@ const toolGroups = [
 ];
 
 const discover = [
-  { title: 'Choosing without choosing', body: 'How the defaults around you are shaping what you do and who you are, and how you can rethink them.', url: 'https://hellobrink.co/choosing-without-choosing/', ground: 'teal' },
-  { title: 'How to get people to do what you want', body: 'The power of using incentives to shift human behaviours.', url: 'https://hellobrink.co/how-to-get-people-to-do-what-you-want-the-secrets-of-incentives/', ground: 'coral' },
-  { title: 'Creating psychological safety', body: 'What a culture of psychological safety looks like, and how you can develop it.', url: 'https://www.hellobrink.co/post/tips-for-creating-psychological-safety', ground: 'blue' },
-  { title: 'To create anything, first build a team', body: 'Why the team you build matters more than the idea you start with.', url: 'https://hellobrink.co/to-create-anything-first-build-a-team/', ground: 'coral' },
+  { title: 'Choosing without choosing', body: 'How the defaults around you are shaping what you do and who you are, and how you can rethink them.', url: '/blog/choosing-without-choosing', ground: 'teal' },
+  { title: 'How to get people to do what you want', body: 'The power of using incentives to shift human behaviours.', url: '/blog/how-to-get-people-to-do-what-you-want-the-secrets-of-incentives', ground: 'coral' },
+  { title: 'Creating psychological safety', body: 'What a culture of psychological safety looks like, and how you can develop it.', url: '/blog/tips-for-creating-psychological-safety', ground: 'blue' },
+  { title: 'To create anything, first build a team', body: 'Why the team you build matters more than the idea you start with.', url: '/blog/to-create-anything-first-build-a-team', ground: 'coral' },
   { title: 'I disagree', body: 'The dangerous, and essential, business of sharing feedback.', url: 'https://hellobrink.co/i-disagree-the-dangerous-business-of-sharing-feedback/', ground: 'blue' },
-  { title: 'Hear this', body: 'Why innovators need to be better listeners.', url: 'https://hellobrink.co/hear-this-why-innovators-need-to-be-better-listeners/', ground: 'teal' },
+  { title: 'Hear this', body: 'Why innovators need to be better listeners.', url: '/blog/hear-this-why-innovators-need-to-be-better-listeners', ground: 'teal' },
 ];
 ---
 
@@ -157,7 +165,7 @@ const discover = [
         <ul class="proof-list">
           {proof.map((p) => (
             <li>
-              <a href={p.url} target={p.url.startsWith('http') ? '_blank' : undefined} rel={p.url.startsWith('http') ? 'noopener noreferrer' : undefined}>
+              <a {...linkAttrs(p.url)}>
                 <span>{p.text}</span>
                 <span class="proof-arrow" aria-hidden="true">&rarr;</span>
               </a>
@@ -181,7 +189,7 @@ const discover = [
             <ul class="tool-grid">
               {group.tools.map((t, ti) => (
                 <li class:list={['tool-card', `ground-${['teal', 'coral', 'blue'][(gi * 2 + ti) % 3]}`]}>
-                  <a href={t.url} target="_blank" rel="noopener noreferrer">
+                  <a {...linkAttrs(t.url)}>
                     <span class="card-title">{t.title}</span>
                     <span class="card-desc">{t.body}</span>
                     <span class="card-foot">
@@ -207,7 +215,7 @@ const discover = [
         <ul class="discover-grid">
           {discover.map((d) => (
             <li class:list={['discover-card', `ground-${d.ground}`]}>
-              <a href={d.url} target="_blank" rel="noopener noreferrer">
+              <a {...linkAttrs(d.url)}>
                 <span class="card-title">{d.title}</span>
                 <span class="card-desc">{d.body}</span>
                 <span class="card-foot">
