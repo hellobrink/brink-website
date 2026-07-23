@@ -23,6 +23,22 @@ const { data } = member;
 
 const firstName = data.name.split(' ')[0];
 
+// Questions can carry Markdown links (some people linked words or the whole
+// question out to a post or article). Render those safely: escape the text
+// first, then turn [label](url) into anchors. Internal paths get the base
+// path; external URLs open in a new tab.
+const renderQuestion = (q: string): string =>
+  q
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_m, label, url) => {
+      const external = /^https?:/i.test(url);
+      const href = external ? url : withBase(url);
+      const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : '';
+      return `<a href="${href}"${attrs}>${label}</a>`;
+    });
+
 // Posts this person wrote. The blog collection carries an authorSlug for
 // exactly this.
 const allPosts = await getCollection('blog');
@@ -80,7 +96,7 @@ const authored = allPosts
             <section class="questions">
               <h2 class="display">Questions {firstName} is exploring in their work right now</h2>
               <ul>
-                {data.questions.map((q) => <li>{q}</li>)}
+                {data.questions.map((q) => <li set:html={renderQuestion(q)} />)}
               </ul>
             </section>
           )}

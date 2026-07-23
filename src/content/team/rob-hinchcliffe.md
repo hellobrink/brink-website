@@ -15,7 +15,7 @@ questions:
 
 Rob is Brink's Communications Lead, which means he spends the majority of his time finding exciting and innovative ways to share Brink's knowledge and expertise with the world. That might involve telling the stories behind the incredible work that Brink does, or finding ways to communicate the potential Behavioural Innovation has to make a positive change in the world.
 
-Examples include Brink’s monthly newsletter, the Cognitive Download, and the Fund What Lasts campaign for Oxygen CoLab.
+Examples include Brink’s monthly newsletter, the [Cognitive Download](https://mailchi.mp/hellobrink.co/cognitivedl), and the [Fund What Lasts](https://www.makingbetterfutures.org/fundwhatlasts/) campaign for Oxygen CoLab.
 
 Rob's interests lie in the intersection of content and community, and he's spent the last twenty years finding new and creative ways to bring people together around innovative experiences (both online of and off). Before Brink Rob headed up the Content and Comms team at a digital agency; and previous to that he spent time at a number of startups. In the very distant past he worked as a journalist.
 

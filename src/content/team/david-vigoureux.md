@@ -11,8 +11,8 @@ regions: [UK]
 teams: ["Venturing"]
 questions:
   - "How can technologies help locate and identify forcibly disappeared people in Mexico, providing closure to their families?"
-  - "How can AI tools bring new possibilities to strategic foresight and immersive workshops?"
-  - "How can science organisations harness digital tools and ways of working to navigate transformative change?"
+  - "[How can AI tools bring new possibilities to strategic foresight and immersive workshops?](/blog/how-ai-is-changing-the-way-we-imagine-the-future)"
+  - "[How can science organisations harness digital tools and ways of working to navigate transformative change?](https://council.science/our-work/science-organizations-in-the-digital-age/)"
 ---
 
 David is an Innovation Manager at Brink. He coaches a wide variety of teams as they build their own ventures, helping them use different tools to experiment and reflect on their work, as well as offering them critical advice and friendship. He also uses strategic foresight tools to help teams explore technology trends and the future.

@@ -15,9 +15,9 @@ questions:
   - "How do we design innovation ecosystems, not just individual projects?"
 ---
 
-Alice Carter is a Director at Brink, where she helps lead the organisation. She oversees a portfolio of innovation programmes including the EdTech Hub and AI Observatory, Hanga Sexual and Reproductive Health, and Go Muhazi. She also leads Brink’s work in East Africa, building partnerships in the region and building a new physical home for Brink’s work in the region - an innovation lodge on Lake Muhazi in Rwanda, developed in partnership with UMVA.
+Alice Carter is a Director at Brink, where she helps lead the organisation. She oversees a portfolio of innovation programmes including the EdTech Hub and AI Observatory, Hanga Sexual and Reproductive Health, and Go Muhazi. She also leads Brink’s work in East Africa, building partnerships in the region and building a new physical home for Brink’s work in the region - an [innovation lodge](https://www.isanolodge.com/) on Lake Muhazi in Rwanda, developed in partnership with UMVA.
 
-Alice also shapes Brink’s approach to Behavioural Innovation, helping translate it into practical tools and methods that build mastery across our teams. She often speaks about the role of human behaviour in shaping successful policy and innovation efforts. Watch her TEDx talk here.
+Alice also shapes Brink’s approach to Behavioural Innovation, helping translate it into practical tools and methods that build mastery across our teams. She often speaks about the role of human behaviour in shaping successful policy and innovation efforts. Watch her [TEDx talk here](https://www.youtube.com/watch?v=cyUQcCf4IUk).
 
 Alice joined Brink after working in the UK civil service on various projects to digitise services and innovate processes. Most recently helping policy advisors apply design-thinking to the biggest challenges in the UK's Ministry of Justice. Through her work at Brink, she continues to explore the role of government in catalysing innovation: how public institutions can create the conditions for experimentation, how local entrepreneurs can play a greater role in solving social challenges, and how emerging economies can move towards more sustainable, private-sector-led growth.
 
