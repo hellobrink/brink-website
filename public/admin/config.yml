@@ -322,8 +322,6 @@ collections:
         default: teal
       - { name: heroImage, label: Header image, widget: image, required: false }
       - { name: heroAlt, label: Header image alt text, widget: string, required: false }
-      - { name: image, label: Badge / sticker (optional), widget: image, required: false }
-      - { name: imageAlt, label: Badge alt text, widget: string, required: false }
       - { name: lead, label: Lead statement, widget: text, required: false }
       - name: intro
         label: Intro paragraphs

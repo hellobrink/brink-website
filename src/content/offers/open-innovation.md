@@ -4,8 +4,6 @@ summary: Research & development with people close to the challenge
 ground: teal
 heroImage: "/images/66fc18165868eded446da75c_caleb-2.jpg"
 heroAlt: "A participant in Brink's future-of-work programme in Kenya"
-image: "/images/66d6f6fa969e70c13175b113_experiment_sticker.webp"
-imageAlt: Open Innovation badge
 lead: "We know the best insights and ideas come from those closest to the issues, and that the challenges of our time cannot be solved by any individual or single idea alone."
 intro:
   - "Brink has proven approaches for capturing and supercharging diverse and non-obvious ideas through competitions, challenges and venturing support."

@@ -4,8 +4,6 @@ summary: Moving systems forward through collective missions
 ground: blue
 heroImage: "/images/work-health-macmillan-hero.jpg"
 heroAlt: "A Macmillan nurse in conversation with a patient in a hospital corridor"
-image: "/images/66d6f6f39ed601081092af41_octopus_sticker.webp"
-imageAlt: Innovation Missions badge
 lead: "Most challenges of our time don’t exist in a vacuum. They are part of complex systems, shaped by human behaviour and worked on by teams and organisations."
 intro:
   - "To truly address these challenges, we must work with these systems and the people in them. Transforming systems requires bold goals, collaboration across borders and sectors, and a participatory approach that values local expertise."

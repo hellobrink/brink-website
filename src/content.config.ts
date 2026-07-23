@@ -154,10 +154,6 @@ const offers = defineCollection({
     // Photographic header for the offer's section.
     heroImage: z.string().optional(),
     heroAlt: z.string().optional(),
-    // The Webflow "sticker" badge (experiment / pilot / octopus). Retained in
-    // frontmatter but not currently rendered.
-    image: z.string().optional(),
-    imageAlt: z.string().optional(),
     // The copy, structured so the template can lay it out editorially: a
     // punchy opening statement, the rest of the intro as separate paragraphs,
     // then groups of a heading with its points shown as a flowing list, and an
