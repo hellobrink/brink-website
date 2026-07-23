@@ -1,0 +1,370 @@
+# Sveltia CMS configuration for the Brink website.
+#
+# This describes the same content collections defined in
+# src/content.config.ts as editable forms. Editors work at /admin, save,
+# and their changes become a pull request (editorial workflow) that rebuilds
+# the site once merged.
+#
+# The auth `base_url` must point at your deployed sveltia-cms-auth Cloudflare
+# Worker — see CMS_SETUP.md. Until that value is set, login will fail.
+
+backend:
+  name: github
+  repo: hellobrink/brink-website
+  branch: main
+  base_url: https://REPLACE-WITH-YOUR-AUTH-WORKER.workers.dev
+
+# Saves become draft branches + pull requests rather than direct commits, so
+# work can be reviewed before it reaches the deployed site.
+publish_mode: editorial_workflow
+
+# Uploaded images land in public/images; the path written into content omits
+# the /brink-website base prefix, which the site adds at render time.
+media_folder: public/images
+public_folder: /images
+
+site_url: https://hellobrink.github.io/brink-website
+display_url: https://hellobrink.github.io/brink-website
+
+collections:
+  # --- Blog --------------------------------------------------------------
+  - name: blog
+    label: Blog posts
+    label_singular: Blog post
+    folder: src/content/blog
+    create: true
+    slug: '{{slug}}'
+    identifier_field: title
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: subheading, label: Subheading (standfirst), widget: string, required: false }
+      - { name: summary, label: Summary (search/meta), widget: text, required: false }
+      - { name: date, label: Date (as shown, e.g. "March 2024"), widget: string, required: false }
+      - { name: authorName, label: Author name, widget: string, required: false }
+      - name: authorSlug
+        label: Author — link to team bio (optional)
+        widget: relation
+        collection: team
+        value_field: '{{slug}}'
+        search_fields: [name]
+        display_fields: [name]
+        required: false
+      - { name: authorName2, label: Second author name (optional), widget: string, required: false }
+      - name: authorSlug2
+        label: Second author — link to team bio (optional)
+        widget: relation
+        collection: team
+        value_field: '{{slug}}'
+        search_fields: [name]
+        display_fields: [name]
+        required: false
+      - { name: heroImage, label: Thumbnail (square), widget: image, required: false }
+      - { name: heroAlt, label: Thumbnail alt text, widget: string, required: false }
+      - { name: bannerImage, label: Banner (landscape, top of post), widget: image, required: false }
+      - { name: bannerAlt, label: Banner alt text, widget: string, required: false }
+      - { name: sortOrder, label: Sort order (lower = first), widget: number, default: 0, value_type: int }
+      - { name: body, label: Body, widget: markdown }
+
+  # --- Team --------------------------------------------------------------
+  - name: team
+    label: Team members
+    label_singular: Team member
+    folder: src/content/team
+    create: true
+    slug: '{{slug}}'
+    identifier_field: name
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: name, label: Name, widget: string }
+      - { name: role, label: Role, widget: string, required: false }
+      - { name: location, label: Location, widget: string, required: false }
+      - { name: photo, label: Portrait, widget: image, required: false }
+      - { name: photoAlt, label: Portrait alt text, widget: string, required: false }
+      - { name: photoHover, label: Hover portrait (swaps in on hover), widget: image, required: false }
+      - { name: linkedin, label: LinkedIn URL, widget: string, required: false }
+      - name: regions
+        label: Regions (filters on the team page)
+        widget: list
+        required: false
+        field: { name: region, label: Region, widget: string }
+      - name: teams
+        label: Teams (filters on the team page)
+        widget: list
+        required: false
+        field: { name: team, label: Team, widget: string }
+      - name: questions
+        label: Questions they're exploring
+        widget: list
+        required: false
+        field: { name: question, label: Question, widget: string }
+      - { name: sortOrder, label: Sort order, widget: number, default: 0, value_type: int }
+      - { name: body, label: Bio, widget: markdown, required: false }
+
+  # --- Work / case studies ----------------------------------------------
+  - name: work
+    label: Work & case studies
+    label_singular: Work item
+    folder: src/content/work
+    create: true
+    slug: '{{slug}}'
+    identifier_field: title
+    extension: md
+    format: frontmatter
+    summary: '{{title}} — {{status}}'
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: programmeName, label: Programme name (if different to title), widget: string, required: false }
+      - { name: summary, label: Summary, widget: text }
+      - name: status
+        label: Status
+        widget: select
+        options: [current, past]
+        default: past
+      - name: sector
+        label: Sector(s)
+        widget: select
+        multiple: true
+        required: false
+        options: [climate, health, education]
+      - name: offer
+        label: Offer(s)
+        widget: select
+        multiple: true
+        required: false
+        options: [open-innovation, carve-outs, missions]
+      - { name: logo, label: Programme logo, widget: image, required: false }
+      - { name: logoAlt, label: Logo alt text, widget: string, required: false }
+      - { name: heroImage, label: Hero image, widget: image, required: false }
+      - { name: heroAlt, label: Hero alt text, widget: string, required: false }
+      - { name: heroPosition, label: 'Hero crop position (e.g. "center 25%")', widget: string, required: false }
+      - name: funders
+        label: Funders
+        widget: list
+        required: false
+        fields:
+          - { name: name, label: Name, widget: string }
+          - { name: url, label: URL (optional), widget: string, required: false }
+      - name: partners
+        label: Partners
+        widget: list
+        required: false
+        fields:
+          - { name: name, label: Name, widget: string }
+          - { name: url, label: URL (optional), widget: string, required: false }
+      - { name: externalLink, label: External link, widget: string, required: false }
+      - name: caseStudyRef
+        label: Case study lives on another work item (optional)
+        widget: relation
+        collection: work
+        value_field: '{{slug}}'
+        search_fields: [title]
+        display_fields: [title]
+        required: false
+      - { name: hasCaseStudy, label: Has a full case study?, widget: boolean, default: false }
+      - { name: headlineResult, label: Headline result (on case-study cards), widget: string, required: false }
+      - { name: standfirst, label: Standfirst, widget: text, required: false }
+      - name: challenge
+        label: The challenge
+        widget: list
+        required: false
+        field: { name: para, label: Paragraph, widget: text }
+      - name: results
+        label: Results
+        widget: list
+        required: false
+        field: { name: para, label: Paragraph, widget: text }
+      - name: approachIntro
+        label: Approach — intro
+        widget: list
+        required: false
+        field: { name: para, label: Paragraph, widget: text }
+      - name: approach
+        label: Approach — points
+        widget: list
+        required: false
+        field: { name: para, label: Paragraph, widget: text }
+      - { name: conclusion, label: Conclusion, widget: text, required: false }
+      - name: storyQuotes
+        label: Story pull-quotes
+        widget: list
+        required: false
+        fields:
+          - { name: text, label: Quote, widget: text }
+          - { name: attribution, label: Attribution (optional, may contain a link), widget: string, required: false }
+      - name: quote
+        label: Featured quote
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { name: text, label: Quote, widget: text }
+          - { name: name, label: Name, widget: string }
+          - { name: role, label: Role, widget: string, required: false }
+          - { name: photo, label: Photo, widget: image, required: false }
+          - { name: photoAlt, label: Photo alt text, widget: string, required: false }
+      - { name: timeline, label: Timeline, widget: string, required: false }
+      - { name: location, label: Location, widget: string, required: false }
+      - { name: fullStoryUrl, label: Full story URL, widget: string, required: false }
+      - name: gallery
+        label: Gallery
+        widget: list
+        required: false
+        fields:
+          - { name: image, label: Image, widget: image }
+          - { name: alt, label: Alt text, widget: string }
+          - { name: caption, label: Caption (optional), widget: string, required: false }
+      - { name: year, label: Year, widget: string, required: false }
+      - { name: sortOrder, label: Sort order, widget: number, default: 0, value_type: int }
+      - { name: body, label: Case study narrative, widget: markdown, required: false }
+
+  # --- Sectors -----------------------------------------------------------
+  - name: sectors
+    label: Sector pages
+    label_singular: Sector
+    folder: src/content/sectors
+    create: true
+    slug: '{{slug}}'
+    identifier_field: name
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: name, label: Name, widget: string }
+      - name: accent
+        label: Accent colour
+        widget: select
+        options: [teal, coral, blue]
+        default: teal
+      - { name: headline, label: Hero headline, widget: text }
+      - { name: positioningLine, label: Positioning line (search / About carousel), widget: text, required: false }
+      - name: stats
+        label: Impact stats
+        widget: list
+        required: false
+        fields:
+          - { name: pre, label: Caption before number, widget: string, required: false }
+          - { name: value, label: Number, widget: string }
+          - { name: post, label: Caption after number, widget: string, required: false }
+      - name: challenge
+        label: The challenge
+        widget: list
+        required: false
+        field: { name: para, label: Paragraph, widget: text }
+      - name: approach
+        label: Our approach
+        widget: list
+        required: false
+        field: { name: para, label: Paragraph, widget: text }
+      - { name: challengeImage, label: Challenge image, widget: image, required: false }
+      - { name: challengeImageAlt, label: Challenge image alt text, widget: string, required: false }
+      - name: principles
+        label: Principles
+        widget: list
+        required: false
+        fields:
+          - { name: title, label: Title, widget: string }
+          - name: body
+            label: Body
+            widget: list
+            field: { name: para, label: Paragraph, widget: text }
+      - name: caseStudies
+        label: Case study cards
+        widget: list
+        required: false
+        fields:
+          - { name: title, label: Title, widget: string }
+          - { name: quote, label: Quote, widget: text, required: false }
+          - name: slug
+            label: Internal work item (optional)
+            widget: relation
+            collection: work
+            value_field: '{{slug}}'
+            search_fields: [title]
+            display_fields: [title]
+            required: false
+          - { name: url, label: External URL (optional), widget: string, required: false }
+          - { name: image, label: Card image, widget: image, required: false }
+      - name: contact
+        label: Named contact
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { name: name, label: Name, widget: string }
+          - { name: role, label: Role, widget: string }
+          - { name: email, label: Email, widget: string }
+          - { name: photo, label: Photo, widget: image, required: false }
+      - { name: body, label: Body (optional), widget: markdown, required: false }
+
+  # --- Offers ------------------------------------------------------------
+  - name: offers
+    label: Offers
+    label_singular: Offer
+    folder: src/content/offers
+    create: true
+    slug: '{{slug}}'
+    identifier_field: name
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: name, label: Name, widget: string }
+      - { name: summary, label: Summary (subheading), widget: string }
+      - name: ground
+        label: Banner colour
+        widget: select
+        options: [teal, coral, blue]
+        default: teal
+      - { name: heroImage, label: Header image, widget: image, required: false }
+      - { name: heroAlt, label: Header image alt text, widget: string, required: false }
+      - { name: image, label: Badge / sticker (optional), widget: image, required: false }
+      - { name: imageAlt, label: Badge alt text, widget: string, required: false }
+      - { name: lead, label: Lead statement, widget: text, required: false }
+      - name: intro
+        label: Intro paragraphs
+        widget: list
+        required: false
+        field: { name: para, label: Paragraph, widget: text }
+      - name: groups
+        label: Content groups
+        widget: list
+        required: false
+        fields:
+          - { name: lead, label: Group heading, widget: text }
+          - name: items
+            label: Points
+            widget: list
+            field: { name: item, label: Point, widget: text }
+      - { name: note, label: Closing note (optional), widget: text, required: false }
+      - { name: body, label: Body (optional), widget: markdown, required: false }
+
+  # --- Shared behavioural panel -----------------------------------------
+  - name: shared
+    label: Shared blocks
+    label_singular: Shared block
+    folder: src/content/shared
+    create: true
+    slug: '{{slug}}'
+    identifier_field: title
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: image, label: Image, widget: image, required: false }
+      - { name: imageAlt, label: Image alt text, widget: string, required: false }
+      - { name: body, label: Body, widget: markdown, required: false }
+
+  # --- One-off pages -----------------------------------------------------
+  - name: pages
+    label: Pages
+    label_singular: Page
+    folder: src/content/pages
+    create: true
+    slug: '{{slug}}'
+    identifier_field: title
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: title, label: Title, widget: string }
+      - { name: body, label: Body, widget: markdown }
