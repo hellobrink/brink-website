@@ -8,9 +8,9 @@ photoHover: "/images/team-hover-mwaniki-nyaga.webp"
 regions: [Africa]
 teams: ["Storytelling"]
 questions:
-  - "TODO placeholder: Lorem ipsum dolor sit amet, consectetur adipiscing elit?"
-  - "TODO placeholder: Sed do eiusmod tempor incididunt ut labore et dolore magna?"
-  - "TODO placeholder: Ut enim ad minim veniam, quis nostrud exercitation ullamco?"
+  - "How do stories activate the hearts and minds of decision-makers and change agents toward action that creates meaningful shifts?"
+  - "How do you tell stories that centre people's voices and agency?"
+  - "What does it take for narratives to shift how people think and behave?"
 ---
 
 Kenya

@@ -9,9 +9,9 @@ photoHover: "/images/team-hover-phyllis-gichuhi.webp"
 regions: [Africa]
 teams: ["Venturing"]
 questions:
-  - "TODO placeholder: Lorem ipsum dolor sit amet, consectetur adipiscing elit?"
-  - "TODO placeholder: Sed do eiusmod tempor incididunt ut labore et dolore magna?"
-  - "TODO placeholder: Ut enim ad minim veniam, quis nostrud exercitation ullamco?"
+  - "How can frontier technologies move beyond experimentation and become credible tools for solving real development challenges?"
+  - "What does it take to build a healthy ecosystem for scaling African ventures?"
+  - "What does meaningful impact investing in Africa look like?"
 ---
 
 **What do I do at Brink?**

@@ -9,9 +9,9 @@ photoHover: "/images/team-hover-johannes-meyer.webp"
 regions: [UK]
 teams: ["Learning Journeys"]
 questions:
-  - "TODO placeholder: Lorem ipsum dolor sit amet, consectetur adipiscing elit?"
-  - "TODO placeholder: Sed do eiusmod tempor incididunt ut labore et dolore magna?"
-  - "TODO placeholder: Ut enim ad minim veniam, quis nostrud exercitation ullamco?"
+  - "How can AI support the transfer of contextual knowledge in complex organisations?"
+  - "What incentives need to be present for learning to translate into sustainable organisational and behavioural change?"
+  - "How can we better support people in positions of power and decision-making to transcend systemic constraints while leveraging their first-hand expertise in that system?"
 ---
 
 Johannes believes that through a combination of creativity and meeting our human fears, biases and beliefs head on we can deeply change the world. As Innovation Manager, he works with people, teams and organisations to practice ways in which they can be creative and brave. His coaching style is informed by his experience in human-centered design, innovation strategy, facilitation and psychotherapy.

@@ -9,9 +9,9 @@ photoHover: "/images/team-hover-grace-owiti.jpg"
 regions: [Africa]
 teams: ["Collectives"]
 questions:
-  - "TODO placeholder: Lorem ipsum dolor sit amet, consectetur adipiscing elit?"
-  - "TODO placeholder: Sed do eiusmod tempor incididunt ut labore et dolore magna?"
-  - "TODO placeholder: Ut enim ad minim veniam, quis nostrud exercitation ullamco?"
+  - "What does it take for teachers in low- and middle-income countries to move from curiosity about AI to meaningful classroom use, and what does that reveal about how we design for adoption?"
+  - "How can learning networks be designed so that grantees genuinely want to participate, where the community itself pulls people in rather than the calendar invite?"
+  - "What changes when implementation evidence is treated not simply as reporting, but as story, and who gets to tell it?"
 ---
 
 Nairobi
