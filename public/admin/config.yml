@@ -2,21 +2,25 @@
 #
 # This describes the same content collections defined in
 # src/content.config.ts as editable forms. Editors work at /admin, save,
-# and their changes become a pull request (editorial workflow) that rebuilds
-# the site once merged.
+# and their change is committed to the branch named below, which rebuilds
+# the site.
+#
+# IMPORTANT: Sveltia commits a save DIRECTLY to `branch` — there is no
+# per-save pull-request review step. The review buffer comes from *which
+# branch* the CMS writes to: point it at a `staging` branch and promote to
+# the live branch with a merge when you're happy. See CMS_SETUP.md.
 #
 # The auth `base_url` must point at your deployed sveltia-cms-auth Cloudflare
-# Worker — see CMS_SETUP.md. Until that value is set, login will fail.
+# Worker — see CMS_SETUP.md. Until that value is set, GitHub login will fail.
 
 backend:
   name: github
   repo: hellobrink/brink-website
+  # The branch the CMS reads and writes. Pre-cutover this is `main` (which
+  # deploys to the github.io preview). At cutover, switch to `staging` so
+  # edits land on staging and are promoted to live by merging.
   branch: main
   base_url: https://REPLACE-WITH-YOUR-AUTH-WORKER.workers.dev
-
-# Saves become draft branches + pull requests rather than direct commits, so
-# work can be reviewed before it reaches the deployed site.
-publish_mode: editorial_workflow
 
 # Uploaded images land in public/images; the path written into content omits
 # the /brink-website base prefix, which the site adds at render time.

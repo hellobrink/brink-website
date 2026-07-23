@@ -2,7 +2,13 @@
 
 The site is edited through **Sveltia CMS**, a friendly form-based editor that
 lives in this repo at `/admin`. Editors sign in with GitHub, fill in forms, and
-save — their changes become a pull request that rebuilds the site once merged.
+save — their change is committed to a branch, which rebuilds the site.
+
+> **How review works (important):** Sveltia commits a save **directly to the
+> branch** named in `config.yml` — it does *not* open a pull request per edit.
+> The review-before-live step therefore comes from **which branch the CMS
+> writes to**: have it write to a `staging` branch, review there, then promote
+> to the live branch with a merge. See "Staging vs live" below.
 
 - **Editor URL (once live):** https://hellobrink.github.io/brink-website/admin/
 - **Config:** `public/admin/config.yml` (the collections and their fields)
@@ -78,13 +84,20 @@ GitHub → repo **Settings → Collaborators → Add people**. They then open
 
 1. An editor opens `/admin/`, picks a collection (Blog posts, Team, Work, etc.),
    and edits or creates an entry using the form fields.
-2. On **Save**, Sveltia opens a **pull request** rather than committing straight
-   to the live branch (this is the `publish_mode: editorial_workflow` setting).
-3. You review the change — the PR shows exactly what was edited — and **merge**
-   it. Merging triggers the GitHub Action that rebuilds and republishes the site.
+2. On **Save**, Sveltia commits the change **straight to the branch** named in
+   `config.yml` (`backend.branch`) and the site rebuilds from that branch.
+   Sveltia makes a clean, minimal commit — it only writes the fields that
+   changed, it does not reformat the rest of the file.
 
-So nothing reaches the published site until a PR is merged: that's your
-"work in the background, then promote" review step, built in.
+**There is no per-save pull request.** So the review step is a branch decision:
+
+- **Pre-cutover (now):** the CMS writes to `main`, which deploys to the
+  github.io preview. Since the real site is still on Webflow, nothing public is
+  affected — edits simply appear on the preview. This is fine for now.
+- **Post-cutover:** point the CMS at a `staging` branch. Editors' saves land on
+  staging (and the staging site), you review, and you **promote to live by
+  merging `staging → main`**. That merge is your "work in the background, then
+  publish" gate.
 
 ---
 
