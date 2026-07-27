@@ -1,5 +1,5 @@
 ---
-title: How play, permission and imposter syndrome can shift narratives
+title: How play, permission and imposter syndrome can shift narrative
 subheading: In a world where tech is an unstoppable force, who gets to narrate a continent's relationship with technology?
 summary: In a world where tech is an unstoppable force, who gets to narrate a continent's relationship with technology?
 date: 2026-07-27
