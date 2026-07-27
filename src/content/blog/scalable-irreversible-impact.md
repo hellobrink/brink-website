@@ -61,9 +61,10 @@ Now, let’s build the default for scaling new ideas to massive social change.
 
 Those ideas might be from a startup. Or, they might come from a NGO, a government team, or a grassroots organisation.
 
+## Build products people love
+
 ![](/images/689dee4e23015efe3807f273_59.png)
 
-Build products people love.
 
 Anyone who sells a product directly to their user knows this. But as a general rule, the further you get from selling directly to your user, the less likely you are to build products people love.
 
@@ -103,6 +104,8 @@ Before moving on, there’s an important caveat. While you should *always*build 
 
 In Burkina Faso, Terre des Hommes have built [a digital tool for health workers](https://www.tdh.org/en/projects/ieda), supporting them to diagnose and treat malnourished children. Who’s the ethical, practical payer closest to the user? Certainly not households with starving children. And likely not health workers themselves. Could clinics or other health facilities contribute directly, through a subscription or outcomes-based agreement? This gets us revenue quickly, and gets us proof that a bespoke digital tool provides value above pen/paper or other existing solutions. It’s revenue and validation from close to the user, without extracting unethical payments from the user themselves.
 
+## Improve users' income
+
 ![](/images/689dee68d33af6036edc284e_60.png)
 
 I’m increasingly certain that giving low-income families the means to earn money is one of the most powerful engines for social change.
@@ -135,6 +138,8 @@ Except, in our case, two things follow:
 Product in, income out.
 
 Product in, agency out.
+
+## Master the institutional inflection point
 
 ![](/images/689dee902fea866aa7172703_61.png)
 
@@ -182,6 +187,8 @@ They’re more resilient too. Once a product like Taleemabad becomes a part of g
 
 For Taleemabad, this means millions of children, teachers and communities can learn and teach better, for years to come.
 
+## Transfer stewardship
+
 ![](/images/689deed8ed42f9e988659745_62.png)
 
 Earlier, I talked about Wyson, who has put thousands of pay-as-you-go bikes in the hands of Zambian farmers.
@@ -211,6 +218,8 @@ ABALOBI, in collaboration with KU Leuven, equips fisher communities around river
 Once the product is in the hands of users, they own it, and they own the data they generate. What they do with both, is up to the community. Users - be it an individual or a small scale fishery - take on stewardship. They steward for as long as they keep deriving value.
 
 ABALOBI has since expanded this model to Kenya, and (most recently) Tanzania, multiplying their impact, without sacrificing its depth, and without the need for massive organisation infrastructure.
+
+## Shift the culture
 
 ![](/images/689dfae334e106a44fc69ec8_social-templates-7.png)
 
