@@ -37,9 +37,11 @@ strict priority order. Tick items off as they land.
       education, flag anything new); From and To as separate columns. Team fills
       the gaps and returns it, then update the site from it. (This is the
       mechanism for the "missing details" item above.)
-- [ ] **Alt text** on ~93 scraped images (GitHub issue #9).
-- [ ] **Run-together sentences** from the Webflow scrape (issue #10), plus minor
-      formatting artifacts in the migrated blog back-catalogue.
+- [x] **Alt text** (issue #9) — all hero/banner/team images have alt; 42 captioned
+      blog images got alt from their captions. ~113 decorative inline blog images
+      left with empty alt by choice (valid for decorative images).
+- [~] **Blog formatting** — cleaned 147 heading artifacts (## **x** -> ## x) and
+      styled 42 photo captions. Run-together sentences (issue #10) still open.
 
 ## Features & polish
 - [ ] **Newsletter UX upgrade** — replace the footer link-out with an on-site
