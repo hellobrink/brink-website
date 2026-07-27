@@ -2,7 +2,7 @@
 title: How play, permission and imposter syndrome can shift narratives
 subheading: In a world where tech is an unstoppable force, who gets to narrate a continent's relationship with technology?
 summary: In a world where tech is an unstoppable force, who gets to narrate a continent's relationship with technology?
-date: 27/07/26
+date: July 27, 2026
 authorName: Lil Patuck
 authorSlug: lil-patuck
 authorName2: Bryony Nicholson
