@@ -55,7 +55,7 @@ Below, I’ve outlined each of these capabilities, dividing them by mindset, met
 
 📎 **Methods (‘how to do’)**
 
-- **Futurism approaches:**How do we imagine a radically different future, and build backwards from there?How do we picture a different future, forecast risks and scenarios, and build that into strategies?
+- **Futurism approaches:**How do we imagine a radically different future, and build backwards from there? How do we picture a different future, forecast risks and scenarios, and build that into strategies?
 - **Strategy adaptation:** How does change happen in our system, what is our contribution, and is our strategy leading us to that goal? How do we test and adapt our Theory of Change, and strategy, whilst bringing people along with us?
 - **Deciding where to take risks and invest:** What kinds of evidence and at what level of rigour do we need in order to decide where to invest, and where to adapt? Where do we need to take more risks to create impact?
 - **Learning in order to adapt:**What do we need to find out, to know if our ideas are working? How do we test our assumptions and decide what to do within projects? What do we need to learn for the riskier/unknown parts or our work, and what is needed for the safer and well evidenced parts of our work?

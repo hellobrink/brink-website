@@ -25,7 +25,7 @@ Below we’ve mapped out some of the thinking that went into designing the fund 
 
 ## Understanding the needs of the sector and testing the proposition
 
-Before the fund was launched our partners Laterite undertook a landscape analysis that looked at how existing funds were designed and run, what 'best in class' looked like for funding FLN research, and where the funding gap was for FLN research at scale.That work informed our investment thesis, which we then introduced to around 50 implementers, donors, partners, and researchers. Most of this happened online, but we were also fortunate to host a session at the [Building Evidence in Education](https://www.worldbank.org/en/topic/education/brief/building-evidence-in-education?ref=hellobrink.co) (BE2) working group.
+Before the fund was launched our partners Laterite undertook a landscape analysis that looked at how existing funds were designed and run, what 'best in class' looked like for funding FLN research, and where the funding gap was for FLN research at scale. That work informed our investment thesis, which we then introduced to around 50 implementers, donors, partners, and researchers. Most of this happened online, but we were also fortunate to host a session at the [Building Evidence in Education](https://www.worldbank.org/en/topic/education/brief/building-evidence-in-education?ref=hellobrink.co) (BE2) working group.
 
 We designed multiple versions of the fund with different grant sizes, themes, and support packages, asking people to tell us which ones they preferred and why. We listened carefully to the feedback, so we were able to iterate the fund design effectively and at speed, and used simple voting exercises to encourage people to vote with their feet!
 

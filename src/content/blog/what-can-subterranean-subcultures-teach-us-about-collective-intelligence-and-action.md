@@ -49,7 +49,7 @@ These are not universal principles shared by all exploration crews (there’s pl
 
 Then Brad transported us thousands of miles away, in the shadows of the Black Hills of South Dakota, where collectives of doomsday preppers have also been building community and finding new purpose within the walls of retired government infrastructure.
 
-[Vivos xPoint](https://www.terravivos.com/secure/vivosxpoint.htm?ref=hellobrink.co), originally built by the US Army as a fortress to store bombs and munitions, has been transformed into the largest survival shelter community on Earth. Across Zoom, Brad took us inside these fortresses, showing us photographs of spaces that, by design, very few people will ever see in real life.Whilst the 575 hardened concrete military bunkers will ultimately provide refuge for more than 5,000 survivalists to ride out an unknown future disaster, Brad was there on the community’s first day, when the original families moved in.
+[Vivos xPoint](https://www.terravivos.com/secure/vivosxpoint.htm?ref=hellobrink.co), originally built by the US Army as a fortress to store bombs and munitions, has been transformed into the largest survival shelter community on Earth. Across Zoom, Brad took us inside these fortresses, showing us photographs of spaces that, by design, very few people will ever see in real life. Whilst the 575 hardened concrete military bunkers will ultimately provide refuge for more than 5,000 survivalists to ride out an unknown future disaster, Brad was there on the community’s first day, when the original families moved in.
 
 ![](/images/66d9cca0046e0f042a1e97d6_coco_blog_quotes-09.png)
 

@@ -173,7 +173,7 @@ Creating dedicated innovation hubs—whether physical or virtual—can provide a
 
 **An example from our work:**
 
-In collaboration with [EdTech East Africa,](https://edtech-eastafrica.com) an EdTech eco-systems builder, EdTech hub is bringing together EdTech stakeholders (including government) who work on Foundational numeracy and literacy under the FNL goal to co-create and align our visions for what we want to see technology achieve for our learners, Creating this space has built trust and visibility on each other's work which is crucial for collaboration, and enabled us to align on how we support government initiatives.We believe we will go further, together.
+In collaboration with [EdTech East Africa,](https://edtech-eastafrica.com) an EdTech eco-systems builder, EdTech hub is bringing together EdTech stakeholders (including government) who work on Foundational numeracy and literacy under the FNL goal to co-create and align our visions for what we want to see technology achieve for our learners, Creating this space has built trust and visibility on each other's work which is crucial for collaboration, and enabled us to align on how we support government initiatives. We believe we will go further, together.
 
 For more on carving out space for innovation, see our white paper, here: [https://www.hellobrink.co/the-carve-out](https://www.hellobrink.co/the-carve-out)
 

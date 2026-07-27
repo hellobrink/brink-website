@@ -7,7 +7,7 @@ heroImage: "/images/66d9d624ebbe96b744b69ec6_nathan-cima-zywi9tegn7c-unsplash.jp
 heroAlt: "From algae to action: collective conversations on climate change"
 bannerImage: "/images/66d9d624ebbe96b744b69ec6_nathan-cima-zywi9tegn7c-unsplash.jpeg"
 bannerAlt: "From algae to action: collective conversations on climate change"
-summary: "To round off our year of Collective Conversations, Brink hosted a vibrant sell out conversation about how we address the climate crisis through collective actions that change systems.The passion, engagement and fury ignited in this conversation is testament to the importance and "
+summary: "To round off our year of Collective Conversations, Brink hosted a vibrant sell out conversation about how we address the climate crisis through collective actions that change systems. The passion, engagement and fury ignited in this conversation is testament to the importance and "
 sortOrder: 63
 ---
 

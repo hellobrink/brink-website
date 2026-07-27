@@ -139,7 +139,7 @@ Sometimes we forget that we humans are susceptible to hyperbolic discounting, an
 
 ## Closer to testing
 
-We know that the faster the idea moves to testing, the faster it will be validated or discredited. Having an innovation portfolio allows us to make idea tests a constant, and to bring ideas closer to execution through shorter chains of command.We run our pilots in time-bound Sprints, which allows us to focus on the learning that has happened over a period of time, rather than whether an outcome has been achieved. By focusing on the learning over time, rather than the outcomes, we are able to close the gap between idea and learning, the reward of insight.
+We know that the faster the idea moves to testing, the faster it will be validated or discredited. Having an innovation portfolio allows us to make idea tests a constant, and to bring ideas closer to execution through shorter chains of command. We run our pilots in time-bound Sprints, which allows us to focus on the learning that has happened over a period of time, rather than whether an outcome has been achieved. By focusing on the learning over time, rather than the outcomes, we are able to close the gap between idea and learning, the reward of insight.
 
 ## Automate decisions
 

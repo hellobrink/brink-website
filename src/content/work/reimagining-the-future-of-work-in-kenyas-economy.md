@@ -16,7 +16,7 @@ challenge:
   - "*\"What we’re talking about here really is the future of work. Not just in Kenya or in Africa, but around the world. You can see it where I am in the UK, where even corporates are experimenting with new flexible ways of working. This is about informal and formal to some extent, but it’s really about what people, mainly young people, want the future of work to be.\" - Hilde Hendrickx, TRANSFORM*"
 results:
   - "Through participatory approaches, we worked with a vast network of people to uncover ideas and opportunities for the future of work and prosperity in Kenya. By reframing the informal economy as thefuture of work (emphasising the need to address key issues like digitisation, affordable finance, and policy in a more holistic, person-centred way) this work challenged the narrow institutional view that strips dignity from workers, showcasing untapped opportunities for upward mobility."
-  - "We surfaced underfunded areas for investment such as farm-to-fork ventures, flexible sourcing, and finance hubs.These insights have sparked new collaborations which were showcased at World Food Day 2024 through [a multi-sensory exhibition](/informalfoodeconomy), underlining the role of informal food systems in economic resilience."
+  - "We surfaced underfunded areas for investment such as farm-to-fork ventures, flexible sourcing, and finance hubs. These insights have sparked new collaborations which were showcased at World Food Day 2024 through [a multi-sensory exhibition](/informalfoodeconomy), underlining the role of informal food systems in economic resilience."
 approachIntro:
   - "In order to get to fresh and in-depth needs and understanding of these people, we knew we needed to work directly with them, using inclusive and participatory approaches. Our approach was rooted in the principle of \"never without us about us,\" ensuring that those most affected by the challenges are actively involved in shaping the solutions. Core to this we:"
 approach:
@@ -79,7 +79,7 @@ We built on our earlier research into Kenya’s Repair and Reuse Economy (2022),
 
 **We narrowed on three sub–segments**
 
-Kenya’s informal economy is vast, with a diversity of livelihood strategies across multiple sectors - from construction, manual labour, the green and waste economy, Jua kali (artisan manufacturing), trading, retail, and transport, to name a few. Each sector plays a crucial role, but to make a deeper impact, we needed to prioritise.Through our *Partner & Learn* events, we honed in on three areas where the ripple effect would be biggest:
+Kenya’s informal economy is vast, with a diversity of livelihood strategies across multiple sectors - from construction, manual labour, the green and waste economy, Jua kali (artisan manufacturing), trading, retail, and transport, to name a few. Each sector plays a crucial role, but to make a deeper impact, we needed to prioritise. Through our *Partner & Learn* events, we honed in on three areas where the ripple effect would be biggest:
 
 - **Food Service Providers**: Including mama mboga (fruit and vegetable sellers), kibanda operators (small food stalls), and those involved in the sale of pre-packaged food or beverages.
 

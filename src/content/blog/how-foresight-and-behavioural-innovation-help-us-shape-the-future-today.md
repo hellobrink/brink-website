@@ -47,7 +47,7 @@ By providing role-specific contexts, participants could not only imagine potenti
 
 ## Why it matters
 
-Imagination at its best isn’t just about dreaming big. It’s about imagining an ideal or ‘normative’ future, and creating a clear path from where we are to where we need to go. It’s about making the unknown less intimidating and empowering people to take action.Through techniques like immersive experiences, visualisation and simply getting into a more imaginative mindspace, groups can bypass cognitive biases and unlock fresh perspectives. When people see, feel, and experience future scenarios tailored to their world, they start to understand not just the technical side, but the emotional and social impact of what’s to come. Immersion turns abstract ideas into something we can touch, feel, and act on—essential for driving change and sparking innovation.
+Imagination at its best isn’t just about dreaming big. It’s about imagining an ideal or ‘normative’ future, and creating a clear path from where we are to where we need to go. It’s about making the unknown less intimidating and empowering people to take action. Through techniques like immersive experiences, visualisation and simply getting into a more imaginative mindspace, groups can bypass cognitive biases and unlock fresh perspectives. When people see, feel, and experience future scenarios tailored to their world, they start to understand not just the technical side, but the emotional and social impact of what’s to come. Immersion turns abstract ideas into something we can touch, feel, and act on—essential for driving change and sparking innovation.
 
 ## 2. Thinking forward from today: Overcoming linear thinking
 

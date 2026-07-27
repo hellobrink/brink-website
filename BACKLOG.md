@@ -40,8 +40,9 @@ strict priority order. Tick items off as they land.
 - [x] **Alt text** (issue #9) — all hero/banner/team images have alt; 42 captioned
       blog images got alt from their captions. ~113 decorative inline blog images
       left with empty alt by choice (valid for decorative images).
-- [~] **Blog formatting** — cleaned 147 heading artifacts (## **x** -> ## x) and
-      styled 42 photo captions. Run-together sentences (issue #10) still open.
+- [x] **Blog formatting / run-together sentences (issue #10)** — cleaned 147
+      heading artifacts, styled 42 photo captions, and fixed all 15 run-together
+      sentences (12 blog + 3 work).
 
 ## Features & polish
 - [ ] **Newsletter UX upgrade** — replace the footer link-out with an on-site
