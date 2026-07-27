@@ -11,7 +11,7 @@ heroImage: /images/1773747440980.jpeg
 heroAlt: ''
 bannerImage: /images/1773747440980.jpeg
 bannerAlt: How play, permission and imposter syndrome can shift narratives
-longform: true
+longform: false
 sortOrder: 0
 ---
 
