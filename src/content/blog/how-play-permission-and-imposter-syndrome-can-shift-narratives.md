@@ -63,7 +63,7 @@ The session borrowed from an ideation format we designed for use with FCDO staff
 
 Confidence levels went from low to middling to full marks across the team, and the atmosphere was celebratory as we closed. One participant, a medical journalist, shared her reflections afterwards on LinkedIn. 
 
-_“Their task was to transform a room filled with journalists, who had little knowledge and many anxieties about technology (especially AI), into technology innovators. The fact that I'm writing this post is a testament to their incredible success.” -_ Neta Parsram
+> _“Their task was to transform a room filled with journalists, who had little knowledge and many anxieties about technology (especially AI), into technology innovators. The fact that I'm writing this post is a testament to their incredible success.” -_ Neta Parsram
 
 ## **The ripple effect across the system**
 
@@ -77,4 +77,4 @@ One participant said she draws her motivation from her two sons, who push her to
 
 Two years on, Neta’s reflections from 2024 still ring true. It seems we are on our way to nurturing a forward-looking ecosystem, shaped by the storytellers within it. 
 
-_“We must remember that the prevailing narrative is a cumulative result of all the stories told. By consciously featuring the positive applications of emerging technology, we can shift the broader conversation in a more constructive direction. Let’s harness the power of storytelling to inspire, educate, and catalyze meaningful change.”_
+> _“We must remember that the prevailing narrative is a cumulative result of all the stories told. By consciously featuring the positive applications of emerging technology, we can shift the broader conversation in a more constructive direction. Let’s harness the power of storytelling to inspire, educate, and catalyze meaningful change.”_
