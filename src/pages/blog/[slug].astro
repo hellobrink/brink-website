@@ -77,7 +77,19 @@ const displayDate = data.date
     const isImg = (el: Element) =>
       el.tagName === 'P' && !!el.querySelector(':scope > img') && !el.textContent!.trim();
     const isHeading = (el: Element) => /^H[1-4]$/.test(el.tagName);
-    const kids = [...prose.children];
+    const allKids = [...prose.children];
+
+    // A trailing coda: from the last top-level <hr> to the end, as long as no
+    // image follows it. Rendered full-width in normal flow (a conclusion, a
+    // footnotes block) rather than trapped in the final scene's half-width
+    // text column. This is why a post ends its magazine flow with a `---`.
+    let codaStart = -1;
+    for (let i = allKids.length - 1; i >= 0; i--) {
+      if (allKids[i].tagName === 'HR') { codaStart = i; break; }
+    }
+    if (codaStart >= 0 && allKids.slice(codaStart).some(isImg)) codaStart = -1;
+    const kids = codaStart >= 0 ? allKids.slice(0, codaStart) : allKids;
+    const codaKids = codaStart >= 0 ? allKids.slice(codaStart) : [];
 
     // Intro = everything before the first heading whose section holds an image.
     const headings = kids.map((el, i) => (isHeading(el) ? i : -1)).filter((i) => i >= 0);
@@ -97,10 +109,26 @@ const displayDate = data.date
     const swapSections: { steps: { el: Element; img: Element }[]; current: Element | null }[] = [];
     const starts = headings.filter((i) => i >= firstSection);
 
+    // Alternation counts only the image sections, so an interleaved
+    // full-width block doesn't flip the left/right rhythm of the scenes.
+    let sceneIndex = 0;
     starts.forEach((start, s) => {
       const end = starts[s + 1] ?? kids.length;
+      const chunk = kids.slice(start, end);
+
+      // A heading section with no image isn't a pinned scene — render it
+      // full-width in normal flow (e.g. a closing section or an aside).
+      if (!chunk.some(isImg)) {
+        const block = document.createElement('div');
+        block.className = 'lf-block';
+        chunk.forEach((k) => block.appendChild(k));
+        scenes.appendChild(block);
+        return;
+      }
+
       const scene = document.createElement('div');
-      scene.className = 'lf-scene ' + (s % 2 ? 'media-right' : 'media-left');
+      scene.className = 'lf-scene ' + (sceneIndex % 2 ? 'media-right' : 'media-left');
+      sceneIndex++;
       const media = document.createElement('figure');
       media.className = 'lf-media';
       const text = document.createElement('div');
@@ -109,7 +137,7 @@ const displayDate = data.date
       const imgs: Element[] = [];
       let pending: Element | null = null;
       const steps: { el: Element; img: Element }[] = [];
-      for (const k of kids.slice(start, end)) {
+      for (const k of chunk) {
         if (isImg(k)) {
           const img = k.querySelector('img')!;
           img.classList.add('lf-frame');
@@ -129,7 +157,13 @@ const displayDate = data.date
       if (imgs.length > 1 && steps.length) swapSections.push({ steps, current: imgs[0] });
     });
 
-    prose.replaceChildren(intro, scenes);
+    const coda = codaKids.length ? document.createElement('div') : null;
+    if (coda) {
+      coda.className = 'lf-coda';
+      codaKids.forEach((k) => coda.appendChild(k));
+    }
+
+    prose.replaceChildren(intro, scenes, ...(coda ? [coda] : []));
 
     // Cross-fade the multi-image sections on scroll: the active frame is the
     // last step whose anchor has passed the middle of the viewport.
@@ -305,6 +339,63 @@ const displayDate = data.date
     line-height: var(--leading-normal);
   }
 
+  /* Horizontal rule: a quiet divider (used to end the magazine flow before a
+     conclusion / footnotes coda). */
+  .prose :global(hr) {
+    border: none;
+    border-top: 1px solid var(--color-border, rgba(6, 51, 61, 0.15));
+    margin: var(--space-7) 0;
+  }
+
+  /* Footnotes: superscript reference markers in the body link down to a
+     numbered list; each note links back up. */
+  .prose :global(.fn-ref) {
+    font-family: var(--font-mono);
+    font-size: 0.7em;
+    line-height: 0;
+    vertical-align: super;
+    margin-left: 1px;
+  }
+  .prose :global(.fn-ref a) {
+    text-decoration: none;
+    color: var(--color-accent);
+  }
+  .prose :global(.post-footnotes) {
+    margin-top: var(--space-7);
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--color-border, rgba(6, 51, 61, 0.15));
+    font-size: var(--text-body-sm);
+    line-height: var(--leading-normal);
+    color: var(--color-text-muted);
+  }
+  .prose :global(.post-footnotes-title) {
+    font-family: var(--font-mono);
+    font-size: var(--text-tag);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-4);
+  }
+  .prose :global(.post-footnotes ol) {
+    margin: 0;
+    padding-left: 1.5em;
+  }
+  .prose :global(.post-footnotes li) {
+    margin-bottom: var(--space-3);
+    padding-left: 0.3em;
+  }
+  .prose :global(.post-footnotes li:target) {
+    background: var(--color-surface-muted);
+    border-radius: var(--radius);
+    box-shadow: 0 0 0 var(--space-2) var(--color-surface-muted);
+  }
+  .prose :global(.fn-back) {
+    font-family: var(--font-mono);
+    text-decoration: none;
+    margin-left: 0.4em;
+    color: var(--color-accent);
+  }
+
   /* --- Long-form magazine layout ----------------------------------------
      From the first image on, each image becomes a sticky figure that pins to
      one side (alternating) while its accompanying text scrolls past. Built by
@@ -314,6 +405,19 @@ const displayDate = data.date
   .prose.longform :global(.lf-intro) {
     max-width: var(--measure);
     margin: 0 auto;
+  }
+  /* A heading section with no image, rendered full-width inside the scene
+     flow rather than as a pinned two-column scene. */
+  .prose.longform :global(.lf-block) {
+    align-self: center;
+    width: 100%;
+    max-width: var(--measure);
+  }
+  /* The trailing coda (conclusion, footnotes) after the last `---`: back to a
+     single full-width reading column. */
+  .prose.longform :global(.lf-coda) {
+    max-width: var(--measure);
+    margin: var(--space-8) auto 0;
   }
   .prose.longform :global(.lf-scenes) {
     margin-top: var(--space-8);

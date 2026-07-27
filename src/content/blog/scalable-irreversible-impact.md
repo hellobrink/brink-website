@@ -17,15 +17,15 @@ In 2023, overseas development aid totalled $243bn. In 2024, it fell 10%. This ye
 
 We are, [in the words of Lydia Poole](https://www.linkedin.com/pulse/life-after-peak-aid-lydia-poole-pwlee/), post peak aid. The supply of aid dollars is down and will probably trend downwards from here, even as the climate crisis, conflict, and stuttering low-income economies mean that demand is trending up.
 
-For decades, grants from aid agencies have been our go to engine for improving people’s lives around the world. Aid spend grew over 2.5x in 25 years, up from ~$90bn in 20001.
+For decades, grants from aid agencies have been our go to engine for improving people’s lives around the world. Aid spend grew over 2.5x in 25 years, up from ~$90bn in 2000<sup id="fnref-1" class="fn-ref"><a href="#fn-1">1</a></sup>.
 
 Now, those grants simply won’t be enough to meet the huge challenges we face. We need a new script for achieving social justice at scale, in a post peak-aid world.
 
-Over the last few years, I’ve had a front-row seat to a generation of ventures making change happen, at scale (lucky me!). All of them began with grants2. And they are all now weaving bigger, deeper, more sustainable impact into the fabric of people’s lives and communities, without ongoing aid funding.
+Over the last few years, I’ve had a front-row seat to a generation of ventures making change happen, at scale (lucky me!). All of them began with grants<sup id="fnref-2" class="fn-ref"><a href="#fn-2">2</a></sup>. And they are all now weaving bigger, deeper, more sustainable impact into the fabric of people’s lives and communities, without ongoing aid funding.
 
 To me, those ventures are a point of inspiration.
 
-Collectively, they gesture at an emerging playbookfor getting to impact at scale. In this piece, I want to sketch this playbook in five steps. They are:
+Collectively, they gesture at an emerging playbook for getting to impact at scale. In this piece, I want to sketch this playbook in five steps. They are:
 
 - Build products people love
 - Improve users’ income
@@ -45,7 +45,7 @@ The danger of codifying ideas into an emerging playbook is that it becomes a rig
 
 Playbooks can be reductionist. They make people follow rules instead of thinking for themselves. So, why bother building them?
 
-Because of the importance of the ‘default’3.
+Because of the importance of the ‘default’<sup id="fnref-3" class="fn-ref"><a href="#fn-3">3</a></sup>.
 
 In other words, the importance of a sector-wide, shared mental model for how, in the majority of cases, we get from zero to impact at scale.
 
@@ -76,7 +76,7 @@ And, if you sell products or services to aid agencies, to be used by their benef
 
 This distance creates problems. One famous example is the [One Laptop per Child’s $100 laptop](https://www.theverge.com/2018/4/16/17233946/olpcs-100-laptop-education-where-is-it-now?__readwiseLocation=). Built in the US (by people who’d never use them in their own lives or buy them for their own kids), and distributed via large international organisations and donor agencies, children and teachers found them difficult to use, easily broken, and not relevant to their learning needs.
 
-It’s a similar story in tech for people with disabilities. During my time on the Assistive Tech Impact Fund (ATIF)4, I learnt that abandonment rates for products like wheelchairs, crutches, and prosthetics in sub-Saharan Africa were 50%. Half of users preferred using nothing at all to using the ugly, imported, mediocre products on offer.
+It’s a similar story in tech for people with disabilities. During my time on the Assistive Tech Impact Fund (ATIF)<sup id="fnref-4" class="fn-ref"><a href="#fn-4">4</a></sup>, I learnt that abandonment rates for products like wheelchairs, crutches, and prosthetics in sub-Saharan Africa were 50%. Half of users preferred using nothing at all to using the ugly, imported, mediocre products on offer.
 
 Enter Koalaa. Koalaa designs and manufactures comfortable, soft-shell prosthetics for upper-limb amputees. Their goal is to make buying and wearing a prosthetic like wearing a sneaker: comfortable, easy, and fashionable. They’re an aspirational product. In fact, in 2023, Koalaa [won the Tommy Hilfiger Fashion Frontier Challenge award](https://www.voguebusiness.com/sustainability/tommy-hilfiger-awards-euro100000-to-social-impact-startups-koalaa-and-moner-bondhu).
 
@@ -110,7 +110,7 @@ In Burkina Faso, Terre des Hommes have built [a digital tool for health workers]
 
 I’m increasingly certain that giving low-income families the means to earn money is one of the most powerful engines for social change.
 
-I met Manu a couple of years ago, while leading the scaling strategy curriculum for LSE’s [100x Impact Accelerator](https://www.100ximpact.org/). Manu had joined the accelerator to scale Karya, his startup providing AI work opportunities for rural Indians on their smartphone5.
+I met Manu a couple of years ago, while leading the scaling strategy curriculum for LSE’s [100x Impact Accelerator](https://www.100ximpact.org/). Manu had joined the accelerator to scale Karya, his startup providing AI work opportunities for rural Indians on their smartphone<sup id="fnref-5" class="fn-ref"><a href="#fn-5">5</a></sup>.
 
 It takes seven generations of concerted effort for an Indian household on the poverty line to move to the middle class, with US$1500 of savings. Manu, one of the most brilliant minds I’ve met, short-circuited that by moving from rural India to Stanford to study computer science. But for many Indian families, the journey to financial wellbeing is relentless and the goal, if you get there at all, is decades away.
 
@@ -122,9 +122,9 @@ But there's something deeper here: product in, agency out.
 
 Income gives you the means to do the things you want to do, and be the person you want to be. It gives you agency.
 
-In Rwanda, I worked with Ampersand, an electric moto taxi startup. Their electric moto taxis netted Rwandese taxi drivers 30% more profit (due to the low price of charge relative to fuel)6.
+In Rwanda, I worked with Ampersand, an electric moto taxi startup. Their electric moto taxis netted Rwandese taxi drivers 30% more profit (due to the low price of charge relative to fuel)<sup id="fnref-6" class="fn-ref"><a href="#fn-6">6</a></sup>.
 
-In Zambia, I had the joy of supporting Wyson and Steve, an entrepreneur and civil servant pioneering pay-as-you-go bicycles for farmers. Using bicycles instead of walking gave farmers the ability to charge twice as much for milk, which hadn’t spoiled en route7. The work featured in [the Guardian](https://www.theguardian.com/global-development/gallery/2020/jun/04/pedal-power-zambias-female-farmers-go-further-by-bike-in-pictures) and [BBC World Service](https://www.bbc.co.uk/programmes/p09f3dym). Originally funded by a £100K grant from the UK Foreign, Commonwealth & Development Office (FCDO), Wyson and Onyx Connect (his startup) have put thousands of bikes in the hands of farmers.
+In Zambia, I had the joy of supporting Wyson and Steve, an entrepreneur and civil servant pioneering pay-as-you-go bicycles for farmers. Using bicycles instead of walking gave farmers the ability to charge twice as much for milk, which hadn’t spoiled en route<sup id="fnref-7" class="fn-ref"><a href="#fn-7">7</a></sup>. The work featured in [the Guardian](https://www.theguardian.com/global-development/gallery/2020/jun/04/pedal-power-zambias-female-farmers-go-further-by-bike-in-pictures) and [BBC World Service](https://www.bbc.co.uk/programmes/p09f3dym). Originally funded by a £100K grant from the UK Foreign, Commonwealth & Development Office (FCDO), Wyson and Onyx Connect (his startup) have put thousands of bikes in the hands of farmers.
 
 Product in, agency out.
 
@@ -175,7 +175,7 @@ Journeys like Haroon’s gesture towards a pathway to large-scale impact. It loo
 
 It’s much quicker to reach them without going to big institutions. This direct relationship maximises your learning about the product. It gives you the best shot at building something they love. It also provides you with some revenue. Grant funding can add some valuable fuel here, as it did for Taleemabad.
 
-At the same time, you use as much of that revenue or funding as you can to learn about what it takes for you to become embedded in government systems8. At Brink, we call this being in “yes, if” mode: continuously testing and updating your beliefs about what it would take for a government (or other large institution) to buy into your idea.
+At the same time, you use as much of that revenue or funding as you can to learn about what it takes for you to become embedded in government systems<sup id="fnref-8" class="fn-ref"><a href="#fn-8">8</a></sup>. At Brink, we call this being in “yes, if” mode: continuously testing and updating your beliefs about what it would take for a government (or other large institution) to buy into your idea.
 
 Sometime (in my experience, around year 7), you hit an **inflection point.** As you enter government budgets and delivery mechanisms, revenue and # of users skyrockets. From the outside, the shift seems sudden. But you know it’s taken five, maybe ten years of groundwork. In Taleemabad’s case, after 7 years of working directly with schools, they’d reached 20K children. In 2024, their first year of government as a customer (but following years of behind-the-scenes sweat), they reached 136K. This year, they’ll reach 280K. Next year, they forecast reaching 690K.
 
@@ -249,13 +249,16 @@ Shifting the culture, slowly.
 
 We’re post-peak aid, but we still need to take ideas to scale. It’s far from easy, but we’re already standing on the shoulders of giants. From there, we can see the pathway they’ve sketched: build products people love, improve their income, master institutions, transfer stewardship, shift culture. The rest is grit, luck, and execution.
 
-Footnotes:
-
-- Like everything, this spend has had some phenomenal successes, and humongous failures. The Global Alliance for Vaccine Initiative (GAVI) has [saved 18.8M lives](https://www.gavi.org/vaccineswork/calculating-future-how-gavi-figures-out-how-many-lives-vaccines-have-saved). On the other hand, Pakistan, the country of my birth, has received more aid than any other country on earth, yet remains trapped in instability and low growth.
-- Starting and de-risking great ideas might be the best role that grants from aid agencies can play, in a post peak-aid world. Bill Gates calls this '[catalytic philanthropy](https://www.gatesnotes.com/The-Power-of-Catalytic-Philanthropy)'.
-- Abi, my colleague at Brink, has written about [the power of defaults](https://www.hellobrink.co/post/choosing-without-choosing).
-- ATIF was funded by the UK Foreign, Commonwealth & Development Office (FCDO), between 2020-22. Our goal was to provide early stage grant funding for startups building products for persons with disabilities in sub-Saharan Africa.
-- Shortly after I met Manu, Karya [was featured on Time magazine](https://time.com/6297403/the-workers-behind-ai-rarely-see-its-rewards-this-indian-startup-wants-to-fix-that/).
-- I wrote about my work with Ampersand [here](https://asadrahman.io/2021/01/14/on-tech-and-shaping-a-life/) and [here](https://leanstartup.co/resources/articles/experimenting-with-electric-vehicles-in-kigali/).
-- Our work with Wyson featured on this BBC podcast
-- Kevin Starr wrote recently about the [urgent need to build what governments' can afford](https://ssir.org/articles/entry/big-aid-is-over), and design that way from the beginning.
+<section class="post-footnotes">
+<h2 class="post-footnotes-title">Footnotes</h2>
+<ol>
+<li id="fn-1">Like everything, this spend has had some phenomenal successes, and humongous failures. The Global Alliance for Vaccine Initiative (GAVI) has <a href="https://www.gavi.org/vaccineswork/calculating-future-how-gavi-figures-out-how-many-lives-vaccines-have-saved">saved 18.8M lives</a>. On the other hand, Pakistan, the country of my birth, has received more aid than any other country on earth, yet remains trapped in instability and low growth. <a href="#fnref-1" class="fn-back" aria-label="Back to reference 1">↩</a></li>
+<li id="fn-2">Starting and de-risking great ideas might be the best role that grants from aid agencies can play, in a post peak-aid world. Bill Gates calls this ‘<a href="https://www.gatesnotes.com/The-Power-of-Catalytic-Philanthropy">catalytic philanthropy</a>’. <a href="#fnref-2" class="fn-back" aria-label="Back to reference 2">↩</a></li>
+<li id="fn-3">Abi, my colleague at Brink, has written about <a href="https://www.hellobrink.co/post/choosing-without-choosing">the power of defaults</a>. <a href="#fnref-3" class="fn-back" aria-label="Back to reference 3">↩</a></li>
+<li id="fn-4">ATIF was funded by the UK Foreign, Commonwealth &amp; Development Office (FCDO), between 2020-22. Our goal was to provide early stage grant funding for startups building products for persons with disabilities in sub-Saharan Africa. <a href="#fnref-4" class="fn-back" aria-label="Back to reference 4">↩</a></li>
+<li id="fn-5">Shortly after I met Manu, Karya <a href="https://time.com/6297403/the-workers-behind-ai-rarely-see-its-rewards-this-indian-startup-wants-to-fix-that/">was featured on Time magazine</a>. <a href="#fnref-5" class="fn-back" aria-label="Back to reference 5">↩</a></li>
+<li id="fn-6">I wrote about my work with Ampersand <a href="https://asadrahman.io/2021/01/14/on-tech-and-shaping-a-life/">here</a> and <a href="https://leanstartup.co/resources/articles/experimenting-with-electric-vehicles-in-kigali/">here</a>. <a href="#fnref-6" class="fn-back" aria-label="Back to reference 6">↩</a></li>
+<li id="fn-7">Our work with Wyson featured on this BBC podcast. <a href="#fnref-7" class="fn-back" aria-label="Back to reference 7">↩</a></li>
+<li id="fn-8">Kevin Starr wrote recently about the <a href="https://ssir.org/articles/entry/big-aid-is-over">urgent need to build what governments' can afford</a>, and design that way from the beginning. <a href="#fnref-8" class="fn-back" aria-label="Back to reference 8">↩</a></li>
+</ol>
+</section>
