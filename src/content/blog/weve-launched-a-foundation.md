@@ -63,9 +63,9 @@ Brink Foundation will be supported by an incredible board of directors who we ar
 
 *Read our interview with*[*Magdalena*](https://hellobrink.co/foundation-magdalena/)
 
-![](/images/66d9d2cabf8208dd1e047be9_brink-cic_social-templates-1.jpeg)
+![L-R: BRINK CO-FOUNDERS ABIGAIL AND LEA AND BOARD MEMBERS KRISTOFFER, MAGDALENA, TERESA](/images/66d9d2cabf8208dd1e047be9_brink-cic_social-templates-1.jpeg)
 
-L-R: BRINK CO-FOUNDERS ABIGAIL AND LEA AND BOARD MEMBERS KRISTOFFER, MAGDALENA, TERESA
+<p class="post-caption">L-R: BRINK CO-FOUNDERS ABIGAIL AND LEA AND BOARD MEMBERS KRISTOFFER, MAGDALENA, TERESA</p>
 
 ## The work has started!
 

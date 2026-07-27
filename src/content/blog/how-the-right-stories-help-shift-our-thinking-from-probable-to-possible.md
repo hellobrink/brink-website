@@ -19,9 +19,9 @@ Everything that happens in our lives gets packaged up and passed on. News broadc
 
 The stories we tell, share and listen to inspire the twists and turns of the world, both good and bad, and then more stories describe those events far and wide. This cycle continues over and over. Mediums have changed and audiences have grown, but after thousands of years, storytelling is still the intrinsically human and powerful tool it has always been.
 
-![](/images/66d9d54a18ce40beb749cbbc_bibbek9ln2u88f3-hbbibizvlzl8j2v9opdoabltqtky2ml5vhhp3qj.jpeg)
+![ANNA, ONE OF THE STORYTELLERS IN SMARTER WATER, WHICH SHARES THE IMPACT AROUND HAVING 24/7 ACCESS TO CLEAN WATER THANKS TO THE APPLICATION O](/images/66d9d54a18ce40beb749cbbc_bibbek9ln2u88f3-hbbibizvlzl8j2v9opdoabltqtky2ml5vhhp3qj.jpeg)
 
-ANNA, ONE OF THE STORYTELLERS IN [SMARTER WATER](https://www.frontiertechhub.org/insights/smarter-water-film?ref=hellobrink.co), WHICH SHARES THE IMPACT AROUND HAVING 24/7 ACCESS TO CLEAN WATER THANKS TO THE APPLICATION OF FRONTIER TECHNOLOGIES.
+<p class="post-caption">ANNA, ONE OF THE STORYTELLERS IN <a href="https://www.frontiertechhub.org/insights/smarter-water-film?ref=hellobrink.co" target="_blank" rel="noopener noreferrer">SMARTER WATER</a>, WHICH SHARES THE IMPACT AROUND HAVING 24/7 ACCESS TO CLEAN WATER THANKS TO THE APPLICATION OF FRONTIER TECHNOLOGIES.</p>
 
 ## Stories activate parts of the brain that facts don’t, and this makes them more effective at changing beliefs and behaviours
 
@@ -55,9 +55,9 @@ If one copies another then the end result will be much the same. We already know
 
 But Brink has worked with 279 ventures around the world who are all focussed on a different kind of trajectory. They are each setting out to do something that doesn’t yet exist, expanding on the historical data we’ve gathered to imagine a future that is **possible**.
 
-![](/images/66d9d54a458174694be8753b_6prjtumufggljxuwfmdxoksrhachgt9xdiqh64kxnjzqiroct4ebl9i.png)
+![THE ‘FUTURES CONE’ MODEL. WAS USED TO PORTRAY ALTERNATIVE FUTURES BY HANCOCK AND BEZOLD 1994, AND WAS ITSELF BASED ON A TAXONOMY OF FUTURES](/images/66d9d54a458174694be8753b_6prjtumufggljxuwfmdxoksrhachgt9xdiqh64kxnjzqiroct4ebl9i.png)
 
-THE [‘FUTURES CONE’ MODEL](https://thevoroscope.com/2017/02/24/the-futures-cone-use-and-history/?ref=hellobrink.co#:~:text=The%20'futures%20cone'%20model%20was,plausible%2C%20probable%2C%20preferable).) WAS USED TO PORTRAY ALTERNATIVE FUTURES BY HANCOCK AND BEZOLD (1994), AND WAS ITSELF BASED ON A TAXONOMY OF FUTURES BY HENCHEY (1978) AND HAS BEEN ADAPTED FOR BRINK TO CONSIDER THE POWER OF STORYTELLING
+<p class="post-caption">THE <a href="https://thevoroscope.com/2017/02/24/the-futures-cone-use-and-history/?ref=hellobrink.co#:~:text=The%20'futures%20cone'%20model%20was,plausible%2C%20probable%2C%20preferable" target="_blank" rel="noopener noreferrer">‘FUTURES CONE’ MODEL</a>.) WAS USED TO PORTRAY ALTERNATIVE FUTURES BY HANCOCK AND BEZOLD (1994), AND WAS ITSELF BASED ON A TAXONOMY OF FUTURES BY HENCHEY (1978) AND HAS BEEN ADAPTED FOR BRINK TO CONSIDER THE POWER OF STORYTELLING</p>
 
 Storytelling allows us to break free of the rules of thumb, consciously tackle our biases and move beyond the “probable future” our brains nudge us towards: business as usual. Our brains want to keep us safe, efficient and steady, but we know that only new ideas will fix old problems. Not only can the right stories untether us from the past, but told well they can cut through the noise and bring others on the journey.
 

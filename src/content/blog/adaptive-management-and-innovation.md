@@ -17,7 +17,7 @@ I’m a long time champion of ‘adaptive management’, a phrase that can (argu
 
 To over-simplify, these speak to the need for teams, programmes and organisations to sense and respond, so they can adapt to what’s most relevant and effective on the ground.
 
-## **There’s another synonym for adaptive management I’ve noticed in the couple of years: innovation.**
+## There’s another synonym for adaptive management I’ve noticed in the couple of years: innovation.
 
 This synonym is surprising (and not just because it’s not an acronym), because ‘innovation’ has sometimes felt rather ‘other’ to me. For many years I found it lived in a different team, a separate department, or a standalone programme. Perhaps even with special toilets and decor, as our co-founder Lea talks about in her post, here.
 
@@ -31,7 +31,7 @@ In my experience, the context, relationships, systems and incentives shape what�
 
 The same is true of innovation, where we think big, then start small and try to get better, quicker. Innovation encourages us to be intentional in experimenting and testing assumptions. Reflecting, learning and adapting are fundamental tenets of a ‘sprint’ — innovation language for a short burst of work that brings teams together around a task.
 
-## **What are the benefits of bringing together our thinking on innovation and adaptive management?**
+## What are the benefits of bringing together our thinking on innovation and adaptive management?
 
 Adaptive management could learn from the intentionality of testing and experimenting, the rigour of writing (and testing) hypotheses, and the swarming of cross-functional teams around a problem.
 

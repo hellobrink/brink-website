@@ -50,17 +50,17 @@ A similar data gap exists for ethnicity. In 2020, [Twitter apologised](https://w
 
 The consequences of this can be severe. Joy Buolamwini, a Ghanaian-American computer scientist and digital activist based at the MIT Media Lab, has found that racial bias built into facial recognition systems [trained to identify white males](https://www.fastcompany.com/90160327/facial-recognition-systems-are-way-more-biased-that-we-thought?ref=hellobrink.co) might cause them to misidentify people of colour. With the rise of facial recognition being used in criminal investigations, this could result in someone being unfairly labelled a criminal for life.
 
-![](/images/66d9c52cc7fc65d49d74b5c2_0njxqw5yug6zfp9mh.jpeg)
+![TONY ARCIERI’S SERIES OF UX EXPERIMENTS ON TWITTER AUTOMATICALLY FAVOURED THE WHITE MALE FACE IN EVERY SINGLE TEST. TWITTER HAS SINCE ALTERE](/images/66d9c52cc7fc65d49d74b5c2_0njxqw5yug6zfp9mh.jpeg)
 
-TONY ARCIERI’S SERIES OF UX EXPERIMENTS ON TWITTER AUTOMATICALLY FAVOURED THE WHITE MALE FACE IN EVERY SINGLE TEST. TWITTER HAS SINCE ALTERED THE ALGORITHM.
+<p class="post-caption">TONY ARCIERI’S SERIES OF UX EXPERIMENTS ON TWITTER AUTOMATICALLY FAVOURED THE WHITE MALE FACE IN EVERY SINGLE TEST. TWITTER HAS SINCE ALTERED THE ALGORITHM.</p>
 
-![](/images/66d9c52cee0f8b14f97999dd_0kxbr_jgewbrqry5y.jpeg)
+![TWITTER’S RESPONSE. INTERESTINGLY NOW THE ALGORITHM PICKS THE WHITE SPACE AND NEITHER FACE FROM THE ABOVE EXAMPLE!](/images/66d9c52cee0f8b14f97999dd_0kxbr_jgewbrqry5y.jpeg)
 
-TWITTER’S RESPONSE. INTERESTINGLY NOW THE ALGORITHM PICKS THE WHITE SPACE AND NEITHER FACE FROM THE ABOVE EXAMPLE!
+<p class="post-caption">TWITTER’S RESPONSE. INTERESTINGLY NOW THE ALGORITHM PICKS THE WHITE SPACE AND NEITHER FACE FROM THE ABOVE EXAMPLE!</p>
 
-![](/images/66d9c52d1a30f22911af817a_0vzj5pejky9hxptdx.png)
+![UNFORTUNATE MALFUNCTION FROM ZOOM, NOT PICKING UP THE PERSON OF COLOUR ON THE LEFT’S SKIN TONE WITH ITS VIRTUAL BACKGROUND FILTERS](/images/66d9c52d1a30f22911af817a_0vzj5pejky9hxptdx.png)
 
-UNFORTUNATE MALFUNCTION FROM ZOOM, NOT PICKING UP THE PERSON OF COLOUR ON THE LEFT’S SKIN TONE WITH ITS VIRTUAL BACKGROUND FILTERS
+<p class="post-caption">UNFORTUNATE MALFUNCTION FROM ZOOM, NOT PICKING UP THE PERSON OF COLOUR ON THE LEFT’S SKIN TONE WITH ITS VIRTUAL BACKGROUND FILTERS</p>
 
 Although data sets can be updated, or gaps filled in, with promising emerging techniques like [synthetic data](https://www.technologyreview.com/2022/02/23/1044965/ai-synthetic-data-2/?ref=hellobrink.co), this is easier said than done, and assumes an understanding of the inherent biases in data sets or of the blind spots that are still present in areas like design, software development, town planning and policy making.
 

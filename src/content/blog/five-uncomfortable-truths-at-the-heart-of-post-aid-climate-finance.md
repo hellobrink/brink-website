@@ -31,7 +31,7 @@ The gap isn't just about money though. With even less resources, now is the time
 
 Here are five uncomfortable truths, spanning the unsexy infrastructure, mismatched burdens, and ground-level barriers that determine whether ambitious frameworks can deliver for the communities they're meant to serve.
 
-## **"Best practice" too often means "what worked in the last place we tried this”**
+## "Best practice" too often means "what worked in the last place we tried this”
 
 Post-aid localisation means more than translating interfaces. Since 2018, Brink has supported over 400+ ventures across 53+ countries to access more than £60m in funding. The majority feature some form of tech implementation, and one common thread: technology that works in one environment doesn't automatically work in another.
 
@@ -45,7 +45,7 @@ This isn't just about software retraining - it's about the gap between global fr
 
 <p class="post-caption">Two emerging insights from our first Go Muhazi cohort.</p>
 
-## **Sophisticated solutions fail without affordable, maintainable hardware**
+## Sophisticated solutions fail without affordable, maintainable hardware
 
 While manual monitoring is expensive and hard to scale, end-to-end technologies can provide the monitoring and reporting needed for projects to access credits. But these solutions rely on building supply chains that can maintain hardware without flying in parts and developing expertise among people who will actually use the tools long-term.
 
@@ -59,7 +59,7 @@ One approach is to co-design versions of existing tech directly in context. [In 
 
 Another default has to be nurturing local talent. [In Tanzania, local "AI Chapters" were established](https://www.frontiertechhub.org/pilot-portfolio/ai-forest-carbon-markets-tanzania) to train 50 young engineers capable of maintaining and refining the AI models described earlier (in order to rule out reliance on expensive foreign consultants).
 
-## **Markets need to get comfortable with uncertain futures rather than only rewarding fully-grown forests**
+## Markets need to get comfortable with uncertain futures rather than only rewarding fully-grown forests
 
 Post-aid climate finance can't rely on communities absorbing years of upfront costs while waiting for carbon markets to mature. The money has to flow earlier to help vulnerable communities access and realise the outcomes down the line.
 
@@ -71,7 +71,7 @@ Climate finance mechanisms need to restructure their timelines to match lived re
 
 [Project Sapling](https://www.frontiertechhub.org/pilot-portfolio/project-sapling) tackled this temporal mismatch head-on by experimenting with "forward credits" (ex-ante). Drones and mobile apps verify that saplings are planted and surviving, creating a trusted record that allows them to sell credits before trees fully mature. This unlocks early funding to cover upfront costs and compensate communities sooner, aligning immediate incentives with long-term ecological health.
 
-## **If upfront costs stay with the people who can least afford them, climate finance just becomes another extractive system dressed in green language**
+## If upfront costs stay with the people who can least afford them, climate finance just becomes another extractive system dressed in green language
 
 Those who receive the lowest share of supply chain value cannot be expected to absorb the prohibitive verification expenses required to participate in carbon markets. Likewise, essential intermediaries like cooperatives and NGOs cannot be left to navigate the market without support.
 
@@ -87,7 +87,7 @@ The tech provides a solution that works — but who should bear the cost?
 
 <p class="post-caption">Carlos Pedraza sharing the FOLIA platform with a cocoa farmer</p>
 
-## **Solutions need 3-5 year horizons, not 2-year grant cycles**
+## Solutions need 3-5 year horizons, not 2-year grant cycles
 
 If your plan relies on government adoption, your solution needs to be cheap and low-risk. If your plan relies on philanthropic foundations, you're competing more than ever before to demonstrate scalability. Commercialisation is the inevitable endgame, and that shifts everything.
 
@@ -97,7 +97,7 @@ We all want to live in a society which doesn't suffer the devastation of the cli
 
 The timelines for catalytic capital must match the reality of what it takes to achieve viable models. Even after five years, many successful 'commercial' ventures won’t achieve full cost recovery, instead maintaining 40-60% earned revenue with ongoing grant support. The pathway looks less like independence from aid and more like strategic hybrid resilience.
 
-## **Where this leaves us**
+## Where this leaves us
 
 The decisions to cut aid funding have been devastating. The only (very thin) silver lining is that they have forced us to confront two gaps: one between policy ambition and implementation reality, and one between public responsibility and private interests. We should be designing carbon markets for the smallholder farmers who need them most, and sophisticated financial architecture doesn’t equal opportunity for those on the ground.
 
@@ -105,7 +105,7 @@ Tech transfer is never automatic - what worked elsewhere will fail until adapted
 
 Have you seen these barriers in your work too? We want to see new avenues for development finance evolve beyond sophisticated global frameworks to become non-extractive infrastructure that actually works where it's meant to work.
 
-## **Read more:**
+## Read more:
 
 - [The psychology of next-century grantmaking](https://www.hellobrink.co/post/the-psychology-of-next-century-grantmaking)
 - [On scalable, irreversible Impact](https://www.hellobrink.co/post/scalable-irreversible-impact)

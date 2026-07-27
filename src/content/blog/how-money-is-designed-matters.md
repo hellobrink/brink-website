@@ -20,7 +20,7 @@ Through the experience of designing grant funds that drive innovation , we have 
 
 Grants are a way to contribute to building the world we’d like to see. At the core of how grants are designed, we should be asking the question: *what kind of change are you trying to contribute to?*Your thesis is the clear understanding of the change and impact you’re trying to make with the money, and it is also what steers your portfolio as you learn.On March 19th 2020, we launched [Covid Action](https://medium.com/covidaction/frontier-tech-4-covid-action-emerging-market-ventilation-systems-9c818cb46189?source=collection_category---4------2-----------------------), an initiative with a thesis to make sure that hospitals in low and middle income countries had the equipment, tools and support to treat people with respiratory problems. Initially, we looked for rapidly manufactured ventilation systems. Less than a month later, [we launched](https://medium.com/covidaction/covidaction-ventilators-and-oxygen-package-update-ce60c42d731d?ref=hellobrink.co) a platform housing COVID-19 related IP for download and use the world over, yet this platform didn’t feature a single ventilator. In that month, we learnt more about the disease, shifts in the regulatory environment, and about the needs of different countries. We were able to do this because our thesis was clear. As we learnt more and more, we were able to pivot *what* we invested in and *how*, while keeping the thesis held our *why.*
 
-## **Lesson #2: Grants are one part of a wider context and innovation ecosystem**
+## Lesson #2: Grants are one part of a wider context and innovation ecosystem
 
 Grants need to be designed and treated as one part of a wider context and funding ecosystem. At the core, we have learnt that grants are most effective when we understand their role within a specific context and sector, and when they’re alongside other instruments, such as debt, government financing or bonds. In short, it’s important to know: *why this fund, why here and why now?*
 
@@ -30,15 +30,15 @@ By having clarity on how grants contribute to building and supporting a pipeline
 - How does it support the innovations to position themselves in the eyes of users, governments and investors?
 - How does this grant de-risk investments for the private sector?
 
-![](/images/66d9cf9ce6d14c60e812ea58_copy-of-cu-and-tv1-at-rwandex-driving-past.jpeg)
+![AN AMPERSAND MOTORCYCLE IN RWANDA, A PILOT FROM FTL](/images/66d9cf9ce6d14c60e812ea58_copy-of-cu-and-tv1-at-rwandex-driving-past.jpeg)
 
-AN AMPERSAND MOTORCYCLE IN RWANDA, A PILOT FROM FTL
+<p class="post-caption">AN AMPERSAND MOTORCYCLE IN RWANDA, A PILOT FROM FTL</p>
 
 An example of this is [Ampersand](https://www.frontiertechhub.org/pilot-portfolio/electric-motorcycle-taxis?ref=hellobrink.co), an electric motorcycle provider in Rwanda. The Frontier Technologies Hub provided a grant for 18-months to test whether electric motorcycles could decrease transport costs for customers, improve livelihoods for drivers and reduce carbon emissions. We leveraged the grant to test with a small pool of motorcycles and learnt that rent-to-own and pay-per-swap models increased the driver’s revenue, that the solution needed to be modular to enable flexibility, and that the design needed to be as comparable to existing models.
 
 These insights, in turn, enabled Ampersand to access $3.5m in venture capital to scale their operations to a large number of motorcycle taxis in multiple East African countries over 10 years.
 
-## **Lesson #3: Grants can de-risk future investing in innovation**
+## Lesson #3: Grants can de-risk future investing in innovation
 
 In an ideal world, innovations that save lives and transform communities would scale to achieve their greatest impact potential. In reality, a number of factors hinder innovators’ ability to scale, such as constrained public budgets, an undervaluing of positive externalities, and a lack of information about the markets and sectors that could have widespread impact.
 
@@ -54,15 +54,15 @@ Onyx now has 2,500 bicycles under contract for employee schemes, which made a cr
 
 Scale can mean different things to different organisations. For example, some innovations look to scale by being adopted and integrated within a government service, such as an [AI solution](https://www.frontiertechhub.org/pilot-portfolio/ai-for-tb?ref=hellobrink.co) looking to improve government diagnosis in South Africa. Others scale by looking to reach more paying customers, such as [Wazi](https://atimpactfund.com/?ref=hellobrink.co) which is trying to increase access to African-made eyewear. For others, ongoing grant funding to subsidise costs and increase access can be the path to scale. We’ve learnt that grants need to be designed to foster an intentional, viable and sustainable path to scale tailored to the problem and solution.
 
-![](/images/6821d50745555fc44f9d862d_screenshot-2025-05-12-at-120112.png)
+![THE PROCESS OF MAKING AND TESTING WAZI GLASSES IN UGANDA, ONE OF THE GRANTEES ON THE AT IMPACT FUND](/images/6821d50745555fc44f9d862d_screenshot-2025-05-12-at-120112.png)
 
-THE PROCESS OF MAKING AND TESTING WAZI GLASSES IN UGANDA, ONE OF THE GRANTEES ON THE AT IMPACT FUND
+<p class="post-caption">THE PROCESS OF MAKING AND TESTING WAZI GLASSES IN UGANDA, ONE OF THE GRANTEES ON THE AT IMPACT FUND</p>
 
 In the social innovation ecosystem, we’ve often observed innovations being continuously funded by grants without clarity or proof of their pathway to scale. Therefore, it's important to choose the right grant size, sometimes keeping things intentionally small, and being catalytic, in service of the grantees’ scaling stage, path and long-term goal.
 
 Through our work, we’ve learnt that relatively small grants can be a beautiful constraint between our teams and the grantees to think about how to best use the limited, catalytic opportunity of working together. These small grants enable us to ask each other: *what do we need to prove, to whom, and how can this small amount of money, with proofs and cost-corrections, set that ship off at sea?* Often a small grant amount is a great way to test a new idea or transformative business model that could have a significant impact on the organisation overall, and on global investment coming down the line. Through ATIF, we funded [Koalaa](https://www.yourkoalaa.com/?ref=hellobrink.co), a British prosthetics manufacturer that was looking to make their prosthetics available in Sierra Leone. We gave them two grants totaling £90,000, and worked with them to leverage the money so that their impact could extend beyond the grant. They used the money to set-up a partnership with the Ministry of Sierra Leone, which enabled them to operate in clinics, to train public health clinicians in their prosthetics, and to import their prosthetics tax-free while they set-up their in-country manufacturing capacity. Instead of using this small grant to offer prosthetics for a set-amount of people, they catalysed it so that they could operate in Sierra Leone more cheaply and freely, which then also enabled them to be in advanced discussions with several donors and investors who have valued that they were established.
 
-## **Lesson #5: Grant mechanisms should be designed around your thesis**
+## Lesson #5: Grant mechanisms should be designed around your thesis
 
 At the core of your grant is your thesis, and so all the mechanisms for sourcing, selecting, driving and reporting on those grants should be designed in service of it.
 
@@ -70,7 +70,7 @@ For example, the Frontier Tech Livestreaming grants, designed with DT Global, ai
 
 However, traditionally, the impact sector is designed so that grantees are incentivised to tell their grant-makers what they think they want to hear, and we wanted to change it up. To be truly exploratory, the Livestreaming grants need to be designed to make sure that the answer to the exploration can be*‘no / it doesn’t work, / it’s not impactful / it won’t scale’*. In order to welcome a ‘no’, we work with innovators to test the most critical assumptions, and allow them to iterate their sprints based on learnings. The payment disbursements are based on learnings, not on success - compared to the traditional payments by results. So that regardless of what they learn, they’re paid if they learn *something.*
 
-## **Lesson #6: Funding teams needs to be centred on trust**
+## Lesson #6: Funding teams needs to be centred on trust
 
 Grants are not a way to subcontract teams to meet your needs. They are a mechanism to foster and invest in teams with ideas that could contribute to your thesis and impact. Grants need to serve to empower the people and teams who breathe the problem, inhabit the context, and embed their values in their work.
 
@@ -78,8 +78,8 @@ No matter how good the tech is, how connected they are, how amazing the evidence
 
 Through the Oxygen CoLab, we are working with six grantees to understand the potential for [Oxygen-as-a-Service](https://medium.com/covidaction/oxygen-as-a-service-is-saving-young-lives-f855a9221873?ref=hellobrink.co) to increase access to oxygen and save lives in low income, rural settings. Over the last year, we’ve worked with one of these grantees, FRE02, to provide clarity on what our aim is, what their goals are, and how they align. Doing this has grown our [relationship with FRE02](https://medium.com/better-futures-colab/oxygen-as-a-service-is-saving-young-lives-2460eaa949f5?ref=hellobrink.co) that expands beyond the typical funder-grantee relationship, becoming open, reliable and transparent. This has enabled us to not only work with them to test their business model, but also has empowered them to share lessons freely with other grantees in order to shift the whole sector, and meant that they’re inviting us to key meetings with government partners. Along the way, we’ve also learnt about the key factors for when and how oxygen concentrators can make a dent.
 
-![](/images/6821d5c1e30f83daa0a36ce3_screenshot-2025-05-12-at-120337.jpg)
+![BABY DICKSON RECEIVING OXYGEN FROM A CONCENTRATOR IN DONGABESH, TANZANIA FROM FRE02, AN OXYGEN COLAB GRANTEE](/images/6821d5c1e30f83daa0a36ce3_screenshot-2025-05-12-at-120337.jpg)
 
-BABY DICKSON RECEIVING OXYGEN FROM A CONCENTRATOR IN DONGABESH, TANZANIA FROM FRE02, AN OXYGEN COLAB GRANTEE
+<p class="post-caption">BABY DICKSON RECEIVING OXYGEN FROM A CONCENTRATOR IN DONGABESH, TANZANIA FROM FRE02, AN OXYGEN COLAB GRANTEE</p>
 
 *This blogpost is part of an exploration that myself, Lea and others at Brink are undertaking to explore different financial mechanisms, and the role they can play in making a dent. I’d love to grab a coffee and hear from you! Email me at*[*constanza@hellobrink.co*](mailto:constanza@hellobrink.co)

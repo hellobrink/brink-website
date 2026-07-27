@@ -11,7 +11,7 @@ summary: "When you read the news and think about how to keep abreast of events o
 sortOrder: 19
 ---
 
-## **The challenge of the unknown**
+## The challenge of the unknown
 
 When you read the news and think about how to keep abreast of events or perhaps even stay ahead, how do you feel? If the answer is unsettled, uneasy, uncertain or completely unsure, you are not alone.
 
@@ -27,11 +27,11 @@ In this article we’re setting out five of the most common challenges we come u
 
 Mental processes like creativity, emotions, and biases, are often ignored in futures work, but understanding them can help individuals and groups better navigate discussions about what’s ahead. The way we remember things, the feelings we have, and the mental shortcuts we take [all shape how well we can imagine and plan](https://www.sciencedirect.com/science/article/pii/S0016328725000102) for the future.
 
-## **1. Imagination: The power of visualising new possibilities**
+## 1. Imagination: The power of visualising new possibilities
 
 Our brains are wired to process information based on past experiences, which can make imagining new futures difficult. This is exacerbated when we’re stressed or under duress. We often struggle with predicting the unknown, and so rely on linear thinking instead of exploring the myriad possibilities the future could hold.
 
-## **What’s happening in your brain**
+## What’s happening in your brain
 
 The brain prefers familiarity and tends to base predictions on past patterns. This is partly why thinking about the future feels uncomfortable - it’s outside our known world. It’s also because as adults, we’re often [trained out of using our imagination](https://www.natgeokids.com/uk/parents/creative-kids-how-to-inspire-their-growing-minds/#:~:text=A%20well%2Dknown%20study%20of,One%20reason%20is%20neurological.) in our day-to-day lives. Even though [imagining futures for a group develops a shared identity, and imagining oneself in the future is essential for personal motivation](https://www.sciencedirect.com/science/article/pii/S0016328725000102) and well-being. Stress can also dampen creativity and imagination, making us more focused on the present and the immediate past and harder to imagine what the future might hold, especially when it involves rapid change and unfamiliar possibilities.
 
@@ -45,21 +45,21 @@ To tackle the question of ***How might AI might change diplomacy in the next 10 
 
 By providing role-specific contexts, participants could not only imagine potential futures but also experience them firsthand; engaging emotionally and intellectually with what that future might feel like. By helping institutions visualise how tools like AI could reshape diplomacy, we’re equipping them to prepare for the disruptions ahead. The FCDO are now [proactively exploring how AI tools](https://www.thetimes.com/uk/politics/article/british-diplomats-soft-skills-ai-david-lammy-30pzrdzxx) can help diplomats practise negotiation scenarios.
 
-## **Why it matters**
+## Why it matters
 
 Imagination at its best isn’t just about dreaming big. It’s about imagining an ideal or ‘normative’ future, and creating a clear path from where we are to where we need to go. It’s about making the unknown less intimidating and empowering people to take action.Through techniques like immersive experiences, visualisation and simply getting into a more imaginative mindspace, groups can bypass cognitive biases and unlock fresh perspectives. When people see, feel, and experience future scenarios tailored to their world, they start to understand not just the technical side, but the emotional and social impact of what’s to come. Immersion turns abstract ideas into something we can touch, feel, and act on—essential for driving change and sparking innovation.
 
-## **2. Thinking forward from today: Overcoming linear thinking**
+## 2. Thinking forward from today: Overcoming linear thinking
 
 As humans we tend to think in linear terms. We assume that tomorrow will look a lot like today, with small changes over time. This ‘linear thinking’ can limit our ability to grasp larger shifts or breakthroughs.
 
-## **What’s happening in your brain**
+## What’s happening in your brain
 
 The brain loves patterns, which makes linear thinking feel more natural. We often assume that tomorrow will be like yesterday and struggle to conceptualise non-linear progress such as bell curves (i.e. a decrease after a trending increase) or exponential changes (i.e. an accelerating uptick), like the ones we’re seeing with AI.
 
 We have natural blindspots for disruptions like the C19 pandemic unless we think intentionally about patterns or possibilities that are non-linear and plan for them.
 
-## **What we did: Horizon scanning using collective intelligence**
+## What we did: Horizon scanning using collective intelligence
 
 ![](/images/67e2a8c8ff6122491cc787bb_screenshot-2025-03-25-at-125908.png)
 
@@ -69,23 +69,23 @@ Our horizon scans involved candid discussions with 42 diverse stakeholders from 
 
 These activities have highlighted the [key trends, tensions, and paradoxes](https://edtechhub.org/2025/03/10/what-were-reading-and-hearing-about-ai-in-education/) shaping AI’s impact on education, and we’ve mapped where the education sector and ministries of education need to adapt by creating a framework based on the three horizons (upgrade, disrupt, and transform) to understand how AI will affect equitable learning outcomes for students, teachers, and the broader education system.
 
-## **Why it matters**
+## Why it matters
 
 Thinking forwards to spot signals that might disrupt current trends or stop them in their tracks (instead of just extrapolating from today) allows us to engage with future possibilities in a more realistic and innovative way.
 
 The interaction between current trends is also often overlooked, but convergences and confluences can completely change the course of things - just like what we’re seeing with the convergence of technologies that has made AI possible today. Such exercises help us anticipate challenges and opportunities that we might otherwise miss and think not just in the needs of today (in this case, AI upgrades for education) , but also plan ahead for what’s next (disruption of AI in education systems) and where things might head (transformation of education in the age of AI).
 
-## **3. Hyperbolic discounting: Disrupting our preference for short-term gains over long-term benefits**
+## 3. Hyperbolic discounting: Disrupting our preference for short-term gains over long-term benefits
 
 Hyperbolic discounting is a brain pattern we all tend to have, whereby we tend to prefer immediate rewards over long-term benefits, even if the long-term rewards are much greater.
 
 This explains many of the challenges we face in areas like climate change, where the benefits of action are long-term, but the costs of inaction are immediate. In strategic foresight, this matters because we have a tendency to jump to solutions right away, when sometimes a more long term approach might be more appropriate. Or we may miss some of the opportunity costs and trade-offs involved in taking action (or in delaying action).
 
-## **What’s happening in your brain**
+## What’s happening in your brain
 
 The brain is hardwired to prioritise instant gratification—this was useful in evolutionary terms when survival depended on immediate rewards. Delaying gratification requires intention and even incentives otherwise we tend to prefer even smaller rewards, sooner, rather than having to wait longer to get a larger reward.
 
-## **What we did: Visioning workshops to explore the trade-offs we face today in order to achieve long-term benefits tomorrow**
+## What we did: Visioning workshops to explore the trade-offs we face today in order to achieve long-term benefits tomorrow
 
 ![](/images/67e2a277a6a4fa7cb8d7e1cd_card.png)
 
@@ -93,17 +93,17 @@ Each year, GIZ runs a Future Forum for their keenest staff passionate about crea
 
 This session set the stage for the entire conference, creating urgency for change, clarity on values, and a roadmap for making transformation a reality through a deeper understanding of the immediate trade-offs and actions needed (you can read the full report [here](https://www.giz.de/expertise/downloads/giz2024-en-future-forum-2023-report.pdf)).
 
-## **Why it matters**
+## Why it matters
 
 Addressing hyperbolic discounting - this tendency to want rewards sooner - is critical for large-scale behavior change. This becomes especially true in areas like climate action, where the real benefits may take decades to materialise.
 
 By breaking down long-term goals into smaller, more immediate steps, accompanied by strong rationale and narratives that remind us of the bigger win down the line, we can create momentum for bigger changes.
 
-## **4. Data, evidence, and measuring what matters: Navigating transversal issues**
+## 4. Data, evidence, and measuring what matters: Navigating transversal issues
 
 The famous systems thinker, Donella Meadows, said “Pay attention to what’s important, not just what’s quantifiable”. Our reliance on data and evidence can sometimes overlook the human and emotional aspects of decision-making. In our work, we’ve learned that while data is crucial, we must also prioritise the wellbeing and lived experiences of people impacted by these decisions.
 
-## **What’s happening in your brain**
+## What’s happening in your brain
 
 Our brains are good at processing quantitative data, but they can struggle with qualitative insights, or the emotional aspects of decision-making; and we often undervalue personal experiences when making data-driven decisions.
 
@@ -111,7 +111,7 @@ As people we all are compelled by stories and narratives, typically more than we
 
 Donella said:*“No one can precisely define or measure justice, democracy, security, freedom, truth, or love. No one can precisely define or measure any value. But if no one speaks up for them, if systems aren’t designed to produce them, if we don’t speak about them and point toward their presence or absence, they will cease to exist.”*
 
-## **What we did: Participatory research across Kenya using citizen scientists, qualitative data, and personal narratives**
+## What we did: Participatory research across Kenya using citizen scientists, qualitative data, and personal narratives
 
 ![](/images/67e2a0c4081dacd0e0af79bb_ad_4nxezsck-pnvvijrs57wlmctxe7snbi_iaf_5ucfr4bgvkwdyqla.png)
 
@@ -135,15 +135,15 @@ These ideas offer a clear pathway for donors, governments, and the private secto
 
 [Explore the full story here](https://www.hellobrink.co/informalfoodeconomy) and take a look at some of the beautiful photos by Ideas Unplugged that capture the spirit of the work.
 
-## **Why it matters**
+## Why it matters
 
 The future isn’t just about numbers; it’s about people. Balancing data with human experience ensures that the innovations, systems shifts and policy recommendations we create are not only efficient but also equitable and sustainable.
 
-## **5. Adding artificial intelligence into the mix: The future is already here**
+## 5. Adding artificial intelligence into the mix: The future is already here
 
 AI is no longer a distant concept. It's changing our world now. But how do we incorporate AI into our futures work without letting it overshadow the human element?
 
-## **What’s happening in your brain**
+## What’s happening in your brain
 
 A number of things are occurring in our brains when it comes to AI use.
 
@@ -169,7 +169,7 @@ This process feeds directly into human-led sensemaking sessions, enabling us to 
 
 In the [Frontier Tech Hub's Fieldtrip to the Future](https://www.frontiertechhub.org/learn/futures), we delved into AI's potential to transform diplomacy by 2034. To make these future scenarios immersive, we developed artifacts such as Priya, an AI-generated trade advisor chatbot from 2034. Priya engaged participants in real-time conversations about her work and life, with responses dynamically generated based on our envisioned future. Tools like ChatGPT refined her backstory, while Character AI facilitated interactive experiences, bringing Priya to life as a fully realised character.
 
-## **Why it matters**
+## Why it matters
 
 AI has the power to supercharge our work by making processes faster and more efficient, but it also requires us to be thoughtful about how it’s used and think intentionally about ethics and unintended consequences. We are using AI to complement, not replace, human intuition and creativity—designing tools and methods that enable us to craft compelling artefacts and tap into vast pools of information, all while keeping the human touch at the core of innovation
 

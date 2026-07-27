@@ -41,7 +41,7 @@ The results are multiple. We are busy convening a flourishing community of pract
 
 Whilst diverse, we’ve noticed patterns in the kinds of activities people naturally come together to do as a collective, and the context in which they do them. Through synthesising our work and learning from the work of experts such as [Brad Feld](https://startupcommunityway.com/?ref=hellobrink.co), [Casper ter Kuile,](https://www.caspertk.com/?ref=hellobrink.co) [Bailey, Kevin and Kai from People Company](https://gettogether.world/?ref=hellobrink.co#about), and [Rosie Sherry](https://rosie.land/?ref=hellobrink.co), we have designed a framework to help us structure and harness this wisdom, and we hope it might help you too.
 
-## **Introducing the Collectives Framework**
+## Introducing the Collectives Framework
 
 This is a tool that helps us to discover the collective potential of a group with a shared social purpose, interest or goal.
 
@@ -53,9 +53,9 @@ This is a tool that helps us to discover the collective potential of a group wit
 
 **💪Collective Action** — Bringing people together to make change happen. What becomes possible when a group of people identify a shared goal and leverage their unique skills and interest to move towards it?
 
-![](/images/66d9b3f50b1c1ccce0ff223b_1fxyh9gzhftaugkakxbvbxa.jpeg)
+![THE COLLECTIVES CANVAS](/images/66d9b3f50b1c1ccce0ff223b_1fxyh9gzhftaugkakxbvbxa.jpeg)
 
-THE COLLECTIVES CANVAS
+<p class="post-caption">THE COLLECTIVES CANVAS</p>
 
 **Collectives (of any type) act within a system. We’ve found it helpful to identify how the collective relates to parts of the system. This enables us to prioritise areas of opportunity and value to the group & shared problem or vision.**
 

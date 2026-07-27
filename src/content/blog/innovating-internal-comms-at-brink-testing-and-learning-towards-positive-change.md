@@ -17,11 +17,11 @@ In the first part of this series, I shared the journey we started last year to i
 
 None of the things we needed to do felt scary, icky or too big for us. What we discovered from our listening sessions was that the systems and structures we had in place were working, but were overloaded. Rather than overhauling things, it was a case of evolving what we had.
 
-## **🚦 Putting things into action**
+## 🚦 Putting things into action
 
 Some of the changes we needed to make were small and pretty simple to implement, while others needed more exploration to get right. As an organisation, we’re used to testing new ideas in our work, so we were keen to bring that approach of quickly rolling out changes, and constant cycles of feedback and testing to this project. To that end we used a simple *‘Goal, Problem, Idea, Test’*framework to help plan our next steps:
 
-## **💡 All systems go**
+## 💡 All systems go
 
 For each of the smaller goals we’d set, we defined the problem that was stopping us from getting there, the idea we thought could fix that problem, and how we could test that idea. Here’s how that looked:
 

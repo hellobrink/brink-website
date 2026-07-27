@@ -18,7 +18,7 @@ Since we established the Brink Foundation two and a half years ago, we've been s
 
 So, we're very excited for you to meet the newest addition to our stellar non-executive board: [Sheena Raikundalia](https://www.linkedin.com/in/sheena-raikundalia-902a781b/) (right). Following a competitive search process with over 120 applicants, Sheena stood out as someone who can bring a rare combination of perspectives that span the government, corporate, donor, investor, and entrepreneur worlds. Sheena brings over 18 years of experience spanning legal, financial services, and impact investment sectors across Europe and Africa, plus over seven years of board experience. Her unique insight comes from a career that’s taken her from London law firms to serving as Country Director of the UK-Kenya Tech Hub for the FCDO, to her current role as Chief Growth Officer at agri-tech company [Kuza One](https://www.kuza.one/). She also proudly describes herself as a ‘failed entrepreneur,’ an experience she says taught her more than all her other roles combined.
 
-## **What attracted you to Brink Foundation and this role?**
+## What attracted you to Brink Foundation and this role?
 
 I first encountered Brink when I was Country Director for the [UK-Kenya Tech Hub](https://www.linkedin.com/company/uk-kenya-techhub/). I saw the impact of their programs in Kenya, and what really struck me was their distinctive way of working: entrepreneur-led, agile, deeply listening. Those were the things that resonated with me really strongly because I honestly believe that the people closest to the problem often hold the key to the solutions.
 
@@ -26,7 +26,7 @@ Generally, solutions are designed by people far, far away who talk at the commun
 
 I've always believed that entrepreneurship is the way to solve development challenges and that what we need to do is set the environment for enabling entrepreneurs to scale at scale. For me, that's the role of foundations, donors, governments, and investors: how can we help entrepreneurs? Because if we let entrepreneurs get on with it, every development challenge becomes a business opportunity. But those entrepreneurs can't do it on their own; they need support. That means capital of course, but also talent, regulatory environment, networks, and most importantly, markets.
 
-## **What's stopping us from being close to the ground and scaling solutions and teams? What are those systemic barriers?**
+## What's stopping us from being close to the ground and scaling solutions and teams? What are those systemic barriers?
 
 I think there are a lot of things, but it begins with the mindset of the stakeholder.
 
@@ -36,7 +36,7 @@ The second barrier is this mindset that to help, we need to bring in all this ex
 
 The third issue is that we've been pushing global solutions and fitting them locally because of funding power and soft power. I'm a big believer in global AND local. Unfortunately, the narrative has been pushing global solutions, and you're able to do that because of funding and soft power. But that soft power is changing. Why Brink Foundation is exciting to me is because it comes with that understanding of global and local.
 
-## **You've worked across law, entrepreneurship, government, and now agri-tech. How does this journey shape what you bring to the Foundation?**
+## You've worked across law, entrepreneurship, government, and now agri-tech. How does this journey shape what you bring to the Foundation?
 
 I was a lawyer for the first 10 years of my career. I've been a ‘failed entrepreneur’, I worked for a fund doing impact investing, I've done the donor role, and now I'm with Kuza. So I always think I'm an expert at nothing.
 
@@ -44,7 +44,7 @@ But what I realised is because I've had all these different positions, what I do
 
 Basically, there's a huge communication gap that’s made worse by jargon. But if we were able to communicate better and understand what each other were saying, I think a lot more could happen. The biggest issue with systems change not happening is because it's too siloed.
 
-## **What has your experience taught you about how to break down those silos in order to create genuine systems change?**
+## What has your experience taught you about how to break down those silos in order to create genuine systems change?
 
 The way I get around silos is I don't think about labels and sectors. I just think: what's your problem? Can I help you in any way? If I can't, can I connect you with somebody that can? Just doing that is sometimes more important than anything, just breaking that siloed information asymmetry.
 
@@ -56,7 +56,7 @@ If you want to change a system, you can't be bound by it. The solution may come 
 
 <p class="post-caption">Image courtesy of Kuza One.</p>
 
-## **How do you go about achieving that delicate balance between scaling complex systems and maintaining trust?**
+## How do you go about achieving that delicate balance between scaling complex systems and maintaining trust?
 
 Trust always starts with personal trust, but at some point, if that trust doesn't translate to beyond the personal, then it becomes problematic. The UK-Kenya Tech Hub was my baby. It was so associated with me that everybody knew me as the ‘UK-Kenya Tech Hub’ person. When I left I knew that it was going to continue to be successful, tt had to not be based on my personality or the credibility that I brought to it. That's the same with every organisation or movement. It has to start with this personal, individual trust but it has to graduate out from there.
 
@@ -64,7 +64,7 @@ Community trust is amazing. Unfortunately, countries like those in Africa and As
 
 There's no shortcut to trust. There are certain things that make trust easier, but it builds over time and with continuity.
 
-## **Looking at the broader landscape, how do you think philanthropy should position itself as development finance reshapes?**
+## Looking at the broader landscape, how do you think philanthropy should position itself as development finance reshapes?
 
 We need to have really honest discussions about this. Philanthropy should be catalytic, but is it really? The whole aim of philanthropic and donor funding should be working to do yourself out of a job.
 
@@ -76,7 +76,7 @@ In the corporate world, giants like Nokia and Kodak didn't see themselves being 
 
 Right now philanthropy is so focused on volume. We're saying “We've changed the lives of one million farmers… But by $2”. What difference is that going to make, versus changing the life of even 100,000 people, but by $100 or $1,000. That’s real change because then they can be empowered to make the next change themselves.
 
-## **What do you see for the future of philanthropic capital?**
+## What do you see for the future of philanthropic capital?
 
 I think simplicity scales. Given that funding is changing, there are things we can actually do... Firstly, we keep talking about green climate, but we could be shifting manufacturing to places with renewable energy. Kenya, for example, is 93% renewable. We could set up manufacturing plants using renewable energy. Or take cocoa: farmers grow it, but all the processing happens in the West. Bring that capability to Africa. Use philanthropy and impact investing to grow the market - become the first investors in these things.
 
@@ -86,7 +86,7 @@ In terms of capital, the international financial system is skewed against Africa
 
 That's truly catalytic, but nobody wants to do that because it's boring, it's not sexy, it's hard work. There are no vanity metrics there!
 
-## **How do you envision the Foundation's role evolving in the next 3-5 years?**
+## How do you envision the Foundation's role evolving in the next 3-5 years?
 
 Firstly, I see the foundation's role as convening, having these hard conversations, and (maybe most crucially) being that conduit for listening. I think if more philanthropic organisations were able to listen then we’d see so much more genuine collaboration and breaking down of those silos we were talking about.
 

@@ -15,7 +15,7 @@ To round off our year of Collective Conversations, Brink hosted a vibrant sell o
 
 We were joined by Keith Coleman, co-founder of [Brilliant Planet](https://www.brilliantplanet.com/?ref=hellobrink.co), who successfully lit up routes to climate change through his experience in entrepreneurship and social activism. Joined by Kelley Rowe, Brink's Innovation Lead, the dialogue delved into scalability and sustainability of nature-inspired solutions and technology, the imperative for systemic change, and the importance of empowerment, equity, and collective action.
 
-## **1. Urgency, scalability & sustainability must all be in the equation if we are to turn the tide of climate change**
+## 1. Urgency, scalability & sustainability must all be in the equation if we are to turn the tide of climate change
 
 Whilst conventional agriculture accounts for [an estimated 10-12%](https://www.ipcc.ch/site/assets/uploads/2018/02/ar4-wg3-chapter8-1.pdf?ref=hellobrink.co) of global greenhouse gas emissions, through Brilliant Planet, Keith and his team are harnessing the incredible potential of algae, nature's champion of carbon sequesters, by cultivating a novel solution: scaling agricultural carbon capture systems using algae. This is not any type of farming, it is the future of carbon sequestration: *“It is unbelievably simple,”* explained Keith, recalling a conversation with a brilliant biochemist. *“He told me about this new way of farming algae by basically scaling down the ocean…[imagine] vast ponds where algae can grow exponentially - then we add more seawater, and it grows more.”*
 
@@ -27,7 +27,7 @@ Whilst Kelley applauded the work of Brilliant Planet for its potential for scale
 
 > “With a few billion dollars, Brilliant Planet could scale up to probably 200 million tonnes of carbon capture, which is a vast quantity, but it'll take us 50 years to get there. It's not enough, not on its own. Our challenge collectively is that we don't have the time to wait for that. The reality is that we need a lot of scalable solutions that can be put in place really, really fast to be able to hit 1.5 degrees.” **Keith Coleman**
 
-## **2. At the moment, transformative innovation is stifled by long-standing economic models & consumer behaviours**
+## 2. At the moment, transformative innovation is stifled by long-standing economic models & consumer behaviours
 
 The rest of our Collective Conversation - supported by thoughts from a series of breakout rooms - broadened out from the amazing work of Brilliant Planet to consider the wider picture and the need for systemic change.
 
@@ -39,7 +39,7 @@ These two thoughts underline the scale of the challenge - decision makers need t
 
 > “How do we activate citizens to become part of the solution? I think that that's one of the key levers of systems change that we need to start addressing. Right now, the organising forces around carbon reduction, carbon removal, and carbon mitigation efforts are generally governments that are scared to act, or disempowered." **Keith Coleman**
 
-## **3. Systems change needs to harness collective action around a shared vision that involves citizens**
+## 3. Systems change needs to harness collective action around a shared vision that involves citizens
 
 The conversation moved on to discuss the need for a clear vision for transformative change that speaks to and includes citizens.
 
@@ -47,7 +47,7 @@ The conversation moved on to discuss the need for a clear vision for transformat
 
 [***Neil Walmsley, Climate-KIC***](https://www.linkedin.com/in/neil-walmsley-6546937/?ref=hellobrink.co), added to this that if we are to move towards a shared vision, it will take multiple connected activities, rather than an individual project or silver bullet:*“There is a great need to move away from a focus on individual projects and activities. There's actually almost no shortage of solutions. In recent years, in particular, I’ve seen there's been a bit of a change in the types of programmes supported, so for example, rather than focusing on individual projects like new types of smart city management or whatever, there's a recognition that what’s more important is ensuring that there is a system which holds solutions together in concert.”*
 
-## **4. Collective Action needs structured organisation as well as mechanisms to empower people to make progress**
+## 4. Collective Action needs structured organisation as well as mechanisms to empower people to make progress
 
 On a more promising note, Keith felt that there are examples we can learn from around how to take collective action towards systemic change. He made a parallel between his experience in the anti-apartheid movement in South Africa and the current climate crisis.
 
@@ -61,7 +61,7 @@ Breakout rooms touched on this topic too in discussions about how traditional po
 
 > “How do you enable communities, citizens, and people, to start making their own changes? We concluded that we've been waiting too long for governments, and that's why it is on communities and collectives to act.” **Brink co-founder, Abi Freeman**
 
-## **At its heart, climate change is about aligning behind Humanity’s agenda**
+## At its heart, climate change is about aligning behind Humanity’s agenda
 
 In some ways the conversation acted as a microcosm of the bigger problem we were discussing. Through it, frustration about the challenge and the struggle towards progress brought about fatigue and reflection on the emotional toil of this work.
 

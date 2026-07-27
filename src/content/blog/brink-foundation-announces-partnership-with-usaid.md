@@ -15,7 +15,7 @@ We’re proud to announce that the Brink Foundation is partnering with the [Unit
 
 This partnership will advance the goals of [uBoraBora](https://www.uborabora.com/), an initiative launched in April 2024, which aims to continuously improve foundational literacy and numeracy in Sub-Saharan Africa. USAID’s support, provided through the Foundational Learning: Advancing Implementation Research for Scale (FLAIRS) award to Brink, along with co-investment from the Gates Foundation, will play a crucial role in driving this mission forward.
 
-## **Focussing on barriers and breakthroughs**
+## Focussing on barriers and breakthroughs
 
 The focus of USAID funding will be to tackle the barriers that prevent implementation research evidence and approaches from being used, and find ways for implementation evidence to be more useful and applicable. This will include the creation of an “Evidence Studio” to support this. The uBoraBora team will also work directly with USAID missions and partners to expand the quality and quantity of implementation research happening directly through their foundational literacy and numeracy programmes.
 

@@ -11,7 +11,7 @@ summary: "Ritual is as old as the human concept of community. In recent times, r
 sortOrder: 65
 ---
 
-## **Insights from our fifth instalment of Collective Conversations, where we explored the role of ritual in community building.**
+## Insights from our fifth instalment of Collective Conversations, where we explored the role of ritual in community building.
 
 Ritual is as old as the human concept of community. In recent times, ritual has come to be defined as [“a way of doing something in which the same actions are done in the same way every time.”](https://dictionary.cambridge.org/dictionary/english/ritual?ref=hellobrink.co) Intentionally or unintentionally, we create and use ritual every day in work and in our lives as individuals - whether that's taking a daily mindful moment over our first cup of coffee, sharing celebrations as families, and communities celebrating key moments such as [independence day](https://visittrinidad.tt/event/independence-day/?ref=hellobrink.co), or with strangers, such as the [clap for carers](https://www.theguardian.com/society/2020/may/28/clap-for-our-carers-the-very-unbritish-ritual-that-united-the-nation?ref=hellobrink.co) weekly moment in the UK during the covid pandemic.
 

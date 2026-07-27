@@ -25,7 +25,7 @@ Before diving into specific strategies, here are the core principles we’ve fou
 - **Know your stuff** – Bring strong subject-matter expertise, stay informed about the latest research, and keep up with country-specific developments.
 - **Stay connected** – Be intentional about networking, share insights regularly, and create ways to sustain collective learning.
 
-## **5 things to consider when working with government to truly effect change**
+## 5 things to consider when working with government to truly effect change
 
 In my time working with governments I have noticed it’s the people who pour energy and effort into *how*they interact with government as much as *what* they are doing with government, who are able to build the trust and rapport needed to truly make change happen and over sustained periods. I have also found that taking the time to understand the motivations and intentions of those you are working with in the government, and positioning to support them to take these forward, makes a huge difference.
 
@@ -41,9 +41,9 @@ I have mapped these below with strategies to implement and examples of what my c
 
 > Read Ciku's previous article:[Innovating with Government for Lasting Impact](https://www.hellobrink.co/post/mastering-mindful-collaboration-innovating-with-government-for-lasting-impact)
 
-## **What’s Really Needed?**
+## What’s Really Needed?
 
-## **1. Understand Priorities & Strategy**
+## 1. Understand Priorities & Strategy
 
 Governments operate based on priorities that are set for a particular period of time (eg the electoral term). To work effectively with them, I find you need to align your engagement with their strategic goals.
 
@@ -61,7 +61,7 @@ For each interaction, think about the key priorities in the room and what each p
 
 When working with the Tanzania Institute of Education (TIE) on teacher professional development, we started by understanding their pain points. We workshopped with members of the institute to determine the assumptions they had about the process that we could test and either validate or pivot to ensure that the plans and policies were developed with the teachers’ reality and expectations in mind. This enabled us to design interventions that fit within their strategic shift toward tech-enabled learning.
 
-## **2. Create a Value Exchange**
+## 2. Create a Value Exchange
 
 Successful partnerships require a reciprocal relationship. When working with governments, I’ve noticed that the strongest collaborations are the ones where both sides feel they’re gaining something valuable.
 
@@ -79,7 +79,7 @@ I’ve experimented with keeping a running list of valuable insights, research, 
 
 On EdTech Hub, we have taken the time to build relationships and trust with our government colleagues, and this has looked different over time; showing up at convenings, reintroducing ourselves and our work to different departments, supporting different programs, to mention a few. We are now being included in conversations beyond our primary engagement and this shows that there is a recognition of the value we bring.
 
-## **3. Deep Listening**
+## 3. Deep Listening
 
 Listening well means more than just hearing words—it’s about understanding context, pressures, and hidden barriers. I used to focus primarily on the content of what people were saying, but I’ve learned that true understanding happens when you listen across multiple levels.
 
@@ -99,9 +99,9 @@ When I intentionally shift my focus to Level 2 or 3, I find that conversations b
 - How do you surface the unspoken concerns or hidden barriers that might be shaping their approach?
 - Could you experiment with different levels of listening in your next conversation and notice what shifts?
 
-## **Understanding the Culture**
+## Understanding the Culture
 
-## **1. Develop Cultural Intelligence**
+## 1. Develop Cultural Intelligence
 
 Government cultures differ significantly from private sector or NGO environments. I’ve noticed that small things—like the formality of greetings or the role of hierarchy—can make a huge difference in whether a partnership succeeds or stalls.
 
@@ -122,7 +122,7 @@ Whenever I am preparing for a meeting with government partners, I think about wh
 
 It is also important to consider hieracy. For example, we have found that in some cases, juniors will not speak up on certain issues if their seniors are in the room and so how you set up conversations in such situations will determine how well they flow.
 
-## **2. Immerse in Government & Strategic Culture**
+## 2. Immerse in Government & Strategic Culture
 
 Spending time in government offices, attending their meetings, and seeing how decisions are made has been a game-changer for me. The way things look from the outside isn’t always how they work on the inside.
 
@@ -138,11 +138,11 @@ By embedding myself in the daily realities of my government partners, I’ve bee
 
 On occasion while waiting for a meeting to kick off at a government office, I have had the privilege of being offered a desk to work from and the interactions have been invaluable. I also really enjoy the moments when we get to travel out of town with our government colleagues where we have all their attention and can have insightful informal conversations. I'd love to do 'deep dive days' and shadow key stakeholders. If this is something you've been able to do I'd love to hear about it.
 
-## **Enabling Culture Shift (Even Through Uncertainty)**
+## Enabling Culture Shift (Even Through Uncertainty)
 
 ![](/images/67c050d3dccd8e985a378528_img_8326.JPG)
 
-## **1. Plan for Change**
+## 1. Plan for Change
 
 Many governments favour long-term roadmaps and rigid strategies. But the reality is that change happens in between the five year strategic plans and that some of the most effective change happens through a series of course corrections based on evidence and real-world experience—so I’ve found it useful to build in flexibility from the start.
 
@@ -159,7 +159,7 @@ One thing I’ve seen work well is working with colleagues in government to reth
 
 When we worked with a Whitehall Department and our partners ODI on becoming more of a learning and adaptive organisation, they implemented a principle that allowed for 10% of a program's budget for experimentation and addressing unforeseen challenges. We also worked with the department’s HR team to add ‘adaptive management’ to staff growth plans, which incentivised the behaviour and showed it was not just permitted, but valued and encouraged [You can read more, here](https://odi.org/en/about/our-work/learnadapt-innovation-and-adaptation-in-dfid/)
 
-## **2. Carve Out Innovation Spaces**
+## 2. Carve Out Innovation Spaces
 
 I’ve noticed that one of the biggest blockers to innovation in government is simply not having a safe space to test new ideas. When there’s pressure to get things right the first time, it’s harder to take risks or experiment.
 
@@ -177,7 +177,7 @@ In collaboration with [EdTech East Africa,](https://edtech-eastafrica.com) an Ed
 
 For more on carving out space for innovation, see our white paper, here: [https://www.hellobrink.co/the-carve-out](https://www.hellobrink.co/the-carve-out)
 
-## **3. Use Scenario-Based Contingency Planning**
+## 3. Use Scenario-Based Contingency Planning
 
 I’ve seen projects stop abruptly because a key person left or a political shift changed the landscape overnight. That’s why I’ve found scenario-based planning to be an essential tool—it helps prepare for the unexpected and ensures work can continue even in the face of uncertainty.
 
@@ -199,9 +199,9 @@ At Brink we are fans of carrying out pre-moterms as we begin a project. This all
 
 [If you’d like to give pre-mortems a go you can see our pre mortem tool here.](https://docs.google.com/presentation/d/e/2PACX-1vSv0SZ8XkzHcmNuz9Lld9Q5AVAHGKJhPeSepBqojt4BNsExYldKHNwIYYWsCERssP1_DiTz0-w8XBwa/pub?start=false&loop=false&delayms=3000)
 
-## **Staying Relevant & Informed**
+## Staying Relevant & Informed
 
-## **1. Build a Knowledge Management System (KMS)**
+## 1. Build a Knowledge Management System (KMS)
 
 I’ve noticed that one of the biggest challenges in working with governments is staying on top of evolving priorities, policy shifts, and emerging insights. It’s easy to lose track of what’s happening across different teams, especially when working across multiple projects or countries.
 
@@ -217,7 +217,7 @@ One thing that has helped is setting up a **Knowledge Management System (KMS)**�
 
 At **EdTech Hub**, we realised that our country engagement leads needed to have broad knowledge of different activities across the programme. To address this, we built a structured knowledge-sharing system that allows quick access to the latest insights and keeps everyone aligned.
 
-## **2. Regularly Gather & Share Insights**
+## 2. Regularly Gather & Share Insights
 
 I’ve learned that the best insights often come from more proactive approaches than just having access to what is in mainstream media—like having someone on my specialist network who has worked in government, has strong relationships and has insights on how the government machinery works, regularly checking government press releases, and keeping channels of communication open with my colleagues in government.
 
@@ -233,7 +233,7 @@ Beyond just gathering information, I’ve also found that sharing insights with 
 
 EdTech hub has the privilege of convening the Edtech Subgroup within the Education Development Partners Convening Group (EDPCG) in Kenya. This group regularly convenes Ministry of Education and partners and is a great forum to share progress, insights and learnings as well as allow the ministry to update on education programs progress and request support. We have seen improved coordination and collaboration because we are all up to date on what is happening in the sector.
 
-## **3. Implement Cross-Sector Knowledge Integration**
+## 3. Implement Cross-Sector Knowledge Integration
 
 Some of the most innovative solutions I’ve seen in government come from **adapting ideas from other sectors**. Whether it’s behavioural science, human-centred design, or systems thinking, bringing in outside perspectives can spark fresh ways of tackling problems.
 
@@ -249,9 +249,9 @@ At Brink, we’ve tried **“Cross-Pollination Sessions”** where we take insig
 
 Part of what is so great about Brink is that we all work on different programs and we often have touch points where we share our work and create room for cross-pollination. These enable us to think about what is working in other sectors and explore how we can adapt some of the concepts when working on challenges we are tackling together with the government.
 
-## **The People & Relationships That Matter**
+## The People & Relationships That Matter
 
-## **1. Map Key Stakeholders & Their Relationships**
+## 1. Map Key Stakeholders & Their Relationships
 
 When I first started working with governments, I focused on individual relationships. While this is key, I’ve realised that real influence comes from **understanding the system as a whole**—who the key players are, how decisions get made, and where power actually sits.
 
@@ -267,7 +267,7 @@ Creating **stakeholder maps** has helped me avoid common pitfalls—like investi
 
 When working with **Kenya’s National Innovation Agency (KeNIA)**on a 10-year innovation roadmap for the country, we ran a **pre-mortem session** that included mapping out key stakeholders. This enabled us to understand where, and by whom, decisions affecting KeNIA were being made and who was critical to include in our deliberations. . This helped us proactively engage relevant stakeholders and create visibility on the work, as well as gain an understanding on the political dynamics we could have easily missed including, in this case, a survey for citizens to submit their views on the future of their country.
 
-## **2. Use a Relationship Management System**
+## 2. Use a Relationship Management System
 
 Not all relationships are the same. Some are about **building trust and authority**, others are about **getting things done quickly**, and some evolve over time. I’ve found that keeping track of the different types of relationships I’m building—and why—helps me be more intentional.
 
@@ -281,7 +281,7 @@ Not all relationships are the same. Some are about **building trust and authorit
 
 On the **EdTech Hub**, some of the relationships we initially built in the public sector have evolved into deeper partnerships, where former contacts now act as champions for our work. Tracking these shifts has helped us stay aligned and leverage relationships more effectively.
 
-## **3. Measure Network Health**
+## 3. Measure Network Health
 
 A strong network isn’t just about how many people you know—it’s about the quality of those connections. I’ve found it useful to **assess network health** regularly by asking questions like:
 
@@ -297,13 +297,13 @@ At Brink, we’ve experimented with creating a **Network Health Index**—a way 
 - Are there weak spots—people or perspectives you’re missing?
 - Could you try a simple self-assessment of your network’s health to see where you could strengthen connections?
 
-## **Final Thoughts**
+## Final Thoughts
 
 I’ve learned that working with governments isn’t just about technical expertise—it’s about relationships, adaptability, and a deep understanding of the system. The more intentional we are in how we listen, collaborate, and build trust, the more impact we can create together.
 
 But this is just one perspective—what have you noticed? What’s worked in your experience? I’d love to hear your reflections and keep this conversation going. Let’s share what we’ve learned so we can all get better at working with governments in ways that truly make a difference.
 
-## **A Note on Election Years**
+## A Note on Election Years
 
 Elections introduce uncertainty into government collaboration. Leadership and priorities can shift rapidly, impacting ongoing projects.
 
@@ -315,7 +315,7 @@ Elections introduce uncertainty into government collaboration. Leadership and pr
 
 • Have an engagement plan that accounts for potential government transitions.
 
-## **Join the Conversation**
+## Join the Conversation
 
 We know that working with governments can be complex, and there’s no single right way to do it. These are just some of the strategies we’ve used. But we want to hear from you—what’s worked in your experience? What lessons have you learned?
 

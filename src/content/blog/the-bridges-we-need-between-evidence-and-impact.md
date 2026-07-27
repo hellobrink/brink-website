@@ -28,7 +28,7 @@ Griots were so respected that they would act as mediators, settling disputes and
 
 As [Chimamanda Ngozi Adichie shares](https://jamesclear.com/great-speeches/the-danger-of-a-single-story-by-chimamanda-ngozi-adichie):"It is impossible to talk about the single story without talking about power... Power is the ability not just to tell the story of another person, but to make it the definitive story of that person."
 
-## **Where are the griots today?**
+## Where are the griots today?
 
 For centuries, griots were often born into long lines of families, so storytelling was locked into bloodlines. More recently, media brands and commercial organisations bought their way in with deep pockets for advertising campaigns, drowning out millions of other voices. Today’s open platforms promise democratisation, but just because everyone has a voice doesn’t mean everyone is heard.
 
@@ -42,7 +42,7 @@ Niti Bhan helps funders, policymakers, and innovators understand the context of 
 
 ![](/images/6943e915d25abc35319d015f_ba1820e5.jpeg)
 
-## **What’s stopping us from embodying this modern griot role today?**
+## What’s stopping us from embodying this modern griot role today?
 
 Many organisations prioritise data over narrative, even though [research shows that stories are what really move hearts and minds to action](https://greatergood.berkeley.edu/article/item/how_stories_change_brain). This shapes everything downstream: innovators, while passionate and knowledgeable, rarely see themselves as storytellers or have the support to develop those skills. [Studies on science communication](https://www.researchgate.net/publication/268224623_Scientists_are_from_Mars_Laypeople_are_from_Venus_An_Evidence-Based_Rationale_for_Communicating_the_Consensus_on_Climate) reveal how wide this gap can be between technical expertise and narrative craft.
 

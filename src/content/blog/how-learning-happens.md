@@ -39,17 +39,17 @@ Unlike schools, there is no pre-existing curriculum for teams. We need to active
 
 **💪🏽 How can we ask teams to get ‘skin in the game’?** Behavioural sciences tell us that being asked to invest (ie. skin in the game) helps us make a decision as to whether we think it is worth it. In a digital world, where we’re overrun by content, how can we create that sense of investment?
 
-![](/images/66d9b395a52f5fa7222de2c4_1nn31_6tiq9fisd8jsshggg.jpeg)
+![A LEARNING JOURNEY WECO-CREATED WITH THE FCDO EXPLORING THE IMPACT OF FRONTIER TECHNOLOGIES ON THE WORLD OF MONEY](/images/66d9b395a52f5fa7222de2c4_1nn31_6tiq9fisd8jsshggg.jpeg)
 
-A L[EARNING JOURNEY WE](https://medium.com/frontier-technologies-hub/what-might-the-future-of-money-mean-for-fcdo-b7239b4dad57?ref=hellobrink.co)CO-CREATED WITH THE FCDO EXPLORING THE IMPACT OF FRONTIER TECHNOLOGIES ON THE WORLD OF MONEY
+<p class="post-caption">A L<a href="https://medium.com/frontier-technologies-hub/what-might-the-future-of-money-mean-for-fcdo-b7239b4dad57?ref=hellobrink.co" target="_blank" rel="noopener noreferrer">EARNING JOURNEY WE</a>CO-CREATED WITH THE FCDO EXPLORING THE IMPACT OF FRONTIER TECHNOLOGIES ON THE WORLD OF MONEY</p>
 
 ## Principle 2: Close the gap between learning and action 🤏🏽
 
 Learning doesn’t happen overnight but is a virtuous cycle where **individuals and teams expand their understanding of what is possible, reflect on it, and then apply it in practice**. Neuroscience tells us that reflecting and practicing new information makes it ‘stickier’. In practice, we think about how we can support teams to put into practice new ideas or perspectives as quickly as possible.
 
-![](/images/66d9b39588c7db571f2bdc50_07eehopnvrwyf32gv.png)
+![*DR FRUST’ CYCLE OF LEARNING*](/images/66d9b39588c7db571f2bdc50_07eehopnvrwyf32gv.png)
 
-*DR FRUST’ CYCLE OF LEARNING*
+<p class="post-caption">*DR FRUST’ CYCLE OF LEARNING*</p>
 
 ## What we’ve learnt:
 
@@ -75,9 +75,9 @@ People do not shift their mindset or understanding by osmosis. They have to make
 
 **👥 How can we use different learning methods or topics to engage different people?** Because we can only see what we can see, we’re hoping to use a variety of topics and questions to surface the perspectives of others, and opt them into the journey.
 
-![](/images/66d9b395e374f653d69a95d1_1mz0lnnclcy_syd65g9d75a.png)
+![LEARNING DOESN’T JUST HAPPEN AT YOUR DESK](/images/66d9b395e374f653d69a95d1_1mz0lnnclcy_syd65g9d75a.png)
 
-LEARNING DOESN’T JUST HAPPEN AT YOUR DESK
+<p class="post-caption">LEARNING DOESN’T JUST HAPPEN AT YOUR DESK</p>
 
 ## Principle 4: Build a bridge between old and new information 🌉
 

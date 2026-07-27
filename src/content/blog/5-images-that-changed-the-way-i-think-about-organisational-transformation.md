@@ -15,7 +15,7 @@ How can our institutions ‘do better’ to create positive change in the world?
 
 In this post I’m going to talk a little more personally about a few moments and experiences in my life which influenced my point of view on change. I started writing this in response to a watershed professional moment: seeing a diagram about change that I had co-created in print (ok, online), published by the highly respected [OECD](https://www.oecd.org/unitedkingdom/?ref=hellobrink.co). This post unpacks the evolution in my thinking that influenced that diagram.
 
-## **First, the diagram that inspired this post**
+## First, the diagram that inspired this post
 
 Last year, I worked with [Ben Kumpf](https://www.linkedin.com/in/benjaminkumpf?ref=hellobrink.co), [Parnika Jhunjunwala](https://www.linkedin.com/in/parnika-jhunjhunwala/?ref=hellobrink.co), [Mariam Tabatadze](https://www.linkedin.com/in/mtabatadze?ref=hellobrink.co) frm the OECD Innovation Development Facility team and fellow Brinksters [Emma](https://www.linkedin.com/in/emmaproud?ref=hellobrink.co)and [Abi](https://hellobrink.co/team/abi/)on a process to support the adoption of innovation. In plain language: how can you take a new method, or a type of technology, which has worked in very specific instances, and make it a normal way of working that anybody in your organisation can turn to in the right circumstances?
 
@@ -25,7 +25,7 @@ The [OECD paper is now out](https://www.oecd-ilibrary.org/development/the-adopti
 
 The diagram is trying to express that change is not linear: that you have to go through several cycles of learning, adapting, and gathering influence, in order to transform the institution. It acknowledges that sometimes you’ll feel like you’re looping back on yourself. It implies that it might be hard to see your progress unless you look at it differently (after all, a spiral seen from the top is just a circle- going round and round, and not up and up). These are all things I think are important to know up front about change.
 
-## **Up, down and round and round**
+## Up, down and round and round
 
 For me at least the diagram’s origin story probably starts with this image, which first entered prominence in the [2011 World Development Report](https://openknowledge.worldbank.org/handle/10986/4389?ref=hellobrink.co). It transformed the way governance practitioners like me, who were still delivering linear, new public management style programmes, thought about our work.
 
@@ -39,7 +39,7 @@ For example, our project called for ‘human resources management reform’ incl
 
 Fresh from my Masters in international development, I found the rigidity of my programme design bizarre (as did several of our funders!). We didn’t have the flexibility to truly engage with and support our partner Ministries, to meet them where they were, and work within the grain of the political settlement. Though we muddled through well enough, and did our best together, it was a heavy lift. The WDR report felt like the first point of credible leverage to rethink this way of working. And I liked that the diagram carried with it the implicit (but often unrecognised) potential that things may get worse or go backwards before going forwards.
 
-## **Power map**
+## Power map
 
 Fast forward several years, and I found myself at ODI, working in the politics and governance team. This team is a global thought leader in thinking and working politically and adaptive management, carrying out world class research and policy advice. I used to read reports which questioned the very fundamentals of my governance work, and then one day I got to work with the authors directly. A dream come true.
 
@@ -59,7 +59,7 @@ The sentiment that I took into the OECD work was the importance of ‘mapping yo
 
 For the past few years, I’ve been working directly with governments and large donor organisations based in the Global North: a diagram like this challenges me to rethink, and remember my past. Each bureaucracy sort of has its own political settlement, so how would my suggested tactics play out in a bureaucracy that doesn’t act like a Western bi-lateral development agency?
 
-## **Knotty problems**
+## Knotty problems
 
 Advising other people on change is an odd and difficult thing. I’ve had many more frustrating days than impactful ones. People often expect that organisational change comes after you analyse the problem, and develop a concrete set of recommendations to ‘tick off’. ‘Jess: you tell us the problem and how to fix it, and then we will action all the fixes you suggest.’
 
@@ -69,7 +69,7 @@ And it’s very easy to get sucked into that comforting falsehood of certainty i
 
 Transforming an organisation is complex - there are a lot of interlinked factors which influence whether what you do is going to make a difference. In the face of this, it makes much more sense to approach organisational change as one would complex systems change. This means ditching the rigid plan, and instead experimenting with what works, and doesn’t work.
 
-## **Time loops**
+## Time loops
 
 But what about the human side? Transformation is hard, on everyone. Change is not easy, and the work required to transform an organisation can feel overwhelming: it's important to recognize that this work will feel hard, and you won't see change straight away. If you’re doing it right, it’s probably going to feel hard on other people too.
 
@@ -85,7 +85,7 @@ In addition to pioneers, there are individuals who must create stability for oth
 
 Finally, it borrows a term from palliative care- the hospice- to describe what a good ‘end of life’ for a system could look like. ‘Hospicing’ in the context of changing people and institutions, involves recognizing the value of the existing system, honouring the work to date, and providing a safe space for people to transition to the new system. People worked hard, and they were right to do so, at the time: now things are changing, but they have still made a huge positive contribution.
 
-## **Shall we play a game?**
+## Shall we play a game?
 
 I’ve called this post ‘5 images’ but I can’t leave without telling you about a last, sixth, image. Possibly the most important one of all.
 
@@ -95,7 +95,7 @@ It’s also a story of the value of play in forging new paths: sometimes you jus
 
 That’s my final exhortation to myself when working through change: have fun. Because changing the world around us is too important not to laugh about. Which brings me to a little announcement:
 
-## **We’re creating a game**
+## We’re creating a game
 
 How can we distil our collective decades of personal experience, the latest ideas in organisational psychology, and the most recent evidence about change, into a fun flexible format which helps people actually take action? Our answer, for now, is a strategic card game, which people can play alone or with their teams, and again and again.
 

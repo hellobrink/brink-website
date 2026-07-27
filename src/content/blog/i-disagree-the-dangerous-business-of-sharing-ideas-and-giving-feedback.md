@@ -23,7 +23,7 @@ As the late executive coach Judith Glaser [suggested](https://hbr.org/2013/02/br
 
 Successful innovators have to be much more than idea machines, keen listeners and committed learners. They also need to be willing and open-minded sharers, exposing their inspirations to the world to elicit the feedback and critique that are needed to turn a viable idea into a workable programme or product. The earlier an idea is shared with the people who can help to mould it, generally the better. But doing this can be as hard as coming up with new concepts in the first place. Sharing may be something we teach to children, but in the context of innovation it requires us to overcome some of our strongest instincts and most deep-seated aversions.
 
-## **Dispassion meets compassion**
+## Dispassion meets compassion
 
 The first thing to recognise about sharing is that it can be terrifying. An idea that might have been months or even years in the making is about to take its first steps, and the thought it might stumble or fall can be hard to bear. But the individual or team behind that idea must acknowledge that those first steps are essential if it is ever to reach viability. And the earlier they are taken, the less painful any trips and grazed knees are going to be.
 
@@ -37,7 +37,7 @@ Truly constructive feedback offers more than critique: it also presents a path f
 
 Sharing is a two-way process, and unless the dispassion of those putting forward ideas is matched by the compassion of those helping to mould them, it risks falling apart into mutual antagonism and distrust.
 
-## **Have a process**
+## Have a process
 
 The attitude of people presenting and responding to proposals is important, but no less than the process which surrounds the sharing of both ideas and critique. One of the mistakes some innovation teams make is to take an informal, almost haphazard approach to feedback: everyone gets a say, no matter what stage of the process, or what form the input takes.
 

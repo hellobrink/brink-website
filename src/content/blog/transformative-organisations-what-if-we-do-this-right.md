@@ -94,9 +94,9 @@ However, this shift to a more ‘natural’ rhythm is not uniquely in the power 
 
 Social conditions are fractal- they tend to follow the same pattern at different levels, like the spirals in a fern. So, perhaps social change is also fractal? We hoped so: by continuing the conversation together, we felt we might subtly shift the pattern of how our and other organisations work.
 
-![](/images/66d9c89c719b4f7d8c09e184_0hreureuzlnjgy3fu.jpeg)
+![FRACTALS IN NATURE](/images/66d9c89c719b4f7d8c09e184_0hreureuzlnjgy3fu.jpeg)
 
-FRACTALS IN NATURE
+<p class="post-caption">FRACTALS IN NATURE</p>
 
 We agreed to keep talking with each other, and widening the conversation beyond our existing circle of friends. This is our starting point for a wider movement, and we ended with an intention to open up the space to include others round the table.
 

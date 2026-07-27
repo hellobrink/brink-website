@@ -21,7 +21,7 @@ These moments are a given. What’s not a given - and has to be intentionally de
 
 Over the past few years Brink has had the great privilege of working with some of the most inspiringly adaptive bureaucracies. We’ve supported them to accept uncertainty and build the methods, mindset and mechanisms to create impact in the midst of change. Here’s what we’ve worked on together.
 
-## **1. Make change predictable**
+## 1. Make change predictable
 
 The realities of government programming is that you’ll most often need to set out a five year business plan to get started. Within that long-term plan, there are ways to make room for adaptation.
 
@@ -33,7 +33,7 @@ Here are some key things to consider as you go:
 - **But don't adapt without a good reason**: If you know what you need to do to get the job done, an adaptive approach that encourages contemplation is probably a waste of time and money. If you’re, say, building a bridge, doing that in 'build, measure, learn' sprints is just a different kind of chocolate teapot.
 - **Making space**: Teams have to ‘get off the dance floor and onto the balcony’. Pre-plan timeouts and review points to stop, take a step back and reflect on the action from a distance. On our programmes we have started using an adapted version of the[ikigai](https://en.wikipedia.org/wiki/Ikigai?ref=hellobrink.co) to do this and support teams to think big.
 
-## **2. Create portfolios to test novel ideas alongside 'business as usual'**
+## 2. Create portfolios to test novel ideas alongside 'business as usual'
 
 If you’re not clear on the best route to achieve your goal, take a portfolio view - think about how you’d balance more certain strategies, with bolder, less certain options, running in parallel.
 
@@ -45,7 +45,7 @@ By definition it means stopping things that aren’t fruitful too. Here’s what
 - **Consider routes and weight them**: Structure your portfolio against a golden ratio of 70/20/10. Give the routes that are most likely to deliver impact 70% of your time and financial resources, adjacent ideas 20% and the side bets 10%. Our friend Ann Mei Chang encourages us to think in terms of Engine 1 and Engine 2, it’s a similar framework where the first engine gets most of the work done and is managed as a more predictable set of initiatives while engine two is experiments with the riskier ideas that might have outsized impact longer term.
 - **Plan formal gates for reflection and decision-making:** Use timely reflection points or gates within your plan to stop doing things that aren’t working and reinvest that effort in things that are. Compare your portfolio against a north star, do less of what’s failing, more of what’s working.
 
-## **3. Use evidence to inform, not just evaluate**
+## 3. Use evidence to inform, not just evaluate
 
 A lot of ‘measures of success’ in government are there to monitor and evaluate and essentially govern suppliers, asking “has this supplier done their job?”. Adaptive programmes need to use data to inform what happens next; to ask “What do we know now that we didn’t know before?”
 
@@ -53,7 +53,7 @@ A lot of ‘measures of success’ in government are there to monitor and evalua
 - **Value learning as an outcome**: Make learning an outcome and optimise all your processes in line with that. If you are setting up a big research project, consider mechanisms like payment-by-learning which Brink designed into the [Frontier Technologies Hub](https://www.frontiertechhub.org/?ref=hellobrink.co). Remember, the power dynamics in donor/grantee relationships often means grantees are quite set in the way of telling donors what they believe they want to hear. If you really want to learn, honesty has to be incentivised. Or, to be basic about it, put your money where your mouth is.
 - **Beware the vanity metrics:** Forget measures that focus on hard numbers, which tell you nothing. Knowing that x thousand people were reached may be good for your ego but it tells you little. Is that a lot, or most of the people, or a small fraction? Meaningful measures, by comparison, tell a story, like rate of production, adoption as opposed to people reached. This will help us to make better decisions and, of course, correct where needed.
 
-## **4. Foster a culture capable of experimentation**
+## 4. Foster a culture capable of experimentation
 
 Managing adaptive teams demands that we undo the old orthodoxies of leadership. Adaptivity isn’t about command and control. It’s about fostering an environment that supports experimentation and learning, including providing incentives to work adaptively and embrace uncertainty.
 
@@ -62,7 +62,7 @@ Managing adaptive teams demands that we undo the old orthodoxies of leadership. 
 - **Using novel approaches can be lonely**: Find friends and other like-minded people who are working in similar ways. Support and encourage one another.
 - **Speak the same language:** Lingo can create bigger divisions when used without intention and without first getting on the same page, so take time to make sure you all mean the same thing.
 
-## **5. Set your partners up for success**
+## 5. Set your partners up for success
 
 Humans change from one context to another - think about how different you are when talking to your best friend's mother who you've just met, or your best friend at the pub. Context shapes behaviour and contracts are context for working with others. Contracts shape behaviour.
 

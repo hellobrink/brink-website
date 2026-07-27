@@ -15,9 +15,9 @@ In 1854, physician and pioneering epidemiologist John Snow used geospatial data 
 
 This is a profound example our speaker Sir Geoff Mulgan shared, of the positive impact that data and data-driven stories can have.
 
-![](/images/66d9d12aee0f8b14f9847786_27636.jpeg)
+![JOHN SNOW'S MAP OF THE CHOLERA OUTBREAK. BLACK BARS REPRESENT DEATHS. BLACK DOT REPRESENTS THE WATER PUMP](/images/66d9d12aee0f8b14f9847786_27636.jpeg)
 
-JOHN SNOW'S MAP OF THE CHOLERA OUTBREAK. BLACK BARS REPRESENT DEATHS. BLACK DOT REPRESENTS THE WATER PUMP.
+<p class="post-caption">JOHN SNOW'S MAP OF THE CHOLERA OUTBREAK. BLACK BARS REPRESENT DEATHS. BLACK DOT REPRESENTS THE WATER PUMP.</p>
 
 Today, with the help of technology, the tools used to gather and visualise data are becoming more and more sophisticated and accessible from open-source data to digital crowdsourcing platforms. Meanwhile, reasons to advocate for big change in areas like climate change are ever-increasing.
 
@@ -49,9 +49,9 @@ David went on to outline the three elements necessary for constructing an impact
 
 Geoff took us on a whirlwind tour of the history of Collective Intelligence methodologies and approaches revealing that they have in fact [been scientifically tested for centuries](https://hellobrink.co/the-power-of-we/), and almost certainly existed before that too - 44,000-year-old [cave art in Indonesia](https://www.sciencenews.org/article/nearly-44000-year-old-hunting-scene-is-oldest-storytelling-art?ref=hellobrink.co), for instance, depicts groups of hunter-gatherers working together, we can assume, following the pooling of experience and insight. Or take the famous Galton exercise of getting people in a village to guess the weight of a cow, and finding that the aggregate of collective guesses is actually an incredibly effective way of getting close to the truth. A similar exercise was carried out in [2015 with 17,205 people](https://www.npr.org/sections/money/2015/08/07/429720443/17-205-people-guessed-the-weight-of-a-cow-heres-how-they-did?ref=hellobrink.co), with the same result.
 
-![](/images/66d9d12b693699542f257a65_screenshot-2023-07-10-at-121221.png)
+![A VISUAL REPRESENTATION OF THE EXERCISE CARRIED OUT IN 2015](/images/66d9d12b693699542f257a65_screenshot-2023-07-10-at-121221.png)
 
-A VISUAL REPRESENTATION OF THE EXERCISE CARRIED OUT IN 2015
+<p class="post-caption">A VISUAL REPRESENTATION OF THE EXERCISE CARRIED OUT IN 2015</p>
 
 Geoff also suggested that there has been a trend towards more collective science over time, and by compiling data about the number of authors contributing to research, he evidenced that trend towards collaborative discovery and authorship from the 1960s onwards.
 
@@ -91,9 +91,9 @@ David shared many examples with us. One that particularly stuck out for the grou
 
 It certainly makes you wonder what other transformative facts are hidden in plain sight regarding the allocation of our world's resources, and how visualisations like this might persuade a decision maker or two to think differently about a policy or wide reaching initiative.
 
-![](/images/66d9d12b3d5c3613b08a0ad4_screenshot-2023-07-10-at-122702.png)
+![PART OF THE $TRILLIONS GRAPHIC - HTTPS://INFORMATIONISBEAUTIFUL.NET](/images/66d9d12b3d5c3613b08a0ad4_screenshot-2023-07-10-at-122702.png)
 
-PART OF THE $TRILLIONS GRAPHIC - HTTPS://INFORMATIONISBEAUTIFUL.NET
+<p class="post-caption">PART OF THE $TRILLIONS GRAPHIC - HTTPS://INFORMATIONISBEAUTIFUL.NET</p>
 
 ## As long as there is a clear ‘why’ we can all give data-driven storytelling a go
 

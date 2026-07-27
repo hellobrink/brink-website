@@ -17,7 +17,7 @@ In each room one question kept coming up: why can’t capital still can't reach 
 
 Since then, it seems that very little has changed.
 
-## **What's shifted, and what's still stuck**
+## What's shifted, and what's still stuck
 
 When that’s the case, I always look for the bright spots to get a glimpse of what we could be doing more of, or better. There are a few things moving in the right direction.
 
@@ -27,7 +27,7 @@ Still, there are plenty more issues which seem stuck in neutral. Funding still d
 
 And sadly, the people closest to the problems are still mostly absent from the rooms where those problems get discussed.
 
-## **Three ways capital misses its target**
+## Three ways capital misses its target
 
 Climate and food-systems capital is plentiful, but very little of it is able to reach where resilience gets built, i.e. at the community and early-venture level. This is where innovation is most relevant and viable.
 
@@ -37,7 +37,7 @@ For the kinds of small, fragmented needs typical of smallholders and early ventu
 
 Finally, even a well-shaped instrument, once deployed appropriately, still depends on embedded delivery. We're seeing this work effectively through examples like local intermediaries who can translate basis risk into a decision a cooperative can act on, distribution partnerships which are built alongside the product testing rather than after it, and structures where concessional capital absorbs the innovation risks private money won't, treating them as global goods that signal what works to the whole ecosystem.
 
-## **What better-shaped capital looks like in practice**
+## What better-shaped capital looks like in practice
 
 At Brink we’ve built two programmes around that gap - identifying promising ideas and getting them venture-ready to go from grants to blended and commercial investments, meanwhile helping investors find these good deals:
 

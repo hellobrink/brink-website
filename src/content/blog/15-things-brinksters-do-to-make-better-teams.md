@@ -17,7 +17,7 @@ Have you ever been on a team of incredibly intelligent people who just couldn’
 
 Recently, we at Brink set out to investigate and uncover some practical, team level strategies that we found to be impactful in our work, so we could codify them and share them with others. The result is a checklist that we can use to reflect on our own team dynamics and give us some prompts about improvement we can make when things don’t feel like they’re quite humming.
 
-## **Some practical strategies for smarter teams**
+## Some practical strategies for smarter teams
 
 Below is a collection of behaviours and methods that can be seen at Brink on our best days. There are 15 of them in total, starting with individual elements and extending into the broader team set up.
 

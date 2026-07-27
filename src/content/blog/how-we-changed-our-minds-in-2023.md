@@ -17,7 +17,7 @@ Brinksters are nothing if not curious and culturally omnivorous, so we got a wid
 
 We’ve bundled all the suggestions together into a handful of loose themes with the aim of providing you with some insightful, inspiring and illuminating brain food to take you into 2024. We hope you’ll find a few things here to give you some fresh perspectives and maybe even unlock some ambitions for the new year.
 
-## **Finding new and creative responses to the big problems**
+## Finding new and creative responses to the big problems
 
 We spend a lot of our time at Brink exploring innovative ways of tackling some of the world’s biggest crises, so it’s no surprise that Brinksters have spent a chunk of 2023 looking at ways we might be able to respond to and even harness the more unpredictable and challenging elements of the world around us to work towards a better future.
 
@@ -31,7 +31,7 @@ We spend a lot of our time at Brink exploring innovative ways of tackling some o
 
 ![](/images/66d9d58e772263a440f77952_h.png)
 
-## **Exploring new ways of communicating and storytelling**
+## Exploring new ways of communicating and storytelling
 
 At Brink, we love storytelling so much we named one of our practices after it, and the art of creating compelling, impactful narratives is one of those meta-skills that we’re always working on. So it’s no surprise to see so many of Brinkster’s ‘highly recommended’ works of 2023 focus on the topic.
 
@@ -51,7 +51,7 @@ At Brink, we love storytelling so much we named one of our practices after it, a
 
 ![](/images/66d9d58de805b6a6788fe707_h2.png)
 
-## **Breaking down the big ideas**
+## Breaking down the big ideas
 
 What is reality? What’s the future of language? Where do we come from? Sometimes it’s easy to avoid delving into these kinds of questions because they feel too big, too ethereal or just too scary. But the suggestions below show that, if you can find a guide who can captivate and move you in equal measure, then it’s possible to find beauty and wonder in even the most intimidating of subjects.
 
@@ -65,7 +65,7 @@ What is reality? What’s the future of language? Where do we come from? Sometim
 
 ![](/images/66d9d58d7547aefa1e0cd9c4_h3.png)
 
-## **Understanding what it means to be human**
+## Understanding what it means to be human
 
 Understanding human behaviours and unlocking their potential to deliver real world change, is a passion that runs through everyone at Brink. Fortunately it’s an ever-growing and endlessly fascinating area that provides a huge amount of fuel for our work as well as our conversations around the lunch table.
 
@@ -79,7 +79,7 @@ Understanding human behaviours and unlocking their potential to deliver real wor
 
 ![](/images/66d9d58d34688269e3d14641_h4.png)
 
-## **Thinking about the future of technology**
+## Thinking about the future of technology
 
 There’s been [a lot of talk about ‘techno-optimism’](https://a16z.com/the-techno-optimist-manifesto/?ref=hellobrink.co) in 2023, but at Brink we’re much more likely to talk about ‘techno-pragmatism’ or at least ‘cautious optimism’ when it comes to the profound impact technology may have on human connections, the economy, environment, political systems, and so many other key elements of our daily lives and social structures. Here are just a few of the techno-commentators and controversies that caught our attention this year.
 

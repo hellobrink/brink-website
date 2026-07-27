@@ -25,9 +25,9 @@ We were supported to explore this issue by three Web3 experts and practitioners,
 
 An hour and fifteen minutes later we departed virtual company having been enthused and energised with provocative thoughts, here is what we found.
 
-![](/images/66d9c83ac5990ff96c6c0952_0_t7fee3eqmydym85_.png)
+![AT THE TOP OF THE CONVERSATION, WE TOOK A VOTE USING A THUMBS ON IF WE COULD EXPLAIN WHAT WEB3 WAS TO OUR GRANDMA](/images/66d9c83ac5990ff96c6c0952_0_t7fee3eqmydym85_.png)
 
-AT THE TOP OF THE CONVERSATION, WE TOOK A VOTE USING A THUMBS ON IF WE COULD EXPLAIN WHAT WEB3 WAS TO OUR GRANDMA
+<p class="post-caption">AT THE TOP OF THE CONVERSATION, WE TOOK A VOTE USING A THUMBS ON IF WE COULD EXPLAIN WHAT WEB3 WAS TO OUR GRANDMA</p>
 
 ***“Once upon a time people were born into communities and had to find individuality. Today, people are born individuals and have to find the communities”***
 

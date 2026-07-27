@@ -44,7 +44,7 @@ We’re proud to be the team behind accelerating the development of [new and inn
 
 On top of these deep foundations, we're seeing glimmers of what might come next: Opportunities for deeper agency across Africa, a shift toward shared responsibility across public and private sectors, a growing role for the diaspora and faster-moving philanthropy.
 
-## **What’s next: Bringing people together**
+## What’s next: Bringing people together
 
 These things are signals - not of reinvention but recommitment. To people. To practice. To the hard, human things that have always moved the needle.
 

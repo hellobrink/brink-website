@@ -21,9 +21,9 @@ But I was also incredibly lucky to be part of a team funded by UK Aid who within
 
 I’ve learned very soon after the launch that innovation often lies on the side of discomfort — in the midst of ambiguity, uncertainty, tension and risk. This was the first time we set out to do this type of work with our wonderful partners (*Results for Development, IMC Worldwide, Global Disability Innovation Hub, UCL’s Institute of Healthcare Engineering)*, whilst moving to work from home, dealing with health and family concerns. Everyone had questions and all I craved was answers.
 
-![](/images/66d9b33ab5c97c9429d83369_0pp1wcjfvf9vadgwg.jpeg)
+![GLOBAL AUTO SYSTEMS TEAM MEMBERS MAKING FACE SHIELDS IN UGANDA](/images/66d9b33ab5c97c9429d83369_0pp1wcjfvf9vadgwg.jpeg)
 
-GLOBAL AUTO SYSTEMS TEAM MEMBERS [MAKING FACE SHIELDS IN UGANDA](https://medium.com/covidaction/addressing-covid-19s-multiple-challenges-with-technological-innovation-in-uganda-c1b10d89a7c?ref=hellobrink.co)
+<p class="post-caption">GLOBAL AUTO SYSTEMS TEAM MEMBERS <a href="https://medium.com/covidaction/addressing-covid-19s-multiple-challenges-with-technological-innovation-in-uganda-c1b10d89a7c?ref=hellobrink.co" target="_blank" rel="noopener noreferrer">MAKING FACE SHIELDS IN UGANDA</a></p>
 
 In this type of uncertain situation, ideally I should have been at my most adaptive, but instead, I froze. My body entered survival mode, my mind paralysed by the uncertainty of what lay ahead. This was a significant departure from my usual energetic-getting-things-done self.
 
@@ -33,13 +33,13 @@ Something physical happens when we’re stressed. When triggered by threats, blo
 
 FCDO-funded COVIDaction has invested £2.4 million of grant funding into 36 innovations, each contributing to remarkable responses to the pandemic, from using banana tree trunk fibre for producing safe birthing kits to new healthcare models in Bangladesh and global epidemiological data models.
 
-![](/images/66d9b33ad484a5ba7d313bf9_1-zvrevs5zcwckehqpvqzcuq.jpeg)
+![COVIDACTION INNOVATORS](/images/66d9b33ad484a5ba7d313bf9_1-zvrevs5zcwckehqpvqzcuq.jpeg)
 
-COVIDACTION INNOVATORS
+<p class="post-caption">COVIDACTION INNOVATORS</p>
 
 We have also prototyped new global models of collaboration, convening product innovators, academics and engineers to [clear the path to market for essential products like oxygen concentrators,](https://medium.com/covidaction/how-can-we-get-fit-for-purpose-oxygen-concentrators-to-low-resource-settings-95da16c71443?ref=hellobrink.co) and the public sector to pave the way with regulation and financing. We’ve also designed inclusive models for surfacing innovation, working with local organisations to [surface offline communities of local grassroots producers](https://medium.com/covidaction/connecting-the-unconnected-covidaction-capacity-building-support-for-offline-communities-in-africa-9fbeccd6f124?source=collection_category---4------0-----------------------), to engage with those who were not connected to the internet.
 
-## **Our approach allowed us to step into the unknown. And I want to share with you the five principles which underpinned it:**
+## Our approach allowed us to step into the unknown. And I want to share with you the five principles which underpinned it:
 
 ![](/images/66d9b33aefc569f5b2c447e1_1-cl9zaozcjbb3-arwliivog.png)
 

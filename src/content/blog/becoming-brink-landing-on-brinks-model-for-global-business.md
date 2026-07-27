@@ -59,9 +59,9 @@ From talent to new business opportunities, from government strategy to creating 
 
 If we targeted short term sustainability, it would inform our models and whether to go global at all. If we take a more patient approach, we can take more risk.
 
-![](/images/66d9cd58719b4f7d8c0e6bf7_brink-global-map-01.png)
+![WHERE BRINKSTERS ARE WORKING](/images/66d9cd58719b4f7d8c0e6bf7_brink-global-map-01.png)
 
-WHERE BRINKSTERS ARE WORKING
+<p class="post-caption">WHERE BRINKSTERS ARE WORKING</p>
 
 ## We still have much to learn
 

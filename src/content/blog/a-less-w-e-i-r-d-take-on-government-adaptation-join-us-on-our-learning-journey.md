@@ -14,9 +14,9 @@ Today, we’re experiencing great, global, challenges: climate change; equitable
 
 Governments play a vital role in tackling the challenges of today. We have a hunch- shared with others- that governments need to work differently to tackle the challenges of the future. That unlocking the [government of the future](https://awayforward.undp.org/?ref=hellobrink.co) is key to our collective, better future.
 
-![](/images/66d9cc127d0c02773fd5a9e2_1-7fgv6wfrmxenhvyui1ptag.png)
+![INSPIRED BY UNDP/DARK MATTER LABS 2020 HTTPS://AWAYFORWARD.UNDP.ORG/](/images/66d9cc127d0c02773fd5a9e2_1-7fgv6wfrmxenhvyui1ptag.png)
 
-INSPIRED BY UNDP/DARK MATTER LABS (2020) [HTTPS://AWAYFORWARD.UNDP.ORG/](https://awayforward.undp.org/?ref=hellobrink.co))
+<p class="post-caption">INSPIRED BY UNDP/DARK MATTER LABS (2020) <a href="https://awayforward.undp.org/?ref=hellobrink.co" target="_blank" rel="noopener noreferrer">HTTPS://AWAYFORWARD.UNDP.ORG/</a>)</p>
 
 ## We at Brink are most curious to explore government [capabilities for adaptation](https://odi.org/en/publications/adaptive-bureaucracies-enabling-adaptation-in-public-bureaucracies/?ref=hellobrink.co).
 
@@ -36,9 +36,9 @@ Our question is: what ideas and practices are there from non-White Western-educa
 
 So we’re going on a journey of discovery. On behalf of Brink, we ([Ciku Mbugua](https://www.linkedin.com/in/wanjiku-mbugua-37a296205/?originalSubdomain=ke&ref=hellobrink.co) and [Jess Price](https://www.linkedin.com/in/jessica-price-38a4532b?ref=hellobrink.co)) are going out into the world to talk to people. We’ll gather insights to build a more meaningful picture of adaptation in governments. And understand what our place could be in bringing about a change in the way governments work.
 
-![](/images/66ce2a43016e8e41f180f0c3_1wymohpbod57hdx3nwl8caq.jpeg)
+![GOING ON A JOURNEY TOGETHER! LEFT TO RIGHT: OUR CO-FOUNDER LEA SIMPSON, JESS, CIKU, AND OUR LEARNING AND ADAPTATION LEAD, EMMA PROUD](/images/66ce2a43016e8e41f180f0c3_1wymohpbod57hdx3nwl8caq.jpeg)
 
-GOING ON A JOURNEY TOGETHER! LEFT TO RIGHT: OUR CO-FOUNDER LEA SIMPSON, JESS, CIKU, AND OUR LEARNING AND ADAPTATION LEAD, EMMA PROUD.
+<p class="post-caption">GOING ON A JOURNEY TOGETHER! LEFT TO RIGHT: OUR CO-FOUNDER LEA SIMPSON, JESS, CIKU, AND OUR LEARNING AND ADAPTATION LEAD, EMMA PROUD.</p>
 
 As we learn with and from others, we will share our learning out loud, with you- in social media posts, in blogs like this one, or even virtual events. Maybe we can spark for you what so many others have sparked and will spark for us.
 

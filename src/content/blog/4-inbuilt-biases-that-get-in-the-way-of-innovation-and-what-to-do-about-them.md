@@ -43,9 +43,9 @@ When we think about how innovation happens, this recipe of beautifully imperfect
 
 ## 1. Tomorrow will be more of yesterday
 
-![](/images/66d9c6bd25b68dd0e5122ac7_picture_2-2.png)
+![LEADING BEHAVIOURAL PSYCHOLOGIST, DR CALVIN](/images/66d9c6bd25b68dd0e5122ac7_picture_2-2.png)
 
-LEADING BEHAVIOURAL PSYCHOLOGIST, DR CALVIN.
+<p class="post-caption">LEADING BEHAVIOURAL PSYCHOLOGIST, DR CALVIN.</p>
 
 Let me introduce you to present bias. As humans, we think in quite linear ways and so we believe that tomorrow will be more of yesterday. This is why words like disruption have negative connotations, because they break our linear narratives.
 
@@ -95,9 +95,9 @@ Defaults are everywhere, so that even if we remove them, we think that the const
 
 ## 3. We prefer conformity in a group
 
-![](/images/66d9c6bd7ee965ec4d2921b9_metalocus_elevatorgroupthink_03.jpeg)
+![A SCREENSHOT FROM THE FAMOUS ELEVATOR EXPERIMENT, ORIGINALLY CONDUCTED AS A PART OF A 1962 CANDID CAMERA EPISODE TITLED “FACE THE REAR.”](/images/66d9c6bd7ee965ec4d2921b9_metalocus_elevatorgroupthink_03.jpeg)
 
-A SCREENSHOT FROM THE FAMOUS ELEVATOR EXPERIMENT, ORIGINALLY CONDUCTED AS A PART OF A 1962 CANDID CAMERA EPISODE TITLED “FACE THE REAR.”
+<p class="post-caption">A SCREENSHOT FROM THE FAMOUS ELEVATOR EXPERIMENT, ORIGINALLY CONDUCTED AS A PART OF A 1962 CANDID CAMERA EPISODE TITLED “FACE THE REAR.”</p>
 
 As humans we typically love conformity in a group. This means we are not big fans of other people’s ideas. Groupthink means that when we’re in a group of people, the desire for harmony or conformity in the group results in irrational or dysfunctional decision-making. We tend towards group consensus, even if that goes against what we think as individuals. Not only that, but we tend to have an instinctive negative reaction to ideas coming from outside our group or tribe. We think that if we didn’t come up with it, then it can’t be that good.
 
@@ -121,9 +121,9 @@ It’s a technique from the army and we do it, we love it, and we recommend it f
 
 ## 4. We prefer smaller & sooner over larger, later
 
-![](/images/66d9c6be0190aa8d425c2117_marshmellow2.png)
+![THAT MARSHMALLOW SURE DOES LOOK NICE](/images/66d9c6be0190aa8d425c2117_marshmellow2.png)
 
-THAT MARSHMALLOW SURE DOES LOOK NICE.
+<p class="post-caption">THAT MARSHMALLOW SURE DOES LOOK NICE.</p>
 
 Our fourth quirk is that we have a tendency to increasingly choose a smaller-sooner reward, over a larger-later reward. We’d rather have $10 now than $20 in a year. This foible is called hyperbolic discounting and constantly shapes our behaviour. It’s why we love sales bargains, and why we rack up credit card bills.
 
@@ -133,7 +133,7 @@ In a famous psychology experiment that has been replicated the world over, child
 
 With this in mind, we need to think about how we can close the gap between action and results. How can we generate quick and early wins? And how can we find ways to constantly evolve with the external context and what matters in service of our impact.
 
-## **Awareness**
+## Awareness
 
 Sometimes we forget that we humans are susceptible to hyperbolic discounting, and so we call it out and account for it in our work. Simply knowing it is a thing helps, by being the push we need to better visualise our future selves.
 

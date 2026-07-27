@@ -97,7 +97,7 @@ Another example exists in Longmont, Colorado, brought to us by Peter. The restor
 
 It’s not easy though, as Carl pointed out in the discussion, *“Permission to speak / act / do is a challenge in so many spaces, and it is a real hurdle; even in cultures and environments that are ‘equal and meritocratic.’”*
 
-## **Practice without expecting perfection**
+## Practice without expecting perfection
 
 The conversation ended with a reflection on the ‘I’ - our personal mindsets. If we are to buy into a collective worldview, we are also committing to practising this in our daily lives, taking what we learn in conversations like this from our head, into our heart. However, being imperfect humans Peter emphasised the importance of accepting the contradictions and the paradoxes that come with pioneering a collective worldview often within environments that dis-incentivise that way of thinking. Forgiveness and perseverance are key.
 

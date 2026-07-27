@@ -33,9 +33,9 @@ If we know that collaborative work is relational and that relationships are best
 
 My cofounder Lea and I asked ourselves: how we might repurpose this principle and these questions for our team? And so began our Monday morning ritual of the Weekly Question.
 
-![](/images/66d9cb4bdfbe6c6b3c07f886_advice-to-our-15-year-old-selves.png)
+![ADVICE TO OUR 15-YEAR OLD SELVES](/images/66d9cb4bdfbe6c6b3c07f886_advice-to-our-15-year-old-selves.png)
 
-ADVICE TO OUR 15-YEAR OLD SELVES
+<p class="post-caption">ADVICE TO OUR 15-YEAR OLD SELVES</p>
 
 By asking the team how are you, really? plus a weekly question, we’ve had laughter, joy, tears, ideas and thought-provoking moments. We’ve heard each others’ stories and dreams, and had a warm start to the week that everyone is keen and enthusiastic to come along to. Most of all we’ve got to know each other on a whole new level. **Productive? Maybe not in the original sense of the metric. But then isn’t building relationships one of the most productive things we could do?** We’re adding to our list of questions every week. You are welcome to borrow and repurpose these for your team, and add your own. We’d love to hear what you end up asking, and what impact these have on your team over time.
 

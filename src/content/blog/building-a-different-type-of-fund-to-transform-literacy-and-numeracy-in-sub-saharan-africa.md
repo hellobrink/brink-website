@@ -21,9 +21,9 @@ To find those people, we knew we’d have to design a different kind of fund wit
 
 Below we’ve mapped out some of the thinking that went into designing the fund and selecting the first uBoraBora portfolio. Using this approach we’ve been able to attract an incredible first set of research projects and individuals.
 
-## **Designing uBoraBora**
+## Designing uBoraBora
 
-## **Understanding the needs of the sector and testing the proposition**
+## Understanding the needs of the sector and testing the proposition
 
 Before the fund was launched our partners Laterite undertook a landscape analysis that looked at how existing funds were designed and run, what 'best in class' looked like for funding FLN research, and where the funding gap was for FLN research at scale.That work informed our investment thesis, which we then introduced to around 50 implementers, donors, partners, and researchers. Most of this happened online, but we were also fortunate to host a session at the [Building Evidence in Education](https://www.worldbank.org/en/topic/education/brief/building-evidence-in-education?ref=hellobrink.co) (BE2) working group.
 
@@ -41,13 +41,13 @@ The ‘two chats’ part of our approach came in the form of a 60 minute co-desi
 
 It’s important to note that even at the final pitch, we actively welcomed unanswered questions from the teams. A finalised research design wasn’t required for submission and neither was a budget, just a compelling problem that the team was curious to explore and which would have a high impact if resolved.
 
-## **Always Accessible**
+## Always Accessible
 
 We knew our responsiveness and availability were very important for applicants if we were going to provide a compelling proposition. We also wanted to generate the sense of a “buzz” around the process, and make the idea of applying exciting rather than a time suck. So we began with regional launch events in Nairobi, Freetown, Kigali, Cape Town and at CIES in Miami. These informal, friendly and lively in-person events were designed to build excitement around uBoraBora and the possibility of implementation research, and to create spaces where implementers, foundational literacy and numeracy sector whizzes, and implementation research enthusiasts could geek out. We also aimed to stay humble and acknowledge that we were seeking to contribute to a growing and existing movement.
 
 We made sure to host webinars for applicants early on, both to explain the core parts of the request for proposals (RFP) and to help people put faces to the fund. We also committed to respond within 48 hours to emails and set aside bookable ‘office hours’ every week so that applicants could talk to us candidly for 30 minutes, learn more about the application process and ask specific questions about their individual applications. We also enabled resubmissions if applicants learnt something during a webinar that informed their application.
 
-## **The first uBoraBora portfolio**
+## The first uBoraBora portfolio
 
 Our portfolio is centred around three types of implementation challenge: adaptation, uptake and greater efficiencies.
 
@@ -57,19 +57,19 @@ In implementation research, uptake refers to the extent to which a particular in
 
 Thirdly, creating greater efficiencies is all about maximising the effectiveness of the FLN program, while minimising the resources needed (for example, time, money or people power) to get excellent results. FLN implementers are always looking for ways to optimise their programme because this is key to unlocking scale and greater government adoption.
 
-## **Adaptation**
+## Adaptation
 
 Both [Building Tomorrow](https://www.uborabora.com/portfolio?ref=hellobrink.co#building-tomorrow)and [Impact Network](https://www.impactnetwork.org/impact-education?ref=hellobrink.co) are investigating ways to adapt their core programme to tailor it to different contexts. In Zambia, Promise and the team at Impact Network are learning how to adapt their programme for government schools for the first time. In Uganda, Innocent and Dasan from Building Tomorrow have started their research by diving into existing data, before exploring ways to adapt their programme specifically to accelerate the progress of P4-P5 learners.
 
-## **Uptake**
+## Uptake
 
 Elsewhere, both[Meerkat Learning](https://www.youth-impact.org/meerkat-learning?ref=hellobrink.co) and [VVOB](https://www.vvob.org/?ref=hellobrink.co) are already implementing Teaching at the Right Level (TaRL) at scale. Their research will help to figure out how to improve teacher uptake of core TaRL pedagogy. Angelica and the Meerkat Learning team are focused on the role of education support officers while Kakula and Sharon at VVOB are exploring how to optimise existing peer-mentoring groups. Meanwhile, [Rising Academies](https://www.risingacademies.com/?ref=hellobrink.co) are also focused on improving uptake, with a specific focus on teacher guides. Afua and Anne-Fleur are looking across Sierra Leone, Liberia and Ghana to understand what makes a difference to teachers using Rising’s curriculum guides.
 
-## **Greater efficiencies**
+## Greater efficiencies
 
 [Justice Rising](https://www.justicerising.org/?ref=hellobrink.co) and [FHi360](https://www.fhi360.org/?ref=hellobrink.co) are both focused on greater efficiency. Ee-Reh and the Justice Rising team are leading research to understand how to integrate school based alternatives to coaching in challenging conflict settings. Lizzie, Zahra and the team at FHi360 are learning more about what it takes to enable more productive and responsive teacher coaching at scale.
 
-## **Improving and iterating for next time**
+## Improving and iterating for next time
 
 Now we’ve selected the first uBoraBora portfolio, we are looking to see what we can learn from the past 12 or so months in order to make the next call even better for implementers.
 

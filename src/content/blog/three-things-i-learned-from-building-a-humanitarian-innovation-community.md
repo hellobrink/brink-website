@@ -25,15 +25,15 @@ Sash is the co-founder of [Surgibox](https://www.surgibox.com/?ref=hellobrink.co
 
 Thankfully Sash was able to reach out to the CHIC community and that led to him connecting with Nahreen Ahmed, a Pulmonary and Critical Care Specialist and Medical Director of [MedGloba](https://medglobal.org/?ref=hellobrink.co)l, a non-profit which works with local orgs in crisis and conflict zones towards reducing health inequities, based in Philadelphia. Sash says that the best moment was when Nahreen told him that she was willing to help. “She immediately sent emails to like five surgeons, and then in a week's time, we actually got commitments from surgeons to use this. I thought ‘Wow, this is beautiful’.”
 
-![](/images/66d9d46e0ebbd8be96dcb20d_nahreen-and-debbie.jpeg)
+![NAHREEN RIGHT TESTS THE SURGIFIELD WITH DEBBIE LEFT FROM THE SURGIBOX TEAM. PHOTOCREDIT: ATIF RAKIN, CTO AT SURGIBOX](/images/66d9d46e0ebbd8be96dcb20d_nahreen-and-debbie.jpeg)
 
-NAHREEN (RIGHT) TESTS THE SURGIFIELD WITH DEBBIE (LEFT) FROM THE SURGIBOX TEAM. PHOTOCREDIT: ATIF RAKIN, CTO AT SURGIBOX
+<p class="post-caption">NAHREEN (RIGHT) TESTS THE SURGIFIELD WITH DEBBIE (LEFT) FROM THE SURGIBOX TEAM. PHOTOCREDIT: ATIF RAKIN, CTO AT SURGIBOX</p>
 
 In early 2022, Sashi’s team travelled to Philadelphia to conduct the tests with surgeons at Nahreen’s hospital. Thanks to her introductions, Sashi finished the usability tests they needed to be able to certify the product, obtain a CE mark and start surgeries on patients. Sash and Nahreen went on collaborating, and MedGlobal ultimately deployed the Surgifield in Ukraine and through multiple deployments where their volunteers were providing trauma surgical skills training in Kyiv.
 
 It’s these kinds of people and these sorts of experiences that have shown me that, if you want to truly support innovation and innovators, then you must invest in creating a genuine community; once capable of providing invaluable advice, guidance and connections and that can ultimately enable its members to overcome challenges and reach individual and systemic impact quicker.
 
-## **Three insights from three years of building a humanitarian innovation community**
+## Three insights from three years of building a humanitarian innovation community
 
 It’s a sad truth that many innovation, development and humanitarian funds do not provide support for projects beyond funding. CHIC is different in this respect, as the team there knows that the support needed to help innovators operating in conflict zones requires much more than just a financial element.
 
@@ -55,9 +55,9 @@ In this kind of situation there is no handy, generic FAQ that you can turn to! I
 
 **Some of the ways we’ve achieved this at CHIC:** 💡 Offering tailored and specific community sessions by - Geography (eg working in Yemen; working in the Democratic Republic of Congo) - Theme (eg mis- and dis- information; monitoring and evaluation) - Big picture topics (eg localisation; the emotional impact of working in humanitarian crises) 💡 Providing 1-1 problem solving support by matchmaking innovators with other contacts. 💡 Supporting new collaborations between innovators by brokering and supporting connections.
 
-![](/images/66d9d470890b601439629eb9_img_7673.jpeg)
+![HGC-FUNDED INNOVATORS AND OTHERS FROM THE HUMANITARIAN ECOSYSTEM GATHER IN GAZIANTEP, TURKEY, TO LEARN ABOUT EACH OTHERS' WORK FACILITATED B](/images/66d9d470890b601439629eb9_img_7673.jpeg)
 
-HGC-FUNDED INNOVATORS AND OTHERS FROM THE HUMANITARIAN ECOSYSTEM GATHER IN GAZIANTEP, TURKEY, TO LEARN ABOUT EACH OTHERS' WORK FACILITATED BY MUSAB ALSAYD, PICTURED THIRD FROM RIGHT. PHOTO CREDIT: MUSAB ALSAYD
+<p class="post-caption">HGC-FUNDED INNOVATORS AND OTHERS FROM THE HUMANITARIAN ECOSYSTEM GATHER IN GAZIANTEP, TURKEY, TO LEARN ABOUT EACH OTHERS' WORK FACILITATED BY MUSAB ALSAYD, PICTURED THIRD FROM RIGHT. PHOTO CREDIT: MUSAB ALSAYD</p>
 
 **2. Be here now: Because there is no substitute for real life**
 

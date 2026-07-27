@@ -21,7 +21,7 @@ Because, though it pains me to admit it, I have seen managers like this succeed.
 
 But the circumstances in which they succeed are painfully limited. Give that kind of person a complex problem, and all the bluster, bravado and brute force management in the world won’t yield an inch of progress.
 
-## **Only a team can build**
+## Only a team can build
 
 The truth is that when you are trying to develop something that doesn’t exist, or piece together a puzzle that has already defeated others, it takes a team. If you actually want to *build*, as opposed to squeezing residual value out of a system that already exists, then you need the different perspectives, contrasting skills and collective purpose that only arises from a group of brilliant people, working in an environment that allows them to innovate.
 

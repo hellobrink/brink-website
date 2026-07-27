@@ -27,13 +27,13 @@ That’s why we enjoy thinking about levers for change — what are the levers t
 
 Having the legal imperative to be a profitable business that’s accountable to people and planet is, we believe, one of the most powerful levers of all.
 
-## **Since we were certified a year ago, we’ve improved our score but there’s still much more we could do**
+## Since we were certified a year ago, we’ve improved our score but there’s still much more we could do
 
 March is B Corp month and this year we’ll be spending it discussing the 5 B Corp areas: workers, customers, governance, community and environment. We share our scores in those areas and the stories behind them which tell of our successes and setbacks. Most importantly, we’ll be highlighting what we feel we could be doing better, and sharing what we intend to do about it.
 
 Our B Corp scores are public for all to see ([here’s the directory](https://www.bcorporation.net/en-us/find-a-b-corp/company/brink?ref=hellobrink.co)). That level of transparency brings a scrutiny that’s very welcome. Beyond lipservice, B Corp gives us a benchmark of what good looks like, then holds us to account against that benchmark, in public for all to see.
 
-## **How can we bend the curve of progress, together?**
+## How can we bend the curve of progress, together?
 
 It gives me hope to see more and more businesses being certified. In the time we’ve been certified we’ve seen the number of fellow certified B Corps rise from 2778 in 60 countries to now over 4000 in 70 countries.
 

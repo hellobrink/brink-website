@@ -17,7 +17,7 @@ We applied along with over 13,000 other companies and were selected into the top
 
 To make the top 100 we were marked against a rigorous scoring system of 6 criteria *(Impact, People, Mission, Planet, Innovation and B-Corp)* including anonymous reviews from the team, then ranked against the many (many!) other applicants.
 
-## **We are nothing without our culture**
+## We are nothing without our culture
 
 When we started Brink, my cofounder Lea and I had the vision of building a future-focused business doing non-trivial work, and a place where people could build meaningful, exciting careers doing work they loved and were proud of. We were also very intentional about not just accepting all the norms from other workplaces. We wanted to carefully craft a culture that fits for everyone, and that questions accepted wisdoms.
 

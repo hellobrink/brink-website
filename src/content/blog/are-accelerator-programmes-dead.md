@@ -21,7 +21,7 @@ Accelerator programmes and startup bootcamps remain one of the most common tools
 
 Meanwhile I know dozens of entrepreneurs here in Rwanda who have been through the same kind of 6-week accelerator programmes 5 or 6 times. Surely there are only so many times you can be “accelerated”? So what’s going on?
 
-## **Accelerators as a default**
+## Accelerators as a default
 
 In many ecosystems today, accelerators feel less like a deliberate design choice and more like a default setting. Across East Africa there are more than [100 accelerator and incubation programmes supporting startups.](https://tracxn.com/d/investor-lists/accelerators-incubators-in-east-africa/__ipYdkLo_FgbzV1gMFal2ratflhcMfH1ww_Dmszxuo2E)
 
@@ -36,7 +36,7 @@ And cohort-based programmes are great and proven to help founders move faster an
 
 I would argue the popularity of accelerators today isn’t necessarily because they are the best solution but because they are the most recognisable ones. They’re easy to explain, they have clear timelines and clear metrics. A six-month accelerator with 20 startups, weekly workshops, and a demo day at the end is a format everyone understands. It fits neatly into grant cycles and generates visible activity. It produces numbers that look reassuring in reports: founders trained, mentorship hours delivered, pitch decks produced.
 
-## **The diagnosis of the problem is wrong**
+## The diagnosis of the problem is wrong
 
 In more mature ecosystems, we often start to see the same symptoms. Founders move from accelerator to accelerator, hearing the same bootcamp content again and again.
 
@@ -48,7 +48,7 @@ In reality, the constraints to venture success are much more complicated and ven
 
 If the real constraint is demand-side access, another accelerator won’t solve it. If the real constraint is policy or regulatory barriers, another grant won’t either.
 
-## **From default models to deliberate design**
+## From default models to deliberate design
 
 Instead of starting with a format - an accelerator - we should start with understanding the ecosystem.
 

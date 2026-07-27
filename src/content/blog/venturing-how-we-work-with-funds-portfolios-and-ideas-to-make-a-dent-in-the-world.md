@@ -47,9 +47,9 @@ We’ve also piloted a new service model called oxygen-as-a-service in Tanzania 
 
 In Tanzania, [FREO2](https://freo2.org/?ref=hellobrink.co) is trialling the provision of oxygen concentrators, oxygen delivery systems, pulse oximetres and a wrap-around service for a small monthly fee. This complete solution integrates product, installation, education and social enterprise. In six months, the team scaled to 12 under-resourced health centres across the rural northern part of Tanzania. Our hope is that the model can break even in 3–5 years.
 
-![](/images/66d9cba536344d119b8d4765_1ipc4_h3rebpqkzp1_jy9oa.jpeg)
+![PHOTOS FROM FREO2’S WORK IN TANZANIA. LEFT - THE TEAM HAVING A MAINTENANCE TRAINING SESSION. RIGHT- TWO OXYGEN CONCENTRATORS. RIGHT - A BABY](/images/66d9cba536344d119b8d4765_1ipc4_h3rebpqkzp1_jy9oa.jpeg)
 
-PHOTOS FROM FREO2’S WORK IN TANZANIA. LEFT — THE TEAM HAVING A MAINTENANCE TRAINING SESSION. RIGHT— TWO OXYGEN CONCENTRATORS. RIGHT — A BABY RECEIVING OXYGEN. (PHOTO CREDIT: [FREO2](https://freo2.org/?ref=hellobrink.co))
+<p class="post-caption">PHOTOS FROM FREO2’S WORK IN TANZANIA. LEFT — THE TEAM HAVING A MAINTENANCE TRAINING SESSION. RIGHT— TWO OXYGEN CONCENTRATORS. RIGHT — A BABY RECEIVING OXYGEN. (PHOTO CREDIT: <a href="https://freo2.org/?ref=hellobrink.co" target="_blank" rel="noopener noreferrer">FREO2</a>)</p>
 
 ![](/images/66d9cba5702ad725a44f4416_147eknhiyw2v9zuo5ea0yiq.jpeg)
 
@@ -75,9 +75,9 @@ Sandboxes happen in districts or regions, where we experiment and learn about an
 
 In Malawi, we set the blueprint for scaling [personalised learning software in Malawi](https://edtechhub.org/2021/08/17/scaling-personalized-learning-technology-in-malawi-lessons-from-our-sandbox-with-onebillion/?ref=hellobrink.co) by testing in a small batch of schools. Through experimenting with different approaches, we developed a logistics plan and drove down cost per year per child from $30 to $6.
 
-![](/images/66d9cba5600412eb221b554c_1ays0jxber-2bbk8svlzbvg.jpeg)
+![WE WORKED WITH THE GOVERNMENT OF MALAWI, ONEBILLION A TECH STARTUP, AND VSO A NON-PROFIT TO SCALE PERSONALISED LEARNING SOFTWARE NATIONWIDE](/images/66d9cba5600412eb221b554c_1ays0jxber-2bbk8svlzbvg.jpeg)
 
-WE WORKED WITH THE GOVERNMENT OF MALAWI, [ONEBILLION](https://onebillion.org/?ref=hellobrink.co) (A TECH STARTUP), AND [VSO](https://www.vsointernational.org/our-work/where-we-work/malawi?ref=hellobrink.co) (A NON-PROFIT) TO SCALE PERSONALISED LEARNING SOFTWARE NATIONWIDE (PHOTO CREDIT: [ONEBILLION](https://onebillion.org/?ref=hellobrink.co)).
+<p class="post-caption">WE WORKED WITH THE GOVERNMENT OF MALAWI, <a href="https://onebillion.org/?ref=hellobrink.co" target="_blank" rel="noopener noreferrer">ONEBILLION</a> (A TECH STARTUP), AND <a href="https://www.vsointernational.org/our-work/where-we-work/malawi?ref=hellobrink.co" target="_blank" rel="noopener noreferrer">VSO</a> (A NON-PROFIT) TO SCALE PERSONALISED LEARNING SOFTWARE NATIONWIDE (PHOTO CREDIT: <a href="https://onebillion.org/?ref=hellobrink.co" target="_blank" rel="noopener noreferrer">ONEBILLION</a>).</p>
 
 In Kenya, we worked with a small group of caregivers to [foster learning at home](https://edtechhub.org/sandboxes/helping-caregivers-foster-learning-at-home-in-kenya/?ref=hellobrink.co). The toolkit — which pivoted to focus on caregiver confidence — is now embedded in the Kenyan government’s Institute for Curriculum Development.
 
@@ -85,9 +85,9 @@ And we’re working in Bandarban, a region of part of Bangladesh marginalised by
 
 Sandboxes invest our time and money into *places*and *problems*. We bring a [toolkit,](https://edtechhub.org/sandboxes/the-sandbox-method/?ref=hellobrink.co)a team and mindset to tackle big challenges within particular education systems.
 
-![](/images/66d9cba5aa4dc5c1538de3ef_1wdotfy9u3rxnfh301x6hjg.jpeg)
+![PHOTOS FROM SANDBOXES WE HAVE WORKED WITH. LEFT - UNDERSTANDING EDTECH FOR OUT OF SCHOOL DEAF CHILDREN IN PAKISTAN](/images/66d9cba5aa4dc5c1538de3ef_1wdotfy9u3rxnfh301x6hjg.jpeg)
 
-PHOTOS FROM SANDBOXES WE HAVE WORKED WITH. LEFT — UNDERSTANDING EDTECH FOR OUT OF SCHOOL DEAF CHILDREN IN PAKISTAN (PHOTO CREDIT: [DEAF REACH](https://www.deafreach.com/?ref=hellobrink.co)). RIGHT— TESTING VIRTUAL LEARNING ENVIRONMENTS IN ZANZIBAR (PHOTO CREDIT: ASAD RAHMAN).
+<p class="post-caption">PHOTOS FROM SANDBOXES WE HAVE WORKED WITH. LEFT — UNDERSTANDING EDTECH FOR OUT OF SCHOOL DEAF CHILDREN IN PAKISTAN (PHOTO CREDIT: <a href="https://www.deafreach.com/?ref=hellobrink.co" target="_blank" rel="noopener noreferrer">DEAF REACH</a>). RIGHT— TESTING VIRTUAL LEARNING ENVIRONMENTS IN ZANZIBAR (PHOTO CREDIT: ASAD RAHMAN).</p>
 
 ![](/images/66d9cba5bff10cc4e1c6aa48_14jqn7qzpug3ke50php7uow.jpeg)
 
@@ -105,17 +105,17 @@ Above all, we’ve designed the fund to be “pro-sector”. This means investin
 
 The fund has lived its creed. 3 out of the 5 ventures we supported were for-profit (a rarity in the sector), and all have gone on to raise follow-on investment ([HearX](https://www.hearxgroup.com/?ref=hellobrink.co), [Wazi](https://wazivision.com/?ref=hellobrink.co), and [Koalaa](https://www.yourkoalaa.com/?ref=hellobrink.co)) . To help others, we’ve published our [key insights on scaling assistive tech ideas](https://www.atimpactfund.com/stories/the-story-so-far-assistive-tech-impact-fund?ref=hellobrink.co) and a [a map of assistive tech innovators in emerging markets](https://at2030.org/at-innovators/map/?ref=hellobrink.co).
 
-![](/images/66d9cba525b68dd0e5166cd5_1r_doq_cf77froeuhhy63uq.jpeg)
+![LEFT- A LOW-COST KOALAA PROSTHETIC BEING FITTED IN SIERRA LEONE](/images/66d9cba525b68dd0e5166cd5_1r_doq_cf77froeuhhy63uq.jpeg)
 
-LEFT— A LOW-COST KOALAA PROSTHETIC BEING FITTED IN SIERRA LEONE (PHOTO CREDIT: [KOALAA](https://www.yourkoalaa.com/?ref=hellobrink.co)). RIGHT — THE TEAM AT THE AFRICAN ORGANISATION FOR THE DEVELOPMENT OF AFRICAN CENTRES FOR PERSONS WITH DISABILITIES, A VENTURE SUPPORTED BY THE FUND (PHOTO CREDIT: [OADCPH](https://en.oadcph.org/?ref=hellobrink.co))
+<p class="post-caption">LEFT— A LOW-COST KOALAA PROSTHETIC BEING FITTED IN SIERRA LEONE (PHOTO CREDIT: <a href="https://www.yourkoalaa.com/?ref=hellobrink.co" target="_blank" rel="noopener noreferrer">KOALAA</a>). RIGHT — THE TEAM AT THE AFRICAN ORGANISATION FOR THE DEVELOPMENT OF AFRICAN CENTRES FOR PERSONS WITH DISABILITIES, A VENTURE SUPPORTED BY THE FUND (PHOTO CREDIT: <a href="https://en.oadcph.org/?ref=hellobrink.co" target="_blank" rel="noopener noreferrer">OADCPH</a>)</p>
 
 ![](/images/66d9cba5edec64b3789deea4_1imj-doa6-lgiwhmbylp0q.jpeg)
 
 Sometimes, we say our fund’s thesis is “bigger than scaling products”: it’s about lifting up the sector. So money and ideas can better serve people with disabilities, after our fund has gone.
 
-![](/images/66d9cba5923b34ef72da5322_1wcw3ms-y0zmswzkdmhuibw.jpeg)
+![WAZI GLASSES: CREATED AND MANUFACTURED IN AFRICA, FOR AFRICAN FACES](/images/66d9cba5923b34ef72da5322_1wcw3ms-y0zmswzkdmhuibw.jpeg)
 
-WAZI GLASSES: CREATED AND MANUFACTURED IN AFRICA, FOR AFRICAN FACES (PHOTO CREDIT: [WAZI](https://wazivision.com/?ref=hellobrink.co)).
+<p class="post-caption">WAZI GLASSES: CREATED AND MANUFACTURED IN AFRICA, FOR AFRICAN FACES (PHOTO CREDIT: <a href="https://wazivision.com/?ref=hellobrink.co" target="_blank" rel="noopener noreferrer">WAZI</a>).</p>
 
 ## Helping cities grow ideas to help their citizens
 
@@ -129,9 +129,9 @@ Rwanda is experiencing a boom in tech investment, yet only 8.4% of its populatio
 
 We’re working hand-in-hand with Kigali’s city authority to test how ICT centres might solve this problem. They will provide access to computers, and free-of-charge training. Brink works with ideas like these as a partner on the [Africa Smart Towns Network](https://aston-network.org/?ref=hellobrink.co) (ASToN), funded by the French Development Agency (AFD).
 
-![](/images/66d9cba63d5c3613b0848066_1jrzejof-__r2j_x6fxtgmw.jpeg)
+![AN ICT CENTRE IN KIGALI](/images/66d9cba63d5c3613b0848066_1jrzejof-__r2j_x6fxtgmw.jpeg)
 
-AN ICT CENTRE IN KIGALI (PHOTO CREDIT: ASTON | [ALBERT MUGISHA](https://twitter.com/AlbertMugisha3?ref=hellobrink.co))
+<p class="post-caption">AN ICT CENTRE IN KIGALI (PHOTO CREDIT: ASTON | <a href="https://twitter.com/AlbertMugisha3?ref=hellobrink.co" target="_blank" rel="noopener noreferrer">ALBERT MUGISHA</a>)</p>
 
 We’re mixing methods, bringing approaches like human-centred design, lean startup, and agile from the US. Working with intrapreneurs in municipal governments across Africa, we’ve seen how much they bring: in particular, a passion for problem solving on behalf of the people they serve, along with strong project mangement and delivery skills.
 
@@ -143,9 +143,9 @@ For instance, by asking whether ICT centres can recover cost from commercial rev
 
 How would the world be better, if cities in Africa could fund and scale their ideas like tech startups in the US and Europe?
 
-![](/images/66d9cba5cb2ad51dc3f94caa_15mlsgsy7ld-nqiqizlfkwq.jpeg)
+![SHARING IDEAS AT THE ASTON CITIES SUMMIT IN KIGALI NOVEMBER 2021](/images/66d9cba5cb2ad51dc3f94caa_15mlsgsy7ld-nqiqizlfkwq.jpeg)
 
-SHARING IDEAS AT THE ASTON CITIES SUMMIT IN KIGALI (NOVEMBER 2021). (PHOTO CREDIT: ASTON | [ALBERT MUGISHA](https://twitter.com/AlbertMugisha3?ref=hellobrink.co))
+<p class="post-caption">SHARING IDEAS AT THE ASTON CITIES SUMMIT IN KIGALI (NOVEMBER 2021). (PHOTO CREDIT: ASTON | <a href="https://twitter.com/AlbertMugisha3?ref=hellobrink.co" target="_blank" rel="noopener noreferrer">ALBERT MUGISHA</a>)</p>
 
 ## Testing ‘wildcard’ ideas to solve big development challenges
 
@@ -153,15 +153,15 @@ South of Rwanda, is Zambia. A country 30 times bigger in km2, but with only 50% 
 
 Anick is a dairy farmer we met in Zambia. Every day, she had to walk 7km from her farm to the depot with a 20 litre urn of milk.
 
-![](/images/66d9cba5d68b2e800a986c40_1mebezfhjjdepbv2cwysg0g.jpeg)
+![ANICK, TENDING TO HER COWS](/images/66d9cba5d68b2e800a986c40_1mebezfhjjdepbv2cwysg0g.jpeg)
 
-ANICK, TENDING TO HER COWS (PHOTO CREDIT: [STORYTHINGS](https://storythings.com/?ref=hellobrink.co))
+<p class="post-caption">ANICK, TENDING TO HER COWS (PHOTO CREDIT: <a href="https://storythings.com/?ref=hellobrink.co" target="_blank" rel="noopener noreferrer">STORYTHINGS</a>)</p>
 
 We’re working with Onyx Connect, a Zambian startup, to test and scale a pay-as-you-go bicycle scheme for people like Anick. Brink provides this support alongside Results for Development and IMC Worldwide as part of the [Frontier Technologies Hub](https://medium.com/frontier-technologies-hub/overcoming-the-biggest-challenges-in-frontier-tech-introducing-the-playbook-ff110cd8198e?ref=hellobrink.co), a UK FCDO funded programme that provides seed funding of £100k to help (in)validate early-stage, untested solutions to big challenges in international development.
 
-![](/images/66d9cba553467e0db7879ea0_1_jf-cwduzxixmzqyjiemna.jpeg)
+![WYSON LUNGU, THE FOUNDER OF ONYX CONNECT](/images/66d9cba553467e0db7879ea0_1_jf-cwduzxixmzqyjiemna.jpeg)
 
-WYSON LUNGU, THE FOUNDER OF ONYX CONNECT (PHOTO CREDIT: [STORYTHINGS](https://storythings.com/?ref=hellobrink.co))
+<p class="post-caption">WYSON LUNGU, THE FOUNDER OF ONYX CONNECT (PHOTO CREDIT: <a href="https://storythings.com/?ref=hellobrink.co" target="_blank" rel="noopener noreferrer">STORYTHINGS</a>)</p>
 
 Early stage idea = a *lot*of uncertainty. A big part of our work is creating the scaffolding to navigate this uncertainty. We do this through lean and agile methods, and the psychological safety to reflect, learn, and adapt as a team. This is doubly important when working in a fund like this one, that supports *very*novel ideas.
 
@@ -175,9 +175,9 @@ With a pay-as-you-go bike, Anick saves two hours each day. Or, she can take two 
 
 The work of the Onyx team has featured in the [Guardian](https://www.theguardian.com/global-development/gallery/2020/jun/04/pedal-power-zambias-female-farmers-go-further-by-bike-in-pictures?ref=hellobrink.co), and the [BBC’s ‘People Fixing the World’](https://www.bbc.co.uk/programmes/p09f3dym?ref=hellobrink.co).
 
-![](/images/66d9cba59b3ad9c951ff9fdd_1b61gj7ntnadpisnozixssg.jpeg)
+![A DAIRY FARMER RIDING A PAY-AS-YOU-GO BIKE](/images/66d9cba59b3ad9c951ff9fdd_1b61gj7ntnadpisnozixssg.jpeg)
 
-A DAIRY FARMER RIDING A PAY-AS-YOU-GO BIKE (PHOTO CREDIT: [STORYTHINGS](https://storythings.com/?ref=hellobrink.co))
+<p class="post-caption">A DAIRY FARMER RIDING A PAY-AS-YOU-GO BIKE (PHOTO CREDIT: <a href="https://storythings.com/?ref=hellobrink.co" target="_blank" rel="noopener noreferrer">STORYTHINGS</a>)</p>
 
 ## Labs that makes the case for investing in wellbeing
 

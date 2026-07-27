@@ -21,7 +21,7 @@ All of a sudden a different kind of language starts to emerge. People start to v
 
 Somehow this collective that we are all a part of has become an intimidating and unknowable beast that has to be tamed or torn down.
 
-## **If we value community so highly, why don't we use it more?**
+## If we value community so highly, why don't we use it more?
 
 💡
 
@@ -43,7 +43,7 @@ But to put it simply - and to quote an expression that emerges often in my work 
 
 However, if we want to solve the world's most complex challenges, we have to keep finding the best ways to meaningfully supplement our individual outlooks by bringing multiple perspectives to bear on the challenges ahead of us, even if it feels like the harder thing to do.
 
-## **Three commitments we are making at Brink to support collective action and better problem solving**
+## Three commitments we are making at Brink to support collective action and better problem solving
 
 - Collaborate and care across boundaries in order to break fragmented action and siloed working to make meaningful progress
 - Bring diverse sets of knowledge, experience and expertise together in order to bear on complex problems

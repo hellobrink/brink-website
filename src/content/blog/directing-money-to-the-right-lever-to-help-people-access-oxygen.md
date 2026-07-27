@@ -41,9 +41,9 @@ To identify those points, we used our [CoLab methodology](https://www.makingbett
 
 At Brink, we try to navigate the system of factors that enable or block impact at scale. Targeting one blocker by itself won’t work: to unlock impact at scale, a Fund has to uncover ways of navigating the system of factors in parallel. It’s not easy, and for us it means tackling business models, product-context fit, shaping policy and healthcare budgets, and implementation at the same time.
 
-![](/images/66d9d6fcee432560e0d1a78d_oxygen-colab_-baby-receiving-oxygen-from-fre02-s-oxygen.jpeg)
+![**OXYGEN COLAB**: BABY RECEIVING OXYGEN FROM FRE02'S OXYGEN CONCENTRATOR IN A PAEDIATRIC WARD IN DONGOBESH CREDIT: BONY KAZI](/images/66d9d6fcee432560e0d1a78d_oxygen-colab_-baby-receiving-oxygen-from-fre02-s-oxygen.jpeg)
 
-**OXYGEN COLAB**: BABY RECEIVING OXYGEN FROM FRE02'S OXYGEN CONCENTRATOR IN A PAEDIATRIC WARD IN DONGOBESH (CREDIT: BONY KAZI)
+<p class="post-caption">**OXYGEN COLAB**: BABY RECEIVING OXYGEN FROM FRE02'S OXYGEN CONCENTRATOR IN A PAEDIATRIC WARD IN DONGOBESH (CREDIT: BONY KAZI)</p>
 
 **Building on this systemic wisdom, the Oxygen CoLab Fund directed its capital and effort towards:**
 

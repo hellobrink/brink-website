@@ -38,7 +38,7 @@ That’s what these plays are about.
 
 But first, let me talk about why playbooks matter.
 
-## **The importance of the ‘default’**
+## The importance of the ‘default’
 
 The danger of codifying ideas into an emerging playbook is that it becomes a rigid checklist. Reality is messy, so it goes without saying that not all five steps above apply to every product or service looking to create impact at scale. And certainly, the order is fluid (although I’d always suggest starting with #1).
 

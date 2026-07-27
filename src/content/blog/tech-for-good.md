@@ -132,7 +132,7 @@ Of course, it’s not as easy as it sounds. There’s a lot of grit and experime
 
 Here are three stories on scaling (involving plenty of grit) from organisations I’ve had the privilege of working with.
 
-## **Scaling story 1: Bicycles in Zambia**
+## Scaling story 1: Bicycles in Zambia
 
 Zambia is three times larger than the United Kingdom, but with three times less people. It’s large and people are spread out. What’s more, as of 2017, only 17% of the rural population lived within 2km of a good road13. Getting goods or people from A to B is difficult.
 
@@ -146,7 +146,7 @@ What’s even more promising is that other bicycle manufacturers are now investi
 
 On their own, Onyx might reach thousands. But by leaning into commercial adoption and replication from others, they might scale to millions of people.
 
-## **Scaling story 2: Prosthetic arms in Sierra Leone**
+## Scaling story 2: Prosthetic arms in Sierra Leone
 
 From the first moment I met [Nate](https://www.linkedin.com/in/nathan-macabuag/) and [Niall](https://www.linkedin.com/in/niall-marshall-49b08937/), I saw their obsession with building prosthetics like trainers. [Koalaa](https://www.yourkoalaa.com/) - their startup - had recently won [a Tommy Hilfigher fashion award](https://www.voguebusiness.com/sustainability/tommy-hilfiger-awards-euro100000-to-social-impact-startups-koalaa-and-moner-bondhu) for the design of their prosthetic arm. Why, they asked, couldn’t prosthetics be as trendy, comfortable and well-liked as a trainer (sneaker)?
 
@@ -164,7 +164,7 @@ We worked backwards from an endgame. Koalaa retained control over the product’
 
 I can’t think of a single product that enhances agency as much as a prosthetic. With it, you can eat, work, build, type, and hold. Koalaa is well on its way to validating a model and endgame that could bring such agency to persons with disabilities across an entire continent.
 
-## **Scaling story 3: EdTech Zanzibar**
+## Scaling story 3: EdTech Zanzibar
 
 [EdTech Hub](https://edtechhub.org/) is a global partnership that supports donors, philanthropists and governments to make evidence-led investments. First, the Hub designs and conducts research. Then, it tries to shape the millions of dollars that gets invested in education technologies in low and middle income countries (LMICs). Like the smoking ban I mentioned earlier, it’s about using evidence, advocacy and storytelling to shape policy and big investments. Our ultimate goal is to make sure edtech spending helps teachers to teach, and children to learn.
 
@@ -286,7 +286,7 @@ While you can never be totally sure what the answer is, this last question is wa
 
 So here are three rules of thumb I’ve built up over the last six years. Think of them as a shorthand, improving the odds (but not guaranteeing) that a tech idea will *really* enhance agency and make the world a better place.
 
-## **1. Build from the bottom up.**
+## 1. Build from the bottom up.
 
 Earlier, I mentioned our pay-as-you-go bicycles in rural Zambia. Farmers pay in small increments, taking full ownership of a bike, solar lamp, feature phone and tracking GPS unit over 12-36 months.
 
@@ -352,7 +352,7 @@ Impact investment, pioneered by organisations like [Acumen](https://acumen.org/)
 
 Diving deep into these trends would be another lecture. For now, let’s hope they continue, and fuel a generation of new, game-changing, locally-led tech ideas.
 
-## **2. Consider the unintended consequences**
+## 2. Consider the unintended consequences
 
 Above, I presented the case for tech imposing values in a place.
 
@@ -382,7 +382,7 @@ The responsibility is also to experiment with ways of minimising the knock-on ef
 
 Tech is not - and never will be - a ‘silver bullet’ that can solve problems cleanly and completely.
 
-## **3. Remember that tech exacerbates inequality**
+## 3. Remember that tech exacerbates inequality
 
 Here’s a pattern I’ve seen over the last six years: technology will benefit you more, if you’re already better off. You could be better off in terms of personal wealth: your education, income, capital, and network. Or, better off in terms of the wealth of the system around you: your household, community, and country. Either way, you're better placed to make the most of tech products.
 

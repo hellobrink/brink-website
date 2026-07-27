@@ -35,7 +35,7 @@ When we talk about environment, this is in the broadest sense of the word - more
 
 **We have tested out the MASTER framework in hospitals and classrooms, with drone designers and data architects. We’d love for you to use it, too, and**[**tell us how you found it**](mailto:coffee@hellobrink.co)**.**
 
-## **So, how does MASTER work?**
+## So, how does MASTER work?
 
 While it's a robust tool, it's important to acknowledge that **real-world application is rarely linear.** Often we need to iterate and adapt along the way. Still though, understanding the core principles empowers us to make informed decisions.
 
@@ -88,7 +88,7 @@ Tying it all together, you have Messenger. Attractive. Social. Timely. Easy. Reg
 
 They can be used one at a time or all at once - there is no set order to use them in. Think of it more like a toolkit to pick from. Select a tool, try it, if it's effective keep going and if not, try something else. You may want to play with 2 or 3 in combination but it's certainly not the kind of framework where you must use all the elements. Sometimes a certain element won't be relevant and that's totally fine.
 
-## **Proceed with caution!**
+## Proceed with caution!
 
 There is a whole spectrum of ways we can shift behaviour. From cheap to implement nudges, to incentives and behaviour designs like setting certain defaults, right up to policy changes, regulations and laws (with enforcement to enact them). Nudges like the ones outlined above are quick and cheap to implement but can be more difficult to enforce as they are by design optional. They also open up a whole raft of ethical questions it's important to address in any behaviour design.
 

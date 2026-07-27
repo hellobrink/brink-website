@@ -21,7 +21,7 @@ We partnered with the City of Kigali as they tested ideas for digital transforma
 
 None of this is “ours” alone, these are shared stories, with so many brilliant partners here in East Africa and beyond. It speaks to the region’s vibrancy and reminds us why we chose to build teams here.
 
-## **Going global in 2021**
+## Going global in 2021
 
 Brink was first set up in London, but we soon saw a few reasons to build teams in East Africa. We knew that being closer in context would lead to deeper impact for the programmes we were already delivering, and it would create chances to grow from the region.
 
@@ -29,7 +29,7 @@ In truth, we had always had ambitions to be global, and when the pandemic forced
 
 That decision has shaped how we work and who we are today. We now have a team of seven across Rwanda and Kenya driving the work here, a network of freelancers we draw on regularly and access to Brink’s global bench. Over the last four years, our narrative has shifted too. It’s no longer about being “nearer” because we’re a truly global organisation now. We are grounded in the context, and we connect local and global perspectives.
 
-## **The forces shaping the next decade**
+## The forces shaping the next decade
 
 Fast forward to late 2024, and I have arrived in Rwanda to take on the role of East Africa Director. I began my time here by talking every morning, with founders, civil servants, donors, operators - about the barriers and opportunities they saw around them.
 
@@ -53,7 +53,7 @@ Leaders in Rwanda and Kenya are tremendously excited about AI, while the global 
 
 Narratives about aid, and the assumed wisdoms about which global actors are to be trusted, are in flux. Some admitted to me a feeling of “good riddance” when USAID shut down. The next decade’s legitimacy will be local and “what good looks like” must be authored here, not imported. Now is the time to shape how innovation, development, and leadership in Africa are perceived.
 
-## **Brink is ready to help navigate this moment**
+## Brink is ready to help navigate this moment
 
 The job now is to make it easier for the right people to move in the same direction. We’ll keep convening and building coalitions across ministries, founders, and funders. We see our role as the bridge between worlds that don’t always speak the same language. And we’ll be deliberate about our rooms: smaller, sharper, with clear decisions and follow-through - often at [Isano Lodge](https://www.isanolodge.com/) - so relationships translate into progress.
 

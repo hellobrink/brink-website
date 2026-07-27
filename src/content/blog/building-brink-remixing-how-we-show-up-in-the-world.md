@@ -11,7 +11,7 @@ summary: "Behind the scenes this year, we’ve been working away with our friend
 sortOrder: 68
 ---
 
-## **We’ve had a refresh. A remix. Brink 2.0. What do you think?**
+## We’ve had a refresh. A remix. Brink 2.0. What do you think?
 
 Behind the scenes this year, we’ve been working away with our friend Charlotte at [One Man Band](https://onemanband.studio/?ref=hellobrink.co), to rethink the Brink brand. We couldn't have hoped for a better person for the job. She created our original brand too and is the woman who introduced us (Abi and Lea) to one another many moons ago. If Brink had a godmother, it would be Charlotte.
 
@@ -57,9 +57,9 @@ Nothing tells a more compelling story than the people who have lived it, so we p
 
 A square box, with the arrow breaking out of the lines becomes a frame for people, ideas and concepts. We use this to showcase our biggest belief. Innovation as if people matter.
 
-![](/images/66d9ce0f03805430c9167c88_wip-23.png)
+![## 4. WIP](/images/66d9ce0f03805430c9167c88_wip-23.png)
 
-## 4. WIP
+<p class="post-caption">## 4. WIP</p>
 
 At Brink we are always thinking and rethinking. So much of our thinking develops over time and in collaboration. This is why we have a WIP (work in progress) pared back style to inspire the reader to meddle. It’s not shiny and done, it’s asking for your input.
 

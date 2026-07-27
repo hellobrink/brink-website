@@ -21,15 +21,15 @@ To get there, we spoke to 10 friends and partners who we trusted to give us cand
 
 Our research, and decision making, was framed by two key questions.
 
-## **First question: What is the trajectory?**
+## First question: What is the trajectory?
 
 We were global before the pandemic. By 2020, we were working in 24 countries, supporting [innovators](https://www.theguardian.com/global-development/gallery/2020/jun/04/pedal-power-zambias-female-farmers-go-further-by-bike-in-pictures?ref=hellobrink.co), governments and organisations to test and scale innovations. So, we asked ourselves, where are we seeing the most momentum around innovation, and what places in the world would make a good long term bet?
 
 We knew we wanted to start our global journey in sub-Saharan Africa, as the continent constituted 70% of the innovators we supported, and made sense. However, we wanted to keep our options open initially, and avoid defaulting on the usual suspects: the economic powerhouses of Nigeria, Kenya, Egypt and South Africa.
 
-![](/images/66d9ce4b702ad725a45176d5_3lhyk-ju2vtqbvq0sij0gvjshmlwsukztrgxkr7rkx_yktxjrv2karl.png)
+![FROM THE PARTECH AFRICA REPORT](/images/66d9ce4b702ad725a45176d5_3lhyk-ju2vtqbvq0sij0gvjshmlwsukztrgxkr7rkx_yktxjrv2karl.png)
 
-FROM THE PARTECH AFRICA REPORT
+<p class="post-caption">FROM THE PARTECH AFRICA REPORT</p>
 
 Why? For Brink, we believed that our contribution to a place would probably come from adding something **new and different**to the innovation ecosystem. Our conversations showed us that the bigger markets may also prove to be crowded with similar organisations, and we would be less likely to provide a unique and valuable contribution to innovators, governments and communities in that country.
 
@@ -37,7 +37,7 @@ Instead, we looked for **growth indicators.**Was the economy consistently growin
 
 When asking these questions, Rwanda scored highly, as did Kenya due to our familiarity with the ecosystem, and the talent we had identified there from our work. From this point we were confident we would want to start in East Africa.
 
-## **Next question: can we start small?**
+## Next question: can we start small?
 
 We knew our first steps into being more global weren’t going to result in a 50 person satellite office. The pandemic shifted our perspectives on the need for an office, and the burden it could add. We knew we wanted to start small, grow slow, and grow with the work and opportunities we identified.
 
@@ -45,7 +45,7 @@ We also wanted permission to experiment, and to see our first year as a way of l
 
 Finally, as we were in the middle of a pandemic at the time of launching, we wanted to make decisions as reversible as possible, noting that the environment was hard to predict, and we might want to press pause at short notice.
 
-## **So, where to start?**
+## So, where to start?
 
 We wrangled with the decision of where to “start”, with Rwanda and Kenya proving to be our frontrunners.
 
