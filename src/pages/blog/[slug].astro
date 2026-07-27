@@ -274,21 +274,30 @@ const authors = [
   .prose.longform :global(.lf-scene.media-left .lf-text) { grid-column: 2; grid-row: 1; }
   .prose.longform :global(.lf-scene.media-right .lf-media) { grid-column: 2; grid-row: 1; }
   .prose.longform :global(.lf-scene.media-right .lf-text) { grid-column: 1; grid-row: 1; }
-  /* The figure pins below the sticky header while its text scrolls. */
+  /* The figure pins and sits centred in the viewport (vertically) and in its
+     column (horizontally) while its text scrolls past. */
   .prose.longform :global(.lf-media) {
     position: sticky;
-    top: 5.5rem;
+    top: 50%;
+    transform: translateY(-50%);
     align-self: start;
+    justify-self: center;
+    margin: 0;
+    max-width: 100%;
+  }
+  .prose.longform :global(.lf-media img) {
+    width: auto;
+    max-width: 100%;
+    max-height: 72vh;
     margin: 0;
   }
-  .prose.longform :global(.lf-media img) { margin: 0; }
   .prose.longform :global(.lf-media .post-caption) { margin: var(--space-2) 0 0; text-align: left; }
   .prose.longform :global(.lf-text > :first-child) { margin-top: 0; }
 
   @media (max-width: 820px) {
     /* Stack, image above its text, no sticking on a narrow screen. */
     .prose.longform :global(.lf-scene) { grid-template-columns: 1fr; gap: var(--space-4); }
-    .prose.longform :global(.lf-scene .lf-media) { grid-column: 1; grid-row: 1; position: static; }
+    .prose.longform :global(.lf-scene .lf-media) { grid-column: 1; grid-row: 1; position: static; transform: none; }
     .prose.longform :global(.lf-scene .lf-text) { grid-column: 1; grid-row: 2; }
   }
 </style>
