@@ -68,6 +68,7 @@ collections:
       - { name: heroAlt, label: Thumbnail alt text, widget: string, required: false }
       - { name: bannerImage, label: Banner (landscape, top of post), widget: image, required: false }
       - { name: bannerAlt, label: Banner alt text, widget: string, required: false }
+      - { name: longform, label: "Long-form magazine layout (sticky images)", widget: boolean, default: false, required: false }
       - { name: sortOrder, label: Sort order (lower = first), widget: number, default: 0, value_type: int }
       - { name: body, label: Body, widget: markdown }
 

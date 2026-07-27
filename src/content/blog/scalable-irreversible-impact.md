@@ -9,6 +9,7 @@ heroAlt: "On scalable, irreversible Impact"
 bannerImage: "/images/68a44492ab3e0604fcc3be31_wave2.png"
 bannerAlt: "On scalable, irreversible Impact"
 summary: "In 2023, overseas development aid totalled $243bn. In 2024, it fell 10%. This year, it’s projected to fall by a further 9-17%, according to OECD. After that, who knows?"
+longform: true
 sortOrder: 9
 ---
 

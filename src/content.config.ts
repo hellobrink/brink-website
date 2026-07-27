@@ -238,6 +238,10 @@ const blog = defineCollection({
     // Landscape banner shown full-width at the top of the post.
     bannerImage: z.string().optional(),
     bannerAlt: z.string().optional(),
+    // Long-form "magazine" layout: from the first image on, each image pins to
+    // one side (alternating) while its text scrolls alongside. The post opens
+    // in the normal single-column layout until that first image.
+    longform: z.boolean().default(false),
     sortOrder: z.number().default(0),
   }),
 });
