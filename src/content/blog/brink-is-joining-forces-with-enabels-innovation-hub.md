@@ -1,7 +1,7 @@
 ---
 title: "Brink is joining forces with Enabel’s Innovation Hub"
 subheading: "We're collaborating with Enabel, the Belgian government’s development agency with a mission to turn bold ideas into real-world progress."
-date: "April 24, 2025"
+date: 2025-04-24
 authorName: "Abi Freeman"
 authorSlug: "abi-freeman"
 heroImage: "/images/67eea2cab197da15375fd281_tbFarm-Radio_San-Womens-Listening-Group-016-1-scaled-e1737971603577-copy.png"

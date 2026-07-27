@@ -1,6 +1,6 @@
 ---
 title: "4 inbuilt biases that get in the way of innovation, and what to do about them"
-date: April 30, 2022
+date: 2022-04-30
 authorName: Abi Freeman
 authorSlug: abi-freeman
 heroImage: "/images/66d9c6de769448a365bee58b_0_cnljzatrirraodhc.webp"

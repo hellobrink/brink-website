@@ -1,6 +1,6 @@
 ---
 title: "Harnessing the collective: Why it’s easy to say, but difficult to do"
-date: April 23, 2024
+date: 2024-04-23
 authorName: Miranda Dixon
 authorSlug: miranda-dixon
 heroImage: "/images/66d9d8a0a89a0edcc5b1bb87_img_0047-2.webp"

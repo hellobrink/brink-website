@@ -1,6 +1,6 @@
 ---
 title: Building a different type of fund to transform literacy and numeracy in Sub-Saharan Africa
-date: August 22, 2024
+date: 2024-08-22
 authorName: Flic Burgess
 authorSlug: flic-burgess
 heroImage: "/images/66d9dc2a264fcf159ba145c4_home_hero.jpeg"

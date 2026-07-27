@@ -45,7 +45,14 @@ collections:
       - { name: title, label: Title, widget: string }
       - { name: subheading, label: Subheading (standfirst), widget: string, required: false }
       - { name: summary, label: Summary (search/meta), widget: text, required: false }
-      - { name: date, label: Date (as shown, e.g. "March 2024"), widget: string, required: false }
+      - name: date
+        label: Publish date
+        widget: datetime
+        format: 'YYYY-MM-DD'
+        date_format: 'DD MMMM YYYY'
+        time_format: false
+        picker_utc: true
+        required: false
       - { name: authorName, label: Author name, widget: string, required: false }
       - name: authorSlug
         label: Author — link to team bio (optional)
@@ -69,7 +76,7 @@ collections:
       - { name: bannerImage, label: Banner (landscape, top of post), widget: image, required: false }
       - { name: bannerAlt, label: Banner alt text, widget: string, required: false }
       - { name: longform, label: "Long-form magazine layout (sticky images)", widget: boolean, default: false, required: false }
-      - { name: sortOrder, label: Sort order (lower = first), widget: number, default: 0, value_type: int }
+      - { name: sortOrder, label: "Manual order (tiebreaker for same-date posts; lower = first)", widget: number, default: 0, value_type: int }
       - { name: body, label: Body, widget: markdown }
 
   # --- Team --------------------------------------------------------------

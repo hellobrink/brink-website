@@ -1,6 +1,6 @@
 ---
 title: What we learned from designing and running a six-week Behavioural Innovation course
-date: August 13, 2024
+date: 2024-08-13
 authorName: Abi Freeman
 authorSlug: abi-freeman
 heroImage: "/images/66d9dbeaee432560e0d6a552_iloicloayjd2ppaxgfws-1-1.webp"

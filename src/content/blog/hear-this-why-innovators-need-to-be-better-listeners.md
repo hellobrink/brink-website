@@ -1,6 +1,6 @@
 ---
 title: "Hear this: why innovators need to be better listeners."
-date: March 15, 2024
+date: 2024-03-15
 authorName: Lea Simpson
 authorSlug: lea-simpson
 heroImage: "/images/66d9d7dfae83282577ef8537_brinkcandids-1-1.webp"

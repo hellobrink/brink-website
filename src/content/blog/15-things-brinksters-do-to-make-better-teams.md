@@ -1,6 +1,6 @@
 ---
 title: "15 things Brinksters do to make better teams"
-date: October 9, 2023
+date: 2023-10-09
 authorName: Lea Simpson
 authorSlug: lea-simpson
 heroImage: "/images/66d9d440bad9f98a07491462_brinkcandids-143.webp"

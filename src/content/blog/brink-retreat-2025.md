@@ -1,7 +1,7 @@
 ---
 title: "Reflecting on the Brink Retreat, 2025"
 subheading: "A few notes from our annual retreat"
-date: "May 6, 2025"
+date: 2025-05-06
 authorName: "Rob Hinchcliffe"
 authorSlug: "rob-hinchcliffe"
 heroImage: "/images/68122fbb16d521de459d539d_Screenshot-2025-04-30-at-15.12.01.png"

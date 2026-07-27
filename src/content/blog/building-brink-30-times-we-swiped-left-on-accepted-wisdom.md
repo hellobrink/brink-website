@@ -1,6 +1,6 @@
 ---
 title: "Building Brink: 30 times we swiped left on accepted wisdom"
-date: May 12, 2022
+date: 2022-05-12
 authorName: Lea Simpson
 authorSlug: lea-simpson
 heroImage: "/images/66d9c7c91c2ccb3479df3844_1-pmvjs-7ua2d3rmo-5isqnw.webp"

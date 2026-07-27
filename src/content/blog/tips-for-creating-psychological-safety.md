@@ -1,6 +1,6 @@
 ---
 title: Tips for creating psychological safety
-date: February 21, 2020
+date: 2020-02-21
 authorName: Alice Carter
 authorSlug: alice-carter
 heroImage: "/images/679217753d2b0412ecd5603e_poster.jpg"

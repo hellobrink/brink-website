@@ -1,6 +1,6 @@
 ---
 title: "Building Brink: remixing how we show up in the world"
-date: October 31, 2022
+date: 2022-10-31
 authorName: Abi Freeman
 authorSlug: abi-freeman
 heroImage: "/images/66d9ce28c32389d86e084358_brink-banners-07.webp"

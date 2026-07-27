@@ -1,7 +1,7 @@
 ---
 title: "Meet Brink Foundation's newest board member: Sheena Raikundalia"
 subheading: "We're excited for you to meet the newest addition to our non-executive board."
-date: "August 20, 2025"
+date: 2025-08-20
 authorName: "Rob Hinchcliffe"
 authorSlug: "rob-hinchcliffe"
 heroImage: "/images/68a5d4d69e930570a98ff91c_sheena.jpeg"

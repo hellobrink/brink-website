@@ -1,6 +1,6 @@
 ---
 title: Adaptive management and innovation
-date: September 30, 2022
+date: 2022-09-30
 heroImage: "/images/66d9cc5b600412eb221bf183_1-9zlywfewhvn2wrvzsaurnq.jpeg"
 heroAlt: Adaptive management and innovation
 bannerImage: "/images/66d9cc5b600412eb221bf183_1-9zlywfewhvn2wrvzsaurnq.jpeg"

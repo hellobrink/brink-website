@@ -1,6 +1,6 @@
 ---
 title: An introduction to Behavioural Innovation
-date: June 24, 2024
+date: 2024-06-24
 authorName: Rob Hinchcliffe
 authorSlug: rob-hinchcliffe
 heroImage: "/images/66d9db8a26a542f0aa2fb37e_screenshot-2024-06-24-at-17.webp"

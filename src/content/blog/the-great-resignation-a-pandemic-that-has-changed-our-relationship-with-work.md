@@ -1,6 +1,6 @@
 ---
 title: "The Great Resignation: A pandemic that has changed our relationship with work"
-date: January 25, 2022
+date: 2022-01-25
 authorName: Abi Freeman
 authorSlug: abi-freeman
 heroImage: "/images/66d9b47dd986b5bcf3d11ba4_photo-1529400971008-f566de0e6dfc.jpeg"

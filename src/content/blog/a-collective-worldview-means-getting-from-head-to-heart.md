@@ -1,6 +1,6 @@
 ---
 title: “A collective worldview means getting from head to heart”
-date: April 27, 2023
+date: 2023-04-27
 authorName: Miranda Dixon
 authorSlug: miranda-dixon
 heroImage: "/images/66d9d08a046e0f042a221d0c_deepmind-egdr0kw-ptw-unsplash.webp"

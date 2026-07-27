@@ -1,6 +1,6 @@
 ---
 title: "The importance of context: A personal perspective on creating meaningful change"
-date: "September 8, 2025"
+date: 2025-09-08
 authorName: "Hamza Prince Hadji"
 authorSlug: "hamza-prince-hadji"
 heroImage: "/images/68b6f85cee4cb46a9776cbd7_Screenshot-2025-09-02-at-14.59.46.png"

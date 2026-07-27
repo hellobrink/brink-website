@@ -1,6 +1,6 @@
 ---
 title: Supporting local organisations following the Turkey-Syria earthquake
-date: February 7, 2023
+date: 2023-02-07
 authorName: Bryony Nicholson
 authorSlug: bryony-nicholson
 heroImage: "/images/66d9cf59ee149760cb61cd4e_230206155731-41-earthquake-020623-adana-tky.jpeg"

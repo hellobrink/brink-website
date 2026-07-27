@@ -1,6 +1,6 @@
 ---
 title: "Agency Growth Stories: Abi Freeman on building Brink"
-date: April 10, 2024
+date: 2024-04-10
 authorName: Abi Freeman
 authorSlug: abi-freeman
 heroImage: "/images/6821dbfaa114d28d2d3fc2bb_screenshot-2025-05-12-at-123058.png"

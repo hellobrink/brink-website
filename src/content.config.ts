@@ -224,7 +224,13 @@ const blog = defineCollection({
     // has one set.
     subheading: z.string().optional(),
     summary: z.string().optional(),
-    date: z.string().optional(),
+    // Stored ISO (YYYY-MM-DD). Unquoted ISO in YAML parses as a Date, and the
+    // CMS date picker may write either form, so accept both and normalise to
+    // the string.
+    date: z
+      .union([z.string(), z.date()])
+      .optional()
+      .transform((d) => (d instanceof Date ? d.toISOString().slice(0, 10) : d)),
     // Matches a team member's slug where the author is one of ours, so the
     // bio page can list their posts.
     authorSlug: z.string().optional(),

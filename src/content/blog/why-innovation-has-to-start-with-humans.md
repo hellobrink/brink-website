@@ -1,6 +1,6 @@
 ---
 title: "Why innovation has to start with humans (and pickles)"
-date: "May 14, 2025"
+date: 2025-05-14
 authorName: "Alice Carter"
 authorSlug: "alice-carter"
 heroImage: "/images/68235d1fd60518cc257f9bec_Screenshot-2025-05-13-at-15.54.10.png"

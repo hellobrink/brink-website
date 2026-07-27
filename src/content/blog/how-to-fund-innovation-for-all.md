@@ -1,6 +1,6 @@
 ---
 title: Field notes from COP26 — how to fund ‘Innovation for All’
-date: November 16, 2021
+date: 2021-11-16
 authorName: Lea Simpson
 authorSlug: lea-simpson
 heroImage: "/images/66d9b12c13526b63cbd710ab_1-c7j8-23ekxwa0wklohwalq.webp"

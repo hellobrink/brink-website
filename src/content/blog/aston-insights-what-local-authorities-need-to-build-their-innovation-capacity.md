@@ -1,6 +1,6 @@
 ---
 title: "ASToN Insights: what local authorities need to build their innovation capacity"
-date: September 20, 2023
+date: 2023-09-20
 authorName: David Vigoureux
 authorSlug: david-vigoureux
 heroImage: "/images/66d9d248c75fd4b30e182cbf_imgl9832.png"

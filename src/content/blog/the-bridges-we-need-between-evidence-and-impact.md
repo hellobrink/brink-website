@@ -1,7 +1,7 @@
 ---
 title: "The bridges we need between evidence and impact"
 subheading: "Why we need griots more today than ever."
-date: "December 18, 2025"
+date: 2025-12-18
 authorName: "Lil Patuck"
 authorSlug: "lil-patuck"
 authorName2: "Mwaniki Nyaga"

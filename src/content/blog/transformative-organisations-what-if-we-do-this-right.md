@@ -1,6 +1,6 @@
 ---
 title: "Transformative organisations: what if we do this right?"
-date: August 3, 2022
+date: 2022-08-03
 heroImage: "/images/66d9cab47ae0218584481344_1_yuikrehbynr7rvcdk0r8cq.jpeg"
 heroAlt: "Transformative organisations: what if we do this right?"
 bannerImage: "/images/66d9cab47ae0218584481344_1_yuikrehbynr7rvcdk0r8cq.jpeg"

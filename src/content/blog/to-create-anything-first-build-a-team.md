@@ -1,6 +1,6 @@
 ---
 title: To create anything, first build a team
-date: April 4, 2024
+date: 2024-04-04
 authorName: Lea Simpson
 authorSlug: lea-simpson
 heroImage: "/images/66d9d83fbcb466352dcd5e22_brinkgroup-4.jpeg"

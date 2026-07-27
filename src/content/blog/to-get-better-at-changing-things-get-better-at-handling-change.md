@@ -1,6 +1,6 @@
 ---
 title: To get better at changing things, get better at handling change
-date: September 21, 2023
+date: 2023-09-21
 heroImage: "/images/66d9d29488e3829180b6841e_gettyimages-816104818-2.webp"
 heroAlt: To get better at changing things, get better at handling change
 bannerImage: "/images/66d9d29488e3829180b6841e_gettyimages-816104818-2.webp"

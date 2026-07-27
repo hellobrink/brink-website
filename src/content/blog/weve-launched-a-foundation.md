@@ -1,6 +1,6 @@
 ---
 title: "We've launched a Foundation!"
-date: September 29, 2023
+date: 2023-09-29
 authorName: Abi Freeman
 authorSlug: abi-freeman
 heroImage: "/images/66d9d2ff157c84b514d873b4_brink-cic_web3.webp"

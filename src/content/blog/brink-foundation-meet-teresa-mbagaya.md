@@ -1,6 +1,6 @@
 ---
 title: "Brink Foundation: Meet Teresa Mbagaya"
-date: October 2, 2023
+date: 2023-10-02
 authorName: Rob Hinchcliffe
 authorSlug: rob-hinchcliffe
 heroImage: "/images/6821d73c0dfac2c0979d3dfd_screenshot-2025-05-12-at-121044.png"

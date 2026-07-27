@@ -1,6 +1,6 @@
 ---
 title: Brink Foundation Announces Partnership with USAID to Boost Implementation Research in Global Education
-date: October 22, 2024
+date: 2024-10-22
 authorName: Lea Simpson
 authorSlug: lea-simpson
 heroImage: "/images/671778fe2d2f3b7d91d53b97_image-asset.jpeg"

@@ -1,6 +1,6 @@
 ---
 title: What can subterranean subcultures teach us about collective intelligence and action?
-date: October 4, 2022
+date: 2022-10-04
 authorName: Sam Stockley-Patel
 authorSlug: sam-stockley-patel
 heroImage: "/images/66d9ccb31a30f22911b6ba84_bradg.jpeg"

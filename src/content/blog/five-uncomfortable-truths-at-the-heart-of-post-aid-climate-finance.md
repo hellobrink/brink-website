@@ -1,6 +1,6 @@
 ---
 title: "Five uncomfortable truths at the heart of post-aid climate finance"
-date: "January 29, 2026"
+date: 2026-01-29
 authorName: "Lil Patuck"
 authorSlug: "lil-patuck"
 authorName2: "Nathan Kably"

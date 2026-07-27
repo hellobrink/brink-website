@@ -1,6 +1,6 @@
 ---
 title: "We're an Escape The City winner!"
-date: July 12, 2023
+date: 2023-07-12
 heroImage: "/images/66d9d1b053fae31c9a09664a_brinkgroup-2.jpeg"
 heroAlt: "We're an Escape The City winner!"
 bannerImage: "/images/66d9d1b053fae31c9a09664a_brinkgroup-2.jpeg"

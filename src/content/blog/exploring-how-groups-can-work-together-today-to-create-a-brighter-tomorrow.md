@@ -1,6 +1,6 @@
 ---
 title: Exploring how groups can work together today to create a brighter tomorrow
-date: April 22, 2022
+date: 2022-04-22
 authorName: Bryony Nicholson
 authorSlug: bryony-nicholson
 heroImage: "/images/6821d18413d2287e4738d5ef_brinkretreat25-35.jpeg"

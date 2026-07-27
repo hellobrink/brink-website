@@ -1,6 +1,6 @@
 ---
 title: "Brink in East Africa: the road so far, and the road ahead"
-date: "October 10, 2025"
+date: 2025-10-10
 authorName: "Alice Carter"
 authorSlug: "alice-carter"
 heroImage: "/images/68e8fe8729ca31a7ddaad726_landscapeea.jpeg"

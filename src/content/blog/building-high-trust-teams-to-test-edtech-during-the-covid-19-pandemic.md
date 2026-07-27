@@ -1,6 +1,6 @@
 ---
 title: Building high-trust teams to test edtech during the COVID-19 pandemic
-date: February 14, 2024
+date: 2024-02-14
 authorName: Asad Rahman
 authorSlug: asad-rahman
 heroImage: "/images/66d9d7413a45c279d9da3bca_edtechsandboz.webp"

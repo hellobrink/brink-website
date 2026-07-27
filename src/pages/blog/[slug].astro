@@ -19,6 +19,16 @@ const authors = [
   { name: data.authorName, member: bio(data.authorSlug) },
   data.authorName2 ? { name: data.authorName2, member: bio(data.authorSlug2) } : null,
 ].filter(Boolean) as { name: string; member: any }[];
+
+// Dates are stored ISO (YYYY-MM-DD); show them as "27 July 2026". Midday avoids
+// any timezone day-shift.
+const displayDate = data.date
+  ? new Date(data.date + 'T12:00:00').toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    })
+  : '';
 ---
 
 <Layout title={data.title} description={data.subheading ?? data.summary} ogImage={data.bannerImage ?? data.heroImage} ogType="article">
@@ -37,8 +47,8 @@ const authors = [
             )}
           </>
         ))}
-        {data.date && authors.length > 0 ? ' · ' : ''}
-        {data.date}
+        {displayDate && authors.length > 0 ? ' · ' : ''}
+        {displayDate}
       </p>
       {data.subheading && <p class="standfirst">{data.subheading}</p>}
     </div>

@@ -1,6 +1,6 @@
 ---
 title: "We're building a lodge (and we need your help to name it)"
-date: January 9, 2025
+date: 2025-01-09
 authorName: Lea Simpson
 authorSlug: lea-simpson
 heroImage: "/images/677facfaf1c15d5a6107eda9_lodgebanner-1.png"

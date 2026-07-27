@@ -1,6 +1,6 @@
 ---
 title: How the right stories help shift our thinking from probable to possible
-date: December 5, 2023
+date: 2023-12-05
 authorName: Lil Patuck
 authorSlug: lil-patuck
 heroImage: "/images/66d9d5435027ddccee774f9d_img_8190.jpeg"

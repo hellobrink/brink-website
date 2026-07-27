@@ -1,6 +1,6 @@
 ---
 title: "Designing for equity and impact in AI"
-date: "March 27, 2025"
+date: 2025-03-27
 authorName: "Alice Carter"
 authorSlug: "alice-carter"
 heroImage: "/images/67e4fe6185fbe1f99a7cf144_Screenshot-2025-03-27-at-07.28.54.png"

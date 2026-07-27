@@ -1,6 +1,6 @@
 ---
 title: Decentralised community building in Web3 — “Is it all nonsense” or could this change the world?
-date: July 21, 2022
+date: 2022-07-21
 authorName: Miranda Dixon
 authorSlug: miranda-dixon
 heroImage: "/images/66d9c850e14c7161b2a7c0df_photo-1545987796-200677ee1011.jpeg"

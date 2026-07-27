@@ -1,6 +1,6 @@
 ---
 title: "Innovating internal comms at Brink: getting started"
-date: January 22, 2023
+date: 2023-01-22
 heroImage: "/images/66d9d5eea89a0edcc5aef009_brink-desktop-backgrounds-08.webp"
 heroAlt: "Innovating internal comms at Brink: getting started"
 bannerImage: "/images/66d9d5eea89a0edcc5aef009_brink-desktop-backgrounds-08.webp"

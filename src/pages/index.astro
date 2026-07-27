@@ -16,7 +16,7 @@ import { getCollection } from 'astro:content';
 // news carousel is hard to scroll, so we take the idea and drop the mechanism.
 const posts = await getCollection('blog');
 const latestPosts = posts
-  .sort((a, b) => a.data.sortOrder - b.data.sortOrder)
+  .sort((a, b) => (b.data.date || '').localeCompare(a.data.date || '') || a.data.sortOrder - b.data.sortOrder)
   .slice(0, 3);
 
 // Full-width image panels replacing the old three-up "Explore Brink" cards,

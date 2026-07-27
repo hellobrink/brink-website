@@ -1,6 +1,6 @@
 ---
 title: Directing money to the right lever, to help people access oxygen
-date: February 14, 2024
+date: 2024-02-14
 authorName: Asad Rahman
 authorSlug: asad-rahman
 heroImage: "/images/66d9d71754789bb3979512c8_dsfsdgs.webp"

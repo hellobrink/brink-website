@@ -1,6 +1,6 @@
 ---
 title: "Mastering Mindful Collaboration: Innovating with Government for Lasting Impact"
-date: February 27, 2025
+date: 2025-02-27
 heroImage: "/images/67c050d665a2de5249428d75_3dccc52d-a995-484b-9857-415925b52429.jpg"
 heroAlt: "Mastering Mindful Collaboration: Innovating with Government for Lasting Impact"
 bannerImage: "/images/67c050d665a2de5249428d75_3dccc52d-a995-484b-9857-415925b52429.jpg"

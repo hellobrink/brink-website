@@ -1,6 +1,6 @@
 ---
 title: "Strength in numbers: changing minds and mindsets with data-driven stories"
-date: July 10, 2023
+date: 2023-07-10
 authorName: Sam Stockley-Patel
 authorSlug: sam-stockley-patel
 heroImage: "/images/66d9d147542032ddaa441d36_boliviainteligente-svsre2xefz0-unsplash.webp"

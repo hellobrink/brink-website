@@ -1,6 +1,6 @@
 ---
 title: "Climate capital is still struggling to scale promising innovations"
-date: "July 8, 2026"
+date: 2026-07-08
 authorName: "Nathan Kably"
 authorSlug: "nathan-kably"
 heroImage: "/images/6a4e7044062c939df35ad8c8_climate_funds.png"

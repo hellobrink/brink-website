@@ -1,6 +1,6 @@
 ---
 title: "Bringing everyone onboard: using virtual reality in the International Criminal Court"
-date: February 14, 2024
+date: 2024-02-14
 authorName: Asad Rahman
 authorSlug: asad-rahman
 heroImage: "/images/66d9d7625cbd5f806b6f790b_ar_01.webp"

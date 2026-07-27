@@ -1,6 +1,6 @@
 ---
 title: What is the role of ritual in building resilient communities?
-date: December 19, 2022
+date: 2022-12-19
 authorName: Bryony Nicholson
 authorSlug: bryony-nicholson
 heroImage: "/images/66d9cf26e9376a0ee31aefc8_brian-mcmahon-_2lfcskjieg-unsplash.jpeg"

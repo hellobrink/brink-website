@@ -1,6 +1,6 @@
 ---
 title: Choosing without choosing
-date: April 8, 2022
+date: 2022-04-08
 authorName: Abi Freeman
 authorSlug: abi-freeman
 heroImage: "/images/66d9c5a5cde58df0615abd2b_photo-1547582281-b2cfb9e84a3e.jpeg"

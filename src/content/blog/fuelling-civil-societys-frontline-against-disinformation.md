@@ -1,6 +1,6 @@
 ---
 title: "Fuelling civil society’s frontline against disinformation"
-date: "June 26, 2025"
+date: 2025-06-26
 authorName: "Miranda Dixon"
 authorSlug: "miranda-dixon"
 heroImage: "/images/685d52dce13a187b11854448_misinformation-tb.png"

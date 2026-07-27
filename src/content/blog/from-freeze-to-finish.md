@@ -1,6 +1,6 @@
 ---
 title: From freeze to finish
-date: December 7, 2021
+date: 2021-12-07
 authorName: Alex Losneanu
 authorSlug: alex-losneanu
 heroImage: "/images/66d9b361ba7e12017c60cf47_0_mpkna0jbqr03j_4z.webp"

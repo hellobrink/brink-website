@@ -1,6 +1,6 @@
 ---
 title: What can businesses do to tackle the burnout epidemic?
-date: November 18, 2021
+date: 2021-11-18
 authorName: Gita Luz
 authorSlug: gita-luz
 heroImage: "/images/66d9b29f9be41c0bfbbaf16b_photo-1517245386807-bb43f82c33c4.jpeg"

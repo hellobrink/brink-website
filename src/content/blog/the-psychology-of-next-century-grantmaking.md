@@ -1,7 +1,7 @@
 ---
 title: "The psychology of next-century grantmaking"
 subheading: "After years of experiencing this firsthand, we set up Brink Foundation to shift the grantmaking paradigm."
-date: "April 6, 2025"
+date: 2025-04-06
 authorName: "Lea Simpson"
 authorSlug: "lea-simpson"
 heroImage: "/images/682333dfad7a0153243b7ba7_Screenshot-2025-05-13-at-12.58.04.png"

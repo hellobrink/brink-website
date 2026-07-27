@@ -1,6 +1,6 @@
 ---
 title: Three things I learned from building a humanitarian innovation community
-date: October 26, 2023
+date: 2023-10-26
 authorName: Bryony Nicholson
 authorSlug: bryony-nicholson
 heroImage: "/images/66d9d486e7c57136f38065d9_screenshot-2023-10-26-at-15.webp"

@@ -1,6 +1,6 @@
 ---
 title: "The power of “we”: our emerging principles for collective intelligence"
-date: July 10, 2023
+date: 2023-07-10
 authorName: Sam Stockley-Patel
 authorSlug: sam-stockley-patel
 heroImage: "/images/66d9d17fed86af55071a09b2_james-wainscoat-b7mz6igiosi-unsplash.jpeg"

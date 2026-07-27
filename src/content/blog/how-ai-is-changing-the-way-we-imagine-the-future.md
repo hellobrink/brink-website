@@ -1,7 +1,7 @@
 ---
 title: "How AI Is changing the way we imagine the future"
 subheading: "How creating tangible things from the future to share today can help articulate the implications of long-term trends and changes."
-date: "July 15, 2025"
+date: 2025-07-15
 authorName: "David Vigoureux"
 authorSlug: "david-vigoureux"
 heroImage: "/images/68763df5a35009637b6d916f_chatgpt-image-jul-15-2025-12_17_38-pm.jpg"

@@ -1,6 +1,6 @@
 ---
 title: "Nudging innovation: How to design enabling environments for real world change"
-date: May 7, 2024
+date: 2024-05-07
 authorName: Abi Freeman
 authorSlug: abi-freeman
 heroImage: "/images/66d9daf5890b60143968ea32__dsc0793.webp"

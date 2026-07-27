@@ -1,7 +1,7 @@
 ---
 title: "On scalable, irreversible Impact"
 subheading: "Getting to impact at scale in five steps."
-date: "August 19, 2025"
+date: 2025-08-19
 authorName: "Asad Rahman"
 authorSlug: "asad-rahman"
 heroImage: "/images/68a44492ab3e0604fcc3be31_wave2.png"

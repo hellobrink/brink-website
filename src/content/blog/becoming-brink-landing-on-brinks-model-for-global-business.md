@@ -1,6 +1,6 @@
 ---
 title: "Becoming Brink. Landing on Brink's model for global business"
-date: October 31, 2022
+date: 2022-10-31
 authorName: Abi Freeman
 authorSlug: abi-freeman
 heroImage: "/images/66d9cd5d1ee4131bbe8dd680_map-03.webp"

@@ -1,6 +1,6 @@
 ---
 title: Tech for good? Lessons from 6 years of grappling with tech to make the world a better place
-date: February 12, 2025
+date: 2025-02-12
 authorName: Asad Rahman
 authorSlug: asad-rahman
 heroImage: "/images/67adb93f997fa982da132034_screenshot-2025-02-13-at-091911.png"

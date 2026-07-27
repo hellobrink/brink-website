@@ -1,6 +1,6 @@
 ---
 title: "5 images that changed the way I think about organisational transformation"
-date: October 27, 2023
+date: 2023-10-27
 heroImage: "/images/66d9d4b3ca478502f2afd6fe_img_4474.jpeg"
 heroAlt: "5 images that changed the way I think about organisational transformation"
 bannerImage: "/images/66d9d4b3ca478502f2afd6fe_img_4474.jpeg"

@@ -1,6 +1,6 @@
 ---
 title: Early Insights about the Informal Economy in Kenya
-date: November 27, 2023
+date: 2023-11-27
 authorName: Kelley Rowe
 authorSlug: kelley-rowe
 heroImage: "/images/66d9d50388e3829180b890ed_nicholas-gray-cjezwjfljqc-unsplash.webp"

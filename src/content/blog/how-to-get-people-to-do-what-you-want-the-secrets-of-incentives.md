@@ -1,6 +1,6 @@
 ---
 title: "How to get people to do what you want: The secrets of incentives"
-date: May 27, 2022
+date: 2022-05-27
 authorName: Abi Freeman
 authorSlug: abi-freeman
 heroImage: "/images/66d9c800066d10f5ded10a94_17233999165_cf3317a86a_k-1.webp"

@@ -4,7 +4,7 @@ import { withBase } from '../../lib/base';
 import { getCollection } from 'astro:content';
 
 const posts = await getCollection('blog');
-posts.sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+posts.sort((a, b) => (b.data.date || '').localeCompare(a.data.date || '') || a.data.sortOrder - b.data.sortOrder);
 ---
 
 <Layout title="Blog" description="Thinking, learning and stories from the Brink team.">

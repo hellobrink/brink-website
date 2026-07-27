@@ -1,6 +1,6 @@
 ---
 title: “Don’t learn about us, without us”
-date: February 2, 2024
+date: 2024-02-02
 authorName: Sam Stockley-Patel
 authorSlug: sam-stockley-patel
 heroImage: "/images/66d9d63ce90637bff4f0924b_fow-msa_-15.jpeg"

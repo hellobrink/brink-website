@@ -1,6 +1,6 @@
 ---
 title: "What we know to be true - A message from Brink's founders"
-date: "April 8, 2025"
+date: 2025-04-08
 authorName: "Lea Simpson"
 authorSlug: "lea-simpson"
 authorName2: "Abi Freeman"

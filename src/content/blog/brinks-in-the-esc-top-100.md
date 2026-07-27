@@ -1,6 +1,6 @@
 ---
 title: Brink’s in the ESC top 100 🥳
-date: May 11, 2022
+date: 2022-05-11
 authorName: Abi Freeman
 authorSlug: abi-freeman
 heroImage: "/images/6821d1f09e7fd70d3aeb4ea2_screenshot-2025-05-12-at-114807.png"

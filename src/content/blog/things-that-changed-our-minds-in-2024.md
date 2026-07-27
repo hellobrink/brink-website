@@ -1,6 +1,6 @@
 ---
 title: The things that changed our minds in 2024
-date: January 7, 2025
+date: 2025-01-07
 authorName: Abi Freeman
 authorSlug: abi-freeman
 heroImage: "/images/677d50102fa01b52cfc9b1ec_zombie.jpeg"

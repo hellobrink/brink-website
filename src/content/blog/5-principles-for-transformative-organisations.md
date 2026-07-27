@@ -1,6 +1,6 @@
 ---
 title: "5 principles for transformative organisations"
-date: December 1, 2022
+date: 2022-12-01
 heroImage: "/images/6821d44ac94c98e729d7be8d_screenshot-2025-05-12-at-115808.png"
 heroAlt: "5 principles for transformative organisations"
 bannerImage: "/images/6821d44ac94c98e729d7be8d_screenshot-2025-05-12-at-115808.png"

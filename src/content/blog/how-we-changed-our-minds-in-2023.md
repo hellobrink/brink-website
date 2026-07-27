@@ -1,6 +1,6 @@
 ---
 title: How we changed our minds in 2023
-date: December 21, 2023
+date: 2023-12-21
 authorName: Rob Hinchcliffe
 authorSlug: rob-hinchcliffe
 heroImage: "/images/66d9d5b2e805b6a67890054b_books-header-3.webp"

@@ -1,6 +1,6 @@
 ---
 title: "Burnout beyond the individual: how workplaces are making us sick and how to change this"
-date: December 2, 2021
+date: 2021-12-02
 authorName: Gita Luz
 authorSlug: gita-luz
 heroImage: "/images/66d9b31fba7e12017c608076_photo-1466120262033-5fb3f4f67132.jpeg"

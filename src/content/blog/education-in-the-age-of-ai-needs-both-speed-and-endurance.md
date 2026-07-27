@@ -1,7 +1,7 @@
 ---
 title: "Education in the age of AI needs both speed and endurance: What happens when fast meets slow?"
 subheading: "Some thoughts from the India AI Impact Summit"
-date: "March 11, 2026"
+date: 2026-03-11
 authorName: "Gita Luz"
 authorSlug: "gita-luz"
 authorName2: "Flic Burgess"

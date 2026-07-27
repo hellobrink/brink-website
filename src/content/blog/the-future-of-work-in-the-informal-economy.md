@@ -1,6 +1,6 @@
 ---
 title: The Future of Work in the Informal Economy
-date: November 27, 2023
+date: 2023-11-27
 authorName: Kelley Rowe
 authorSlug: kelley-rowe
 heroImage: "/images/6821d921dca1f99797ded175_screenshot-2025-05-12-at-121828.jpg"

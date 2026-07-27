@@ -1,6 +1,6 @@
 ---
 title: "36 questions to fall in love with your team"
-date: August 16, 2022
+date: 2022-08-16
 authorName: Abi Freeman
 authorSlug: abi-freeman
 heroImage: "/images/66d9cb6123e4687cc530cbf9_advice-to-our-15-year-old-selves.webp"

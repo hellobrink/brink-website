@@ -1,6 +1,6 @@
 ---
 title: B is for Benefit
-date: March 2, 2022
+date: 2022-03-02
 authorName: Abi Freeman
 authorSlug: abi-freeman
 heroImage: "/images/66d9b4b76a382d30dbe36081_behind-the-b-04.webp"

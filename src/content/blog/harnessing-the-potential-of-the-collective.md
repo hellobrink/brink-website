@@ -1,6 +1,6 @@
 ---
 title: Harnessing the potential of the Collective
-date: January 11, 2022
+date: 2022-01-11
 authorName: Miranda Dixon
 authorSlug: miranda-dixon
 heroImage: "/images/66d9b3fc9943dad9915572d1_1-aotgqhmw55gqigayte1zig.jpeg"

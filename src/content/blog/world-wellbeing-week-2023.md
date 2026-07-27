@@ -1,6 +1,6 @@
 ---
 title: World Wellbeing Week 2023
-date: June 27, 2023
+date: 2023-06-27
 heroImage: "/images/66d9d103542032ddaa43df4e_brink-desktop-backgrounds-07.webp"
 heroAlt: World Wellbeing Week 2023
 bannerImage: "/images/66d9d103542032ddaa43df4e_brink-desktop-backgrounds-07.webp"

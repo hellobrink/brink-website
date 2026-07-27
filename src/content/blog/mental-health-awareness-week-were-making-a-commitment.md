@@ -1,6 +1,6 @@
 ---
 title: "Mental Health Awareness Week: we're making a commitment"
-date: May 18, 2023
+date: 2023-05-18
 heroImage: "/images/66d9d0bccb2ad51dc3fe08af_brink-desktop-backgrounds-11.webp"
 heroAlt: "Mental Health Awareness Week: we're making a commitment"
 bannerImage: "/images/66d9d0bccb2ad51dc3fe08af_brink-desktop-backgrounds-11.webp"

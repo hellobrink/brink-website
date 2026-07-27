@@ -1,6 +1,6 @@
 ---
 title: Scaling impact in the real world
-date: February 14, 2024
+date: 2024-02-14
 authorName: Asad Rahman
 authorSlug: asad-rahman
 heroImage: "/images/66d9d6c5e805b6a67890f7c9_dan-freeman-g4e6pcot4ps-unsplash.jpeg"

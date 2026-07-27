@@ -1,6 +1,6 @@
 ---
 title: "Minding the gap between funding and impact in Agritech"
-date: "July 7, 2025"
+date: 2025-07-07
 authorName: "Abi Freeman"
 authorSlug: "abi-freeman"
 heroImage: "/images/686ba1a29c49b9f6e183b070_wfd-24_farm-4.jpg"

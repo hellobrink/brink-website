@@ -1,6 +1,6 @@
 ---
 title: "Brink Foundation: Meet Magdalena Banasiak"
-date: October 11, 2023
+date: 2023-10-11
 authorName: Rob Hinchcliffe
 authorSlug: rob-hinchcliffe
 heroImage: "/images/6821d73c0dfac2c0979d3dfd_screenshot-2025-05-12-at-121044.png"

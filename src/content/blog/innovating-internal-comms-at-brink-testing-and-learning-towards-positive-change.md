@@ -1,6 +1,6 @@
 ---
 title: "Innovating internal comms at Brink: testing and learning towards positive change"
-date: March 27, 2024
+date: 2024-03-27
 heroImage: "/images/66d9d80b8e491297388b4b1b_brink-desktop-backgrounds-02.webp"
 heroAlt: "Innovating internal comms at Brink: testing and learning towards positive change"
 bannerImage: "/images/66d9d80b8e491297388b4b1b_brink-desktop-backgrounds-02.webp"

@@ -1,7 +1,7 @@
 ---
 title: "Brink is now part of Africa Practice"
 subheading: "We’re excited to announce that Brink has been acquired by Africa Practice."
-date: "December 11, 2025"
+date: 2025-12-11
 authorName: "Lea Simpson"
 authorSlug: "lea-simpson"
 authorName2: "Abi Freeman"

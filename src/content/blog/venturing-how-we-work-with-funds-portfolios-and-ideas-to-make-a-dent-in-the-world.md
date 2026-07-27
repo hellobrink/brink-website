@@ -1,6 +1,6 @@
 ---
 title: "Venturing: How we work with funds, portfolios, and ideas to make a dent in the world"
-date: August 18, 2022
+date: 2022-08-18
 authorName: Asad Rahman
 authorSlug: asad-rahman
 heroImage: "/images/66d9cbe09b3ad9c951ffc290_asad-blog.webp"

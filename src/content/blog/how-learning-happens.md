@@ -1,6 +1,6 @@
 ---
 title: How learning happens
-date: December 16, 2021
+date: 2021-12-16
 authorName: Abi Freeman
 authorSlug: abi-freeman
 heroImage: "/images/66d9b3a5b89012b400bcfbde_1-ft7nuo4h14vwjuyheb_gjq-1.webp"

@@ -1,6 +1,6 @@
 ---
 title: Why East Africa, what’s exciting, what next
-date: November 8, 2022
+date: 2022-11-08
 authorName: James Wilkinson
 authorSlug: james-wilkinson
 heroImage: "/images/66d9ce5c222e3db9175943ab_photo-1585773111351-977313a05e66.jpeg"

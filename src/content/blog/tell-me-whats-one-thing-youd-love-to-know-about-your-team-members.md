@@ -1,6 +1,6 @@
 ---
 title: Tell me, what’s one thing you’d love to know about your team members?
-date: January 20, 2022
+date: 2022-01-20
 authorName: Abi Freeman
 authorSlug: abi-freeman
 heroImage: "/images/66d9b448b89012b400bdadf9_brinkworkshop-43.jpeg"

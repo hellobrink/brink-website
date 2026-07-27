@@ -1,6 +1,6 @@
 ---
 title: "From algae to action: collective conversations on climate change"
-date: January 23, 2023
+date: 2023-01-23
 authorName: Kelley Rowe
 authorSlug: kelley-rowe
 heroImage: "/images/66d9d624ebbe96b744b69ec6_nathan-cima-zywi9tegn7c-unsplash.jpeg"

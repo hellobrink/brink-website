@@ -1,6 +1,6 @@
 ---
 title: Why complex global problems need ‘adaptive bureaucracies’ (and why that’s not an oxymoron)
-date: June 11, 2024
+date: 2024-06-11
 authorName: Lea Simpson
 authorSlug: lea-simpson
 heroImage: "/images/66d9db44fed10a42d995aa64_chocpot.webp"

@@ -1,6 +1,6 @@
 ---
 title: "I disagree: the dangerous business of sharing ideas and giving feedback"
-date: March 14, 2024
+date: 2024-03-14
 authorName: Lea Simpson
 authorSlug: lea-simpson
 heroImage: "/images/66d9d7bd5027ddccee79777d_brinkcandids-152.webp"

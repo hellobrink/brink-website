@@ -1,6 +1,6 @@
 ---
 title: "“It's easier to sign off a £50m project here than it is to sign off a £50k one.”"
-date: August 13, 2024
+date: 2024-08-13
 authorName: Asad Rahman
 authorSlug: asad-rahman
 heroImage: "/images/66d9dbad2650ddc481a381f4_screenshot-2024-07-09-at-13.webp"

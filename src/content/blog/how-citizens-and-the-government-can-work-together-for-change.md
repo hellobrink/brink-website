@@ -1,6 +1,6 @@
 ---
 title: How citizens and the government can work together for change
-date: September 5, 2023
+date: 2023-09-05
 heroImage: "/images/66d9d214343cd857a7321106_joseph-greve-xi1uwodzjro-unsplash.webp"
 heroAlt: How citizens and the government can work together for change
 bannerImage: "/images/66d9d214343cd857a7321106_joseph-greve-xi1uwodzjro-unsplash.webp"
