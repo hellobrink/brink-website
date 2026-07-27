@@ -1,0 +1,35 @@
+# Redirects from the old Webflow URL structure to the new site.
+#
+# Cloudflare Pages format (`source  destination  status`, `:splat` = wildcard
+# tail). This activates once the site is served from Cloudflare Pages at
+# cutover. GitHub Pages ignores this file, so it is harmless before then.
+#
+# Paths are written for the live domain root (base "/"), i.e. the post-cutover
+# state, not the current /brink-website preview.
+
+# Blog posts: /post/{slug} -> /blog/{slug} (slugs preserved)
+/post/*              /blog/:splat                          301
+
+# Case studies merged into Our Work (all 11 slugs match 1:1)
+/case-studies        /our-work                             301
+/case-studies/*      /our-work/:splat                      301
+
+# Offers
+/our-offers          /offers                               301
+
+# Sectors moved from the domain root under /sectors
+/climate             /sectors/climate                      301
+/health              /sectors/health                       301
+/education           /sectors/education                    301
+
+# Team index (the live site already 301s /meet-the-team -> /team)
+/meet-the-team       /team                                 301
+
+# The Foundation is now its own external site
+/foundation          https://www.brink-foundation.org/     301
+/brink-foundation    https://www.brink-foundation.org/     301
+
+# Best-effort maps for a few old odds-and-ends (confirm at cutover)
+/what-we-do          /offers                               301
+/carve-out-whitepaper /offers                              301
+/categories/*        /our-work                             301

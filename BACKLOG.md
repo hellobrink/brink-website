@@ -4,9 +4,10 @@ Running list of outstanding work on the new site, grouped by theme. Not in
 strict priority order. Tick items off as they land.
 
 ## Launch / cutover
-- [ ] **URL mapping + redirects** — map every old Webflow URL to its new home so
-      nothing 404s and SEO/links survive. Includes `/post/{slug}` → `/blog/{slug}`
-      (slugs already match 1:1).
+- [x] **URL mapping + redirects** — DRAFTED: mapping in REDIRECTS.md, redirect
+      rules in public/_redirects (Cloudflare Pages format, activates at cutover).
+      Verified case-study + blog slugs match 1:1. Confirm the best-effort maps
+      at go-live.
 - [ ] **Go live** — move hosting to Cloudflare Pages (gives a real staging/live
       split), custom domain + DNS + HTTPS. At that point set the Astro `base`
       back to `/` (from `/brink-website`).
