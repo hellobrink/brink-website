@@ -493,10 +493,19 @@ const offers = [
   }
 
   @media (max-width: 800px) {
+    /* Stack, and slot the image between the programme name and its tagline
+       instead of dumping it at the foot of the band. display:contents flattens
+       the copy's children into the same flex flow as the image so they can be
+       reordered together. */
     .band-inner {
-      grid-template-columns: 1fr;
-      gap: var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
     }
+    .band-copy { display: contents; }
+    .band-name { order: 1; }
+    .band-aside { order: 2; }
+    .band-copy > :not(.band-name) { order: 3; }
   }
 
   .filters {

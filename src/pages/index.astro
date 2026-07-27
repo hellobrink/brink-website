@@ -431,6 +431,20 @@ const panels = [
     }
   }
 
+  /* On a narrow screen the diagonal scrim covers almost the whole width, so the
+     photo reads as near-solid teal. Swap to a gentler vertical scrim that keeps
+     the copy legible while letting the image show through. */
+  @media (max-width: 900px) {
+    .hero::after {
+      background: linear-gradient(
+        180deg,
+        rgba(6, 51, 61, 0.48) 0%,
+        rgba(6, 51, 61, 0.58) 42%,
+        rgba(6, 51, 61, 0.82) 100%
+      );
+    }
+  }
+
   .hero-text h1 {
     font-size: var(--text-hero);
     color: var(--color-surface);
@@ -552,6 +566,18 @@ const panels = [
       rgba(6, 51, 61, 0.1) 62%,
       rgba(6, 51, 61, 0) 80%
     );
+  }
+
+  /* Narrow screens: lighten and even out the scrim so more of the photo shows. */
+  @media (max-width: 900px) {
+    .panel::after {
+      background: linear-gradient(
+        180deg,
+        rgba(6, 51, 61, 0.42) 0%,
+        rgba(6, 51, 61, 0.55) 45%,
+        rgba(6, 51, 61, 0.8) 100%
+      );
+    }
   }
 
   .panel-inner {

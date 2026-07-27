@@ -478,5 +478,12 @@ const discover = [
     .scenario-media { grid-row: 1 !important; aspect-ratio: 4 / 3; }
     .scenario.media-right .scenario-card { grid-row: 2; }
     .scenario-card { margin: 0; }
+    /* In one column there is no column 2, so media-right items pinned there
+       land in a zero-width phantom track and vanish (this is what hid the
+       cranes image). Pull everything back into the single column. */
+    .split.media-right .split-media,
+    .split.media-right .split-copy,
+    .scenario.media-right .scenario-media,
+    .scenario.media-right .scenario-card { grid-column: 1; }
   }
 </style>

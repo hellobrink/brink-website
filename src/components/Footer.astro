@@ -3,11 +3,6 @@ import { withBase } from '../lib/base';
 
 // Matches the live site's footer: light background, 10px solid coral top
 // border, dark teal text, mono uppercase labels.
-const sectors = [
-  { href: '/sectors/climate', label: 'Climate' },
-  { href: '/sectors/health', label: 'Health' },
-  { href: '/sectors/education', label: 'Education' },
-];
 ---
 
 <footer class="site-footer">
@@ -22,14 +17,6 @@ const sectors = [
       </p>
       <p class="mono"><a href="mailto:coffee@hellobrink.co">coffee@hellobrink.co</a></p>
       <p class="mono"><a href={withBase('/privacy-policy')}>Privacy policy</a></p>
-    </div>
-    <div>
-      <p class="mono">Sectors</p>
-      <ul>
-        {sectors.map((s) => (
-          <li><a href={withBase(s.href)}>{s.label}</a></li>
-        ))}
-      </ul>
     </div>
     <div>
       <p class="mono">Subscribe to the Cognitive Download, our monthly newsletter</p>
