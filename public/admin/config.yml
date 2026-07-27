@@ -20,7 +20,7 @@ backend:
   # deploys to the github.io preview). At cutover, switch to `staging` so
   # edits land on staging and are promoted to live by merging.
   branch: main
-  base_url: https://REPLACE-WITH-YOUR-AUTH-WORKER.workers.dev
+  base_url: https://brink-cms-auth.brink-global.workers.dev
 
 # Uploaded images land in public/images; the path written into content omits
 # the /brink-website base prefix, which the site adds at render time.
