@@ -131,8 +131,9 @@ collections:
       Our Work) or a full case study with its own page. Fill the BASICS for
       every item. Only fill the CASE STUDY section if you turn on "Has a full
       case study?". Minimum for a case study: a hero image, a standfirst, one
-      challenge paragraph and at least one result. A fuller one adds the "How
-      we did it" points and the "story in more detail" narrative.
+      challenge paragraph, at least one result, the "How we did it" points, and
+      a timeline and location. A fuller one adds the "story in more detail"
+      narrative, quotes, funders and partners, and a gallery.
     fields:
       # --- Basics: fill these for every item ---
       - name: title
@@ -240,9 +241,9 @@ collections:
         default: false
         hint: >-
           Turn on to give this item its own case-study page. MINIMUM: a hero
-          image, a standfirst, one challenge paragraph and at least one result.
-          A FULLER case study also adds the "How we did it" points and the
-          "story in more detail" narrative below.
+          image, a standfirst, one challenge paragraph, at least one result, the
+          "How we did it" points, and a timeline and location. A FULLER case
+          study also adds the "story in more detail" narrative below.
       - name: standfirst
         label: Standfirst
         widget: text
@@ -270,7 +271,7 @@ collections:
         label: How we did it (points)
         widget: list
         required: false
-        hint: "The method, as points. Start each with a bold lead-in then the detail, e.g. '**Enabling crucial conversations:** ...'. Recommended for a full case study."
+        hint: "The method, as points. Part of the minimum for a case study. Start each with a bold lead-in then the detail, e.g. '**Enabling crucial conversations:** ...'."
         field: { name: para, label: Point, widget: text }
       - name: body
         label: Case study narrative (the story in more detail)
@@ -315,12 +316,12 @@ collections:
         label: Timeline
         widget: string
         required: false
-        hint: "e.g. '2021 – 2022' or '2019 – Ongoing'. Shown in the case-study details. Optional."
+        hint: "e.g. '2021 – 2022' or '2019 – Ongoing'. Shown in the case-study details. Part of the minimum for a case study."
       - name: location
         label: Location
         widget: string
         required: false
-        hint: "Country, city or region. Shown in the case-study details. Optional."
+        hint: "Country, city or region. Shown in the case-study details. Part of the minimum for a case study."
       - name: year
         label: Year
         widget: string
