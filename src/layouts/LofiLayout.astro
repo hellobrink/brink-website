@@ -1,0 +1,126 @@
+---
+// Lo-fi layout: a deliberately tiny document for patchy connections. System
+// monospace (no web-font download), black on white (inverts in dark mode), no
+// images, all CSS inlined. Kept entirely separate from the main Layout/Header
+// so none of the heavy assets come along for the ride.
+import { withBase } from '../lib/base';
+
+interface Props {
+  title?: string;
+}
+const { title } = Astro.props;
+
+// The wordmark as ASCII art — the one "graphic" on the page, and it costs
+// nothing to send.
+const logo = String.raw`
+ ____   ____   ___   _   _   _  __
+| __ ) |  _ \ |_ _| | \ | | | |/ /
+|  _ \ | |_) | | |  |  \| | | ' /
+| |_) ||  _ < | |  | |\  | | . \
+|____/ |_| \_\|___| |_| \_| |_|\_\
+`.replace(/^\n/, '').replace(/\n$/, '');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title ? `${title} · Brink` : 'Brink'} [lo-fi]</title>
+    <meta
+      name="description"
+      content="A low-bandwidth version of the Brink website: text only, no images, no web fonts."
+    />
+    <style is:global>
+      :root { color-scheme: light dark; }
+      * { box-sizing: border-box; }
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+        margin: 0;
+        background: #fff;
+        color: #000;
+        font-family: ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, Consolas, 'Courier New', monospace;
+        font-size: 15px;
+        line-height: 1.55;
+      }
+      @media (prefers-color-scheme: dark) {
+        body { background: #000; color: #fff; }
+      }
+      .lofi { max-width: 44rem; margin: 0 auto; padding: 1.25rem 1.1rem 4rem; }
+
+      a { color: inherit; text-underline-offset: 2px; }
+      a:hover, a:focus { background: #000; color: #fff; text-decoration: none; outline: none; }
+      @media (prefers-color-scheme: dark) {
+        a:hover, a:focus { background: #fff; color: #000; }
+      }
+
+      .bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+        border-bottom: 1px solid;
+        padding-bottom: 0.85rem;
+        margin-bottom: 1.75rem;
+      }
+      .logo {
+        margin: 0;
+        white-space: pre;
+        overflow-x: auto;
+        font-size: clamp(7px, 2vw, 12px);
+        line-height: 1.15;
+      }
+      .toggle { font-size: 13px; white-space: nowrap; padding-top: 0.2rem; }
+
+      h1 {
+        font-size: 1.4rem;
+        line-height: 1.2;
+        margin: 0 0 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+      }
+      h2 {
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin: 1.75rem 0 0.6rem;
+      }
+      h2::before { content: '> '; }
+      p { margin: 0 0 1rem; max-width: 64ch; }
+
+      ul.plain { list-style: none; margin: 0 0 1rem; padding: 0; }
+      ul.plain li { margin: 0 0 0.3rem; }
+      ul.plain li::before { content: '– '; }
+
+      hr { border: 0; border-top: 1px solid; margin: 1.75rem 0; }
+      .muted { opacity: 0.65; }
+
+      .foot {
+        margin-top: 2.75rem;
+        border-top: 1px solid;
+        padding-top: 1rem;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="lofi">
+      <header class="bar">
+        <pre class="logo" role="img" aria-label="Brink">{logo}</pre>
+        <a class="toggle" href={withBase('/')}>[ full site &rarr; ]</a>
+      </header>
+
+      <main>
+        <slot />
+      </main>
+
+      <footer class="foot">
+        <p>Get in touch: <a href="mailto:coffee@hellobrink.co">coffee@hellobrink.co</a></p>
+        <p class="muted">
+          Lo-fi mode: text only, no images or web fonts, built for low bandwidth.
+          <a href={withBase('/')}>Switch to the full site &rarr;</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

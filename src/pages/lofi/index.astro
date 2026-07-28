@@ -1,0 +1,78 @@
+---
+import LofiLayout from '../../layouts/LofiLayout.astro';
+import { withBase } from '../../lib/base';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog'))
+  .sort(
+    (a, b) =>
+      (b.data.date || '').localeCompare(a.data.date || '') ||
+      a.data.sortOrder - b.data.sortOrder
+  )
+  .slice(0, 5);
+
+const fmt = (d?: string) =>
+  d
+    ? new Date(d + 'T12:00:00').toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+      })
+    : '';
+
+const sections = [
+  { href: '/about', label: 'About Brink' },
+  { href: '/our-work', label: 'Our work' },
+  { href: '/behavioural-innovation', label: 'Our approach' },
+  { href: '/methods', label: 'Our methods' },
+  { href: '/team', label: 'Meet the team' },
+  { href: '/blog', label: 'Blog' },
+];
+---
+
+<LofiLayout title="Home">
+  <h1>Innovation that puts people first</h1>
+  <p>
+    At Brink we create bold, innovative strategies to tackle urgent and
+    preventable issues and drive impact in education, health, climate and more.
+  </p>
+
+  <h2>Who we are</h2>
+  <p>
+    We're a global team of technologists, designers, strategists and
+    behavioural scientists, united by a commitment to harnessing technology for
+    transformative impact. Working alongside our partners, we create ideas that
+    put human behaviour at their core.
+  </p>
+
+  <h2>Explore</h2>
+  <ul class="plain">
+    {sections.map((s) => (
+      <li><a href={withBase(s.href)}>{s.label}</a></li>
+    ))}
+    <li>
+      <a href="https://www.brink-foundation.org/">Brink Foundation (external)</a>
+    </li>
+  </ul>
+
+  <h2>Since 2018</h2>
+  <ul class="plain">
+    <li>Supported over 340 innovation teams</li>
+    <li>Across 53 countries</li>
+    <li>To access more than &pound;60m in funding</li>
+  </ul>
+
+  {posts.length > 0 && (
+    <>
+      <h2>Latest thinking</h2>
+      <ul class="plain">
+        {posts.map((p) => (
+          <li>
+            <a href={withBase(`/blog/${p.id}`)}>{p.data.title}</a>
+            {p.data.date && <span class="muted"> &middot; {fmt(p.data.date)}</span>}
+          </li>
+        ))}
+      </ul>
+    </>
+  )}
+</LofiLayout>
