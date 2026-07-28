@@ -1,0 +1,97 @@
+---
+// A single Our Work card: image, optional "Full case study" tag, programme
+// kicker, title, summary and a "read more / visit" affordance. Used on the Our
+// Work index and on the method (offer) pages so the related work reads the same
+// everywhere. The link destination mirrors our-work/index.astro's rule:
+//   1. its own case study, 2. a sibling's case study, 3. the programme's site.
+import { withBase } from '../lib/base';
+
+const { item } = Astro.props;
+const d = item.data;
+
+function destination() {
+  if (d.hasCaseStudy) return { href: withBase(`/our-work/${item.id}`), external: false, label: 'Read the case study' };
+  if (d.caseStudyRef) return { href: withBase(`/our-work/${d.caseStudyRef}`), external: false, label: 'Read the case study' };
+  if (d.externalLink) return { href: d.externalLink, external: true, label: 'Visit the programme' };
+  return { href: withBase(`/our-work/${item.id}`), external: false, label: 'Read more' };
+}
+const dest = destination();
+---
+
+<a
+  class="work-card"
+  href={dest.href}
+  {...(dest.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+>
+  {d.heroImage && (
+    <img src={withBase(d.heroImage)} alt={d.heroAlt ?? d.title} loading="lazy" />
+  )}
+  <div class="work-card-body">
+    {d.hasCaseStudy && <span class="tag">Full case study</span>}
+    {d.programmeName && <p class="mono kicker">{d.programmeName}</p>}
+    <h3>{d.title}</h3>
+    <p>{d.summary}</p>
+    <span class="mono read-more">
+      {dest.label}{dest.external ? ' ↗' : ' →'}
+    </span>
+  </div>
+</a>
+
+<style>
+  .work-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: var(--color-text);
+    height: 100%;
+  }
+  .work-card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: var(--space-3);
+  }
+  .work-card-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
+  .tag {
+    display: inline-block;
+    align-self: flex-start;
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-label);
+    color: var(--color-label);
+    border: var(--border-width) solid var(--color-border);
+    padding: var(--space-1) var(--space-2);
+    margin-bottom: var(--space-2);
+  }
+  .kicker {
+    color: var(--color-label);
+    font-size: var(--text-tag);
+    margin: 0 0 var(--space-1);
+  }
+  h3 {
+    font-size: var(--text-h3);
+    margin: 0 0 var(--space-2);
+  }
+  .work-card:hover h3 { color: var(--color-accent); }
+  p {
+    font-size: var(--text-body-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+  .read-more {
+    margin-top: auto;
+    padding-top: var(--space-4);
+    color: var(--color-label);
+    font-size: var(--text-tag);
+  }
+  .work-card:hover .read-more {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+</style>

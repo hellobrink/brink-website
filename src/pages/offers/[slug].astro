@@ -1,31 +1,263 @@
 ---
-// The three offers now live on one page (offers/index.astro). These routes
-// stay only to redirect any existing /offers/<slug>/ links to the matching
-// anchor on that page, so nothing 404s. Static build, so it's a meta refresh.
+// A single method (offer) page. A full-bleed photographic header (photo beside
+// a brand-colour panel), then the intro, the two point-groups stacked one on
+// top of the other, and the related work as Our Work cards. One page per
+// method: Open Innovation, Innovation Carve-Outs, Innovation Missions (and
+// Futures). The nav links straight here.
+import Layout from '../../layouts/Layout.astro';
+import ExploreCTA from '../../components/ExploreCTA.astro';
+import WorkCard from '../../components/WorkCard.astro';
 import { withBase } from '../../lib/base';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const offers = await getCollection('offers');
-  return offers.map((offer) => ({ params: { slug: offer.id } }));
+  return offers.map((offer) => ({ params: { slug: offer.id }, props: { offer } }));
 }
 
-const { slug } = Astro.params;
-const target = withBase(`/offers/#${slug}`);
+const { offer } = Astro.props;
+const { data } = offer;
+
+// Stable numbering across all methods, so each page shows its own 01–04.
+const order = ['open-innovation', 'carve-outs', 'missions', 'futures'];
+const num = String(order.indexOf(offer.id) + 1).padStart(2, '0');
+
+const allWork = await getCollection('work');
+const related = allWork
+  .filter((w) => w.data.offer.includes(offer.id as any))
+  .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+
+// Inline Markdown -> HTML for copy that carries links and bold. Escapes first.
+const inline = (s: string) =>
+  s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*\*/g, '');
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="refresh" content={`0; url=${target}`} />
-    <link rel="canonical" href={target} />
-    <title>Redirecting…</title>
-    <script is:inline define:vars={{ target }}>
-      window.location.replace(target);
-    </script>
-  </head>
-  <body>
-    <p>This page has moved. <a href={target}>Continue to our offers</a>.</p>
-  </body>
-</html>
+<Layout title={`${data.name} · Our methods`} description={data.summary}>
+  <article class:list={['offer', `ground-${data.ground}`]}>
+    <header class="offer-header">
+      {data.heroImage && (
+        <div class="oh-photo">
+          <img src={withBase(data.heroImage)} alt={data.heroAlt ?? ''} />
+        </div>
+      )}
+      <div class="oh-panel">
+        <p class="oh-kicker mono">Our methods</p>
+        <span class="oh-num" aria-hidden="true">{num}</span>
+        <h1 class="display oh-title">{data.name}</h1>
+        <p class="oh-subhead">{data.summary}</p>
+      </div>
+    </header>
+
+    <div class="offer-body container">
+      {(data.lead || data.intro.length > 0) && (
+        <div class="intro">
+          {data.lead && <p class="intro-lead">{data.lead}</p>}
+          {data.intro.length > 0 && (
+            <div class="intro-body">
+              {data.intro.map((p) => <p>{p}</p>)}
+            </div>
+          )}
+        </div>
+      )}
+
+      {data.groups.length > 0 && (
+        <div class="groups">
+          {data.groups.map((group) => (
+            <section class="group">
+              <h2 class="group-lead" set:html={inline(group.lead)} />
+              <ul class="bullets">
+                {group.items.map((item) => <li set:html={inline(item)} />)}
+              </ul>
+            </section>
+          ))}
+        </div>
+      )}
+
+      {data.note && <p class="note" set:html={inline(data.note)} />}
+    </div>
+
+    {related.length > 0 && (
+      <section class="related" aria-label={`Work using ${data.name}`}>
+        <div class="container">
+          <h2 class="related-heading display">Related work</h2>
+          <ul class="work-grid">
+            {related.map((w) => (
+              <li><WorkCard item={w} /></li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )}
+  </article>
+
+  <ExploreCTA />
+</Layout>
+
+<style>
+  .ground-teal  { --offer-ink: var(--color-ground-1); }
+  .ground-coral { --offer-ink: var(--color-ground-3); }
+  .ground-blue  { --offer-ink: var(--color-ground-2); }
+
+  /* --- Photographic header ------------------------------------------------ */
+  .offer-header {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    min-height: 28rem;
+  }
+  .oh-photo { position: relative; overflow: hidden; background: var(--offer-ink); }
+  .oh-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .oh-panel {
+    background: var(--offer-ink);
+    color: var(--color-text-inverted, #fff);
+    padding: clamp(1.75rem, 4vw, 3.25rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .oh-kicker {
+    font-size: var(--text-tag);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-label);
+    opacity: 0.8;
+    margin: 0 0 var(--space-4);
+  }
+  .oh-num {
+    font-family: var(--font-mono);
+    font-size: var(--text-h2);
+    opacity: 0.55;
+    margin-bottom: var(--space-3);
+  }
+  .oh-title {
+    font-size: var(--text-display);
+    color: inherit;
+    margin: 0 0 var(--space-3);
+    line-height: var(--leading-tight);
+  }
+  .oh-subhead {
+    font-family: var(--font-display);
+    font-size: var(--size-2xl);
+    color: inherit;
+    opacity: 0.95;
+    margin: 0;
+    max-width: 26ch;
+    line-height: var(--leading-snug, 1.3);
+  }
+
+  /* --- Body --------------------------------------------------------------- */
+  .offer-body {
+    padding: var(--space-8) var(--space-gutter) var(--space-8);
+  }
+
+  /* Intro: lead statement beside the supporting paragraphs. */
+  .intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-7);
+    align-items: start;
+    padding-bottom: var(--space-7);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .intro-lead {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display);
+    font-size: var(--size-2xl);
+    line-height: var(--leading-snug, 1.3);
+    color: var(--color-text);
+    margin: 0;
+  }
+  .intro-body { max-width: var(--measure); }
+  .intro-body p { margin: 0 0 var(--space-4); line-height: var(--leading-normal); }
+  .intro-body p:last-child { margin-bottom: 0; }
+
+  /* The two point-groups now stack one on top of the other. */
+  .groups {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-7);
+    margin-top: var(--space-7);
+    max-width: var(--measure-wide, 60rem);
+  }
+  .group-lead {
+    font-family: var(--font-display);
+    font-weight: var(--weight-display);
+    font-size: var(--text-h2);
+    line-height: var(--leading-tight);
+    color: var(--color-text);
+    margin: 0 0 var(--space-4);
+  }
+  .bullets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+  .bullets li {
+    position: relative;
+    padding-left: var(--space-5);
+    line-height: var(--leading-normal);
+  }
+  .bullets li::before {
+    content: '\203A';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: var(--weight-bold);
+  }
+  .bullets :global(a),
+  .note :global(a) {
+    color: var(--color-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: var(--color-accent);
+    font-weight: var(--weight-bold);
+  }
+  .bullets :global(a:hover),
+  .note :global(a:hover) { color: var(--color-accent); }
+
+  .note {
+    margin: var(--space-6) 0 0;
+    font-size: var(--text-body-sm);
+    max-width: var(--measure);
+  }
+  .note :global(a) { font-weight: var(--weight-regular, 400); color: var(--color-accent); }
+
+  /* --- Related work ------------------------------------------------------- */
+  .related {
+    background: var(--color-surface-muted);
+    padding: var(--space-9) 0;
+  }
+  .related-heading {
+    font-size: var(--text-display);
+    margin: 0 0 var(--space-6);
+  }
+  .work-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: var(--space-7) var(--space-6);
+  }
+
+  @media (max-width: 860px) {
+    .offer-header { grid-template-columns: 1fr; min-height: 0; }
+    .oh-photo { grid-row: 1; aspect-ratio: 16 / 9; }
+    .oh-panel { grid-row: 2; }
+    .intro { grid-template-columns: 1fr; gap: var(--space-5); }
+  }
+</style>

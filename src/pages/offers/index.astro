@@ -1,121 +1,55 @@
 ---
-// Our offers, on one page.
-//
-// Each offer opens with a full-width photographic header: a photograph paired
-// with a brand-colour panel carrying the number, title and subheading. The
-// full detail — intro, the two point-groups, related work — then flows below
-// it at full width. The photograph does the visual work so the copy underneath
-// can stay calm; nothing is cut. The header photo alternates sides for rhythm.
+// Overview of our methods. Each method now has its own full page
+// (offers/[slug].astro); this page introduces them and links out. Cards are
+// ordered and numbered to match those pages.
 import Layout from '../../layouts/Layout.astro';
 import ExploreCTA from '../../components/ExploreCTA.astro';
 import { withBase } from '../../lib/base';
 import { getCollection } from 'astro:content';
 
 const offers = await getCollection('offers');
-const order = ['open-innovation', 'carve-outs', 'missions'];
+const order = ['open-innovation', 'carve-outs', 'missions', 'futures'];
 offers.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
-
-const allWork = await getCollection('work');
-const relatedFor = (id: string) =>
-  allWork
-    .filter((w) => w.data.offer.includes(id))
-    .sort((a, b) => a.data.sortOrder - b.data.sortOrder);
-
-// Inline Markdown -> HTML for copy that carries links and bold. Escapes first.
-const inline = (s: string) =>
-  s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g,
-      '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>')
-    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*\*/g, '');
 ---
 
 <Layout
-  title="Our offers"
+  title="Our methods"
   description="How Brink works: Open Innovation, Innovation Carve-Outs and Innovation Missions."
 >
   <div class="container">
     <header class="page-header">
-      <p class="mono kicker">Our offers</p>
-      <h1 class="display">Three ways we build funds and back innovation</h1>
+      <p class="mono kicker">Our methods</p>
+      <h1 class="display">Ways we build funds and back innovation</h1>
       <p class="page-intro">
         Our work brings behavioural approaches to tried and trusted innovation
-        methods. Below are our three core approaches, each addressing a
-        different stage and type of systemic challenge.
+        methods. Each method addresses a different stage and type of systemic
+        challenge.
       </p>
     </header>
+
+    <ul class="method-grid">
+      {offers.map((offer) => {
+        const num = String(order.indexOf(offer.id) + 1).padStart(2, '0');
+        return (
+          <li>
+            <a class:list={['method-card', `ground-${offer.data.ground}`]} href={withBase(`/offers/${offer.id}`)}>
+              <span class="mc-num" aria-hidden="true">{num}</span>
+              <h2 class="display mc-title">{offer.data.name}</h2>
+              <p class="mc-summary">{offer.data.summary}</p>
+              <span class="mono mc-more">Explore this method →</span>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
   </div>
-
-  {offers.map((offer, i) => {
-    const { data } = offer;
-    const related = relatedFor(offer.id);
-    const num = String(i + 1).padStart(2, '0');
-    return (
-      <section class:list={['offer', `ground-${data.ground}`]} id={offer.id}>
-        <header class="offer-header">
-          {data.heroImage && (
-            <div class="oh-photo">
-              <img src={withBase(data.heroImage)} alt={data.heroAlt ?? ''} loading="lazy" />
-            </div>
-          )}
-          <div class="oh-panel">
-            <span class="oh-num" aria-hidden="true">{num}</span>
-            <h2 class="display oh-title">{data.name}</h2>
-            <p class="oh-subhead">{data.summary}</p>
-          </div>
-        </header>
-
-        <div class="offer-body container">
-          {(data.lead || data.intro.length > 0) && (
-            <div class="intro">
-              {data.lead && <p class="intro-lead">{data.lead}</p>}
-              {data.intro.length > 0 && (
-                <div class="intro-body">
-                  {data.intro.map((p) => <p>{p}</p>)}
-                </div>
-              )}
-            </div>
-          )}
-
-          {data.groups.length > 0 && (
-            <div class="groups">
-              {data.groups.map((group) => (
-                <section class="group">
-                  <h3 class="group-lead" set:html={inline(group.lead)} />
-                  <ul class="bullets">
-                    {group.items.map((item) => <li set:html={inline(item)} />)}
-                  </ul>
-                </section>
-              ))}
-            </div>
-          )}
-
-          {data.note && <p class="note" set:html={inline(data.note)} />}
-
-          {related.length > 0 && (
-            <nav class="related" aria-label={`Work using ${data.name}`}>
-              <p class="related-label mono">Related work</p>
-              <ul>
-                {related.map((w) => (
-                  <li><a href={withBase(`/our-work/${w.id}`)}>{w.data.title}</a></li>
-                ))}
-              </ul>
-            </nav>
-          )}
-        </div>
-      </section>
-    );
-  })}
 
   <ExploreCTA />
 </Layout>
 
 <style>
   .page-header {
-    padding: var(--space-8) 0 var(--space-7);
+    padding: var(--space-8) 0 var(--space-6);
     max-width: var(--measure);
   }
   .kicker {
@@ -137,188 +71,52 @@ const inline = (s: string) =>
     color: var(--color-text-muted);
   }
 
-  .offer { scroll-margin-top: var(--space-6); }
-  .ground-teal  { --offer-ink: var(--color-ground-1); }
-  .ground-coral { --offer-ink: var(--color-ground-3); }
-  .ground-blue  { --offer-ink: var(--color-ground-2); }
-
-  /* --- Photographic header ------------------------------------------------ */
-  /* Full-bleed: a photograph beside a brand-colour panel carrying the title.
-     All the header text is large, so white-on-colour clears AA on every
-     ground. The photo alternates sides down the page. */
-  .offer-header {
+  .method-grid {
+    list-style: none;
+    margin: 0 0 var(--space-9);
+    padding: 0;
     display: grid;
-    grid-template-columns: 1.15fr 1fr;
-    min-height: 26rem;
-  }
-  .offer:nth-of-type(even) .oh-photo { grid-column: 2; grid-row: 1; }
-  .offer:nth-of-type(even) .oh-panel { grid-column: 1; grid-row: 1; }
-
-  /* The image is pinned to fill the header rather than setting its height, so
-     the header stays 26rem whatever the photo's aspect ratio. Without this a
-     square photo (e.g. the Macmillan hero) makes its header far taller than
-     the landscape ones. */
-  .oh-photo { position: relative; overflow: hidden; background: var(--offer-ink); }
-  .oh-photo img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-5);
   }
 
-  .oh-panel {
-    background: var(--offer-ink);
-    color: var(--color-text-inverted, #fff);
-    padding: clamp(1.75rem, 4vw, 3rem);
+  .ground-teal  { --mc-ink: var(--color-ground-1); }
+  .ground-coral { --mc-ink: var(--color-ground-3); }
+  .ground-blue  { --mc-ink: var(--color-ground-2); }
+
+  .method-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    height: 100%;
+    text-decoration: none;
+    background: var(--mc-ink);
+    color: var(--color-text-inverted, #fff);
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    border-radius: var(--radius);
+    transition: transform 0.2s ease;
   }
-  .oh-num {
+  .method-card:hover { transform: translateY(-4px); }
+  .mc-num {
     font-family: var(--font-mono);
-    font-size: var(--text-h2);
+    font-size: var(--text-h3);
     opacity: 0.55;
     margin-bottom: var(--space-3);
   }
-  .oh-title {
-    font-size: var(--text-display);
+  .mc-title {
+    font-size: var(--size-2xl);
     color: inherit;
     margin: 0 0 var(--space-3);
     line-height: var(--leading-tight);
   }
-  .oh-subhead {
-    font-family: var(--font-display);
-    font-size: var(--size-2xl);
-    color: inherit;
+  .mc-summary {
+    margin: 0 0 var(--space-5);
     opacity: 0.95;
-    margin: 0;
-    max-width: 26ch;
-    line-height: var(--leading-snug, 1.3);
+    line-height: var(--leading-snug, 1.35);
   }
-
-  /* --- Body --------------------------------------------------------------- */
-  .offer-body {
-    padding: var(--space-8) var(--space-gutter) var(--space-9);
-  }
-
-  /* Intro: lead statement beside the supporting paragraphs. */
-  .intro {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-7);
-    align-items: start;
-    padding-bottom: var(--space-7);
-    border-bottom: 1px solid var(--color-border);
-  }
-  .intro-lead {
-    font-family: var(--font-display);
-    font-weight: var(--weight-display);
-    font-size: var(--size-2xl);
-    line-height: var(--leading-snug, 1.3);
-    color: var(--color-text);
-    margin: 0;
-  }
-  .intro-body { max-width: var(--measure); }
-  .intro-body p { margin: 0 0 var(--space-4); line-height: var(--leading-normal); }
-  .intro-body p:last-child { margin-bottom: 0; }
-
-  /* The two point-groups sit side by side so the detail reads as two tidy
-     columns rather than one long vertical stack. */
-  .groups {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-8);
-    margin-top: var(--space-7);
-  }
-  .group-lead {
-    font-family: var(--font-display);
-    font-weight: var(--weight-display);
-    font-size: var(--text-h2);
-    line-height: var(--leading-tight);
-    color: var(--color-text);
-    margin: 0 0 var(--space-4);
-  }
-  .bullets {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: grid;
-    gap: var(--space-4);
-  }
-  .bullets li {
-    position: relative;
-    padding-left: var(--space-5);
-    line-height: var(--leading-normal);
-  }
-  .bullets li::before {
-    content: '\203A';
-    position: absolute;
-    left: 0;
-    color: var(--color-accent);
-    font-weight: var(--weight-bold);
-  }
-  .bullets :global(a),
-  .note :global(a) {
-    color: var(--color-text);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    text-decoration-color: var(--color-accent);
-    font-weight: var(--weight-bold);
-  }
-  .bullets :global(a:hover),
-  .note :global(a:hover) { color: var(--color-accent); }
-
-  .note {
-    grid-column: 1 / -1;
-    margin: var(--space-6) 0 0;
-    font-size: var(--text-body-sm);
-  }
-  .note :global(a) { font-weight: var(--weight-regular, 400); color: var(--color-accent); }
-
-  /* --- Related work ------------------------------------------------------- */
-  .related {
-    margin-top: var(--space-8);
-    padding-top: var(--space-5);
-    border-top: 1px solid var(--color-border);
-  }
-  .related-label {
+  .mc-more {
+    margin-top: auto;
     font-size: var(--text-tag);
-    text-transform: uppercase;
-    letter-spacing: var(--tracking-label);
-    color: var(--color-text-muted);
-    margin: 0 0 var(--space-3);
+    opacity: 0.85;
   }
-  .related ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2) var(--space-3);
-  }
-  .related a {
-    display: inline-block;
-    font-size: var(--text-body-sm);
-    text-decoration: none;
-    color: var(--color-text);
-    background: var(--color-surface-muted);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm, 6px);
-    padding: var(--space-2) var(--space-3);
-    line-height: var(--leading-tight);
-  }
-  .related a:hover { border-color: var(--color-accent); color: var(--color-accent); }
-
-  @media (max-width: 860px) {
-    .offer-header { grid-template-columns: 1fr; min-height: 0; }
-    .offer:nth-of-type(even) .oh-photo,
-    .offer:nth-of-type(even) .oh-panel { grid-column: 1; }
-    .oh-photo { grid-row: 1; aspect-ratio: 16 / 9; }
-    .oh-panel { grid-row: 2; }
-    .intro, .groups { grid-template-columns: 1fr; }
-    .intro { gap: var(--space-5); }
-    .groups { gap: var(--space-7); }
-  }
+  .method-card:hover .mc-more { opacity: 1; }
 </style>
