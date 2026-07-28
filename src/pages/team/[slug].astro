@@ -336,11 +336,13 @@ const authored = allPosts
       grid-template-columns: 1fr;
       gap: var(--space-5);
     }
-    /* Sticky is meaningless in a single column. And a full-width 3:4 portrait
-       fills the whole phone screen, pushing the bio below the fold, so cap it
-       to a portrait-card size and let the copy start high. */
+    /* Sticky is meaningless in a single column, so drop the pinning — but keep
+       the portrait a positioned containing block, otherwise its absolutely
+       positioned <img> escapes and sizes against the viewport, filling the
+       whole phone screen. Cap it to a portrait-card size so the copy starts
+       high. */
     .portrait {
-      position: static;
+      position: relative;
       max-width: 14rem;
     }
   }
