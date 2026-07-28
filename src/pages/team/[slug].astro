@@ -336,14 +336,24 @@ const authored = allPosts
       grid-template-columns: 1fr;
       gap: var(--space-5);
     }
-    /* Sticky is meaningless in a single column, so drop the pinning — but keep
-       the portrait a positioned containing block, otherwise its absolutely
-       positioned <img> escapes and sizes against the viewport, filling the
-       whole phone screen. Cap it to a portrait-card size so the copy starts
-       high. */
+    /* Single column: the desktop mechanism (an absolutely positioned image in
+       an aspect-ratio box, for the hover swap) doesn't survive the stack — the
+       grid row and the image height disagree, so the name rides up into the
+       photo. Make the portrait a plain in-flow image instead: capped width,
+       natural height, no pin, no hover swap. The name then flows cleanly below
+       it. */
     .portrait {
-      position: relative;
+      position: static;
       max-width: 14rem;
+      aspect-ratio: auto;
+    }
+    /* Two-class selectors so they beat the base `.portrait img` rule. */
+    .portrait .portrait-main {
+      position: static;
+      height: auto;
+    }
+    .portrait .portrait-hover {
+      display: none;
     }
   }
 </style>
