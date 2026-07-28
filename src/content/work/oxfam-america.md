@@ -19,6 +19,7 @@ storyQuotes:
   - text: "We want to bring about an evolution in what we do, but a revolution in how we do it."
     attribution: "Oxfam America strategy"
 location: "United States"
+timeline: "2021 – 2022"
 funders: ["Oxfam America"]
 ---
 
