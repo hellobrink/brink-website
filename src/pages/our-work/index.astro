@@ -188,6 +188,13 @@ const offers = [
                 {item.data.programmeName && <p class="mono kicker">{item.data.programmeName}</p>}
                 <h3>{item.data.title}</h3>
                 <p>{item.data.summary}</p>
+                {/* Every card is clickable; say so, and where it goes. The
+                    arrow distinguishes an internal read (→) from an external
+                    programme site (↗). */}
+                <span class="mono read-more">
+                  {destination(item).label}
+                  {destination(item).external ? ' ↗' : ' →'}
+                </span>
               </div>
             </a>
           </li>
@@ -445,10 +452,31 @@ const offers = [
   }
 
   .work-grid a {
-    display: block;
+    display: flex;
+    flex-direction: column;
     text-decoration: none;
     color: var(--color-text);
     height: 100%;
+  }
+
+  /* Let the body grow so the "read more" line can sit at the foot of the card
+     and align across a row, however short the summary. */
+  .work-item-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+  }
+
+  .work-grid .read-more {
+    margin-top: auto;
+    padding-top: var(--space-4);
+    color: var(--color-label);
+    font-size: var(--text-tag);
+  }
+
+  .work-grid a:hover .read-more {
+    color: var(--color-accent);
+    text-decoration: underline;
   }
 
   .work-grid img {
