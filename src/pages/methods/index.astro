@@ -83,6 +83,9 @@ offers.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
   .ground-teal  { --mc-ink: var(--color-ground-1); }
   .ground-coral { --mc-ink: var(--color-ground-3); }
   .ground-blue  { --mc-ink: var(--color-ground-2); }
+  .ground-pink  { --mc-ink: var(--color-ground-4); }
+  /* Pink is light, so its card carries dark text. */
+  .ground-pink.method-card { color: var(--color-text); }
 
   .method-card {
     display: flex;

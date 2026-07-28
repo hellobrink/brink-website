@@ -104,6 +104,9 @@ const inline = (s: string) =>
   .ground-teal  { --offer-ink: var(--color-ground-1); }
   .ground-coral { --offer-ink: var(--color-ground-3); }
   .ground-blue  { --offer-ink: var(--color-ground-2); }
+  .ground-pink  { --offer-ink: var(--color-ground-4); }
+  /* Pink is a light ground, so its header text is dark rather than white. */
+  .ground-pink .oh-panel { color: var(--color-text); }
 
   /* --- Photographic header ------------------------------------------------ */
   .offer-header {
@@ -111,6 +114,8 @@ const inline = (s: string) =>
     grid-template-columns: 1.15fr 1fr;
     min-height: 28rem;
   }
+  /* No photo (e.g. Futures): the colour panel spans the full width. */
+  .oh-panel:only-child { grid-column: 1 / -1; }
   .oh-photo { position: relative; overflow: hidden; background: var(--offer-ink); }
   .oh-photo img {
     position: absolute;

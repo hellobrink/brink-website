@@ -116,6 +116,8 @@
   --color-ground-1: var(--brink-teal);
   --color-ground-2: var(--brink-draft-blue);
   --color-ground-3: var(--brink-coral);
+  /* Pink is light, so grounds using it carry dark text rather than white. */
+  --color-ground-4: var(--brink-cc-pink);
 
   /* --- Typography roles --- */
   --font-display: var(--font-signifier); /* big serif statements */

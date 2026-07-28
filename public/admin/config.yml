@@ -432,7 +432,7 @@ collections:
       - name: ground
         label: Banner colour
         widget: select
-        options: [teal, coral, blue]
+        options: [teal, coral, blue, pink]
         default: teal
       - { name: heroImage, label: Header image, widget: image, required: false }
       - { name: heroAlt, label: Header image alt text, widget: string, required: false }

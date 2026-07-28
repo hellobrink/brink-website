@@ -150,7 +150,7 @@ const offers = defineCollection({
     // Shown as the subheading beneath the title in the coloured banner.
     summary: z.string(),
     // Which brand colour the banner takes.
-    ground: z.enum(['teal', 'coral', 'blue']).default('teal'),
+    ground: z.enum(['teal', 'coral', 'blue', 'pink']).default('teal'),
     // Photographic header for the offer's section.
     heroImage: z.string().optional(),
     heroAlt: z.string().optional(),
