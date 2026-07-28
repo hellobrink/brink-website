@@ -59,7 +59,7 @@ export const GET: APIRoute = async () => {
     })),
     ...offers.map((e) => ({
       title: e.data.name,
-      url: withBase(`/offers/${e.id}`),
+      url: withBase(`/methods/${e.id}`),
       kind: 'Offer',
       text: [e.data.summary, plain(e.body)].filter(Boolean).join(' '),
     })),

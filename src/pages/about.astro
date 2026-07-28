@@ -60,7 +60,7 @@ const offerArt: Record<
 const offerItems = offers.map((offer) => ({
   title: offer.data.name,
   summary: offer.data.summary,
-  href: withBase(`/offers/${offer.id}`),
+  href: withBase(`/methods/${offer.id}`),
   ...offerArt[offer.id],
 }));
 

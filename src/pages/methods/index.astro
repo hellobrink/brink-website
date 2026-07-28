@@ -32,7 +32,7 @@ offers.sort((a, b) => order.indexOf(a.id) - order.indexOf(b.id));
         const num = String(order.indexOf(offer.id) + 1).padStart(2, '0');
         return (
           <li>
-            <a class:list={['method-card', `ground-${offer.data.ground}`]} href={withBase(`/offers/${offer.id}`)}>
+            <a class:list={['method-card', `ground-${offer.data.ground}`]} href={withBase(`/methods/${offer.id}`)}>
               <span class="mc-num" aria-hidden="true">{num}</span>
               <h2 class="display mc-title">{offer.data.name}</h2>
               <p class="mc-summary">{offer.data.summary}</p>

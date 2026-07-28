@@ -14,8 +14,10 @@
 /case-studies        /our-work                             301
 /case-studies/*      /our-work/:splat                      301
 
-# Offers
-/our-offers          /offers                               301
+# Methods (formerly "offers"; the section now lives at /methods)
+/our-offers          /methods                              301
+/offers              /methods                              301
+/offers/*            /methods/:splat                       301
 
 # Sectors moved from the domain root under /sectors
 /climate             /sectors/climate                      301
@@ -30,6 +32,6 @@
 /brink-foundation    https://www.brink-foundation.org/     301
 
 # Best-effort maps for a few old odds-and-ends (confirm at cutover)
-/what-we-do          /offers                               301
-/carve-out-whitepaper /offers                              301
+/what-we-do          /methods                              301
+/carve-out-whitepaper /methods                             301
 /categories/*        /our-work                             301
