@@ -57,12 +57,12 @@ const panels = [
     <picture>
       <source
         media="(max-width: 900px)"
-        srcset={withBase('/images/hero-sowing-field-1400.jpg')}
+        srcset={withBase('/images/hero-field-mobile.jpg')}
       />
       <img
         class="hero-image"
-        src={withBase('/images/hero-sowing-field.jpg')}
-        alt="A farmer sowing by hand across a freshly ploughed field, with green hills behind"
+        src={withBase('/images/hero-field.jpg')}
+        alt="Three people walking through a lush banana grove on a Brink programme"
         fetchpriority="high"
       />
     </picture>
@@ -393,9 +393,10 @@ const panels = [
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* Bias toward the top so the transparent nav can't clip her head when a
-       wide, short viewport crops the frame vertically. */
-    object-position: 62% 32%;
+    /* The three people sit across the middle of a tall portrait frame; on a
+       wide desktop the frame crops vertically, so bias up to keep their heads
+       in shot under the transparent nav. */
+    object-position: 50% 30%;
   }
 
   .hero::after {
