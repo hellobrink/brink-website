@@ -7,8 +7,9 @@ sortOrder: 1012
 funders: ["FCDO"]
 heroImage: "/images/work-research-and-innovation-systems-for-africa-ris.jpg"
 heroAlt: "Research and Innovation Systems for Africa"
-# externalLink removed: risa-fund.org is now a parked domain (Network
-# Solutions holding page), so the link sent people to an advert.
+# risa-fund.org became a parked domain, so this points at the programme's
+# write-up on the Results for Development site instead.
+externalLink: "https://r4d.org/projects/strengthening-africas-research-and-innovation-systems/"
 ---
 
 
