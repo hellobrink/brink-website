@@ -28,6 +28,10 @@ gallery:
   - image: "/images/cs-strengthening-the-digital-maturity-of-sc-2.png"
     alt: "Strengthening the digital maturity of science organisations"
     caption: "A photo opportunity during the first online session for cohort members"
+location: "Global"
+timeline: "2025"
+funders: ["International Science Council"]
+partners: ["International Science Council (ISC)"]
 ---
 
 Supported by the [International Development Research Centre](https://idrc-crdi.ca/en), the [International Science Council](https://council.science/) explored how science organisations could better harness digital potential and navigate transformative change. This was part of a wider suite of work on [how emerging technologies could impact science systems](https://council.science/our-work/science-systems-futures/).

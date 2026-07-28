@@ -12,14 +12,6 @@ sortOrder: 2
 programmeName: "Frontier Tech Hub"
 location: "Samburu, Kenya"
 timeline: "June 2020 - March 2022"
-funders:
-  - name: "FCDO"
-    url: "https://www.gov.uk/government/organisations/foreign-commonwealth-development-office"
-partners:
-  - name: "Astral Aerial"
-    url: "https://astralaerial.com/"
-  - name: "CABI"
-    url: "https://www.cabi.org/"
 fullStoryUrl: "https://readymag.website/u82923304/3481181/intro/"
 challenge:
   - "Between 2019 and 2021, East Africa experienced the worst locust crisis in decades, a threat that is likely to intensify as climate change drives more frequent and extreme weather fluctuations. Locusts devastated crops and pastureland across Kenya, Ethiopia and Somalia. But existing responses, such as hand-held, vehicle-mounted or aircraft spraying of pesticides, face real challenges in cost, reach and environmental risk."
@@ -54,4 +46,6 @@ gallery:
     alt: "A crowd at a livestock market in Samburu watching a drone spraying demonstration"
     caption: "A drone spraying demonstration at the local market in Samburu"
 conclusion: "This pilot showed that drones can play a niche but valuable role in locust control: responding quickly to small or early-stage outbreaks, operating safely in populated or inaccessible areas, and reducing environmental risk through more targeted spraying. While uptake will likely depend on future funding, especially between swarming cycles, this work laid the foundations for future integration into national and international locust response systems."
+funders: ["FCDO"]
+partners: ["Astral Aerial", "CABI"]
 ---

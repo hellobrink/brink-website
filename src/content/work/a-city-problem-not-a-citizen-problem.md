@@ -21,6 +21,10 @@ approach:
   - "**Brought people together.** By breaking down internal organisational silos we were able to give teams that don’t normally work together a chance to reflect and collaborate, and this led to more collaborative and collegiate team atmosphere across the organisation."
 storyQuotes:
   - "This is the city’s problem, not the citizens’ problem"
+location: "Matola, Mozambique"
+timeline: "2021 – 2022"
+funders: ["Agence Française de Développement (AFD)"]
+partners: ["ANRU (network manager)"]
 ---
 
 The city of Matola sits on the western side of Mozambique’s capital, Maputo. As of 2017, over a million people lived in this busy suburb that’s a centre for industry and manufacturing.

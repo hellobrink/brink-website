@@ -44,6 +44,10 @@ gallery:
   - image: "/images/cs-repair-reuse-kenya-4.webp"
     alt: "Imagining a better future for the repair and reuse economy in Kenya"
     caption: "Bicycle repairer, Mark using replacement parts to repair a customer's bike"
+location: "Kenya"
+timeline: "2022"
+funders: ["FCDO"]
+partners: ["Shujaaz", "Busara", "Incubator Nest", "Ideas Unplugged"]
 ---
 
 

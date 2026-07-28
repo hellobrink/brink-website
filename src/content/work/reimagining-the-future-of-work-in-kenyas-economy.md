@@ -43,6 +43,10 @@ gallery:
   - image: "/images/cs-reimagining-the-future-of-work-in-kenyas-1.jpeg"
     alt: "Reimagining the Future of Work in Kenya"
     caption: "Kisumu-based agronomist, Maurine"
+location: "Kenya"
+timeline: "2023 – 2024"
+funders: ["TRANSFORM (Unilever, FCDO & EY partnership)"]
+partners: ["Laterite", "Procol Kenya", "Ideas Unplugged", "Busara"]
 ---
 
 With [over 83% of Kenya’s](https://www.hellobrink.co/post/early-insights-about-the-informal-economy-in-kenya) total employment rooted in what is often referred to as ‘the informal economy’, its significance cannot be ignored.

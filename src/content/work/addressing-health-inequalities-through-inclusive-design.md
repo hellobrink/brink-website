@@ -25,6 +25,10 @@ gallery:
     alt: "Addressing health inequalities through inclusive design"
   - image: "/images/cs-addressing-health-inequalities-through-i-2.png"
     alt: "Addressing health inequalities through inclusive design"
+location: "United Kingdom"
+timeline: "2022"
+funders: ["Macmillan Cancer Support"]
+partners: ["NHS Trust"]
 ---
 
 *“The worst hangover in your life, when you’ve just run a marathon… and have the flu.”*

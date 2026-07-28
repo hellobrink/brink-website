@@ -11,12 +11,6 @@ logo: "/images/logo-oxygen-colab.png"
 logoAlt: "Oxygen CoLab"
 heroImage: "/images/work-thin-air-that-saves-lives.jpeg"
 heroAlt: "Improving access to medical oxygen"
-funders:
-  - name: "FCDO"
-    url: "https://www.gov.uk/government/organisations/foreign-commonwealth-development-office"
-partners:
-  - name: "UNICEF"
-    url: "https://www.unicef.org.uk/"
 standfirst: "As the Covid-19 pandemic took its grip on the world in early 2020, global demand for oxygen surged. Pure oxygen in cylinders is expensive, and proved hard to find. Simple technology exists to turn ordinary air into medical-grade oxygen - but that technology is fragile, and manufacturers couldn’t see viable or profitable ways to build something tougher. By bringing people together to discuss the issues, we helped to pinpoint a crucial problem - and a simple solution, which saved thousands of lives."
 challenge:
   - "Improve access to medical oxygen in low and middle income countries."
@@ -30,6 +24,10 @@ approach:
 gallery:
   - image: "/images/cs-thin-air-that-saves-lives-1.jpeg"
     alt: "Improving access to medical oxygen in low and middle income countries"
+location: "Tanzania, India, Uganda"
+timeline: "2020 – Ongoing"
+funders: ["FCDO"]
+partners: ["UNICEF"]
 ---
 
 ## There's something in the air

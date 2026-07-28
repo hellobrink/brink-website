@@ -37,6 +37,10 @@ gallery:
     alt: "Testing the production of hydroponic fodder for cattle"
   - image: "/images/cs-testing-the-production-of-hydroponic-fod-4.webp"
     alt: "Testing the production of hydroponic fodder for cattle"
+location: "Nigeria"
+timeline: "2021 – 2024"
+funders: ["FCDO"]
+partners: ["M.E. Solutions"]
 ---
 
 

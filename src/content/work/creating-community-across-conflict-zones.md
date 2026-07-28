@@ -24,6 +24,10 @@ gallery:
     alt: "Creating community across conflict zones"
   - image: "/images/cs-creating-community-across-conflict-zones-2.jpeg"
     alt: "Creating community across conflict zones"
+location: "Global"
+timeline: "2019 – 2024"
+funders: ["Grand Challenges Canada", "USAID", "FCDO", "Netherlands Ministry of Foreign Affairs", "Global Affairs Canada"]
+partners: ["World Food Programme Innovation Accelerator"]
 ---
 
 [Creating Hope in Conflict: A Humanitarian Grand Challenge](https://humanitariangrandchallenge.org/?ref=hellobrink.co), is a partnership of the U.S. Agency for International Development, the U.K. Foreign, Commonwealth & Development Office, the Ministry of Foreign Affairs of the Netherlands, and Global Affairs Canada, with support from Grand Challenges Canada. The Humanitarian Grand Challenge identifies and scales innovations that apply new insights, technologies, and approaches to improve – and in many cases, save – the lives of the most vulnerable people and the hardest-to-reach in humanitarian crises caused by conflict. As well, the Humanitarian Grand Challenge seeks to create wider systems-level changes within the humanitarian sector.

@@ -40,6 +40,10 @@ gallery:
     caption: "An Ampersand rider at the Hurlingham, Nairobi swap station"
   - image: "/images/cs-supporting-emobility-pioneers-in-africa-4.jpg"
     alt: "Supporting e-mobility pioneers in Africa"
+location: "Rwanda"
+timeline: "2018 – 2020"
+funders: ["FCDO"]
+partners: ["Ampersand"]
 ---
 
 
