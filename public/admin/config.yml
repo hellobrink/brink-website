@@ -125,37 +125,88 @@ collections:
     identifier_field: title
     extension: md
     format: frontmatter
-    summary: '{{title}} — {{status}}'
+    summary: '{{title}} · {{status}}'
+    description: >-
+      Every project Brink has run. An item can be a simple listing (a card on
+      Our Work) or a full case study with its own page. Fill the BASICS for
+      every item. Only fill the CASE STUDY section if you turn on "Has a full
+      case study?". Minimum for a case study: a hero image, a standfirst, one
+      challenge paragraph and at least one result. A fuller one adds the "How
+      we did it" points and the "story in more detail" narrative.
     fields:
-      - { name: title, label: Title, widget: string }
-      - { name: programmeName, label: Programme name (if different to title), widget: string, required: false }
-      - { name: summary, label: Summary, widget: text }
+      # --- Basics: fill these for every item ---
+      - name: title
+        label: Title
+        widget: string
+        hint: "Shown as the page heading and the card title. For a case study, write it as what was achieved (e.g. 'Piloting a radical new platform for locust control in Kenya'), not just the programme name."
+      - name: programmeName
+        label: Programme name (if different to title)
+        widget: string
+        required: false
+        hint: "Short recognisable name (e.g. 'EdTech Hub', 'ASToN'), shown as the small kicker above the title. Leave blank if the title already is the name."
+      - name: summary
+        label: Summary
+        widget: text
+        hint: "One or two sentences. Shown on the Our Work card and used for search and social previews. Fill this for every item."
       - name: status
         label: Status
         widget: select
         options: [current, past]
         default: past
+        hint: "'current' shows as a large band at the top of Our Work; 'past' shows as a card in the grid below."
       - name: sector
         label: Sector(s)
         widget: select
         multiple: true
         required: false
         options: [climate, health, education]
+        hint: "Drives the sector filters and sector pages. Pick any that apply, or leave blank."
       - name: offer
         label: Offer(s)
         widget: select
         multiple: true
         required: false
         options: [open-innovation, carve-outs, missions]
-      - { name: logo, label: Programme logo, widget: image, required: false }
-      - { name: logoAlt, label: Logo alt text, widget: string, required: false }
-      - { name: heroImage, label: Hero image, widget: image, required: false }
-      - { name: heroAlt, label: Hero alt text, widget: string, required: false }
-      - { name: heroPosition, label: 'Hero crop position (e.g. "center 25%")', widget: string, required: false }
+        hint: "Which Brink offer this is an example of. Drives the offer filters. Optional."
+      - name: sortOrder
+        label: Sort order
+        widget: number
+        default: 0
+        value_type: int
+        hint: "Lower numbers appear first within the current or past group. Optional."
+
+      # --- Images ---
+      - name: heroImage
+        label: Hero image
+        widget: image
+        required: false
+        hint: "Landscape image used as the card thumbnail and the banner at the top of the case study (roughly 3:2, e.g. 1080x720). Optional but strongly recommended; cards without one look bare."
+      - name: heroAlt
+        label: Hero alt text
+        widget: string
+        required: false
+        hint: "Describe the image for screen readers and for when it fails to load."
+      - name: heroPosition
+        label: Hero crop position
+        widget: string
+        required: false
+        hint: "Only needed if the default centre crop clips faces, e.g. 'center 25%'. Optional."
+      - name: logo
+        label: Programme logo
+        widget: image
+        required: false
+        hint: "Logomark, only used on the bands for current programmes. Most past items do not need one."
+      - name: logoAlt
+        label: Logo alt text
+        widget: string
+        required: false
+
+      # --- Credits & links: shown on the card; no full write-up needed ---
       - name: funders
         label: Funders
         widget: list
         required: false
+        hint: "Who funded the work. Shown on the card and case study. Add a URL to turn the name into a link."
         fields:
           - { name: name, label: Name, widget: string }
           - { name: url, label: URL (optional), widget: string, required: false }
@@ -163,10 +214,15 @@ collections:
         label: Partners
         widget: list
         required: false
+        hint: "Delivery partners, shown alongside funders."
         fields:
           - { name: name, label: Name, widget: string }
           - { name: url, label: URL (optional), widget: string, required: false }
-      - { name: externalLink, label: External link, widget: string, required: false }
+      - name: externalLink
+        label: External link
+        widget: string
+        required: false
+        hint: "If the write-up lives on another site, put the URL here and the card links out ('Visit the programme'). Use this instead of a full case study, not as well."
       - name: caseStudyRef
         label: Case study lives on another work item (optional)
         widget: relation
@@ -175,62 +231,111 @@ collections:
         search_fields: [title]
         display_fields: [title]
         required: false
-      - { name: hasCaseStudy, label: Has a full case study?, widget: boolean, default: false }
-      - { name: headlineResult, label: Headline result (on case-study cards), widget: string, required: false }
-      - { name: standfirst, label: Standfirst, widget: text, required: false }
+        hint: "If this item's story is told on a different work item, pick it here and the card links to that one."
+
+      # --- CASE STUDY: everything below is ignored unless the toggle is on ---
+      - name: hasCaseStudy
+        label: Has a full case study?
+        widget: boolean
+        default: false
+        hint: >-
+          Turn on to give this item its own case-study page. MINIMUM: a hero
+          image, a standfirst, one challenge paragraph and at least one result.
+          A FULLER case study also adds the "How we did it" points and the
+          "story in more detail" narrative below.
+      - name: standfirst
+        label: Standfirst
+        widget: text
+        required: false
+        hint: "The opening line under the title on the case-study page (one or two sentences). Needed for a case study."
       - name: challenge
         label: The challenge
         widget: list
         required: false
+        hint: "The problem, in one to three short paragraphs (add one item per paragraph). Needed for a case study."
         field: { name: para, label: Paragraph, widget: text }
       - name: results
-        label: Results
+        label: What was achieved
         widget: list
         required: false
-        field: { name: para, label: Paragraph, widget: text }
+        hint: "The outcomes, one bullet each. Shown as the 'What was achieved' list. Add at least one for a case study."
+        field: { name: para, label: Point, widget: text }
       - name: approachIntro
-        label: Approach — intro
+        label: How we did it (intro)
         widget: list
         required: false
+        hint: "Optional intro paragraph(s) above the 'How we did it' points."
         field: { name: para, label: Paragraph, widget: text }
       - name: approach
-        label: Approach — points
+        label: How we did it (points)
         widget: list
         required: false
-        field: { name: para, label: Paragraph, widget: text }
-      - { name: conclusion, label: Conclusion, widget: text, required: false }
+        hint: "The method, as points. Start each with a bold lead-in then the detail, e.g. '**Enabling crucial conversations:** ...'. Recommended for a full case study."
+        field: { name: para, label: Point, widget: text }
+      - name: body
+        label: Case study narrative (the story in more detail)
+        widget: markdown
+        required: false
+        hint: "The long read, written as normal prose with ## subheadings and bullet lists. Leave blank for a short case study; fill it for a full one. This is where most of the depth goes."
       - name: storyQuotes
         label: Story pull-quotes
         widget: list
         required: false
+        hint: "Quotes lifted from the narrative, shown as highlighted pull-quotes. Attribution optional. Optional."
         fields:
           - { name: text, label: Quote, widget: text }
           - { name: attribution, label: Attribution (optional, may contain a link), widget: string, required: false }
       - name: quote
-        label: Featured quote
+        label: Featured quote (with photo)
         widget: object
         required: false
         collapsed: true
+        hint: "A single named quote shown as a portrait pull-quote. Use for an attributable quote with a person's name and role. Optional."
         fields:
           - { name: text, label: Quote, widget: text }
           - { name: name, label: Name, widget: string }
           - { name: role, label: Role, widget: string, required: false }
           - { name: photo, label: Photo, widget: image, required: false }
           - { name: photoAlt, label: Photo alt text, widget: string, required: false }
-      - { name: timeline, label: Timeline, widget: string, required: false }
-      - { name: location, label: Location, widget: string, required: false }
-      - { name: fullStoryUrl, label: Full story URL, widget: string, required: false }
       - name: gallery
         label: Gallery
         widget: list
         required: false
+        hint: "Extra images with captions, shown within the case study. Optional."
         fields:
           - { name: image, label: Image, widget: image }
           - { name: alt, label: Alt text, widget: string }
           - { name: caption, label: Caption (optional), widget: string, required: false }
-      - { name: year, label: Year, widget: string, required: false }
-      - { name: sortOrder, label: Sort order, widget: number, default: 0, value_type: int }
-      - { name: body, label: Case study narrative, widget: markdown, required: false }
+      - name: headlineResult
+        label: Headline result (on case-study cards)
+        widget: string
+        required: false
+        hint: "A single standout stat shown on case-study cards, e.g. 'GBP 2.4m unlocked for 12 teams'. Optional."
+      - name: timeline
+        label: Timeline
+        widget: string
+        required: false
+        hint: "e.g. '2021 – 2022' or '2019 – Ongoing'. Shown in the case-study details. Optional."
+      - name: location
+        label: Location
+        widget: string
+        required: false
+        hint: "Country, city or region. Shown in the case-study details. Optional."
+      - name: year
+        label: Year
+        widget: string
+        required: false
+        hint: "A single year, if you are not using Timeline. Optional."
+      - name: fullStoryUrl
+        label: Full story URL
+        widget: string
+        required: false
+        hint: "Optional 'read the full story' link at the end of the case study."
+      - name: conclusion
+        label: Conclusion
+        widget: text
+        required: false
+        hint: "Optional closing paragraph."
 
   # --- Sectors -----------------------------------------------------------
   - name: sectors
