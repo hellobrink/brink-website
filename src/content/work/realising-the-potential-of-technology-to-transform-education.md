@@ -27,7 +27,7 @@ gallery:
     alt: "Realising the potential of technology to transform education"
   - image: "/images/cs-realising-the-potential-of-technology-to-3.jpeg"
     alt: "Realising the potential of technology to transform education"
-location: "Low- and middle-income countries (global)"
+location: "Kenya, Malawi, Zanzibar, Sierra Leone and Tanzania"
 timeline: "2019 – Ongoing"
 funders: ["FCDO", "Bill & Melinda Gates Foundation", "UNICEF", "World Bank"]
 partners: ["University of Cambridge", "Results for Development", "Jigsaw Education", "OpenDevEd"]
