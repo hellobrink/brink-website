@@ -1,0 +1,34 @@
+---
+import LofiLayout from '../../../layouts/LofiLayout.astro';
+import { withBase } from '../../../lib/base';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) =>
+    (b.data.date || '').localeCompare(a.data.date || '') ||
+    a.data.sortOrder - b.data.sortOrder
+);
+
+const fmt = (d?: string) =>
+  d
+    ? new Date(d + 'T12:00:00').toLocaleDateString('en-GB', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+      })
+    : '';
+---
+
+<LofiLayout title="Blog">
+  <p class="muted"><a href={withBase('/lofi')}>&larr; home</a></p>
+  <h1>Blog</h1>
+  <p>{posts.length} posts. Text only.</p>
+  <ul class="plain">
+    {posts.map((p) => (
+      <li>
+        <a href={withBase(`/lofi/blog/${p.id}`)}>{p.data.title}</a>
+        {p.data.date && <span class="muted"> &middot; {fmt(p.data.date)}</span>}
+      </li>
+    ))}
+  </ul>
+</LofiLayout>

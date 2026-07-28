@@ -13,11 +13,11 @@ const { title } = Astro.props;
 // The wordmark as ASCII art — the one "graphic" on the page, and it costs
 // nothing to send.
 const logo = String.raw`
- ____   ____   ___   _   _   _  __
-| __ ) |  _ \ |_ _| | \ | | | |/ /
-|  _ \ | |_) | | |  |  \| | | ' /
-| |_) ||  _ < | |  | |\  | | . \
-|____/ |_| \_\|___| |_| \_| |_|\_\
+ ____   ____   ___  _   _  _  __
+| __ ) |  _ \ |_ _|| \ | || |/ /
+|  _ \ | |_) | | | |  \| || ' /
+| |_) ||  _ <  | | | |\  || . \
+|____/ |_| \_\|___||_| \_||_|\_\
 `.replace(/^\n/, '').replace(/\n$/, '');
 ---
 
@@ -94,6 +94,28 @@ const logo = String.raw`
 
       hr { border: 0; border-top: 1px solid; margin: 1.75rem 0; }
       .muted { opacity: 0.65; }
+      .standfirst { font-size: 1rem; }
+
+      /* Rendered post/page content: hide every image (the whole point) and
+         keep the text clean. */
+      img, figure, picture, video, iframe,
+      .post-banner, .post-caption { display: none; }
+      .prose h2, .prose h3 {
+        font-size: 0.95rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin: 1.5rem 0 0.5rem;
+      }
+      .prose h2::before, .prose h3::before { content: '> '; }
+      .prose ul, .prose ol { padding-left: 1.3rem; margin: 0 0 1rem; }
+      .prose li { margin: 0 0 0.3rem; }
+      .prose blockquote {
+        border-left: 2px solid;
+        margin: 1rem 0;
+        padding: 0.1rem 0 0.1rem 1rem;
+        font-style: italic;
+      }
+      .prose sup { font-size: 0.7em; }
 
       .foot {
         margin-top: 2.75rem;

@@ -1,0 +1,50 @@
+---
+import LofiLayout from '../../../layouts/LofiLayout.astro';
+import { withBase } from '../../../lib/base';
+import { getCollection } from 'astro:content';
+
+const allWork = await getCollection('work');
+allWork.sort((a, b) => a.data.sortOrder - b.data.sortOrder);
+const current = allWork.filter((w) => w.data.status === 'current');
+const referenced = new Set(current.map((i) => i.data.caseStudyRef).filter(Boolean));
+const past = allWork.filter((w) => w.data.status === 'past' && !referenced.has(w.id));
+
+// Where a work item's page lives on the full site: its own page, a sibling's,
+// or an external programme site.
+const dest = (w: (typeof allWork)[number]) => {
+  if (w.data.hasCaseStudy) return withBase(`/our-work/${w.id}`);
+  if (w.data.caseStudyRef) return withBase(`/our-work/${w.data.caseStudyRef}`);
+  if (w.data.externalLink) return w.data.externalLink;
+  return withBase(`/our-work/${w.id}`);
+};
+---
+
+<LofiLayout title="Our work">
+  <p class="muted"><a href={withBase('/lofi')}>&larr; home</a></p>
+  <h1>Our work</h1>
+  <p>Current and past programmes and projects. Links go to the full site.</p>
+
+  {current.length > 0 && (
+    <>
+      <h2>Current</h2>
+      <ul class="plain">
+        {current.map((w) => (
+          <li>
+            <a href={dest(w)}>{w.data.programmeName ?? w.data.title}</a>
+            {' — '}{w.data.summary}
+          </li>
+        ))}
+      </ul>
+    </>
+  )}
+
+  <h2>Past</h2>
+  <ul class="plain">
+    {past.map((w) => (
+      <li>
+        <a href={dest(w)}>{w.data.programmeName ?? w.data.title}</a>
+        {' — '}{w.data.summary}
+      </li>
+    ))}
+  </ul>
+</LofiLayout>

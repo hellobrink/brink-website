@@ -1,0 +1,54 @@
+---
+import LofiLayout from '../../../layouts/LofiLayout.astro';
+import { withBase } from '../../../lib/base';
+import { getCollection } from 'astro:content';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import rehypeStringify from 'rehype-stringify';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { data } = post;
+
+// Lo-fi posts strip images entirely rather than hiding them, so nothing heavy
+// is ever downloaded. We render the cleaned Markdown ourselves (Astro's
+// <Content/> would keep the <img> tags in the HTML), and re-apply the base
+// path to any root-relative links that survive.
+const cleaned = post.body
+  .replace(/!\[[^\]]*\]\([^)]*\)/g, '') // ![alt](src) markdown images
+  .replace(/<img[^>]*>/gi, '') // inline <img>
+  .replace(/<figure[\s\S]*?<\/figure>/gi, '') // <figure>…</figure>
+  .replace(/<p class="post-caption"[\s\S]*?<\/p>/gi, '') // orphaned captions
+  .replace(/\]\((\/[^)]*)\)/g, (_m, p) => `](${withBase(p)})`);
+
+const html = String(
+  await unified()
+    .use(remarkParse)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeStringify, { allowDangerousHtml: true })
+    .process(cleaned)
+);
+
+const displayDate = data.date
+  ? new Date(data.date + 'T12:00:00').toLocaleDateString('en-GB', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    })
+  : '';
+const byline = [data.authorName, displayDate].filter(Boolean).join(' · ');
+---
+
+<LofiLayout title={data.title}>
+  <p class="muted"><a href={withBase('/lofi/blog')}>&larr; all posts</a></p>
+  <h1>{data.title}</h1>
+  {data.subheading && <p class="standfirst">{data.subheading}</p>}
+  {byline && <p class="muted">{byline}</p>}
+  <hr />
+  <div class="prose" set:html={html} />
+</LofiLayout>

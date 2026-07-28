@@ -20,13 +20,15 @@ const fmt = (d?: string) =>
       })
     : '';
 
+// Prefer lo-fi versions where they exist, so navigation stays lightweight;
+// pages without a lo-fi version link to the full site (flagged).
 const sections = [
-  { href: '/about', label: 'About Brink' },
-  { href: '/our-work', label: 'Our work' },
-  { href: '/behavioural-innovation', label: 'Our approach' },
-  { href: '/methods', label: 'Our methods' },
-  { href: '/team', label: 'Meet the team' },
-  { href: '/blog', label: 'Blog' },
+  { href: '/lofi/about', label: 'About Brink' },
+  { href: '/lofi/our-work', label: 'Our work' },
+  { href: '/lofi/blog', label: 'Blog' },
+  { href: '/behavioural-innovation', label: 'Our approach (full site)' },
+  { href: '/methods', label: 'Our methods (full site)' },
+  { href: '/team', label: 'Meet the team (full site)' },
 ];
 ---
 
