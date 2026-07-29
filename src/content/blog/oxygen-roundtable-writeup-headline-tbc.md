@@ -38,6 +38,7 @@ But nobody owns that work, because it is not anybody's mandate, does not sit in 
 This "Missing Middle" is usually described as a shortage of capital, though to the people in that room it looked much more like a shortage of ownership.
 
 ## Why oxygen shows this so plainly
+##  
 
 Medical oxygen is about as clear a test case for this as you will find.
 
@@ -50,6 +51,7 @@ For the past six years, through the Oxygen CoLab, my colleagues and I have worke
 That is why I have come to see oxygen as more than one neglected health market. It is a microcosm of the shift we are all working through: from proven models to functioning markets.
 
 Looking across the businesses and health systems we have worked with, five patterns have come up often enough that I no longer think of them as isolated barriers. Together, they describe the transition that nobody currently owns. 
+##  
 
 ![](/images/_UCV1443.jpg)
 
