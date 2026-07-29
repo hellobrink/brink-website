@@ -384,7 +384,7 @@ const discover = [
     font-size: clamp(1.5rem, 2.6vw, 2.2rem); line-height: 1.14; margin-bottom: var(--space-5);
   }
   .inline-link { color: #fff; text-decoration: underline; text-decoration-color: var(--color-accent); text-underline-offset: 3px; }
-  .inline-link:hover { color: var(--color-accent); }
+  .inline-link:hover { color: var(--color-accent-bright); }
 
   /* Coral underline that draws itself in when the line reveals. */
   .ul { position: relative; white-space: nowrap; }
@@ -406,7 +406,9 @@ const discover = [
 
   /* --- Venn panel --------------------------------------------------------- */
   .venn-panel { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: var(--space-8); align-items: center; }
-  .venn-holder { color: var(--color-accent); --venn-label-color: #fff; }
+  /* On the teal panel: the Venn's outer labels are text (need 4.5:1), so use the
+     lighter coral. Inner labels are white. */
+  .venn-holder { color: var(--color-accent-bright); --venn-label-color: #fff; }
 
   /* --- Proof -------------------------------------------------------------- */
   .section-head { font-family: var(--font-body); font-weight: var(--weight-bold, 700); font-size: clamp(1.8rem, 4vw, 3rem); margin: 0 0 var(--space-3); color: #fff; }
@@ -420,14 +422,14 @@ const discover = [
     padding: var(--space-5) var(--space-6); text-decoration: none; color: #fff;
     font-size: clamp(1.05rem, 1.5vw, 1.35rem); font-weight: var(--weight-medium, 500);
   }
-  .proof-list a:hover { color: var(--color-accent); }
-  .proof-arrow { flex-shrink: 0; color: var(--color-accent); font-size: 1.4em; }
+  .proof-list a:hover { color: var(--color-accent-bright); }
+  .proof-arrow { flex-shrink: 0; color: var(--color-accent-bright); font-size: 1.4em; }
 
   /* --- Light sections: Tools & Discover ----------------------------------- */
   .light-section { background: var(--color-surface); padding: var(--space-9) 0; }
   .light-section.discover { background: var(--color-surface-muted); }
   .light-head { max-width: var(--measure); margin: 0 0 var(--space-7); }
-  .kicker { font-size: var(--text-tag); text-transform: uppercase; letter-spacing: var(--tracking-label); color: var(--color-accent); margin: 0 0 var(--space-3); }
+  .kicker { font-size: var(--text-tag); text-transform: uppercase; letter-spacing: var(--tracking-label); color: var(--color-accent-ink); margin: 0 0 var(--space-3); }
   .light-head .display { font-size: var(--text-display); margin: 0 0 var(--space-3); }
   .light-intro { color: var(--color-text-muted); font-size: var(--text-lead); margin: 0; }
 
@@ -439,9 +441,12 @@ const discover = [
   }
   .tool-grid, .discover-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); }
 
+  /* --card-ink is the card's title, CTA and border colour on a white card, so
+     coral and blue use their darker text-safe variants (the bright coral/blue
+     grounds are only ~3.4:1 and ~4.3:1 here). Teal is already fine on white. */
   .ground-teal { --card-ink: var(--color-ground-1); }
-  .ground-coral { --card-ink: var(--color-ground-3); }
-  .ground-blue { --card-ink: var(--color-ground-2); }
+  .ground-coral { --card-ink: var(--color-accent-ink); }
+  .ground-blue { --card-ink: var(--color-accent-blue-ink); }
 
   /* Method cards: rounded, a coloured outline and heading, and the Brink mark
      in the corner, so the toolkit reads as a physical deck rather than web rows. */

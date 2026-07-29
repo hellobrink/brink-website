@@ -53,6 +53,10 @@
      bi.hellobrink.co, which is where the illustrations come from, so they're
      available as illustration grounds and nowhere else. */
   --brink-draft-blue: #4472ec;
+  /* A darker draft blue for blue *text* on light grounds: the draft blue is only
+     ~4.3:1 on white, just under AA, so text uses this (>=4.5:1) while fills and
+     grounds keep the brighter blue. */
+  --brink-draft-blue-ink: #3f66db;
   --brink-cc-pink: #e99cd1;
 
   /* Typefaces. Signifier is Brink's licensed display serif (self-hosted). */
@@ -106,6 +110,7 @@
   --color-accent: var(--brink-coral);
   --color-accent-ink: var(--brink-coral-ink); /* coral for small text on light grounds */
   --color-accent-bright: var(--brink-coral-bright); /* coral for small text on teal/dark grounds */
+  --color-accent-blue-ink: var(--brink-draft-blue-ink); /* blue for text on light grounds */
   --color-link: var(--brink-coral-ink);
 
   /* THE CORAL SIZE THRESHOLD.
