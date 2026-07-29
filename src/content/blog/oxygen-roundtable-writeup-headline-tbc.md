@@ -27,9 +27,11 @@ The direction makes complete sense when development budgets are shrinking, funde
 
 The trouble is the neat, three-part story we tend to tell about how it happens: philanthropy proves the thing works, investors turn up to scale it, and then government eventually picks up the bill.
 
-hat story came apart fairly quickly in Nairobi
+That story came apart fairly quickly in Nairobi
 
 Between a model that works and a market that funds it sits a long, awkward, badly funded stretch of work. Demand has to become predictable enough for someone to plan around, procurement systems have to be capable of buying the thing, and organisations often need new capabilities and sometimes a new legal structure altogether. Then regulators have to catch up, investors need information they can actually underwrite, and the capital has to arrive in the right form, in the right order.
+
+> "Oxygen is a microcosm of the shift we are all working through:  from proven models to functioning markets."
 
 But nobody owns that work, because it is not anybody's mandate, does not sit in anybody's budget line, and fits neither a grant cycle nor an investment thesis.
 
@@ -37,15 +39,11 @@ This "Missing Middle" is usually described as a shortage of capital, though to t
 
 ## Why oxygen shows this so plainly
 
-![](/images/FREO2476.jpg)
-
 Medical oxygen is about as clear a test case for this as you will find.
 
 During COVID, money poured into the provision of medical oxygen, so most of what you would put on a requirements list (plants, cylinders, concentrators, hospital wiring) now exists, yet oxygen still does not reliably reach the patient who needs it at their bedside at two in the morning.
 
 That’s because production was never really the problem - someone still has to move the gas, fix the machines when they break, keep them running through a power cut, train the staff who use them, and answer for it when the service fails.
-
-> "Oxygen is a microcosm of the shift we are all working through:  from proven models to functioning markets."
 
 For the past six years, through the Oxygen CoLab, my colleagues and I have worked alongside local operators, governments and funders trying to understand just why these kinds of delivery models stall. We began by asking whether the models could work. Over time, the more difficult question became impossible to ignore: if the evidence is there and the demand is there, why do these models fail to scale? 
 
@@ -63,23 +61,21 @@ Evidence exists, but it does not travel on its own from a journal onto a hospita
 
 **2. A stalled business gets read as a dead market**
 
-When a small operator struggles to grow, the easy conclusion is that there is no market, when often the business is stalling short of commercial traction because it cannot reach the capital that would take it there.
 
-![](/images/HealthPort%20Plant%20%281%29.jpg)
+
+When a small operator struggles to grow, the easy conclusion is that there is no market, when often the business is stalling short of commercial traction because it cannot reach the capital that would take it there.
 
 HealthPort, one of the operators we have supported through the CoLab, grew its hospital revenue sixfold in three years and now has a waiting list of facilities. They showed that the demand was always there, but the working capital was not. 
 
 The danger is that the stall becomes self-reinforcing. Investors see a company that has not yet achieved scale and conclude that no market exists. The company is denied the finance it needs to grow, remains small, and appears to confirm the original judgement.
 
-**3. Money already spent is at risk of being stranded**
+**3. Money already spent is at risk of being stranded**![](/images/FREO2089.jpg)
 
 Billions have gone into plants, concentrators, cylinders and hospital infrastructure, but a concentrator sitting on a ward stays an asset rather than a service until someone finances uptime, maintenance and accountability, and that part rarely has a funder.
 
 Anyone working in medical equipment or health system delivery will recognise the shape of it: the purchase was justified, the placement was sensible, and the thing still is not delivering the service it’s bought to provide. The question is therefore not only how we finance the next innovation, but rather how we prevent the value of past investment from being wasted. 
 
-![](/images/FREO2089.jpg)
-
-**4. The scaling capital arrives in the wrong shape**
+**4. The scaling capital arrives in the wrong shape**![](/images/_UCV1531%20%281%29.jpg)
 
 Scaling capital comes in ticket sizes too large for a small operator to absorb, or as short-term grants that fund activity without funding a route to sustainability, or as loans wanting collateral a young company does not have.
 
