@@ -97,7 +97,7 @@ The same goes for regulators able to licence small businesses, procurement syste
 
 ## The room moved quickly beyond ‘more blended finance’
 
-![](/images/FREO2476.jpg)
+![banner: A technician services a medical oxygen cylinder](/images/FREO2476.jpg)
 
 What struck me in Nairobi was how little time anyone spent debating this diagnosis. People working in philanthropy,investment, health systems, enterprise support and frontline delivery recognised the wider pattern almost immediately. I had expected the discussion to produce a familiar call for more blended finance. It did not. Each time we returned to the capital, someone pulled the conversation back to the conditions around it. 
 
@@ -115,7 +115,7 @@ Nobody in the room argued that philanthropy should resist the move towards inves
 
 ### **Fund the transition as a phase in its own right**
 
-![](/images/HealthPort%20Plant%20(1).jpg)
+![banner: A HealthPort medical oxygen plant](/images/HealthPort%20Plant%20(1).jpg)
 
 The work between proof and investment currently gets treated as a bag of technical assistance stapled to a grant, when it needs its own objectives, its own timeline and its own measures of progress: validating recurring demand, opening public procurement pathways, tightening financial controls, testing pricing and payment models, resolving regulatory blockers, and producing the information a lender or investor actually needs.
 

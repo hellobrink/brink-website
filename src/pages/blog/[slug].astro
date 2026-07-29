@@ -125,6 +125,24 @@ const showContact = data.contactAuthor && !!authorEmail && !!firstName;
   for (const prose of document.querySelectorAll('.prose.longform')) {
     const isImg = (el: Element) =>
       el.tagName === 'P' && !!el.querySelector(':scope > img') && !el.textContent!.trim();
+
+    // Per-image opt-out of the pinned side layout: an editor starts the image's
+    // alt text with "banner:" to render it full-width in the flow instead. Mark
+    // those paragraphs and strip the marker off the alt, so the real description
+    // (and the accessibility text) is preserved and no "banner" tooltip shows.
+    const BANNER = /^\s*banner:\s*/i;
+    for (const p of prose.querySelectorAll('p')) {
+      const img = p.querySelector(':scope > img');
+      const alt = img?.getAttribute('alt') ?? '';
+      if (img && !p.textContent!.trim() && BANNER.test(alt)) {
+        img.setAttribute('alt', alt.replace(BANNER, '').trim());
+        img.removeAttribute('title');
+        p.classList.add('lf-banner');
+      }
+    }
+    const isBanner = (el: Element) => el.classList.contains('lf-banner');
+    // A pinnable image is an image paragraph the editor hasn't marked as a banner.
+    const isPinImg = (el: Element) => isImg(el) && !isBanner(el);
     // Only the top two heading levels start a new pinned scene. H3–H6 are
     // sub-headings that live *inside* a scene's text column, so an editor can
     // break a long section into numbered points without fragmenting it into
@@ -143,16 +161,17 @@ const showContact = data.contactAuthor && !!authorEmail && !!firstName;
     for (let i = allKids.length - 1; i >= 0; i--) {
       if (allKids[i].tagName === 'HR') { codaStart = i; break; }
     }
-    if (codaStart >= 0 && allKids.slice(codaStart).some(isImg)) codaStart = -1;
+    if (codaStart >= 0 && allKids.slice(codaStart).some(isPinImg)) codaStart = -1;
     const kids = codaStart >= 0 ? allKids.slice(0, codaStart) : allKids;
     const codaKids = codaStart >= 0 ? allKids.slice(codaStart) : [];
 
-    // Intro = everything before the first heading whose section holds an image.
+    // Intro = everything before the first heading whose section holds a pinned
+    // image. Banner-only sections aren't scenes, so they don't start the flow.
     const headings = kids.map((el, i) => (isHeading(el) ? i : -1)).filter((i) => i >= 0);
     let firstSection = -1;
     for (let h = 0; h < headings.length; h++) {
       const start = headings[h], end = headings[h + 1] ?? kids.length;
-      if (kids.slice(start, end).some(isImg)) { firstSection = start; break; }
+      if (kids.slice(start, end).some(isPinImg)) { firstSection = start; break; }
     }
     if (firstSection < 0) continue;
 
@@ -172,9 +191,10 @@ const showContact = data.contactAuthor && !!authorEmail && !!firstName;
       const end = starts[s + 1] ?? kids.length;
       const chunk = kids.slice(start, end);
 
-      // A heading section with no image isn't a pinned scene — render it
-      // full-width in normal flow (e.g. a closing section or an aside).
-      if (!chunk.some(isImg)) {
+      // A section with no pinned image isn't a pinned scene — render it
+      // full-width in normal flow. This covers a closing text section and a
+      // section whose only image is a banner (which renders full-width inside).
+      if (!chunk.some(isPinImg)) {
         const block = document.createElement('div');
         block.className = 'lf-block';
         chunk.forEach((k) => block.appendChild(k));
@@ -207,13 +227,15 @@ const showContact = data.contactAuthor && !!authorEmail && !!firstName;
         // sit above, and the points with their photos begin the pinned columns.
         // This holds whether the editor puts a point's image before or after its
         // sub-heading.
-        if (inLead && (isImg(k) || /^H[3-6]$/.test(k.tagName))) inLead = false;
-        if (isImg(k)) {
+        if (inLead && (isPinImg(k) || /^H[3-6]$/.test(k.tagName))) inLead = false;
+        if (isPinImg(k)) {
           const img = k.querySelector('img')!;
           img.classList.add('lf-frame');
           media.appendChild(img);
           imgs.push(img);
           pending = img;
+        } else if (isBanner(k)) {
+          lead.appendChild(k); // full-width banner, hoisted above the pinned columns
         } else if (inLead) {
           lead.appendChild(k); // heading + intro, above the pinned columns
         } else if (k.classList.contains('post-caption')) {
@@ -514,17 +536,31 @@ const showContact = data.contactAuthor && !!authorEmail && !!firstName;
      the inline script above, which groups each image + following text into a
      .lf-scene. Falls back to a normal article if JS is off. */
   .lf-wide { max-width: 68rem; }
+  /* Size container, so a banner image can break out to the full content width
+     no matter which reading column it sits in. */
+  .prose.longform { container-type: inline-size; }
   .prose.longform :global(.lf-intro) {
     max-width: var(--measure);
     margin: 0 auto;
   }
-  /* A heading section with no image, rendered full-width inside the scene
-     flow rather than as a pinned two-column scene. */
+  /* A heading section with no pinned image is rendered full-width in the flow
+     (a closing section, an aside, or a banner-image section). Text stays at the
+     reading measure; a banner image inside breaks out (see .lf-banner). */
   .prose.longform :global(.lf-block) {
     align-self: center;
     width: 100%;
     max-width: var(--measure);
   }
+  /* A banner image (one the editor opted out of the pinned side layout) breaks
+     out of its reading column to span the full content width, in normal flow.
+     100cqw is the content width; the negative-centre trick re-centres it from
+     inside the narrower reading column. */
+  .prose.longform :global(.lf-banner) {
+    width: 100cqw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+  .prose.longform :global(.lf-banner img) { width: 100%; }
   /* The .lf-scenes flex gap already separates sections; without this the
      block's leading heading adds its own top margin on top of that gap, so a
      section-to-section break ends up doubly spaced. */
@@ -557,9 +593,8 @@ const showContact = data.contactAuthor && !!authorEmail && !!firstName;
   .prose.longform :global(.lf-lead) {
     grid-column: 1 / -1;
     grid-row: 1;
-    /* Sit in the same centred reading column as the intro and the full-width
-       blocks, so the heading lines up with the body text instead of jutting
-       out to the container edge. */
+    /* Sit in the same centred reading column as the intro and blocks so the
+       heading lines up with the body text. */
     max-width: var(--measure);
     margin-inline: auto;
   }
