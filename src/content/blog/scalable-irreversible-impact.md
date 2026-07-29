@@ -171,11 +171,11 @@ To reiterate, Haroon committed deeply to two things at the same time: selling to
 
 Journeys like Haroon’s gesture towards a pathway to large-scale impact. It looks something like this:
 
-![](/images/68a458fdc04a2d5dfbf399a9_64.png)
-
 It’s much quicker to reach them without going to big institutions. This direct relationship maximises your learning about the product. It gives you the best shot at building something they love. It also provides you with some revenue. Grant funding can add some valuable fuel here, as it did for Taleemabad.
 
 At the same time, you use as much of that revenue or funding as you can to learn about what it takes for you to become embedded in government systems<sup id="fnref-8" class="fn-ref"><a href="#fn-8">8</a></sup>. At Brink, we call this being in “yes, if” mode: continuously testing and updating your beliefs about what it would take for a government (or other large institution) to buy into your idea.
+
+![](/images/68a458fdc04a2d5dfbf399a9_64.png)
 
 Sometime (in my experience, around year 7), you hit an **inflection point.** As you enter government budgets and delivery mechanisms, revenue and # of users skyrockets. From the outside, the shift seems sudden. But you know it’s taken five, maybe ten years of groundwork. In Taleemabad’s case, after 7 years of working directly with schools, they’d reached 20K children. In 2024, their first year of government as a customer (but following years of behind-the-scenes sweat), they reached 136K. This year, they’ll reach 280K. Next year, they forecast reaching 690K.
 
