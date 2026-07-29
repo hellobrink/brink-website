@@ -451,7 +451,10 @@ const displayDate = data.date
     margin-top: var(--space-8);
     display: flex;
     flex-direction: column;
-    gap: clamp(var(--space-7), 8vh, var(--space-9));
+    /* Section-to-section spacing. A flat value that matches the article's own
+       H2 rhythm; the old clamp scaled with viewport height (8vh), which made the
+       gap balloon on taller screens. */
+    gap: var(--space-7);
   }
   .prose.longform :global(.lf-scene) {
     display: grid;
