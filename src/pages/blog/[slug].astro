@@ -76,7 +76,12 @@ const displayDate = data.date
   for (const prose of document.querySelectorAll('.prose.longform')) {
     const isImg = (el: Element) =>
       el.tagName === 'P' && !!el.querySelector(':scope > img') && !el.textContent!.trim();
-    const isHeading = (el: Element) => /^H[1-4]$/.test(el.tagName);
+    // Only the top two heading levels start a new pinned scene. H3–H6 are
+    // sub-headings that live *inside* a scene's text column, so an editor can
+    // break a long section into numbered points without fragmenting it into
+    // lots of short scenes (a scene shorter than the viewport can't visibly
+    // pin its image). One panel per H1/H2; everything under it scrolls as one.
+    const isHeading = (el: Element) => /^H[12]$/.test(el.tagName);
     const allKids = [...prose.children];
 
     // A trailing coda: from the last top-level <hr> to the end, as long as no
