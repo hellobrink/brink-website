@@ -53,7 +53,7 @@ Looking across the businesses and health systems we have worked with, five patte
 
 ## 
 
-### **1. Proof is no longer the bottleneck**
+### 1. Proof is no longer the bottleneck
 
 ![](/images/_UCV1443.jpg)
 
@@ -111,29 +111,29 @@ Nobody in the room argued that philanthropy should resist the move towards inves
 
 ## So what would philanthropy do differently?
 
-**Fund the transition as a phase in its own right**
+### **Fund the transition as a phase in its own right**
 
 The work between proof and investment currently gets treated as a bag of technical assistance stapled to a grant, when it needs its own objectives, its own timeline and its own measures of progress: validating recurring demand, opening public procurement pathways, tightening financial controls, testing pricing and payment models, resolving regulatory blockers, and producing the information a lender or investor actually needs.
 
 That is a different job from helping one business scale, since the point is to build the conditions in which a whole category of businesses can.
 
-**Design backwards from whoever pays in the end**
+### **Design backwards from whoever pays in the end**
 
 Ask at the start who ultimately pays for the service, from which budget, through which procurement mechanism, and on what evidence. That does not mean governments must absorb the full cost immediately, or that early innovation should be forced into rigid procurement systems before it is ready. It means the route to recurring demand shapes the model from day one, rather than government being invited in once the product, the organisation and the financing are already fixed.
 
-**Sequence the capital**
+### **Sequence the capital**
 
 Different money does different jobs. Grants pay for public goods, early experimentation and risks no investor can reasonably price. Guarantees get lenders into markets they would otherwise avoid, and concessional debt funds assets and working capital while the risk is still unclear. Equity suits businesses with the governance and growth potential to use it well.
 
 The point is to stop blending indefinitely and start defining what each layer buys, which milestone lets the next layer in, and which activities will always need non-commercial funding, so that the stack moves capital along instead of holding it in place.
 
-**Help organisations become something different**
+### **Help organisations become something different**
 
 An organisation built to manage grants usually needs different governance, different financial capability, different people and different incentives before it can take on debt, investment or serious commercial revenue, and registering a new company does not achieve that.
 
 Philanthropy can help leaders make the choice deliberately: stay a nonprofit, spin out a commercial subsidiary, go hybrid, license the intellectual property, or separate the revenue-generating services from the parts that remain public goods. The right answer varies by organisation, but the question cannot keep being postponed.
 
-**Define the exit before you take it**
+### **Define the exit before you take it**
 
 The sector needs a better way of telling a market that is genuinely ready from one that funders have simply got tired of supporting. A responsible exit probably requires evidence that demand recurs, that payment is predictable enough, that regulation is workable, that operators can reach appropriate finance, that the essential non-commercial functions have a permanent home, and that withdrawing the grant will not collapse the service.
 
