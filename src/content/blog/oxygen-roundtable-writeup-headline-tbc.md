@@ -51,9 +51,9 @@ That is why I have come to see oxygen as more than one neglected health market. 
 
 Looking across the businesses and health systems we have worked with, five patterns have come up often enough that I no longer think of them as isolated barriers. Together, they describe the transition that nobody currently owns. 
 
-**1. Proof is no longer the bottleneck**
+![](/images/_UCV1443.jpg)
 
-#### ![](/images/_UCV1443.jpg)
+**1. Proof is no longer the bottleneck**
 
 Researchers compared oxygen concentrators on similar hospital wards, where under standard procurement the machines worked only 25% of the time, vs.  95% when a local company was on the hook for keeping them running. The machines and the wards were the same, so that 70-point gap comes down entirely to who was responsible for keeping them working.
 
@@ -69,13 +69,17 @@ HealthPort, one of the operators we have supported through the CoLab, grew its h
 
 The danger is that the stall becomes self-reinforcing. Investors see a company that has not yet achieved scale and conclude that no market exists. The company is denied the finance it needs to grow, remains small, and appears to confirm the original judgement.
 
-**3. Money already spent is at risk of being stranded**![](/images/FREO2089.jpg)
+![](/images/FREO2089.jpg)
+
+**3. Money already spent is at risk of being stranded**
 
 Billions have gone into plants, concentrators, cylinders and hospital infrastructure, but a concentrator sitting on a ward stays an asset rather than a service until someone finances uptime, maintenance and accountability, and that part rarely has a funder.
 
 Anyone working in medical equipment or health system delivery will recognise the shape of it: the purchase was justified, the placement was sensible, and the thing still is not delivering the service it’s bought to provide. The question is therefore not only how we finance the next innovation, but rather how we prevent the value of past investment from being wasted. 
 
-**4. The scaling capital arrives in the wrong shape**![](/images/_UCV1531%20%281%29.jpg)
+![](/images/_UCV1531%20%281%29.jpg)
+
+**4. The scaling capital arrives in the wrong shape**
 
 Scaling capital comes in ticket sizes too large for a small operator to absorb, or as short-term grants that fund activity without funding a route to sustainability, or as loans wanting collateral a young company does not have.
 
