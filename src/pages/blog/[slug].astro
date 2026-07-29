@@ -470,13 +470,19 @@ const displayDate = data.date
   }
 
   @media (max-width: 820px) {
-    /* Stack; show every frame in flow (no pinning, no cross-fade). */
+    /* Stack; show every frame in flow (no pinning, no cross-fade). The media
+       and text selectors carry .media-left/.media-right so they match the
+       specificity of the two-column rules above and actually override them:
+       without it, a media-right figure stays pinned to grid-column 2 and the
+       "single column" grid quietly grows a phantom second column. */
     .prose.longform :global(.lf-scene) { grid-template-columns: 1fr; gap: var(--space-4); }
-    .prose.longform :global(.lf-scene .lf-media) {
+    .prose.longform :global(.lf-scene.media-left .lf-media),
+    .prose.longform :global(.lf-scene.media-right .lf-media) {
       grid-column: 1; grid-row: 1;
       position: static; height: auto; width: auto; display: block;
     }
-    .prose.longform :global(.lf-scene .lf-text) { grid-column: 1; grid-row: 2; }
+    .prose.longform :global(.lf-scene.media-left .lf-text),
+    .prose.longform :global(.lf-scene.media-right .lf-text) { grid-column: 1; grid-row: 2; }
     .prose.longform :global(.lf-frame) {
       opacity: 1; width: 100%; height: auto; max-height: none;
       margin: 0 0 var(--space-4);
