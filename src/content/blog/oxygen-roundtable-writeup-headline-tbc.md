@@ -1,7 +1,7 @@
 ---
-title: Oxygen roundtable writeup (headline tbc)
-subheading: Subhead goes here
-summary: Oxygen roundtable writeup (headline tbc)
+title: Why can’t we unlock billions in assets and save a million lives a year?
+subheading: Medical oxygen reveals the missing work between proven solutions and investable markets.
+summary: Medical oxygen reveals the missing work between proven solutions and investable markets.
 date: 2026-07-29
 authorName: Alex Losneau
 authorSlug: alex-losneanu
@@ -14,8 +14,6 @@ bannerAlt: Attendees at the breakfast roundtable in Nairobi
 longform: true
 sortOrder: 0
 ---
-
-# Nobody owns the middle
 
 Halfway through a breakfast roundtable hosted in Nairobi by Grand Challenges Canada and Brink, someone asked a question that took the conversation in a very different direction: How would we know when a market was genuinely ready for philanthropy to leave? 
 
@@ -97,7 +95,7 @@ The same goes for regulators able to licence small businesses, procurement syste
 
 ## The room moved quickly beyond ‘more blended finance’
 
-![banner: A technician services a medical oxygen cylinder](/images/FREO2476.jpg)
+![](/images/FREO2476.jpg)
 
 What struck me in Nairobi was how little time anyone spent debating this diagnosis. People working in philanthropy,investment, health systems, enterprise support and frontline delivery recognised the wider pattern almost immediately. I had expected the discussion to produce a familiar call for more blended finance. It did not. Each time we returned to the capital, someone pulled the conversation back to the conditions around it. 
 
@@ -113,7 +111,7 @@ Nobody in the room argued that philanthropy should resist the move towards inves
 
 ## So what would philanthropy do differently?
 
-![banner: A HealthPort medical oxygen plant](/images/HealthPort%20Plant%20(1).jpg)
+![](/images/HealthPort%20Plant%20(1).jpg)
 
 ### **Fund the transition as a phase in its own right**
 
