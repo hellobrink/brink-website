@@ -171,6 +171,21 @@
   .tbd { color: var(--blue); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; }
   .band--teal .tbd { color: var(--pink); }
 
+  /* --- Inline code + example snippet ------------------------------------- */
+  code {
+    font-family: var(--mono); font-size: 0.85em;
+    background: rgba(6,51,61,0.08); padding: 0.1em 0.35em; border-radius: 3px;
+  }
+  .band--teal code, .band--coral code { background: rgba(255,255,255,0.14); }
+  .snippet {
+    font-family: var(--mono); font-size: 0.82rem; line-height: 1.7;
+    background: var(--teal); color: var(--paper);
+    padding: 1.3rem 1.5rem; margin: 1.75rem 0 0;
+    border-left: 3px solid var(--coral);
+    overflow-x: auto; white-space: pre;
+  }
+  .snippet b { color: var(--pink); font-weight: 400; }
+
   /* --- Rules ------------------------------------------------------------- */
   .rules { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; gap: 1.25rem; }
   .rules li { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: baseline; }
@@ -361,6 +376,60 @@
       </div>
       <div class="note">
         <strong>Where the long read goes.</strong> The &ldquo;story in more detail&rdquo; is the <em>Case study narrative</em> field near the bottom of the form. Leave it blank for a short case study; fill it for a full one, writing it like a normal article with <strong>## subheadings</strong> and bullet lists. Every field in the editor has a one-line hint under it telling you what it is and whether it's needed.
+      </div>
+    </div>
+  </section>
+
+  <!-- LONG-FORM POSTS -->
+  <section class="band band--paper reveal">
+    <div class="wrap">
+      <p class="kicker">Going deeper</p>
+      <h2>Long-form posts with sticky images</h2>
+      <p class="lead muted">Some blog posts use a magazine layout: as you scroll, a photo stays pinned beside the text and fades to the next one when you reach it. It's a lovely effect, but it only works if the images are laid out the way it expects. Here's the whole trick.</p>
+
+      <p style="margin-top:2rem"><strong>Turn it on</strong> with the <strong>&ldquo;Long-form magazine layout (sticky images)&rdquo;</strong> switch in the blog post form. With it off, the post reads as a normal top-to-bottom article.</p>
+
+      <div class="cols">
+        <div class="col col--yes">
+          <h3>What makes an image stick</h3>
+          <ul>
+            <li>Put the image on <strong>its own line</strong>, with nothing else beside it</li>
+            <li>Keep your points under <strong>one <code>##</code> heading</strong> - everything below it shares the one pinned image area</li>
+            <li>Use <strong><code>###</code> sub-headings</strong> for the individual points inside that section</li>
+            <li>Give the section <strong>plenty of text</strong> - more than a screenful, so the image has room to stay put as you scroll past</li>
+            <li>Drop in several images and they <strong>cross-fade</strong> as you reach each one</li>
+          </ul>
+          <p class="most">Image on its own line, points as sub-headings.</p>
+        </div>
+        <div class="col col--no">
+          <h3>What breaks the effect</h3>
+          <ul>
+            <li><strong>Gluing an image onto a heading</strong> or the end of a sentence, instead of its own line</li>
+            <li>Giving <strong>every point its own <code>##</code> heading</strong> - each one starts a fresh panel, and short panels have no room to pin</li>
+            <li>A section with <strong>only a line or two</strong> of text - there's nothing to scroll past</li>
+          </ul>
+          <p class="most">Too many headings, or too little text.</p>
+        </div>
+      </div>
+
+      <pre class="snippet">## Why oxygen shows this so plainly
+
+Open the section with a paragraph or two of intro...
+
+<b>![](first-photo.jpg)</b>
+
+### 1. Proof is no longer the bottleneck
+
+The text for the first point, as long as it needs to be...
+
+<b>![](second-photo.jpg)</b>
+
+### 2. A stalled business reads as a dead market
+
+The text for the second point...</pre>
+
+      <div class="note">
+        <strong>The one rule to remember:</strong> one <code>##</code> heading is one pinned panel. Keep the points together under a single <code>##</code>, use <code>###</code> for each point, and put every image on its own line. <span class="tbd">Desktop only</span> On phones there's no room to pin, so images simply sit in the text where you placed them - which still reads perfectly.
       </div>
     </div>
   </section>
