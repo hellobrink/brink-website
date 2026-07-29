@@ -60,6 +60,11 @@ function rehypeIsolateImages() {
     for (const node of tree.children) {
       const isP = isEl(node) && node.tagName === 'p';
       const isHeading = isEl(node) && /^h[1-6]$/.test(node.tagName);
+      // Drop an empty heading a stray "## " leaves behind. It renders as a blank
+      // gap (and is an accessibility failure), and in a long-form post a real
+      // heading is a section break, so an empty one wrongly splits a section and
+      // hands the pinned panel a blank title.
+      if (isHeading && !hasText(node) && !hasImg(node)) continue;
       if ((isP || isHeading) && hasImg(node)) {
         const images = (node.children ?? []).filter(isImageChild);
         const rest = (node.children ?? []).filter((c) => !isImageChild(c));

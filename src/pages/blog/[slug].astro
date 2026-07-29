@@ -81,7 +81,9 @@ const displayDate = data.date
     // break a long section into numbered points without fragmenting it into
     // lots of short scenes (a scene shorter than the viewport can't visibly
     // pin its image). One panel per H1/H2; everything under it scrolls as one.
-    const isHeading = (el: Element) => /^H[12]$/.test(el.tagName);
+    // Empty headings never count as a section break (the build strips them, but
+    // guard here too so a stray blank heading can't hand a panel an empty title).
+    const isHeading = (el: Element) => /^H[12]$/.test(el.tagName) && !!el.textContent!.trim();
     const allKids = [...prose.children];
 
     // A trailing coda: from the last top-level <hr> to the end, as long as no
