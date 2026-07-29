@@ -38,7 +38,6 @@ But nobody owns that work, because it is not anybody's mandate, does not sit in 
 This "Missing Middle" is usually described as a shortage of capital, though to the people in that room it looked much more like a shortage of ownership.
 
 ## Why oxygen shows this so plainly
-##  
 
 Medical oxygen is about as clear a test case for this as you will find.
 
@@ -51,11 +50,10 @@ For the past six years, through the Oxygen CoLab, my colleagues and I have worke
 That is why I have come to see oxygen as more than one neglected health market. It is a microcosm of the shift we are all working through: from proven models to functioning markets.
 
 Looking across the businesses and health systems we have worked with, five patterns have come up often enough that I no longer think of them as isolated barriers. Together, they describe the transition that nobody currently owns. 
-##  
-
-![](/images/_UCV1443.jpg)
 
 ### **1. Proof is no longer the bottleneck**
+
+![](/images/_UCV1443.jpg)
 
 Researchers compared oxygen concentrators on similar hospital wards, where under standard procurement the machines worked only 25% of the time, vs.  95% when a local company was on the hook for keeping them running. The machines and the wards were the same, so that 70-point gap comes down entirely to who was responsible for keeping them working.
 
@@ -85,7 +83,7 @@ Scaling capital comes in ticket sizes too large for a small operator to absorb, 
 
 You can see the consequence in who gets served: eight in ten of the oxygen businesses we mapped sell to private hospitals, while the public facilities where the need is greatest go underserved. That is rarely about mission, since financing terms, payment risk and procurement rules push operators towards customers who pay reliably. So the shape of the capital ends up deciding which patients a business can afford to reach.
 
-![](/images/FREO2351.jpg)
+![](/images/FREO2476.webp)
 
 ### **5. Capital only works when the conditions around it work**
 
