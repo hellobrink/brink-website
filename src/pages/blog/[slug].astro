@@ -437,6 +437,10 @@ const displayDate = data.date
     width: 100%;
     max-width: var(--measure);
   }
+  /* The .lf-scenes flex gap already separates sections; without this the
+     block's leading heading adds its own top margin on top of that gap, so a
+     section-to-section break ends up doubly spaced. */
+  .prose.longform :global(.lf-block > :first-child) { margin-top: 0; }
   /* The trailing coda (conclusion, footnotes) after the last `---`: back to a
      single full-width reading column. */
   .prose.longform :global(.lf-coda) {
@@ -459,12 +463,16 @@ const displayDate = data.date
   /* Full-width lead: the section heading + intro span both columns, on top, so
      the pinned two-column layout begins at the first image. The heading runs
      the full width; the intro text stays at a readable measure beneath it. */
-  .prose.longform :global(.lf-lead) { grid-column: 1 / -1; grid-row: 1; }
+  .prose.longform :global(.lf-lead) {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    /* Sit in the same centred reading column as the intro and the full-width
+       blocks, so the heading lines up with the body text instead of jutting
+       out to the container edge. */
+    max-width: var(--measure);
+    margin-inline: auto;
+  }
   .prose.longform :global(.lf-lead > :first-child) { margin-top: 0; }
-  .prose.longform :global(.lf-lead > p),
-  .prose.longform :global(.lf-lead > ul),
-  .prose.longform :global(.lf-lead > ol),
-  .prose.longform :global(.lf-lead > blockquote) { max-width: var(--measure); }
   .prose.longform :global(.lf-scene.media-left .lf-media) { grid-column: 1; grid-row: 2; }
   .prose.longform :global(.lf-scene.media-left .lf-text) { grid-column: 2; grid-row: 2; }
   .prose.longform :global(.lf-scene.media-right .lf-media) { grid-column: 2; grid-row: 2; }
@@ -520,10 +528,6 @@ const displayDate = data.date
     }
     .prose.longform :global(.lf-scene.media-left .lf-text),
     .prose.longform :global(.lf-scene.media-right .lf-text) { grid-column: 1; grid-row: 3; }
-    .prose.longform :global(.lf-lead > p),
-    .prose.longform :global(.lf-lead > ul),
-    .prose.longform :global(.lf-lead > ol),
-    .prose.longform :global(.lf-lead > blockquote) { max-width: none; }
     .prose.longform :global(.lf-frame) {
       opacity: 1; width: 100%; height: auto; max-height: none;
       margin: 0 0 var(--space-4);
