@@ -560,7 +560,15 @@ const showContact = data.contactAuthor && !!authorEmail && !!firstName;
     margin-left: 50%;
     transform: translateX(-50%);
   }
-  .prose.longform :global(.lf-banner img) { width: 100%; }
+  /* Cap the banner height so a tall (portrait) image doesn't fill the screen:
+     it crops to a wide band instead. A landscape image shorter than the cap
+     shows in full. object-position keeps the crop centred. */
+  .prose.longform :global(.lf-banner img) {
+    width: 100%;
+    max-height: min(32rem, 70vh);
+    object-fit: cover;
+    object-position: center;
+  }
   /* The .lf-scenes flex gap already separates sections; without this the
      block's leading heading adds its own top margin on top of that gap, so a
      section-to-section break ends up doubly spaced. */
