@@ -27,6 +27,32 @@ backend:
 media_folder: public/images
 public_folder: /images
 
+# Image handling on upload. This is what stops the "I added an image and it
+# never appeared" problem: the CMS commits images through GitHub's API, which
+# silently fails on very large files (roughly 5MB+). Two guards:
+#
+#   1. transformations — every uploaded photo is automatically shrunk in the
+#      browser BEFORE it's committed: re-encoded to WebP at quality 82 and
+#      capped to 2048px on its longest side. A 12MB phone photo lands as a
+#      ~300KB file with no visible quality loss, so editors never hit the
+#      silent-fail and never have to resize anything by hand.
+#   2. max_file_size — a hard backstop. Anything still over 5MB after the
+#      transform (e.g. a non-image file) is refused with a clear message
+#      rather than failing quietly.
+#
+# WebP is the only output format Sveltia can transform to; every current
+# browser supports it, so uploaded images just work.
+media_libraries:
+  default:
+    config:
+      max_file_size: 5242880 # 5 MB hard limit (bytes)
+      transformations:
+        raster_image:
+          format: webp
+          quality: 82
+          width: 2048 # cap longest side; smaller images are left as-is
+          height: 2048
+
 site_url: https://hellobrink.github.io/brink-website
 display_url: https://hellobrink.github.io/brink-website
 
