@@ -130,7 +130,7 @@ const nextImage = () => data.gallery[imageCursor++] ?? null;
           ); })()}
 
           {data.results.length > 0 && (
-            <section class="story-section">
+            <section class="story-section breakout">
               <h2 class="display">What was achieved</h2>
               <ul class="results">
                 {data.results.map((r) => <li set:html={inline(r)} />)}
@@ -166,7 +166,7 @@ const nextImage = () => data.gallery[imageCursor++] ?? null;
           )}
 
           {(data.approachIntro.length > 0 || data.approach.length > 0) && (
-            <section class="story-section">
+            <section class="story-section breakout">
               <h2 class="display">How we did it</h2>
               {data.approachIntro.map((p) => <p set:html={inline(p)} />)}
               {data.approach.length > 0 && (
@@ -434,6 +434,50 @@ const nextImage = () => data.gallery[imageCursor++] ?? null;
 
   .story-section :global(a:hover) {
     color: var(--color-accent);
+  }
+
+  /* --- Breakout panels ---------------------------------------------------- */
+  /* "What was achieved" and "How we did it" are the two sections a reader
+     scans, so lift them out of the prose into a tinted panel (the page is
+     white) with a coral top bar and the brand's coral caret bullets. Square,
+     like everything else, so they read as a callout that breaks up the text. */
+  .breakout {
+    background: var(--color-surface-muted);
+    border-top: 3px solid var(--color-accent);
+    padding: var(--space-6);
+  }
+
+  .breakout h2 {
+    margin-top: 0;
+  }
+
+  .breakout > :last-child {
+    margin-bottom: 0;
+  }
+
+  /* Coral caret bullets in place of the hairline dividers inside the panel. */
+  .breakout .results li,
+  .breakout .approach li {
+    position: relative;
+    padding: 0 0 0 var(--space-5);
+    margin: 0 0 var(--space-3);
+    border-top: 0;
+    line-height: var(--leading-normal);
+  }
+
+  .breakout .results li:last-child,
+  .breakout .approach li:last-child {
+    margin-bottom: 0;
+  }
+
+  .breakout .results li::before,
+  .breakout .approach li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-weight: var(--weight-bold);
   }
 
   /* Body size, so a closing sentence (often just a link out) reads as a
