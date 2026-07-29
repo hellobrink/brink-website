@@ -136,6 +136,13 @@ const displayDate = data.date
       const scene = document.createElement('div');
       scene.className = 'lf-scene ' + (sceneIndex % 2 ? 'media-right' : 'media-left');
       sceneIndex++;
+      // Anything before the first image (the section heading and any intro
+      // paragraphs) runs full-width above the two pinned columns. So a section
+      // opens with its heading across the page and only starts pinning at its
+      // first image - which is how you get a wide heading with the photos
+      // beginning at the first point, no invisible-heading hack required.
+      const lead = document.createElement('div');
+      lead.className = 'lf-lead';
       const media = document.createElement('figure');
       media.className = 'lf-media';
       const text = document.createElement('div');
@@ -143,14 +150,23 @@ const displayDate = data.date
 
       const imgs: Element[] = [];
       let pending: Element | null = null;
+      let inLead = true;
       const steps: { el: Element; img: Element }[] = [];
       for (const k of chunk) {
+        // The lead ends at the first image or the first sub-heading (a numbered
+        // point), whichever comes first - so the wide section heading + intro
+        // sit above, and the points with their photos begin the pinned columns.
+        // This holds whether the editor puts a point's image before or after its
+        // sub-heading.
+        if (inLead && (isImg(k) || /^H[3-6]$/.test(k.tagName))) inLead = false;
         if (isImg(k)) {
           const img = k.querySelector('img')!;
           img.classList.add('lf-frame');
           media.appendChild(img);
           imgs.push(img);
           pending = img;
+        } else if (inLead) {
+          lead.appendChild(k); // heading + intro, above the pinned columns
         } else if (k.classList.contains('post-caption')) {
           text.appendChild(k); // keep captions in the reading column
         } else {
@@ -159,6 +175,7 @@ const displayDate = data.date
         }
       }
       if (imgs[0]) imgs[0].classList.add('active');
+      if (lead.children.length) scene.appendChild(lead);
       scene.append(media, text);
       scenes.appendChild(scene);
       if (imgs.length > 1 && steps.length) swapSections.push({ steps, current: imgs[0] });
@@ -435,13 +452,23 @@ const displayDate = data.date
   .prose.longform :global(.lf-scene) {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: clamp(2rem, 5vw, 4.5rem);
+    column-gap: clamp(2rem, 5vw, 4.5rem);
+    row-gap: var(--space-5);
     align-items: start;
   }
-  .prose.longform :global(.lf-scene.media-left .lf-media) { grid-column: 1; grid-row: 1; }
-  .prose.longform :global(.lf-scene.media-left .lf-text) { grid-column: 2; grid-row: 1; }
-  .prose.longform :global(.lf-scene.media-right .lf-media) { grid-column: 2; grid-row: 1; }
-  .prose.longform :global(.lf-scene.media-right .lf-text) { grid-column: 1; grid-row: 1; }
+  /* Full-width lead: the section heading + intro span both columns, on top, so
+     the pinned two-column layout begins at the first image. The heading runs
+     the full width; the intro text stays at a readable measure beneath it. */
+  .prose.longform :global(.lf-lead) { grid-column: 1 / -1; grid-row: 1; }
+  .prose.longform :global(.lf-lead > :first-child) { margin-top: 0; }
+  .prose.longform :global(.lf-lead > p),
+  .prose.longform :global(.lf-lead > ul),
+  .prose.longform :global(.lf-lead > ol),
+  .prose.longform :global(.lf-lead > blockquote) { max-width: var(--measure); }
+  .prose.longform :global(.lf-scene.media-left .lf-media) { grid-column: 1; grid-row: 2; }
+  .prose.longform :global(.lf-scene.media-left .lf-text) { grid-column: 2; grid-row: 2; }
+  .prose.longform :global(.lf-scene.media-right .lf-media) { grid-column: 2; grid-row: 2; }
+  .prose.longform :global(.lf-scene.media-right .lf-text) { grid-column: 1; grid-row: 2; }
   /* The figure pins and sits centred in the viewport while its text scrolls
      past. Images are stacked and cross-fade (for multi-image sections). */
   .prose.longform :global(.lf-media) {
@@ -483,13 +510,20 @@ const displayDate = data.date
        without it, a media-right figure stays pinned to grid-column 2 and the
        "single column" grid quietly grows a phantom second column. */
     .prose.longform :global(.lf-scene) { grid-template-columns: 1fr; gap: var(--space-4); }
+    /* Stack in reading order: lead (heading + intro), then image(s), then the
+       points. */
+    .prose.longform :global(.lf-lead) { grid-column: 1; grid-row: 1; }
     .prose.longform :global(.lf-scene.media-left .lf-media),
     .prose.longform :global(.lf-scene.media-right .lf-media) {
-      grid-column: 1; grid-row: 1;
+      grid-column: 1; grid-row: 2;
       position: static; height: auto; width: auto; display: block;
     }
     .prose.longform :global(.lf-scene.media-left .lf-text),
-    .prose.longform :global(.lf-scene.media-right .lf-text) { grid-column: 1; grid-row: 2; }
+    .prose.longform :global(.lf-scene.media-right .lf-text) { grid-column: 1; grid-row: 3; }
+    .prose.longform :global(.lf-lead > p),
+    .prose.longform :global(.lf-lead > ul),
+    .prose.longform :global(.lf-lead > ol),
+    .prose.longform :global(.lf-lead > blockquote) { max-width: none; }
     .prose.longform :global(.lf-frame) {
       opacity: 1; width: 100%; height: auto; max-height: none;
       margin: 0 0 var(--space-4);
