@@ -32,9 +32,18 @@
   /* Palette */
   --brink-teal: #06333d;
   --brink-coral: #ff405f;
+  /* A darker coral for coral *text* on light grounds: the bright coral is only
+     ~3.4:1 on white, below WCAG AA, so text uses this (>=4.5:1) while fills,
+     rules and large accents keep the bright coral. */
+  --brink-coral-ink: #d21c3b;
+  /* And a lighter coral for coral *text* on the teal/dark grounds, where the
+     bright coral is only ~4:1 and the ink coral is worse. */
+  --brink-coral-bright: #ff6f84;
   --brink-off-white: #f0f1ef;
   --brink-faded: #dadedd;
   --brink-grey: #789096;
+  /* Darker grey for muted text: #789096 is only ~3.4:1 on white; this clears AA. */
+  --brink-grey-ink: #566d72;
   --brink-white: #ffffff;
   /* Secondary. The brand book restricts these to "small accents, charts and
      graphs" — but Brink itself uses draft blue as a full panel ground on
@@ -88,10 +97,12 @@
 :root {
   /* --- Colour roles --- */
   --color-text: var(--brink-teal);
-  --color-text-muted: var(--brink-grey);
+  --color-text-muted: var(--brink-grey-ink);
   --color-text-inverted: var(--brink-off-white);
   --color-accent: var(--brink-coral);
-  --color-link: var(--brink-coral);
+  --color-accent-ink: var(--brink-coral-ink); /* coral for small text on light grounds */
+  --color-accent-bright: var(--brink-coral-bright); /* coral for small text on teal/dark grounds */
+  --color-link: var(--brink-coral-ink);
 
   /* THE CORAL SIZE THRESHOLD.
      Coral #ff405f on paper white is 3.01:1 — that clears WCAG AA for "large"

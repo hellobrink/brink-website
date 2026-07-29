@@ -220,7 +220,7 @@ const inline = (s: string) =>
     content: '\203A';
     position: absolute;
     left: 0;
-    color: var(--color-accent);
+    color: var(--color-accent-ink);
     font-weight: var(--weight-bold);
   }
   .bullets :global(a),
@@ -232,14 +232,14 @@ const inline = (s: string) =>
     font-weight: var(--weight-bold);
   }
   .bullets :global(a:hover),
-  .note :global(a:hover) { color: var(--color-accent); }
+  .note :global(a:hover) { color: var(--color-accent-ink); }
 
   .note {
     margin: var(--space-6) 0 0;
     font-size: var(--text-body-sm);
     max-width: var(--measure);
   }
-  .note :global(a) { font-weight: var(--weight-regular, 400); color: var(--color-accent); }
+  .note :global(a) { font-weight: var(--weight-regular, 400); color: var(--color-accent-ink); }
 
   /* --- Related work ------------------------------------------------------- */
   .related {

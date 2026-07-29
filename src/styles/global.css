@@ -102,6 +102,27 @@ a {
   text-underline-offset: 2px;
 }
 
+/* Keyboard skip link: off-screen until focused, then it drops into view at the
+   top-left so keyboard users can jump straight past the nav to the content. */
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: -4rem;
+  z-index: 200;
+  background: var(--color-surface-inverted);
+  color: var(--color-surface);
+  padding: 0.6rem 1rem;
+  border: var(--border-width-button) solid var(--color-accent);
+  text-decoration: none;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+main:focus {
+  outline: none;
+}
+
 img {
   max-width: 100%;
   display: block;
