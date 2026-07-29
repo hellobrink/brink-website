@@ -113,9 +113,9 @@ Nobody in the room argued that philanthropy should resist the move towards inves
 
 ## So what would philanthropy do differently?
 
-### **Fund the transition as a phase in its own right**
-
 ![banner: A HealthPort medical oxygen plant](/images/HealthPort%20Plant%20(1).jpg)
+
+### **Fund the transition as a phase in its own right**
 
 The work between proof and investment currently gets treated as a bag of technical assistance stapled to a grant, when it needs its own objectives, its own timeline and its own measures of progress: validating recurring demand, opening public procurement pathways, tightening financial controls, testing pricing and payment models, resolving regulatory blockers, and producing the information a lender or investor actually needs.
 
