@@ -61,6 +61,8 @@ Researchers compared oxygen concentrators on similar hospital wards, where under
 
 Evidence exists, but it does not travel on its own from a journal onto a hospital ward. There is no mechanism that converts "this works" into "this is how the system now operates".
 
+![](/images/66d9d6fcee432560e0d1a78d_oxygen-colab_-baby-receiving-oxygen-from-fre02-s-oxygen.jpeg)
+
 ### **2. A stalled business gets read as a dead market**
 
 When a small operator struggles to grow, the easy conclusion is that there is no market, when often the business is stalling short of commercial traction because it cannot reach the capital that would take it there.
@@ -84,6 +86,8 @@ Anyone working in medical equipment or health system delivery will recognise the
 Scaling capital comes in ticket sizes too large for a small operator to absorb, or as short-term grants that fund activity without funding a route to sustainability, or as loans wanting collateral a young company does not have.
 
 You can see the consequence in who gets served: eight in ten of the oxygen businesses we mapped sell to private hospitals, while the public facilities where the need is greatest go underserved. That is rarely about mission, since financing terms, payment risk and procurement rules push operators towards customers who pay reliably. So the shape of the capital ends up deciding which patients a business can afford to reach.
+
+![](/images/FREO2350.jpg)
 
 ### **5. Capital only works when the conditions around it work**
 
