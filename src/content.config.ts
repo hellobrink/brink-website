@@ -200,6 +200,10 @@ const team = defineCollection({
     // character, so it is worth keeping.
     photoHover: z.string().optional(),
     linkedin: z.string().url().optional(),
+    // Contact email, used by the "Get in touch" button on their blog posts.
+    // Leave blank to use the default firstname@hellobrink.co; set it only when
+    // that isn't right.
+    email: z.string().email().optional(),
     // The live /team page filters by these. Free text rather than an enum:
     // the taxonomy is the client's and shouldn't hard-fail a build if they
     // add a region or team.
@@ -248,6 +252,11 @@ const blog = defineCollection({
     // one side (alternating) while its text scrolls alongside. The post opens
     // in the normal single-column layout until that first image.
     longform: z.boolean().default(false),
+    // Post-footer actions, on by default. Uncheck per-post to hide either one.
+    // Share opens LinkedIn's share dialog with the post URL; contact opens an
+    // email to the author (their team email, or firstname@hellobrink.co).
+    shareLinkedIn: z.boolean().default(true),
+    contactAuthor: z.boolean().default(true),
     sortOrder: z.number().default(0),
   }),
 });

@@ -29,6 +29,31 @@ const displayDate = data.date
       year: 'numeric',
     })
   : '';
+
+// --- Post-footer actions (both on by default; toggled per-post in the CMS) ---
+// Share opens LinkedIn's own share dialog pre-filled with this post's absolute
+// URL. Astro.site is the deploy origin, so this follows the domain at cutover.
+const shareUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.pathname;
+const linkedInShare = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`;
+
+// Contact emails the first author. Use their explicit team email if set, else
+// derive firstname@hellobrink.co from their name (Brink's convention).
+const firstAuthor = authors[0];
+const firstName = firstAuthor?.name?.trim().split(/\s+/)[0];
+// First name -> email local part. NFD splits accented letters into base +
+// combining mark (é -> e + ´); the a-z filter then drops the mark, so "José"
+// becomes "jose".
+const emailLocalPart = (name: string) =>
+  name.trim().split(/\s+/)[0].toLowerCase().normalize('NFD').replace(/[^a-z]/g, '');
+const authorEmail = firstAuthor?.member
+  ? (firstAuthor.member.data.email ?? `${emailLocalPart(firstAuthor.member.data.name)}@hellobrink.co`)
+  : undefined;
+const mailto = authorEmail
+  ? `mailto:${authorEmail}?subject=${encodeURIComponent('Re: ' + data.title)}`
+  : undefined;
+
+const showShare = data.shareLinkedIn;
+const showContact = data.contactAuthor && !!authorEmail && !!firstName;
 ---
 
 <Layout title={data.title} description={data.subheading ?? data.summary} ogImage={data.bannerImage ?? data.heroImage} ogType="article">
@@ -64,6 +89,30 @@ const displayDate = data.date
         <Content />
       </div>
     </div>
+
+    {(showShare || showContact) && (
+      <div class="container narrow">
+        <footer class="post-actions">
+          {showShare && (
+            <a class="post-action" href={linkedInShare} target="_blank" rel="noopener noreferrer">
+              <svg class="post-action-icon" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+                <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zm1.78 13.02H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/>
+              </svg>
+              <span>Share this post on LinkedIn</span>
+            </a>
+          )}
+          {showContact && (
+            <a class="post-action" href={mailto}>
+              <svg class="post-action-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2.5" y="4.5" width="19" height="15" rx="2"/>
+                <path d="m3 6 9 6.5L21 6"/>
+              </svg>
+              <span>Get in touch with {firstName}</span>
+            </a>
+          )}
+        </footer>
+      </div>
+    )}
   </article>
 </Layout>
 
@@ -252,6 +301,45 @@ const displayDate = data.date
     color: var(--color-text-muted);
     margin: 0;
     max-width: var(--measure);
+  }
+
+  /* Post-footer actions: a share + a contact button, divided from the article
+     by a quiet rule. Mono uppercase to match the site's button language. */
+  .post-actions {
+    margin-top: var(--space-9);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+  .post-action {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-family: var(--font-mono);
+    font-size: var(--text-body-sm);
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    color: var(--color-text);
+    background: transparent;
+    border: var(--border-width-button) solid var(--color-text);
+    border-radius: var(--radius);
+    padding: var(--space-3) var(--space-5);
+    transition: background var(--transition), color var(--transition);
+  }
+  .post-action:hover {
+    background: var(--color-text);
+    color: var(--color-text-inverted);
+  }
+  .post-action-icon {
+    width: 1.2em;
+    height: 1.2em;
+    flex: none;
+  }
+  @media (max-width: 480px) {
+    .post-actions { flex-direction: column; }
+    .post-action { justify-content: center; }
   }
 
   /* Full-bleed banner: the images are landscape, so let them run edge to edge

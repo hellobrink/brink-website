@@ -102,6 +102,21 @@ collections:
       - { name: bannerImage, label: Banner (landscape, top of post), widget: image, required: false }
       - { name: bannerAlt, label: Banner alt text, widget: string, required: false }
       - { name: longform, label: "Long-form magazine layout (sticky images)", widget: boolean, default: false, required: false }
+      - name: shareLinkedIn
+        label: "Show a 'Share this post on LinkedIn' button at the end"
+        widget: boolean
+        default: true
+        required: false
+        hint: On by default. Opens LinkedIn's share window with this post's link ready to go.
+      - name: contactAuthor
+        label: "Show a 'Get in touch with the author' button at the end"
+        widget: boolean
+        default: true
+        required: false
+        hint: >-
+          On by default. Opens an email to the author (their team email, or
+          firstname@hellobrink.co). Needs an author linked above. Untick it on
+          posts that already end with their own contact line.
       - { name: sortOrder, label: "Manual order (tiebreaker for same-date posts; lower = first)", widget: number, default: 0, value_type: int }
       - { name: body, label: Body, widget: markdown }
 
@@ -123,6 +138,13 @@ collections:
       - { name: photoAlt, label: Portrait alt text, widget: string, required: false }
       - { name: photoHover, label: Hover portrait (swaps in on hover), widget: image, required: false }
       - { name: linkedin, label: LinkedIn URL, widget: string, required: false }
+      - name: email
+        label: Contact email
+        widget: string
+        required: false
+        hint: >-
+          Used by the "Get in touch" button on their blog posts. Leave blank to
+          use firstname@hellobrink.co; only set it if that isn't right.
       - name: regions
         label: Regions (filters on the team page)
         widget: list
