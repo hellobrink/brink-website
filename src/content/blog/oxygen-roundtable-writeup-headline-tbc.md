@@ -3,13 +3,13 @@ title: Why can’t we unlock billions in assets and save a million lives a year?
 subheading: Medical oxygen reveals the missing work between proven solutions and investable markets.
 summary: Medical oxygen reveals the missing work between proven solutions and investable markets.
 date: 2026-07-29
-authorName: Alex Losneau
+authorName: Alex Losneanu
 authorSlug: alex-losneanu
 authorName2: ''
 authorSlug2: ''
 heroImage: /images/IMG_0128.jpg
 heroAlt: Attendees at the breakfast roundtable in Nairobi
-bannerImage: /images/IMG_0043.jpg
+bannerImage: /images/oxyroundtable1.webp
 bannerAlt: Attendees at the breakfast roundtable in Nairobi
 longform: true
 sortOrder: 0
@@ -91,7 +91,7 @@ The same goes for regulators able to licence small businesses, procurement syste
 
 ## The room moved quickly beyond ‘more blended finance’
 
-![banner: servicing an oxygen tank](/images/FREO2476.jpg)
+![banner: servicing an oxygen tank](/images/oxyroundtable3.webp)
 
 What struck me in Nairobi was how little time anyone spent debating this diagnosis. People working in philanthropy, investment, health systems, enterprise support and frontline delivery recognised the wider pattern almost immediately. I had expected the discussion to produce a familiar call for more blended finance. It did not. Each time we returned to the capital, someone pulled the conversation back to the conditions around it. 
 
@@ -107,7 +107,7 @@ Nobody in the room argued that philanthropy should resist the move towards inves
 
 ## So what would philanthropy do differently?
 
-![banner: healthport employee](/images/HealthPort%20Plant%20(1).jpg)
+![banner: healthport employee](/images/oxyroundtable2.webp)
 
 ### Own the transition, and plan to leave it
 
