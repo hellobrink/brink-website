@@ -375,7 +375,7 @@
         </div>
       </div>
       <div class="note">
-        <strong>Where the long read goes.</strong> The &ldquo;story in more detail&rdquo; is the <em>Case study narrative</em> field near the bottom of the form. Leave it blank for a short case study; fill it for a full one, writing it like a normal article with <strong>## subheadings</strong> and bullet lists. Every field in the editor has a one-line hint under it telling you what it is and whether it's needed.
+        <strong>Where the long read goes.</strong> The &ldquo;story in more detail&rdquo; is the <em>Case study narrative</em> field near the bottom of the form. Leave it blank for a short case study; fill it for a full one, writing it like a normal article with <strong>subheadings</strong> (the <strong>Heading 2</strong> style in the editor toolbar) and bullet lists. Every field in the editor has a one-line hint under it telling you what it is and whether it's needed.
       </div>
     </div>
   </section>
@@ -389,13 +389,17 @@
 
       <p style="margin-top:2rem"><strong>Turn it on</strong> with the <strong>&ldquo;Long-form magazine layout (sticky images)&rdquo;</strong> switch in the blog post form. With it off, the post reads as a normal top-to-bottom article.</p>
 
+      <div class="note">
+        <strong>Headings, two ways.</strong> Most of the time you'll write in the <strong>visual editor</strong>, where you set a line's level from the toolbar: <strong>Heading 1</strong>, <strong>Heading 2</strong>, <strong>Heading 3</strong>. Those are exactly the same as <code>#</code>, <code>##</code> and <code>###</code> if you ever flip to the raw-markdown view (the <code>&lt;/&gt;</code> toggle). Same thing, two ways of writing it - this guide names both, so <strong>Heading 2 (<code>##</code>)</strong> means &ldquo;the Heading 2 button, or <code>##</code> in markdown.&rdquo;
+      </div>
+
       <div class="cols">
         <div class="col col--yes">
           <h3>What makes an image stick</h3>
           <ul>
             <li>Put the image on <strong>its own line</strong>, with nothing else beside it</li>
-            <li>Keep your points under <strong>one <code>##</code> heading</strong> - everything below it shares the one pinned image area</li>
-            <li>Use <strong><code>###</code> sub-headings</strong> for the individual points inside that section</li>
+            <li>Keep your points under <strong>one Heading 2 (<code>##</code>)</strong> - everything below it shares the one pinned image area</li>
+            <li>Use <strong>Heading 3 (<code>###</code>) sub-headings</strong> for the individual points inside that section</li>
             <li>Give the section <strong>plenty of text</strong> - more than a screenful, so the image has room to stay put as you scroll past</li>
             <li>Drop in several images and they <strong>cross-fade</strong> as you reach each one</li>
           </ul>
@@ -405,12 +409,14 @@
           <h3>What breaks the effect</h3>
           <ul>
             <li><strong>Gluing an image onto a heading</strong> or the end of a sentence, instead of its own line</li>
-            <li>Giving <strong>every point its own <code>##</code> heading</strong> - each one starts a fresh panel, and short panels have no room to pin</li>
+            <li>Giving <strong>every point its own Heading 2 (<code>##</code>)</strong> - each one starts a fresh panel, and short panels have no room to pin</li>
             <li>A section with <strong>only a line or two</strong> of text - there's nothing to scroll past</li>
           </ul>
           <p class="most">Too many headings, or too little text.</p>
         </div>
       </div>
+
+      <p style="margin-top:2rem">In the visual editor this is just: a <strong>Heading 2</strong> for the section title, your intro text, then an image on its own line, then a <strong>Heading 3</strong> for each point. Here's the same thing as raw markdown, so you can see the shape:</p>
 
       <pre class="snippet">## Why oxygen shows this so plainly
 
@@ -429,7 +435,7 @@ The text for the first point, as long as it needs to be...
 The text for the second point...</pre>
 
       <div class="note">
-        <strong>The one rule to remember:</strong> one <code>##</code> heading is one pinned panel. Keep the points together under a single <code>##</code>, use <code>###</code> for each point, and put every image on its own line. <span class="tbd">Desktop only</span> On phones there's no room to pin, so images simply sit in the text where you placed them - which still reads perfectly.
+        <strong>The one rule to remember:</strong> one Heading 2 (<code>##</code>) is one pinned panel. Keep the points together under a single Heading 2, use a Heading 3 (<code>###</code>) for each point, and put every image on its own line. <span class="tbd">Desktop only</span> On phones there's no room to pin, so images simply sit in the text where you placed them - which still reads perfectly.
       </div>
     </div>
   </section>
