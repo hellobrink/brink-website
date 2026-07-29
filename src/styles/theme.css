@@ -44,6 +44,9 @@
   --brink-grey: #789096;
   /* Darker grey for muted text: #789096 is only ~3.4:1 on white; this clears AA. */
   --brink-grey-ink: #566d72;
+  /* Lighter grey for muted text on the teal/dark grounds, where the ink grey is
+     far too dark (~2.5:1). This clears AA on teal. */
+  --brink-grey-light: #9fb2b5;
   --brink-white: #ffffff;
   /* Secondary. The brand book restricts these to "small accents, charts and
      graphs" — but Brink itself uses draft blue as a full panel ground on
@@ -98,6 +101,7 @@
   /* --- Colour roles --- */
   --color-text: var(--brink-teal);
   --color-text-muted: var(--brink-grey-ink);
+  --color-text-muted-inverted: var(--brink-grey-light); /* muted text on teal/dark grounds */
   --color-text-inverted: var(--brink-off-white);
   --color-accent: var(--brink-coral);
   --color-accent-ink: var(--brink-coral-ink); /* coral for small text on light grounds */

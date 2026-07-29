@@ -327,7 +327,7 @@ const impact = [
   }
 
   .bi-copy .kicker {
-    color: var(--color-accent-ink);
+    color: var(--color-accent-bright);
     margin: 0 0 var(--space-3);
   }
 
@@ -362,10 +362,11 @@ const impact = [
     margin-bottom: var(--space-2);
   }
 
-  /* The Venn inherits its stroke from currentColor — coral on teal is 4.02:1,
-     fine for a graphic object. Its caption stays paper white, which is not. */
+  /* The Venn inherits its stroke and its outer labels from currentColor. Those
+     outer labels are text on the teal ground, so use the lighter coral (5.07:1);
+     the ink coral would drop them to 2.56:1. The inner labels stay paper white. */
   .bi-figure {
-    color: var(--color-accent-ink);
+    color: var(--color-accent-bright);
     /* Circles stay coral; the labels inside them go paper white, which is
        legible against the teal ground showing through. */
     --venn-label-color: var(--color-text-inverted);

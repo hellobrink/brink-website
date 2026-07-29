@@ -196,7 +196,7 @@ const teams = [...new Set(members.flatMap((m) => m.data.teams))].sort();
   }
 
   .filter-status {
-    color: var(--color-text-muted);
+    color: var(--color-text-muted-inverted);
     margin: 0 0 var(--space-7);
     min-height: 1em; /* reserve the line so the grid doesn't jump */
   }
@@ -258,18 +258,21 @@ const teams = [...new Set(members.flatMap((m) => m.data.teams))].sort();
     margin: 0 0 var(--space-1);
   }
 
+  /* The cards sit on the teal page ground, so coral text and muted text use the
+     lighter-on-dark tokens (the ink/grey-ink defaults are for light grounds and
+     drop to ~2.5:1 here). */
   .team-member a:hover h2 {
-    color: var(--color-accent-ink);
+    color: var(--color-accent-bright);
   }
 
   .role {
-    color: var(--color-accent-ink);
+    color: var(--color-accent-bright);
     margin: 0 0 var(--space-1);
   }
 
   .location {
     font-size: var(--text-body-sm);
-    color: var(--color-text-muted);
+    color: var(--color-text-muted-inverted);
     margin: 0;
   }
 
