@@ -91,7 +91,7 @@ The same goes for regulators able to licence small businesses, procurement syste
 
 ## The room moved quickly beyond ‘more blended finance’
 
-![banner: servicing an oxygen tank](/images/oxyroundtable3.webp "he FREO2 remote monitoring dashboard, showing key stats across sites in real time. Monitoring like this is part of what makes an operator accountable for keeping oxygen flowing in a cost effective way")
+![banner: servicing an oxygen tank](/images/oxyroundtable3.webp "The FREO2 remote monitoring dashboard, showing key stats across sites in real time. Monitoring like this is part of what makes an operator accountable for keeping oxygen flowing in a cost effective way")
 
 What struck me in Nairobi was how little time anyone spent debating this diagnosis. People working in philanthropy, investment, health systems, enterprise support and frontline delivery recognised the wider pattern almost immediately. I had expected the discussion to produce a familiar call for more blended finance. It did not. Each time we returned to the capital, someone pulled the conversation back to the conditions around it. 
 
