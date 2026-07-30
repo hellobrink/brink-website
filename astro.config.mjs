@@ -89,11 +89,46 @@ function rehypeIsolateImages() {
   };
 }
 
+// Turn an image's Markdown title into a visible caption. `![alt](src "title")`
+// otherwise only sets the img's `title` (a hover tooltip); editors reasonably
+// expect that text to show as a caption. For every standalone image paragraph
+// whose img carries a title, drop a `.post-caption` paragraph after it (the same
+// class the scraped captions use) and strip the now-redundant title attribute.
+function rehypeImageCaptions() {
+  const isEl = (n) => n && n.type === 'element';
+  const textOf = (n) => (n.type === 'text' ? n.value : (n.children ?? []).map(textOf).join(''));
+  const directImg = (p) => (p.children ?? []).find((c) => isEl(c) && c.tagName === 'img');
+  return () => (tree) => {
+    const out = [];
+    for (const node of tree.children) {
+      out.push(node);
+      if (isEl(node) && node.tagName === 'p' && !textOf(node).trim()) {
+        const img = directImg(node);
+        const title = img?.properties?.title;
+        if (img && typeof title === 'string' && title.trim()) {
+          delete img.properties.title; // the caption replaces the tooltip
+          out.push(
+            { type: 'text', value: '\n' },
+            {
+              type: 'element',
+              tagName: 'p',
+              properties: { className: ['post-caption'] },
+              children: [{ type: 'text', value: title.trim() }],
+            },
+          );
+        }
+      }
+    }
+    tree.children = out;
+  };
+}
+
 export default defineConfig({
   site: 'https://hellobrink.github.io',
   base: BASE,
   markdown: {
-    // Isolate images first (structural), then prefix any root-relative URLs.
-    rehypePlugins: [rehypeIsolateImages(), rehypeBasePath(BASE)],
+    // Isolate images first (structural), turn image titles into captions, then
+    // prefix any root-relative URLs.
+    rehypePlugins: [rehypeIsolateImages(), rehypeImageCaptions(), rehypeBasePath(BASE)],
   },
 });
