@@ -91,7 +91,7 @@ The same goes for regulators able to licence small businesses, procurement syste
 
 ## The room moved quickly beyond ‘more blended finance’
 
-![banner: servicing an oxygen tank](/images/oxyroundtable3.webp)
+![banner: servicing an oxygen tank](/images/oxyroundtable3.webp "he FREO2 remote monitoring dashboard, showing key stats across sites in real time. Monitoring like this is part of what makes an operator accountable for keeping oxygen flowing in a cost effective way")
 
 What struck me in Nairobi was how little time anyone spent debating this diagnosis. People working in philanthropy, investment, health systems, enterprise support and frontline delivery recognised the wider pattern almost immediately. I had expected the discussion to produce a familiar call for more blended finance. It did not. Each time we returned to the capital, someone pulled the conversation back to the conditions around it. 
 
@@ -107,7 +107,7 @@ Nobody in the room argued that philanthropy should resist the move towards inves
 
 ## So what would philanthropy do differently?
 
-![banner: healthport employee](/images/oxyroundtable2.webp)
+![banner: healthport employee](/images/oxyroundtable2.webp "A scale model of the FREO2 OxyLink system, shown in Nairobi, laying out the full chain from oxygen generation, low-pressure storage, remote monitoring and delivery as one connected system")
 
 ### Own the transition, and plan to leave it
 
