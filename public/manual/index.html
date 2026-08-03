@@ -107,6 +107,21 @@
     padding: 0.5rem 0.9rem;
   }
 
+  /* --- Contents ---------------------------------------------------------- */
+  html { scroll-behavior: smooth; }
+  .band[id] { scroll-margin-top: 1.5rem; }
+  .toc { padding-top: clamp(2.5rem, 6vw, 4rem); padding-bottom: clamp(2.5rem, 6vw, 4rem); }
+  .toc ol { list-style: none; margin: 1.5rem 0 0; padding: 0; display: grid; gap: 0; }
+  @media (min-width: 40rem) { .toc ol { grid-template-columns: 1fr 1fr; column-gap: clamp(1.5rem, 4vw, 3rem); } }
+  .toc a {
+    display: flex; align-items: baseline; gap: 0.9rem;
+    text-decoration: none; color: var(--teal);
+    padding: 0.7rem 0; border-bottom: 1px solid var(--faded);
+    font-size: 1.05rem; line-height: 1.3;
+  }
+  .toc a:hover { color: var(--coral); }
+  .toc .n { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.1em; color: var(--coral); flex: none; }
+
   /* --- Two paths --------------------------------------------------------- */
   .paths { display: grid; gap: 1.25rem; margin-top: 2.5rem; }
   @media (min-width: 40rem) { .paths { grid-template-columns: 1fr 1fr; } }
@@ -186,6 +201,20 @@
   }
   .snippet b { color: var(--pink); font-weight: 400; }
 
+  /* --- Building with Claude: sub-sections -------------------------------- */
+  .bwc-sub {
+    font-family: var(--sans); font-weight: 700; font-size: 1.15rem;
+    color: var(--paper); margin: 2.75rem 0 0.9rem;
+  }
+  .bwc-list { margin: 0; padding-left: 1.2rem; color: #c9d6d8; display: grid; gap: 0.55rem; }
+  .bwc-list strong { color: var(--paper); font-weight: 700; }
+  .bwc-list em { color: var(--paper); font-style: italic; }
+  .bwc-ask {
+    border-left: 3px solid var(--coral); padding: 0.1rem 0 0.1rem 1rem;
+    font-style: italic; color: var(--paper); margin: 0.75rem 0;
+  }
+  .bwc-note-line { color: #9fb2b5; margin: 1rem 0 0; }
+
   /* --- Rules ------------------------------------------------------------- */
   .rules { list-style: none; margin: 2.5rem 0 0; padding: 0; display: grid; gap: 1.25rem; }
   .rules li { display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: baseline; }
@@ -219,8 +248,26 @@
     </div>
   </header>
 
+  <!-- CONTENTS -->
+  <nav class="band band--paper toc" aria-label="Contents">
+    <div class="wrap">
+      <p class="kicker">What's in here</p>
+      <ol>
+        <li><a href="#two-ways"><span class="n">01</span> The two ways to change the site</a></li>
+        <li><a href="#getting-in"><span class="n">02</span> Getting into the editor</a></li>
+        <li><a href="#what-you-can-change"><span class="n">03</span> What you can change - and what you can't</a></li>
+        <li><a href="#making-an-edit"><span class="n">04</span> Making an edit</a></li>
+        <li><a href="#case-study"><span class="n">05</span> Anatomy of a case study</a></li>
+        <li><a href="#long-form"><span class="n">06</span> Long-form posts with sticky images</a></li>
+        <li><a href="#going-live"><span class="n">07</span> From your screen to the world</a></li>
+        <li><a href="#building-with-claude"><span class="n">08</span> Building with Claude (with Claude Code)</a></li>
+        <li><a href="#golden-rules"><span class="n">09</span> A few golden rules</a></li>
+      </ol>
+    </div>
+  </nav>
+
   <!-- TWO WAYS IN -->
-  <section class="band band--paper reveal">
+  <section id="two-ways" class="band band--paper reveal">
     <div class="wrap">
       <p class="kicker">Two ways in</p>
       <h2>You're either editing, or building</h2>
@@ -243,7 +290,7 @@
   </section>
 
   <!-- GETTING IN -->
-  <section class="band band--teal reveal">
+  <section id="getting-in" class="band band--teal reveal">
     <div class="wrap">
       <p class="kicker">Step one</p>
       <h2>Getting into the editor</h2>
@@ -280,7 +327,7 @@
   </section>
 
   <!-- THE MAP -->
-  <section class="band band--paper reveal">
+  <section id="what-you-can-change" class="band band--paper reveal">
     <div class="wrap">
       <p class="kicker">The map</p>
       <h2>What you can change - and what you can't</h2>
@@ -314,7 +361,7 @@
   </section>
 
   <!-- MAKING AN EDIT -->
-  <section class="band band--teal reveal">
+  <section id="making-an-edit" class="band band--teal reveal">
     <div class="wrap">
       <p class="kicker">Step two</p>
       <h2>Making an edit</h2>
@@ -345,7 +392,7 @@
   </section>
 
   <!-- ANATOMY OF A CASE STUDY -->
-  <section class="band band--paper reveal">
+  <section id="case-study" class="band band--paper reveal">
     <div class="wrap">
       <p class="kicker">Going deeper</p>
       <h2>Anatomy of a case study</h2>
@@ -381,7 +428,7 @@
   </section>
 
   <!-- LONG-FORM POSTS -->
-  <section class="band band--paper reveal">
+  <section id="long-form" class="band band--paper reveal">
     <div class="wrap">
       <p class="kicker">Going deeper</p>
       <h2>Long-form posts with sticky images</h2>
@@ -449,7 +496,7 @@ The text for the second point...</pre>
   </section>
 
   <!-- REACH THE WORLD -->
-  <section class="band band--paper reveal">
+  <section id="going-live" class="band band--paper reveal">
     <div class="wrap">
       <p class="kicker">Step three</p>
       <h2>From your screen to the world</h2>
@@ -479,54 +526,70 @@ The text for the second point...</pre>
   </section>
 
   <!-- THE BUILDER -->
-  <section class="band band--teal reveal">
+  <section id="building-with-claude" class="band band--teal reveal">
     <div class="wrap">
       <p class="kicker">The other way</p>
       <h2>Building with Claude</h2>
-      <p class="lead" style="color:#c9d6d8">For anything that isn't in the editor - a new page, a new section, a design change - you describe what you want to Claude, and it writes the code.</p>
+      <p class="lead" style="color:#c9d6d8">For anything that isn't in the editor - a new page, a new section, a design change - you describe what you want to Claude and it writes the code. Here's how to get set up and working.</p>
+
+      <div class="note">
+        <strong>The big picture, in 30 seconds.</strong> The website's code lives in one place online, on a service called <strong>GitHub</strong>. To make a change, you use a tool called <strong>Claude Code</strong> on your own computer. It works on a copy of the site's files, shows you a live preview as it goes, and when you're happy it publishes your change back - which updates the live site automatically. You don't need to know how to code: you describe what you want in plain English and Claude writes it. And you can't break anything permanently - every version is saved, so there's always a way back.
+      </div>
+
+      <h3 class="bwc-sub">What you'll need</h3>
+      <ul class="bwc-list">
+        <li>A <strong>GitHub account</strong> (free).</li>
+        <li><strong>Access to the site</strong> on GitHub - someone grants this (see step 2 below).</li>
+        <li>A <strong>Claude account that includes Claude Code</strong> (a paid plan; check whether Brink provides one for you).</li>
+      </ul>
+
+      <h3 class="bwc-sub">One-time setup</h3>
       <ol class="steps">
-        <li>
-          <div>
-            <h3>Open the project in Claude</h3>
-            <p>A one-time setup on your own computer, then it's ready whenever you need it:</p>
-            <ul>
-              <li>Install <strong>Claude Code</strong> and sign in with your own Claude account (a paid plan; ask Rob whether Brink has one for you).</li>
-              <li>Ask Rob to give you access to the site's GitHub (the same access the editor uses) and to put a copy of the project on your machine.</li>
-              <li>Open that project folder in Claude Code. Next time, you just open it and start.</li>
-            </ul>
-            <p>If that sounds like a lot, Rob can set it up with you, or simply run your change for you.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <h3>Describe it in plain English</h3>
-            <p>"Add a page about our new programme, with a hero image and three columns." No jargon needed.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <h3>Review the preview</h3>
-            <p>Claude builds it and shows you how it looks. Ask for changes until it's right.</p>
-          </div>
-        </li>
-        <li>
-          <div>
-            <h3>Publish it the same way</h3>
-            <p>Through staging, then live - exactly like an editor change.</p>
-          </div>
-        </li>
+        <li><div>
+          <h3>Create a GitHub account</h3>
+          <p>Go to <strong>github.com</strong> and sign up. It's free and you can pick any username. Already have one? Skip this.</p>
+        </div></li>
+        <li><div>
+          <h3>Get access to the site</h3>
+          <p>Send your GitHub username to whoever manages the site (currently Rob). They'll add you, and GitHub will email you an invitation - click the link to accept. Nothing else works until you've done this.</p>
+        </div></li>
+        <li><div>
+          <h3>Get Claude Code</h3>
+          <p>Make sure your Claude account is on a plan that includes Claude Code (ask Rob if you're not sure Brink covers it), then install it - from your Claude account at <strong>claude.ai/code</strong>, or as a desktop app for Mac and Windows.</p>
+        </div></li>
+        <li><div>
+          <h3>Put a copy of the site on your computer</h3>
+          <p>This is called &ldquo;cloning&rdquo;. The easiest way is to open Claude Code and just ask it, in plain English:</p>
+          <p class="bwc-ask">&ldquo;Clone the GitHub repository hellobrink/brink-website into a folder on my computer, then set it up so I can preview it.&rdquo;</p>
+          <p>Claude downloads the files and runs the one setup step that's needed. (Prefer a button to typing? The free <strong>GitHub Desktop</strong> app has a &ldquo;Clone&rdquo; option that does the same thing.)</p>
+        </div></li>
       </ol>
+      <p class="bwc-note-line">That's the setup done. Next time, you just open that folder in Claude Code.</p>
+
+      <h3 class="bwc-sub">Making a change (the day-to-day bit)</h3>
+      <ul class="bwc-list">
+        <li>Open the project in Claude Code.</li>
+        <li>Tell it what you want, for example <em>&ldquo;Add a page about our new programme, with a headline image and three columns.&rdquo;</em> No jargon needed.</li>
+        <li>Claude builds it and shows you a preview. Ask for tweaks until it looks right.</li>
+        <li>When you're happy, ask it to publish. Your change appears on the live site a minute or two later.</li>
+      </ul>
+
+      <h3 class="bwc-sub">A few good habits</h3>
+      <ul class="bwc-list">
+        <li><strong>Start fresh each time.</strong> Ask Claude to &ldquo;pull the latest&rdquo; before you begin, so you're working on the current version of the site.</li>
+        <li><strong>One change at a time</strong> is much easier to review than ten at once.</li>
+        <li><strong>Planning something bigger or structural?</strong> Give Rob a heads-up first, so two people aren't reshaping the same thing at the same time.</li>
+        <li><strong>Stuck?</strong> Ask Rob, or simply describe the problem to Claude - it's usually happy to explain what's going on.</li>
+      </ul>
+
       <div class="note">
         <strong>You stay in control of who can change the site.</strong> Whether someone edits in the CMS or builds with Claude, every change reaches the live site the same way: by pushing to the site's GitHub. So one list of people, which Rob manages and can view at any time, governs both routes. Take someone off it and they can no longer change the site by either method. Claude on its own can't touch the live site; it can only publish through an account that already has access.
-      </div>
-      <div class="note">
-        <strong>This is the more advanced route.</strong> You don't write code, but you do need the project set up on your machine. If that sounds like a lot, just ask Rob - or drop the idea in the team channel and we'll pick it up.
       </div>
     </div>
   </section>
 
   <!-- GOLDEN RULES -->
-  <section class="band band--coral reveal">
+  <section id="golden-rules" class="band band--coral reveal">
     <div class="wrap">
       <p class="kicker">If in doubt</p>
       <h2 style="color:#fff">A few golden rules</h2>
