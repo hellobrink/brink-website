@@ -79,6 +79,13 @@ const creditGroups = [
   { label: 'Partners', list: data.partners },
 ];
 
+// A funder/partner group whose only entry is "N/A" (or "None") means the editor
+// has confirmed there isn't one, so the whole row is hidden. An *empty* list
+// means "not filled in yet" and still shows TBC. This is why Funders/Partners
+// can disappear while Location/Timeline/Sector always show.
+const isNone = (list: { name: string }[]) =>
+  list.length > 0 && list.every((c) => /^(n\/?a|none)$/i.test(c.name.trim()));
+
 // Gallery images are dealt out one at a time and placed between the story
 // sections rather than stacked in a single block. `nextImage()` returns the
 // next unused image or null, so the layout takes as many as exist and simply
@@ -239,7 +246,7 @@ const nextImage = () => data.gallery[imageCursor++] ?? null;
               ))}
             </dl>
 
-            {creditGroups.map(({ label, list }) => (
+            {creditGroups.filter(({ list }) => !isNone(list)).map(({ label, list }) => (
               <div class="fact-group">
                 <p class="mono fact-label">{label}</p>
                 {list.length > 0 ? (

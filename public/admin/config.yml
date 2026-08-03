@@ -255,7 +255,7 @@ collections:
         label: Funders
         widget: list
         required: false
-        hint: "Who funded the work. Shown on the card and case study. Add a URL to turn the name into a link."
+        hint: "Who funded the work. Add a URL to turn the name into a link. Leave blank and it shows 'TBC' (still to fill in); add a single entry 'N/A' to hide the Funders row entirely (confirmed there wasn't one)."
         fields:
           - { name: name, label: Name, widget: string }
           - { name: url, label: URL (optional), widget: string, required: false }
@@ -263,7 +263,7 @@ collections:
         label: Partners
         widget: list
         required: false
-        hint: "Delivery partners, shown alongside funders."
+        hint: "Delivery partners. Same as funders: blank shows 'TBC', a single 'N/A' entry hides the Partners row."
         fields:
           - { name: name, label: Name, widget: string }
           - { name: url, label: URL (optional), widget: string, required: false }
