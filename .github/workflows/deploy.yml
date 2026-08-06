@@ -30,6 +30,9 @@ jobs:
       - run: npm run lint:content
         continue-on-error: true
       - run: npm run build
+      # Stamp the build with its commit SHA so the deploy job can confirm the
+      # live site is actually serving THIS build (see the verify step below).
+      - run: echo "$GITHUB_SHA" > dist/version.txt
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
@@ -43,8 +46,28 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+        # This action triggers the Pages deployment, but its own wait is
+        # unreliable when Pages is slow: it can time out and report failure even
+        # though the deploy actually lands. So don't let it decide the job -
+        # swallow its result and let the verify step below judge by checking the
+        # live site itself. (timeout kept high in case the input ever works.)
+        continue-on-error: true
         with:
-          # GitHub's Pages publish queue has been backing up and the default
-          # 10-minute wait was timing out. Give it longer to clear.
           timeout: 1800000
           error_count: 20
+      - name: Verify the live site is serving this commit
+        env:
+          SHA: ${{ github.sha }}
+        run: |
+          url="https://hellobrink.github.io/brink-website/version.txt"
+          for i in $(seq 1 90); do
+            live="$(curl -sf "$url" | tr -d '[:space:]' || true)"
+            if [ "$live" = "$SHA" ]; then
+              echo "Live site is serving $SHA"
+              exit 0
+            fi
+            echo "waiting for Pages to publish... (live='$live' want='$SHA')"
+            sleep 20
+          done
+          echo "Timed out after 30 min: live site is not serving $SHA"
+          exit 1

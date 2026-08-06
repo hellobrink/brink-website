@@ -49,6 +49,8 @@ quote:
   text: As a practicing midwife with years of clinical experience, I have witnessed firsthand the challenges and barriers women face in accessing reliable reproductive health services. My work on a radio show also highlighted the overwhelming demand for accessible, accurate information and professional support, underscoring the need for a more comprehensive solution.
   name: Sarah Nkansah Boateng
   role: Founder & CEO, Talk To Your Midwife
+  photo: /images/sarah-nkansah-boateng.jpg
+  photoAlt: Sarah Nkansah Boateng, Founder and CEO of Talk To Your Midwife
 approachIntro:
   - Brink RW designed and delivered Hanga SRH as the lead programme manager, working in consortium with Three Stones International and in close partnership with Hanga PitchFest and RISA (Rwanda Information Society Authority). The programme was initiated in 2023 by the Government of Rwanda under the Hanga PitchFest initiative, with funding from the Rwanda Development Board (RDB), the Ministry of ICT & Innovation (MINICT), and the Centre for the Fourth Industrial Revolution Rwanda (C4IR).
 approach:

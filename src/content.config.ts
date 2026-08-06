@@ -1,6 +1,18 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+// An optional URL coming from the CMS. Deliberately NOT .url()-validated: the
+// CMS writes an empty string for a blank field, and a strict check (like an
+// empty email) would fail the whole build and silently freeze the deploy. A
+// bad URL is a broken link, not a broken site — so trim, and normalise a blank
+// (or a value the editor half-typed) to undefined. See the email field for the
+// same reasoning.
+const optionalUrl = z
+  .string()
+  .trim()
+  .optional()
+  .transform((v) => v || undefined);
+
 // The core collection. A single "engagement" record — every project Brink
 // has run, current or past. Case studies are engagements with
 // hasCaseStudy: true and a full narrative in the Markdown body; everything
@@ -9,7 +21,7 @@ import { glob } from 'astro/loaders';
 // content model" / Decision 1.
 const credit = z.union([
   z.string().transform((name) => ({ name, url: undefined as string | undefined })),
-  z.object({ name: z.string(), url: z.string().url().optional() }),
+  z.object({ name: z.string(), url: optionalUrl }),
 ]);
 
 const work = defineCollection({
@@ -41,7 +53,7 @@ const work = defineCollection({
     // just names keep working and new ones can carry a URL.
     funders: z.array(credit).default([]),
     partners: z.array(credit).default([]),
-    externalLink: z.string().url().optional(),
+    externalLink: optionalUrl,
     // Some programmes have no case study of their own but Brink's write-up
     // lives on a sibling entry. EdTech Hub is the clearest: the current
     // programme card links to the "Realising the potential of technology"
@@ -85,7 +97,7 @@ const work = defineCollection({
       .optional(),
     timeline: z.string().optional(),
     location: z.string().optional(),
-    fullStoryUrl: z.string().url().optional(),
+    fullStoryUrl: optionalUrl,
     gallery: z.array(z.object({ image: z.string(), alt: z.string(), caption: z.string().optional() })).default([]),
     year: z.string().optional(),
     sortOrder: z.number().default(0),
@@ -199,7 +211,7 @@ const team = defineCollection({
     // live site (Name_1 / Name_2), and the swap is a big part of the page's
     // character, so it is worth keeping.
     photoHover: z.string().optional(),
-    linkedin: z.string().url().optional(),
+    linkedin: optionalUrl,
     // Contact email, used by the "Get in touch" button on their blog posts.
     // Leave blank to use the default firstname@hellobrink.co; set it only when
     // that isn't right. Deliberately NOT .email()-validated: the CMS writes an
