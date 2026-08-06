@@ -271,6 +271,14 @@ const blog = defineCollection({
     // one side (alternating) while its text scrolls alongside. The post opens
     // in the normal single-column layout until that first image.
     longform: z.boolean().default(false),
+    // Interactive/annotatable post: readers can comment on individual
+    // paragraphs, and see which paragraphs others have commented on. PROTOTYPE:
+    // comments currently live in the reader's own browser (localStorage); a
+    // shared backend is the next phase.
+    interactive: z.boolean().default(false),
+    // Hide from the blog index (still reachable by direct URL). Used for the
+    // interactive prototype so it isn't publicly listed yet.
+    unlisted: z.boolean().default(false),
     // Post-footer actions, on by default. Uncheck per-post to hide either one.
     // Share opens LinkedIn's share dialog with the post URL; contact opens an
     // email to the author (their team email, or firstname@hellobrink.co).

@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import { withBase } from '../../lib/base';
 import { getCollection } from 'astro:content';
 
-const posts = await getCollection('blog');
+const posts = (await getCollection('blog')).filter((p) => !p.data.unlisted);
 posts.sort((a, b) => (b.data.date || '').localeCompare(a.data.date || '') || a.data.sortOrder - b.data.sortOrder);
 ---
 

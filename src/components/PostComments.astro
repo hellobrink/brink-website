@@ -1,0 +1,345 @@
+---
+// Paragraph-level reader comments for "interactive" blog posts.
+//
+// PROTOTYPE (phase 1): everything here is front-end only. Comments are stored in
+// the reader's own browser (localStorage), so they are NOT yet shared between
+// readers — this is to prove out the reading/commenting experience before we
+// build the real backend. The `store` object below is the single seam: swap its
+// load/add/reply/remove for fetch() calls to a Workers + D1 API (phase 2) and
+// everything else stays the same.
+interface Props {
+  postId: string;
+}
+const { postId } = Astro.props;
+---
+
+<aside class="cx-panel" hidden aria-label="Comments on this paragraph">
+  <div class="cx-head">
+    <p class="cx-head-title mono">Comments</p>
+    <button type="button" class="cx-close mono" data-cx-close>Close &times;</button>
+  </div>
+  <blockquote class="cx-context" data-cx-context></blockquote>
+  <div class="cx-thread" data-cx-thread></div>
+  <form class="cx-form" data-cx-form>
+    <label class="cx-name-row" data-cx-name-row>
+      <span class="cx-label mono">Your name</span>
+      <input type="text" class="cx-name" data-cx-name maxlength="60" autocomplete="name" />
+    </label>
+    <p class="cx-as" data-cx-as hidden></p>
+    <textarea class="cx-body" data-cx-body rows="3" maxlength="1200" placeholder="Add a comment&hellip;"></textarea>
+    <div class="cx-form-foot">
+      <span class="cx-hint" data-cx-hint></span>
+      <button type="submit" class="cx-submit mono">Comment</button>
+    </div>
+  </form>
+  <p class="cx-note mono">Prototype &middot; comments are saved in your browser only</p>
+</aside>
+<div class="cx-backdrop" hidden data-cx-backdrop></div>
+
+<script define:vars={{ postId }}>
+  (() => {
+    const prose = document.querySelector('.prose');
+    const panel = document.querySelector('.cx-panel');
+    if (!prose || !panel) return;
+
+    const backdrop = document.querySelector('[data-cx-backdrop]');
+    const threadEl = panel.querySelector('[data-cx-thread]');
+    const contextEl = panel.querySelector('[data-cx-context]');
+    const form = panel.querySelector('[data-cx-form]');
+    const nameRow = panel.querySelector('[data-cx-name-row]');
+    const nameInput = panel.querySelector('[data-cx-name]');
+    const asEl = panel.querySelector('[data-cx-as]');
+    const bodyInput = panel.querySelector('[data-cx-body]');
+    const hintEl = panel.querySelector('[data-cx-hint]');
+    const MODERATE = new URLSearchParams(location.search).has('moderate');
+
+    // --- The storage seam. Replace this object's methods with API calls in
+    //     phase 2; nothing else in this file needs to change. -----------------
+    const KEY = 'brink-comments:' + postId;
+    const store = {
+      all() { try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch { return {}; } },
+      get(anchor) { return this.all()[anchor] || []; },
+      _write(data) { localStorage.setItem(KEY, JSON.stringify(data)); },
+      add(anchor, name, body) {
+        const data = this.all();
+        (data[anchor] ||= []).push({ id: uid(), name, body, ts: Date.now(), replies: [] });
+        this._write(data);
+      },
+      reply(anchor, commentId, name, body) {
+        const data = this.all();
+        const c = (data[anchor] || []).find((x) => x.id === commentId);
+        if (c) { (c.replies ||= []).push({ id: uid(), name, body, ts: Date.now() }); this._write(data); }
+      },
+      remove(anchor, commentId, replyId) {
+        const data = this.all();
+        const list = data[anchor] || [];
+        if (replyId) {
+          const c = list.find((x) => x.id === commentId);
+          if (c) c.replies = (c.replies || []).filter((r) => r.id !== replyId);
+        } else {
+          data[anchor] = list.filter((x) => x.id !== commentId);
+        }
+        this._write(data);
+      },
+      count(anchor) {
+        return this.get(anchor).reduce((n, c) => n + 1 + (c.replies ? c.replies.length : 0), 0);
+      },
+    };
+
+    // --- Small helpers ------------------------------------------------------
+    const uid = () => 'c' + Math.random().toString(36).slice(2, 10) + Date.now().toString(36);
+    const hash = (s) => { let h = 5381; for (let i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0; return h.toString(36); };
+    const anchorOf = (p) => 'a' + hash(p.textContent.trim().slice(0, 140));
+    const getName = () => { const m = document.cookie.match(/(?:^|;\s*)brink-commenter=([^;]*)/); return m ? decodeURIComponent(m[1]) : ''; };
+    const setName = (n) => { document.cookie = 'brink-commenter=' + encodeURIComponent(n) + '; path=/; max-age=' + 60 * 60 * 24 * 30 + '; samesite=lax'; };
+    const rel = (ts) => {
+      const s = Math.floor((Date.now() - ts) / 1000);
+      if (s < 60) return 'just now';
+      const m = Math.floor(s / 60); if (m < 60) return m + 'm ago';
+      const h = Math.floor(m / 60); if (h < 24) return h + 'h ago';
+      const d = Math.floor(h / 24); if (d < 30) return d + 'd ago';
+      return new Date(ts).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+    };
+    const el = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };
+
+    // --- Wire each substantial paragraph with a margin marker ----------------
+    const paras = [...prose.querySelectorAll(':scope > p')].filter(
+      (p) => p.textContent.trim().length > 20 && !p.querySelector(':scope > img')
+    );
+    let active = null;
+
+    paras.forEach((p) => {
+      const anchor = anchorOf(p);
+      p.dataset.cxAnchor = anchor;
+      p.classList.add('cx-p');
+      const marker = el('button', 'cx-marker mono');
+      marker.type = 'button';
+      marker.setAttribute('aria-label', 'Comment on this paragraph');
+      marker.addEventListener('click', () => open(p));
+      p.appendChild(marker);
+      refreshMarker(p);
+    });
+
+    function refreshMarker(p) {
+      const n = store.count(p.dataset.cxAnchor);
+      const marker = p.querySelector(':scope > .cx-marker');
+      marker.textContent = n > 0 ? String(n) : '';
+      marker.classList.toggle('has', n > 0);
+      p.classList.toggle('cx-has', n > 0);
+    }
+
+    // --- Panel --------------------------------------------------------------
+    function open(p) {
+      active = p;
+      paras.forEach((x) => x.classList.toggle('cx-active', x === p));
+      contextEl.textContent = p.textContent.replace(/\s+/g, ' ').trim().slice(0, 160) + (p.textContent.length > 160 ? '…' : '');
+      renderThread();
+      syncNameUi();
+      panel.hidden = false;
+      backdrop.hidden = false;
+      requestAnimationFrame(() => { panel.classList.add('cx-open'); backdrop.classList.add('cx-open'); });
+      bodyInput.focus();
+    }
+    function close() {
+      panel.classList.remove('cx-open');
+      backdrop.classList.remove('cx-open');
+      paras.forEach((x) => x.classList.remove('cx-active'));
+      setTimeout(() => { panel.hidden = true; backdrop.hidden = true; }, 220);
+      active = null;
+    }
+
+    function syncNameUi() {
+      const name = getName();
+      if (name) {
+        nameRow.hidden = true;
+        asEl.hidden = false;
+        asEl.textContent = '';
+        asEl.append('Commenting as ', Object.assign(el('strong', null, name)), ' · ');
+        const change = el('button', 'cx-link mono', 'change');
+        change.type = 'button';
+        change.addEventListener('click', () => { nameRow.hidden = false; asEl.hidden = true; nameInput.value = name; nameInput.focus(); });
+        asEl.append(change);
+      } else {
+        nameRow.hidden = false;
+        asEl.hidden = true;
+      }
+    }
+
+    function renderThread() {
+      threadEl.textContent = '';
+      const comments = store.get(active.dataset.cxAnchor);
+      if (!comments.length) {
+        threadEl.append(el('p', 'cx-empty', 'No comments yet. Start the conversation.'));
+        return;
+      }
+      comments.forEach((c) => threadEl.append(commentNode(c, active.dataset.cxAnchor)));
+    }
+
+    function commentNode(c, anchor, parentId) {
+      const wrap = el('div', parentId ? 'cx-comment cx-reply' : 'cx-comment');
+      const meta = el('p', 'cx-meta');
+      meta.append(el('span', 'cx-author', c.name), el('span', 'cx-time mono', ' · ' + rel(c.ts)));
+      if (MODERATE) {
+        const del = el('button', 'cx-del mono', 'delete');
+        del.type = 'button';
+        del.addEventListener('click', () => { store.remove(anchor, parentId || c.id, parentId ? c.id : null); renderThread(); refreshMarker(active); });
+        meta.append(' · ', del);
+      }
+      wrap.append(meta, el('p', 'cx-text', c.body));
+      if (!parentId) {
+        const replyBtn = el('button', 'cx-link mono', 'Reply');
+        replyBtn.type = 'button';
+        const holder = el('div', 'cx-reply-holder');
+        replyBtn.addEventListener('click', () => {
+          if (holder.firstChild) { holder.textContent = ''; return; }
+          holder.append(replyForm(anchor, c.id));
+        });
+        wrap.append(replyBtn, holder);
+        (c.replies || []).forEach((r) => wrap.append(commentNode(r, anchor, c.id)));
+      }
+      return wrap;
+    }
+
+    function replyForm(anchor, commentId) {
+      const f = el('form', 'cx-inline-form');
+      const ta = el('textarea', 'cx-body');
+      ta.rows = 2; ta.maxLength = 1200; ta.placeholder = 'Write a reply…';
+      const nameField = el('input', 'cx-name');
+      nameField.type = 'text'; nameField.maxLength = 60; nameField.placeholder = 'Your name';
+      if (getName()) nameField.hidden = true;
+      const submit = el('button', 'cx-submit mono', 'Reply');
+      submit.type = 'submit';
+      f.append(nameField, ta, submit);
+      f.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = commit(nameField, ta);
+        if (!name) return;
+        store.reply(anchor, commentId, name, ta.value.trim());
+        renderThread(); refreshMarker(active);
+      });
+      setTimeout(() => ta.focus(), 0);
+      return f;
+    }
+
+    // Shared validation + rate-limit. Returns the name to post with, or '' if blocked.
+    let lastPost = 0;
+    function commit(nameField, bodyField) {
+      const body = bodyField.value.trim();
+      let name = getName();
+      if (!nameField.hidden) name = nameField.value.trim();
+      if (!name) { flash('Add your name first.'); nameField.hidden = false; nameField.focus(); return ''; }
+      if (!body) { flash('Write something first.'); bodyField.focus(); return ''; }
+      if (Date.now() - lastPost < 3000) { flash('Slow down a moment…'); return ''; }
+      lastPost = Date.now();
+      if (!getName() || (!nameField.hidden && nameField.value.trim())) setName(name);
+      return name;
+    }
+    function flash(msg) { hintEl.textContent = msg; hintEl.classList.add('cx-hint-show'); setTimeout(() => hintEl.classList.remove('cx-hint-show'), 2500); }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = commit(nameInput, bodyInput);
+      if (!name) return;
+      store.add(active.dataset.cxAnchor, name, bodyInput.value.trim());
+      bodyInput.value = '';
+      renderThread(); refreshMarker(active); syncNameUi();
+    });
+
+    panel.querySelector('[data-cx-close]').addEventListener('click', close);
+    backdrop.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !panel.hidden) close(); });
+  })();
+</script>
+
+<style>
+  /* Room in the right margin for the per-paragraph markers. */
+  :global(.prose.cx-prose) { padding-right: 2.4rem; }
+  :global(.cx-p) { position: relative; }
+  :global(.cx-marker) {
+    position: absolute;
+    top: 0.25em;
+    right: -2.4rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-accent-ink);
+    font-size: 0.72rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity var(--transition), background var(--transition), border-color var(--transition);
+  }
+  /* A speech-bubble glyph when empty; the count when there are comments. */
+  :global(.cx-marker:not(.has))::before { content: '\1F4AC'; font-size: 0.85rem; }
+  :global(.cx-p:hover) .cx-marker,
+  :global(.cx-marker:focus-visible),
+  :global(.cx-marker.has) { opacity: 1; }
+  :global(.cx-marker.has) { background: var(--color-accent); color: var(--color-surface); border-color: var(--color-accent); font-weight: 700; }
+  :global(.cx-p.cx-has) { box-shadow: inset 3px 0 0 var(--color-accent); padding-left: 0.9rem; margin-left: -0.9rem; }
+  :global(.cx-p.cx-active) { background: color-mix(in srgb, var(--color-accent) 8%, transparent); }
+
+  .cx-backdrop {
+    position: fixed; inset: 0; z-index: 60;
+    background: rgba(6, 51, 61, 0.35);
+    opacity: 0; transition: opacity 0.2s ease;
+  }
+  .cx-backdrop.cx-open { opacity: 1; }
+
+  .cx-panel {
+    position: fixed; top: 0; right: 0; z-index: 61;
+    width: min(400px, 92vw); height: 100dvh;
+    background: var(--color-surface);
+    border-left: 1px solid var(--color-border);
+    box-shadow: -18px 0 50px -30px rgba(6, 51, 61, 0.6);
+    display: flex; flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .cx-panel.cx-open { transform: none; }
+
+  .cx-head { display: flex; align-items: center; justify-content: space-between; padding: var(--space-4) var(--space-5); border-bottom: 1px solid var(--color-border); }
+  .cx-head-title { font-size: var(--text-tag); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-text-muted); margin: 0; }
+  .cx-close { background: none; border: none; cursor: pointer; font-size: var(--text-tag); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-text); }
+  .cx-close:hover { color: var(--color-accent-ink); }
+
+  .cx-context { margin: 0; padding: var(--space-4) var(--space-5); border-bottom: 1px solid var(--color-border); font-family: var(--font-display); font-style: italic; font-size: var(--text-body-sm); color: var(--color-text-muted); background: var(--color-surface-muted); }
+
+  .cx-thread { flex: 1; overflow-y: auto; padding: var(--space-4) var(--space-5); display: flex; flex-direction: column; gap: var(--space-5); }
+  .cx-empty { color: var(--color-text-muted); font-size: var(--text-body-sm); margin: 0; }
+
+  .cx-comment { display: flex; flex-direction: column; gap: 0.35rem; }
+  .cx-comment.cx-reply { margin-left: var(--space-5); padding-left: var(--space-4); border-left: 2px solid var(--color-border); }
+  .cx-meta { margin: 0; font-size: var(--text-tag); }
+  .cx-author { font-weight: 700; color: var(--color-text); }
+  .cx-time { color: var(--color-text-muted); }
+  .cx-text { margin: 0; font-size: var(--text-body-sm); line-height: var(--leading-normal); color: var(--color-text); white-space: pre-wrap; }
+  .cx-reply-holder { margin-top: 0.4rem; }
+
+  .cx-link { background: none; border: none; padding: 0; cursor: pointer; font-size: var(--text-tag); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-accent-ink); align-self: flex-start; }
+  .cx-link:hover { text-decoration: underline; }
+  .cx-del { color: var(--color-accent); }
+
+  .cx-form, .cx-inline-form { display: flex; flex-direction: column; gap: var(--space-3); }
+  .cx-form { border-top: 1px solid var(--color-border); padding: var(--space-4) var(--space-5); }
+  .cx-inline-form { margin-top: 0.5rem; }
+  .cx-label { display: block; font-size: var(--text-tag); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 0.3rem; }
+  .cx-name, .cx-body { width: 100%; font-family: var(--font-body); font-size: var(--text-body-sm); padding: var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius); background: var(--color-surface); color: var(--color-text); }
+  .cx-body { resize: vertical; line-height: var(--leading-normal); }
+  .cx-name:focus, .cx-body:focus { outline: none; border-color: var(--color-accent-ink); }
+  .cx-as { margin: 0; font-size: var(--text-tag); color: var(--color-text-muted); }
+  .cx-form-foot { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+  .cx-hint { font-size: var(--text-tag); color: var(--color-accent-ink); opacity: 0; transition: opacity 0.2s; }
+  .cx-hint.cx-hint-show { opacity: 1; }
+  .cx-submit { border: 1.5px solid var(--color-text); background: var(--color-text); color: var(--color-text-inverted); padding: var(--space-2) var(--space-4); border-radius: var(--radius); font-size: var(--text-tag); letter-spacing: var(--tracking-button); text-transform: uppercase; cursor: pointer; }
+  .cx-submit:hover { background: var(--color-accent-ink); border-color: var(--color-accent-ink); }
+  .cx-inline-form .cx-submit { align-self: flex-start; }
+
+  .cx-note { margin: 0; padding: var(--space-3) var(--space-5); border-top: 1px solid var(--color-border); font-size: var(--text-2xs); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-text-muted); }
+
+  @media (max-width: 700px) {
+    :global(.prose.cx-prose) { padding-right: 0; }
+    :global(.cx-marker) { right: 0; top: -1.9rem; }
+  }
+</style>

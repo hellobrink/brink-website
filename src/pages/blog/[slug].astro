@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import PostComments from '../../components/PostComments.astro';
 import { withBase } from '../../lib/base';
 import { getCollection, render } from 'astro:content';
 
@@ -85,10 +86,12 @@ const showContact = data.contactAuthor && !!authorEmail && !!firstName;
     )}
 
     <div class:list={[data.longform ? 'container lf-wide' : 'container narrow']}>
-      <div class:list={['prose', { longform: data.longform }]}>
+      <div class:list={['prose', { longform: data.longform, 'cx-prose': data.interactive }]}>
         <Content />
       </div>
     </div>
+
+    {data.interactive && <PostComments postId={post.id} />}
 
     {(showShare || showContact) && (
       <div class="container narrow">
