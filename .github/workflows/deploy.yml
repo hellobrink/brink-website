@@ -43,3 +43,8 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # GitHub's Pages publish queue has been backing up and the default
+          # 10-minute wait was timing out. Give it longer to clear.
+          timeout: 1800000
+          error_count: 20
