@@ -251,9 +251,13 @@ const { postId } = Astro.props;
   })();
 </script>
 
-<style>
+<!-- Styles are global on purpose: the markers and the whole comment thread are
+     built by the client script (createElement), so Astro's scoped attribute
+     never lands on them and scoped rules wouldn't apply. All selectors are
+     cx-prefixed, so a global block is safe. -->
+<style is:global>
   /* Room in the right margin for the per-paragraph markers. */
-  :global(.prose.cx-prose) { padding-right: 2.4rem; }
+  .prose.cx-prose { padding-right: 2.4rem; }
   :global(.cx-p) { position: relative; }
   :global(.cx-marker) {
     position: absolute;
