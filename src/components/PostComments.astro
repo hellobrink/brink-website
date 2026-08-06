@@ -256,15 +256,21 @@ const { postId } = Astro.props;
      never lands on them and scoped rules wouldn't apply. All selectors are
      cx-prefixed, so a global block is safe. -->
 <style is:global>
-  /* Room in the right margin for the per-paragraph markers. */
+  /* Room in the right margin for the per-paragraph markers.
+     NB: this block is is:global, so selectors are written plain — do NOT wrap
+     them in :global(), which Astro would emit verbatim as an invalid selector
+     and the browser would drop the whole rule. */
   .prose.cx-prose { padding-right: 2.4rem; }
-  :global(.cx-p) { position: relative; }
-  :global(.cx-marker) {
+  .cx-p { position: relative; }
+  .cx-marker {
     position: absolute;
     top: 0.25em;
     right: -2.4rem;
     width: 1.7rem;
     height: 1.7rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: var(--radius-pill);
     border: 1px solid var(--color-border);
     background: var(--color-surface);
@@ -276,13 +282,13 @@ const { postId } = Astro.props;
     transition: opacity var(--transition), background var(--transition), border-color var(--transition);
   }
   /* A speech-bubble glyph when empty; the count when there are comments. */
-  :global(.cx-marker:not(.has))::before { content: '\1F4AC'; font-size: 0.85rem; }
-  :global(.cx-p:hover) .cx-marker,
-  :global(.cx-marker:focus-visible),
-  :global(.cx-marker.has) { opacity: 1; }
-  :global(.cx-marker.has) { background: var(--color-accent); color: var(--color-surface); border-color: var(--color-accent); font-weight: 700; }
-  :global(.cx-p.cx-has) { box-shadow: inset 3px 0 0 var(--color-accent); padding-left: 0.9rem; margin-left: -0.9rem; }
-  :global(.cx-p.cx-active) { background: color-mix(in srgb, var(--color-accent) 8%, transparent); }
+  .cx-marker:not(.has)::before { content: '\1F4AC'; font-size: 0.85rem; }
+  .cx-p:hover .cx-marker,
+  .cx-marker:focus-visible,
+  .cx-marker.has { opacity: 1; }
+  .cx-marker.has { background: var(--color-accent); color: var(--color-surface); border-color: var(--color-accent); font-weight: 700; }
+  .cx-p.cx-has { box-shadow: inset 3px 0 0 var(--color-accent); padding-left: 0.9rem; margin-left: -0.9rem; }
+  .cx-p.cx-active { background: color-mix(in srgb, var(--color-accent) 8%, transparent); }
 
   .cx-backdrop {
     position: fixed; inset: 0; z-index: 60;
@@ -343,7 +349,7 @@ const { postId } = Astro.props;
   .cx-note { margin: 0; padding: var(--space-3) var(--space-5); border-top: 1px solid var(--color-border); font-size: var(--text-2xs); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-text-muted); }
 
   @media (max-width: 700px) {
-    :global(.prose.cx-prose) { padding-right: 0; }
-    :global(.cx-marker) { right: 0; top: -1.9rem; }
+    .prose.cx-prose { padding-right: 0; }
+    .cx-marker { right: 0; top: -1.9rem; }
   }
 </style>
