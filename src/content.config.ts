@@ -202,8 +202,15 @@ const team = defineCollection({
     linkedin: z.string().url().optional(),
     // Contact email, used by the "Get in touch" button on their blog posts.
     // Leave blank to use the default firstname@hellobrink.co; set it only when
-    // that isn't right.
-    email: z.string().email().optional(),
+    // that isn't right. Deliberately NOT .email()-validated: the CMS writes an
+    // empty string for a blank field, and a strict check (or an editor's typo)
+    // would fail the whole build. Normalise blank to undefined so the fallback
+    // still kicks in.
+    email: z
+      .string()
+      .trim()
+      .optional()
+      .transform((e) => e || undefined),
     // The live /team page filters by these. Free text rather than an enum:
     // the taxonomy is the client's and shouldn't hard-fail a build if they
     // add a region or team.
