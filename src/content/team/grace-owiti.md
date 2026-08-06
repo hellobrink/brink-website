@@ -1,18 +1,21 @@
 ---
 name: Grace Owiti
 role: COLLECTIVES EXECUTIVE
-location: Nairobi
-photo: "/images/681a125936c3c5519f46ed45_gracie_2.jpg"
+location: Nairobi, Kenya
+photo: /images/681a125936c3c5519f46ed45_gracie_2.jpg
 photoAlt: Grace Owiti
-linkedin: "https://www.linkedin.com/in/grace-owiti/"
-sortOrder: 11
-photoHover: "/images/team-hover-grace-owiti.jpg"
-regions: [Africa]
-teams: ["Collectives"]
+photoHover: /images/team-hover-grace-owiti.jpg
+linkedin: https://www.linkedin.com/in/grace-owiti/
+email: ''
+regions:
+  - Africa
+teams:
+  - Collectives
 questions:
-  - "What does it take for teachers in low- and middle-income countries to move from curiosity about AI to meaningful classroom use, and what does that reveal about how we design for adoption?"
-  - "How can learning networks be designed so that grantees genuinely want to participate where the community itself pulls people in, rather than the calendar invite?"
-  - "What changes when implementation evidence is treated not simply as reporting, but as story and who gets to tell it?"
+  - What does it take for teachers in low- and middle-income countries to move from curiosity about AI to meaningful classroom use, and what does that reveal about how we design for adoption?
+  - How can learning networks be designed so that grantees genuinely want to participate where the community itself pulls people in, rather than the calendar invite?
+  - What changes when implementation evidence is treated not simply as reporting, but as story and who gets to tell it?
+sortOrder: 11
 ---
 
 Grace Owiti is a Collectives Executive at Brink, working at the intersection of community building, knowledge design, and strategic communications. Her work is rooted in a simple belief: when people feel genuinely heard, the conditions for meaningful change begin to emerge.
