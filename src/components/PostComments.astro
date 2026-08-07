@@ -225,13 +225,25 @@ const { postId } = Astro.props;
     let lastPost = 0;
     function commit(nameField, bodyField) {
       const body = bodyField.value.trim();
-      let name = getName();
-      if (!nameField.hidden) name = nameField.value.trim();
-      if (!name) { flash('Add your name first.'); nameField.hidden = false; nameField.focus(); return ''; }
+      // The name input hides two different ways: the reply form hides the input
+      // itself, while the main form hides its wrapping .cx-name-row (the input's
+      // own .hidden stays false). offsetParent === null catches both a hidden
+      // element and a hidden ancestor, so a cached name is honoured instead of
+      // reading the empty, hidden input and wrongly demanding a name again.
+      const nameShown = nameField.offsetParent !== null;
+      let name = nameShown ? nameField.value.trim() : getName();
+      if (!name) {
+        flash('Add your name first.');
+        const row = nameField.closest('.cx-name-row');
+        if (row) { row.hidden = false; asEl.hidden = true; }
+        nameField.hidden = false;
+        nameField.focus();
+        return '';
+      }
       if (!body) { flash('Write something first.'); bodyField.focus(); return ''; }
       if (Date.now() - lastPost < 3000) { flash('Slow down a moment…'); return ''; }
       lastPost = Date.now();
-      if (!getName() || (!nameField.hidden && nameField.value.trim())) setName(name);
+      if (nameShown && name) setName(name);
       return name;
     }
     function flash(msg) { hintEl.textContent = msg; hintEl.classList.add('cx-hint-show'); setTimeout(() => hintEl.classList.remove('cx-hint-show'), 2500); }
